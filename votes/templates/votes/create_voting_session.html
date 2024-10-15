@@ -1,0 +1,18 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+
+<!-- create_voting_session.html -->
+ <head>
+    <a href="{% url 'create_voting_session' %}">Create New Voting Session</a>
+ </head>
+
+<h2>Create Voting Session</h2>
+
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Create Session</button>
+</form>
+
+{% endblock %}

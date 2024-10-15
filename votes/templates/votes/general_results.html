@@ -1,0 +1,24 @@
+{% extends "layout.html" %}
+
+{% block content %}
+    <h1>Results for Voting Sessions</h1>
+
+    {% if sessions %}
+        <ul>
+            {% for result in sessions %}
+                <li>
+                    <h3>{{ result.session.name }} ({{ result.session.start_date }} - {{ result.session.end_date }})</h3>
+                    <p>Total votes:</p>
+                    <ul>
+                        {% for vote in result.votes_in_session %}
+                            <li>{{ vote.option__name }}: {{ vote.total_votes }}</li>
+                        {% endfor %}
+                        <li>No support: {{ result.no_support_votes }}</li>
+                    </ul>
+                </li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>No voting sessions or results available.</p>
+    {% endif %}
+{% endblock %}

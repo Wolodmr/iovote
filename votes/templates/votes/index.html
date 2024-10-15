@@ -1,0 +1,19 @@
+{% extends "layout.html" %}
+
+{% block content %}
+    <h1>Available Voting Sessions</h1>
+    
+    {% if sessions %}
+        <ul>
+            {% for session in sessions %}
+                <li>
+                    <a href="{% url 'vote' session.id %}">{{ session.name }}</a> 
+                    {% csrf_token %}
+                    ({{ session.start_date }} to {{ session.end_date }})
+                </li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>No voting sessions available at the moment.</p>
+    {% endif %}
+{% endblock %}

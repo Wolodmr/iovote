@@ -1,0 +1,30 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<h1>Vote for {{ session.name }}</h1>
+
+<form method="POST" action="{% url 'vote' session.id %}">
+    {% csrf_token %}
+    <ul>
+        {% for option in options %}
+            <li>
+                <label>
+                    <input type="checkbox" name="options" value="{{ option.id }}">
+                    {{ option.name }}
+                </label>
+            </li>
+        {% endfor %}
+    </ul>
+
+    <label>
+        <input type="checkbox" name="no_support">
+        I don't support any of the proposed options
+    </label>
+
+    <button type="submit">Submit Vote</button>
+</form>
+
+{% if options.count == 0 %}
+    <p>No options available for this voting session.</p>
+{% endif %}
+{% endblock %}
