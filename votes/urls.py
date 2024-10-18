@@ -14,5 +14,6 @@ urlpatterns = [
     path('login/', auth_views.LoginView.as_view(), name='login'),
     path('logout/', LogoutView.as_view(), name='logout'),
     path('register/', register, name='registration'),  # Add this line for registration
+    path('send-test-email/', views.send_test_email, name='send_test_email'),
 ]
 

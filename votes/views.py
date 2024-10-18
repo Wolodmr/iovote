@@ -6,6 +6,9 @@ from .utils import send_voting_invitation
 from django.urls import reverse
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth import login
+from django.core.mail import send_mail
+from django.conf import settings
+from django.http import HttpResponse
 
 def register(request):
     if request.method == 'POST':
@@ -17,8 +20,6 @@ def register(request):
     else:
         form = UserCreationForm()
     return render(request, 'registration/register.html', {'form': form})
-
-
 
 def index(request):
     # Fetch all available voting sessions
@@ -87,9 +88,6 @@ def vote(request, session_id):
         'options': options,
     })
 
-
-
-
 def results_view(request, session_id):
     # Get all votes in the current session
     votes = Vote.objects.filter(session__id=session_id)
@@ -141,6 +139,52 @@ def general_results_view(request):
     return render(request, 'votes/general_results.html', {
         'sessions': session_results
     })
+
+def send_voting_invitations(session_id):
+    session = VotingSession.objects.get(id=session_id)
+    readers = Reader.objects.all()  # Or filter based on some criteria
+
+    subject = f"Invitation to vote on {session.name}"
+    message = f"Dear reader,\n\nYou're invited to vote in the current session: {session.name}.\nPlease click the link below to cast your vote:\n\nhttp://your-library-site.com/vote/{session.id}/\n\nThank you!"
+
+    for reader in readers:
+        send_mail(
+            subject,
+            message,
+            settings.DEFAULT_FROM_EMAIL,
+            [reader.email],
+            fail_silently=False,
+        )
+
+    return "Emails sent successfully!"
+
+def send_test_email(request):
+    subject = 'Test Email from Django'
+    message = 'This is a test email sent from your Django application!'
+    from_email = 'postvezha@gmail.com'  # Your Gmail address
+    recipient_list = ['postvezha@gmail.com']  # Recipient's email address (could be yours for testing)
+
+    try:
+        send_mail(subject, message, from_email, recipient_list)
+        return HttpResponse('Test email sent successfully!')
+    except Exception as e:
+        return HttpResponse(f'Failed to send email: {e}')
+
+# from django.core.mail import send_mail
+# from django.http import HttpResponse
+
+# def send_test_email(request):
+#     try:
+#         send_mail(
+#             'Test Email Subject',
+#             'This is a test email body.',
+#             'postvezha@gmail.com',  # Your email
+#             ['postvezha@gmail.com'],  # Replace with recipient's email
+#             fail_silently=False,
+#         )
+#         return HttpResponse('Test email sent successfully!')
+#     except Exception as e:
+#         return HttpResponse(f'Failed to send email: {e}')
 
 
 
