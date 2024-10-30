@@ -1,0 +1,116 @@
+body {
+    font-family:'Roboto', sans-serif;
+    background-color: var(--secondary-color);
+    color: var(--text-color);
+}
+
+button, .btn {
+    background-color: var(--primary-color);
+    color: #fff;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+}
+
+button:hover, .btn:hover {
+    background-color: var(--accent-color);
+}
+
+h1 {
+    color: #333;
+}
+
+h1, h2 {
+    color: var(--primary-color);
+}
+
+@media (max-width: 768px) {
+    h1, h2 {
+        font-size: 1.5rem;
+    }
+
+    table, .card {
+        font-size: 0.9rem;
+    }
+
+    button, .btn {
+        padding: 8px 12px;
+    }
+}
+
+.progress-container {
+    background-color: #e0e0e0;
+    border-radius: 5px;
+    overflow: hidden;
+    margin-top: 10px;
+}
+
+.progress-bar {
+    height: 20px;
+    transition: width 0.4s ease;
+}
+
+.progress-bar-open {
+    background-color: var(--primary-color);
+}
+
+.progress-bar-closed {
+    background-color: var(--accent-color);
+}
+
+/* Define color variables */
+:root {
+    --primary-color: #4A90E2;  /* Light blue for primary elements */
+    --secondary-color: #F5F7FA; /* Light gray for backgrounds */
+    --accent-color: #50E3C2;    /* Green for accents like bars */
+    --text-color: #333;         /* Dark text color */
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+/* Style tables */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    background-color: #fff;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+table th, table td {
+    padding: 15px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+table th {
+    background-color: var(--primary-color);
+    color: #fff;
+}
+
+table tr:hover {
+    background-color: #f9f9f9;
+}
+
+/* Add card-like effect */
+.card {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+}
+
+th, td {
+    padding: 10px;
+    text-align: left;
+    border: 1px solid #ddd;
+}
+
+th {
+    background-color: #b2ae45;
+}
+

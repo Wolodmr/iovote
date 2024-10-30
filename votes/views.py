@@ -1,4 +1,4 @@
-from .models import Vote, Participation, VotingSession, VotingOption, Reader
+from .models import Vote, Participation, VotingSession, VotingOption, Reader, PreliminaryVoting
 from django.shortcuts import render, get_object_or_404, redirect
 from .forms import VotingForm, VotingSessionForm
 from django.db.models import Count
@@ -9,6 +9,9 @@ from django.contrib.auth import login
 from django.core.mail import send_mail
 from django.conf import settings
 from django.http import HttpResponse
+from django.utils import timezone
+from django.contrib import messages
+
 
 def register(request):
     if request.method == 'POST':
@@ -27,168 +30,316 @@ def index(request):
 
     # Render only the sessions on the 'Home' page
     return render(request, 'votes/index.html', {'sessions': sessions})
+
+def vote_for_mode_view(request, session_id):
+    session = VotingSession.objects.get(id=session_id)
+
+    if request.method == 'POST':
+        if 'open' in request.POST:
+            session.open_votes_count += 1
+        session.save()
+        return redirect('results', session_id=session.id)
+
+    return render(request, 'vote_for_mode.html', {'session': session})
     
 
-def results(request):
+def results(request, session_id):
+    # Get the voting session
+    session = get_object_or_404(VotingSession, id=session_id)
+    
+    # Get all the votes for this session
+    votes = Vote.objects.filter(session=session)
+    
+    # Determine if the voting is open or closed
+    if session.voting_preference == 'open':
+        # Open voting - display voter names with votes
+        context = {
+            'session': session,
+            'votes': votes,
+            'show_voters': True,  # Set a flag to show voter names
+        }
+    else:
+        # Closed voting - hide voter names
+        context = {
+            'session': session,
+            'votes': votes,
+            'show_voters': False,  # Set a flag to hide voter names
+        }
+
     options = VotingOption.objects.all()
     votes = Vote.objects.all()
     vote_count = {option: votes.filter(option=option).count() for option in options}
-    return render(request, 'votes/results.html', {'vote_count': vote_count})
+    return render(request, 'votes/results.html', context)
 
-
-def results_view(request):
-    selected_options = VotingOption.objects.filter(selected=True)  # or however you determine selected options
-    votes = Vote.objects.filter(option__in=selected_options)  # get votes for those options
-    return render(request, 'votes/results.html', {'selected_options': selected_options, 'votes': votes})
-
-def vote(request, session_id):
-    # Get the session based on session_id
-    session = get_object_or_404(VotingSession, id=session_id)
-    
-    # Fetch all voting options associated with this session
-    options = VotingOption.objects.filter(session=session)
- 
-    # Handle form submission
-    if request.method == 'POST':
-        # Get selected options from the form
-        selected_options = request.POST.getlist('options')
-        no_support = request.POST.get('no_support', False)
-
-        # Ensure the user is logged in
-        if request.user.is_authenticated:
-            print('auth')
-            # Check if the user has already voted in this session to prevent duplicate votes
-            if Vote.objects.filter(user=request.user, session=session).exists():
-                # Optionally, handle the case where the user has already voted
-                return redirect('index')
-
-            # Process the selected options
-            if selected_options:
-                for option_id in selected_options:
-                    # Ensure the option exists and is associated with this session
-                    option = get_object_or_404(VotingOption, id=option_id, session=session)
-                    # Create a new vote object for each option
-                    Vote.objects.create(option=option, session=session, user=request.user)
-
-            # If "no support" is selected, create a vote for "no support"
-            if no_support:
-                Vote.objects.create(option=None, session=session, user=request.user)
-
-            # Redirect to the results page after voting
-            return redirect(reverse('results', args=[session.id]))                        
-        
-        else:
-            # If user is not logged in, you can redirect to login or handle accordingly
-            return redirect('login')  # Redirect to the login page if not authenticated
-            
-
-    # If the request method is GET (show the voting page)
-    return render(request, 'votes/vote.html', {
-        'session': session,
-        'options': options,
-    })
+from .models import PreliminaryVoting, VotingSession
 
 def results_view(request, session_id):
-    # Get all votes in the current session
-    votes = Vote.objects.filter(session__id=session_id)
+    session = get_object_or_404(VotingSession, id=session_id)
     
-    # Count the votes for each option
-    votes_in_session = votes.filter(no_support=False).values('option__name').annotate(total_votes=Count('option'))
+    # Count open and closed votes
+    open_votes_count = PreliminaryVoting.objects.filter(session=session, preference="open").count()
+    closed_votes_count = PreliminaryVoting.objects.filter(session=session, preference="closed").count()
+    total_votes = open_votes_count + closed_votes_count
     
-    # Count the number of "no support" votes
-    no_support_votes = votes.filter(no_support=True).count()
+    # Calculate percentages
+    open_percentage = (open_votes_count / total_votes * 100) if total_votes > 0 else 0
+    closed_percentage = (closed_votes_count / total_votes * 100) if total_votes > 0 else 0
 
-    return render(request, 'votes/results.html', {
-        'votes_in_session': votes_in_session,
-        'no_support_votes': no_support_votes,
-    })
+    context = {
+        'session': session,
+        'open_votes_count': open_votes_count,
+        'closed_votes_count': closed_votes_count,
+        'open_percentage': open_percentage,
+        'closed_percentage': closed_percentage,
+    }
+    return render(request, 'votes/results.html', context)
+# import logging
 
+# logger = logging.getLogger(__name__)
+
+# from django.shortcuts import get_object_or_404, redirect, render
+# from .models import VotingSession, VotingOption, Vote
+
+# def vote(request, session_id):
+#     session = get_object_or_404(VotingSession, pk=session_id)
+    
+#     if request.method == 'POST':
+#         option_id = request.POST.get('option')
+
+#         logger.debug(f"[DEBUG] Session ID: {session_id}, Voting Preference: {session.voting_preference}, Option ID: {option_id}")
+
+#         if option_id:
+#             # Check if the voting preference is for preliminary voting
+#             if session.voting_preference == 'preliminary':
+#                 existing_vote = PreliminaryVoting.objects.filter(session=session, user=request.user).exists()
+#                 logger.debug(f"[DEBUG] Preliminary vote exists: {existing_vote}")
+
+#                 if not existing_vote:
+#                     # Create a new preliminary vote
+#                     PreliminaryVoting.objects.create(session=session, user=request.user, preference=option_id)
+#                     logger.debug("[DEBUG] Preliminary vote recorded successfully")
+#                 else:
+#                     logger.debug("[DEBUG] User has already voted in preliminary voting.")
+#             else:
+#                 # Logic for main voting
+#                 option = get_object_or_404(VotingOption, pk=option_id)
+#                 if not Vote.objects.filter(user=request.user, session=session).exists():
+#                     Vote.objects.create(user=request.user, session=session, option=option)
+#                     option.votes += 1
+#                     option.save()
+#                     logger.debug("[DEBUG] Main vote recorded successfully")
+
+#         return redirect('results', session_id=session_id)
+
+#     return render(request, 'votes/vote.html', {'session': session, 'options': session.votingoption_set.all()})
+
+
+
+
+# views.py
+from django.shortcuts import render, redirect
+from .models import VotingSession, VotingOption
+import logging
+
+logger = logging.getLogger(__name__)
 
 def create_voting_session(request):
     if request.method == 'POST':
-        # Assuming you're creating a voting session from a form
-        form = VotingSessionForm(request.POST)
-        if form.is_valid():
-            session = form.save()
-            
-            # Call the function to send an invitation
-            send_voting_invitation(session)
-            
-            return redirect('some_success_url')
-    else:
-        form = VotingSessionForm()
+        # Create a new VotingSession instance
+        session = VotingSession.objects.create(
+            is_active=True,  # Set the session as active
+            is_started=True,  # Set the session as not started
+            start_date=timezone.now(),  # Set the current time as the start date
+            # Set other required fields here if necessary
+        )
+        VotingOption.objects.create(session=session, name="Open")
+        VotingOption.objects.create(session=session, name="Closed")
+        
+        return redirect('index')  # Replace with the name of the view you want to redirect to
 
-    return render(request, 'votes/create_voting_session.html', {'form': form})
+    return render(request, 'votes/create_voting_session.html')
+
+
+def preliminary_voting_active(session):
+    current_time = timezone.now()
+    end_of_preliminary_voting = session.preliminary_voting_ends()
+    return current_time <= end_of_preliminary_voting
+
+from django.shortcuts import render
+from .models import VotingSession, VotingOption, Vote
+from django.utils import timezone
 
 def general_results_view(request):
-    # Fetch all voting sessions
-    sessions = VotingSession.objects.all()
-
-    # Optional: Get a summary of results for each session
-    session_results = []
-    for session in sessions:
-        votes_in_session = Vote.objects.filter(session=session, no_support=False).values('option__name').annotate(total_votes=Count('option'))
-        no_support_votes = Vote.objects.filter(session=session, no_support=True).count()
-
-        session_results.append({
-            'session': session,
-            'votes_in_session': votes_in_session,
-            'no_support_votes': no_support_votes
-        })
-
-    return render(request, 'votes/general_results.html', {
-        'sessions': session_results
-    })
-
-def send_voting_invitations(session_id):
-    session = VotingSession.objects.get(id=session_id)
-    readers = Reader.objects.all()  # Or filter based on some criteria
-
-    subject = f"Invitation to vote on {session.name}"
-    message = f"Dear reader,\n\nYou're invited to vote in the current session: {session.name}.\nPlease click the link below to cast your vote:\n\nhttp://your-library-site.com/vote/{session.id}/\n\nThank you!"
-
-    for reader in readers:
-        send_mail(
-            subject,
-            message,
-            settings.DEFAULT_FROM_EMAIL,
-            [reader.email],
-            fail_silently=False,
-        )
-
-    return "Emails sent successfully!"
-
-def send_test_email(request):
-    subject = 'Test Email from Django'
-    message = 'This is a test email sent from your Django application!'
-    from_email = 'postvezha@gmail.com'  # Your Gmail address
-    recipient_list = ['postvezha@gmail.com']  # Recipient's email address (could be yours for testing)
-
+ 
     try:
-        send_mail(subject, message, from_email, recipient_list)
-        return HttpResponse('Test email sent successfully!')
-    except Exception as e:
-        return HttpResponse(f'Failed to send email: {e}')
+        current_session = VotingSession.objects.filter(start_date__lte=timezone.now()).latest('start_date')
+        preliminary_votes = current_session.preliminary_votes_count()
 
-# from django.core.mail import send_mail
-# from django.http import HttpResponse
+        print(f"[DEBUG] Current session: {current_session}")  # Debugging output
+        print(f"[DEBUG] Preliminary votes passed to template: {preliminary_votes}")  # Debugging output
 
-# def send_test_email(request):
-#     try:
-#         send_mail(
-#             'Test Email Subject',
-#             'This is a test email body.',
-#             'postvezha@gmail.com',  # Your email
-#             ['postvezha@gmail.com'],  # Replace with recipient's email
-#             fail_silently=False,
-#         )
-#         return HttpResponse('Test email sent successfully!')
-#     except Exception as e:
-#         return HttpResponse(f'Failed to send email: {e}')
+        context = {
+            'session': current_session,
+            'preliminary_votes': preliminary_votes,
+        }
+    except VotingSession.DoesNotExist:
+        print("[DEBUG] No active voting session found.")  # Debugging output
+        context = {
+            'session': None,
+            'preliminary_votes': 0,
+        }
 
 
+    return render(request, 'votes/results.html', context)
 
 
+def start_voting_session(request, session_id):
+    session = get_object_or_404(VotingSession, id=session_id)
+    
+    # Check if the session has already started
+    if session.is_started:
+        # Redirect to the results page or show a message
+        return redirect('results', session_id=session.id)  # Session already started
+    
+    # Set the current time as start_time and mark the session as started
+    session.start_time = timezone.now()
+    session.is_started = True  # Mark the session as started
+    session.save()
+
+    # Send the initial invitation
+    send_voting_invitation(session, invitation_type='initial')
+    
+    return redirect('results', session_id=session.id)  # Redirect to the results page after starting
+
+
+def send_reminder(request, session_id):
+    session = VotingSession.objects.get(id=session_id)
+    # Logic to check if it's 10 days before the main vote
+    send_voting_invitation(session, invitation_type='reminder')  # Reminder invitation
+
+
+def stop_voting_session(request, session_id):
+    session = get_object_or_404(VotingSession, id=session_id)
+    
+    # Check if the session is active
+    if not session.is_active:
+        return redirect('results', session_id=session.id)  # Session already stopped
+
+    # Mark the session as inactive and set the end time
+    session.is_active = False
+    session.end_time = timezone.now()
+    session.save()
+
+    # Redirect to the results page
+    return redirect('results', session_id=session.id)
+
+from django.shortcuts import get_object_or_404
+from django.contrib import messages
+
+def preliminary_vote(request, session_id):
+    # Fetch the session object and check if preliminary voting is active
+    session = get_object_or_404(VotingSession, id=session_id)
+    
+    # Check if the user has already voted in this preliminary session
+    if Vote.objects.filter(user=request.user, session=session, timestamp__lt=session.preliminary_voting_ends()).exists():
+        messages.info(request, "You have already cast your preliminary vote.")
+        return redirect('index')
+    
+    # Process the form submission
+    if request.method == 'POST':
+        vote_option = request.POST.get('vote_option')  # Options: "open" or "closed"
+        
+        # Ensure a valid option was selected
+        if vote_option in ["open", "closed"]:
+            if vote_option == "open":
+                session.open_votes_count += 1
+            else:
+                session.closed_votes_count += 1
+            session.save()
+            
+            # Record the vote in the Vote model for historical purposes
+            Vote.objects.create(user=request.user, session=session, option=None, no_support=False, timestamp=timezone.now())
+            
+            messages.success(request, 'Your preliminary vote has been recorded!')
+            return redirect('index')
+        else:
+            messages.error(request, "Invalid voting option selected.")
+    
+    # If preliminary voting has ended
+    if not preliminary_voting_active(session):
+        messages.error(request, 'Preliminary voting has ended!')
+        return redirect('index')
+
+    return render(request, 'votes/preliminary_vote.html', {'session': session})
+
+
+from django.shortcuts import render, get_object_or_404
+from .models import VotingSession, VotingOption, PreliminaryVoting
+
+from django.shortcuts import render, get_object_or_404
+from .models import VotingSession, VotingOption, PreliminaryVoting, Vote
+
+# views.py
+
+from django.shortcuts import render, redirect, get_object_or_404
+from .models import VotingSession, VotingOption, PreliminaryVoting, Vote
+from .forms import VotingForm
+from django.contrib.auth.decorators import login_required
+
+@login_required
+def vote_view(request, session_id):
+    session = get_object_or_404(VotingSession, id=session_id)
+    options = VotingOption.objects.filter(session=session)
+
+    if request.method == "POST":
+        # Debugging: print all POST data
+        print("[DEBUG] POST data:", request.POST)
+
+        selected_mode = request.POST.get('voting_mode')
+        selected_options = request.POST.getlist('options')
+
+        print("[DEBUG] Selected voting mode:", selected_mode)
+        print("[DEBUG] Selected options:", selected_options)
+
+        if selected_mode in ["open", "closed"]:
+            PreliminaryVoting.objects.create(
+                session=session,
+                user=request.user,
+                preference=selected_mode
+            )
+            print(f"[DEBUG] Recorded preliminary vote for: {selected_mode} in PreliminaryVoting table")
+        elif selected_options:
+            for option_id in selected_options:
+                try:
+                    selected_vote_option = VotingOption.objects.get(id=option_id, session=session)
+                    Vote.objects.create(
+                        user=request.user,
+                        option=selected_vote_option,
+                        session=session
+                    )
+                    print(f"[DEBUG] Recorded main vote for: {selected_vote_option.name} in Vote table")
+                except VotingOption.DoesNotExist:
+                    print(f"[DEBUG] Voting option with ID '{option_id}' does not exist.")
+
+        return redirect('results', session_id=session.id)
+
+    return render(request, 'votes/vote.html', {'options': options, 'session': session})
+
+
+
+
+
+
+def cast_vote_view(request, session_id):
+    session = VotingSession.objects.get(id=session_id)
+    if request.method == 'POST':
+        option_id = request.POST.get('option')  # Get the selected option ID
+        option = VotingOption.objects.get(id=option_id)
+        
+        # Create a new vote
+        Vote.objects.create(user=request.user, option=option, session=session)
+        
+        return redirect('results')  # Redirect to results page after voting
 
 
 
