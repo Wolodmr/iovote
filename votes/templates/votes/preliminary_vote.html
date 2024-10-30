@@ -1,0 +1,26 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<h1>Preliminary Voting for {{ session.name }}</h1>
+
+<form method="POST">
+    {% csrf_token %}
+    <div>
+        <label>
+            <input type="radio" name="vote_option" value="open"> Open
+        </label>
+        <label>
+            <input type="radio" name="vote_option" value="closed"> Closed
+        </label>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Submit Vote</button>
+</form>
+
+{% if errors %}
+    <div class="alert alert-danger">
+        {{ errors }}
+    </div>
+{% endif %}
+
+{% endblock %}

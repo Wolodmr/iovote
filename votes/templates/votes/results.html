@@ -1,20 +1,51 @@
 {% extends 'layout.html' %}
 
 {% block content %}
-<h1>Results for {{ session.name }}</h1>
+    <h1>Results for {{ session.name }}</h1>
 
-{% if votes_in_session %}
-    <ul>
-    {% for vote in votes_in_session %}
-        <li>{{ vote.option__name }} - {{ vote.total_votes }} votes</li>
-    {% endfor %}
-    </ul>
-{% else %}
-    <p>No options were selected.</p>
-{% endif %}
+    <p><strong>Preliminary Votes:</strong> {{ preliminary_votes }}</p>
+    <p><strong>Total votes:</strong> {{ session.total_votes }}</p>
+    <p><strong>Open votes:</strong> {{ session.open_votes_count }} ({{ session.open_votes_percentage }}%)</p>
+    <p><strong>Closed votes:</strong> {{ session.closed_votes_count }}</p>
 
-{% if no_support_votes %}
-    <h2>No Support Votes: {{ no_support_votes }}</h2>
-{% endif %}
+    <table class="table table-bordered mt-3">
+        <thead class="thead-light">
+            <tr>
+                <th>Option</th>
+                <th>Votes</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for option, count in vote_counts.items %}
+                <tr>
+                    <td>{{ option }}</td>
+                    <td>{{ count }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <h2>Results for Session: {{ session.name }}</h2>
 
+    <div class="card">
+        <h2>Open Votes</h2>
+        <div class="progress-container">
+            <div class="progress-bar progress-bar-open" style="width: 83%;"></div>
+        </div>
+        <p>{{ open_votes_percentage }}%</p>
+    
+        <h2>Closed Votes</h2>
+        <div class="progress-container">
+            <div class="progress-bar progress-bar-closed" style="width: 17%;"></div>
+        </div>
+        <p>{{ closed_votes_percentage }}%</p>
+    </div>
+
+<div>
+    <p>Open Votes Count: {{ open_votes_count }}</p>
+    <p>Closed Votes Count: {{ closed_votes_count }}</p>
+    <h2>Preliminary Votes:</h2>
+    <p>Total votes: {{ open_votes_count|add:closed_votes_count }}</p>
+    <p>Open votes: {{ open_votes_count }} ({{ open_percentage }}%)</p>
+    <p>Closed votes: {{ closed_votes_count }} ({{ closed_percentage }}%)</p>
+</div>
 {% endblock %}

@@ -7,7 +7,7 @@
         <ul>
             {% for session in sessions %}
                 <li>
-                    <a href="{% url 'vote' session.id %}">{{ session.name }}</a> 
+                    <a href="{% url 'vote_view' session.id %}">{{ session.name }}</a> 
                     {% csrf_token %}
                     ({{ session.start_date }} to {{ session.end_date }})
                 </li>

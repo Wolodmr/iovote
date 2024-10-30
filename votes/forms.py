@@ -9,8 +9,11 @@ class VotingForm(forms.Form):
     )
     no_support = forms.BooleanField(required=False, label="I don't support any of the proposed options")
 
+
 class VotingSessionForm(forms.ModelForm):
     class Meta:
         model = VotingSession
-        fields = ['name', 'start_date', 'end_date']  # Add fields relevant to a voting session
-
+        fields = ['name', 'start_date', 'duration', 'voting_preference']  # Added 'duration' field
+        widgets = {
+            'start_date': forms.DateTimeInput(attrs={'type': 'datetime-local'}),
+        }
