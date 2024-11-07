@@ -1,0 +1,103 @@
+/* Reset some default browser styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Modern font family */
+    line-height: 1.6;
+    background-color: #e9ecef; /* Light grey background for a softer look */
+    color: #343a40; /* Dark text color for readability */
+}
+
+/* Container for main content */
+.container {
+    max-width: 800px; /* Max width for larger screens */
+    margin: 40px auto; /* Center the container */
+    padding: 30px;
+    background-color: #fff; /* White background for content */
+    border-radius: 8px; /* Rounded corners */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); /* Enhanced shadow for depth */
+}
+
+/* Headings */
+h1 {
+    color: #007bff; /* Bright blue for headings */
+    margin-bottom: 20px; /* Space below heading */
+    font-size: 2.5em; /* Larger font size for main headings */
+    text-align: center; /* Center align heading */
+    border-bottom: 2px solid #007bff; /* Underline effect for emphasis */
+    padding-bottom: 10px; /* Space between text and underline */
+}
+
+/* Lists */
+.user-list {
+    list-style-type: none; /* Remove bullet points */
+    padding: 0; /* Remove padding */
+}
+
+.user-item {
+    margin: 15px 0; /* Space between list items */
+    padding: 10px; /* Padding for list items */
+    border: 1px solid #ced4da; /* Light border for separation */
+    border-radius: 5px; /* Rounded corners */
+    transition: background-color 0.3s, transform 0.2s; /* Smooth transitions */
+}
+
+.user-item:hover {
+    background-color: #f8f9fa; /* Light background on hover */
+    transform: translateY(-2px); /* Slight lift effect on hover */
+}
+
+.user-item a {
+    text-decoration: none; /* Remove underline from links */
+    color: #007bff; /* Link color */
+    font-weight: bold; /* Bold text for links */
+}
+
+/* Paragraphs */
+p {
+    margin-bottom: 20px; /* Space between paragraphs */
+    text-align: center; /* Center text for profiles */
+    font-size: 1.2em; /* Slightly larger font size */
+}
+
+/* Back Links */
+.back-link {
+    display: inline-block; /* Make it a block for padding */
+    margin-top: 20px; /* Space above */
+    padding: 10px 20px; /* Padding for the button effect */
+    background-color: #007bff; /* Button background color */
+    color: #fff; /* White text */
+    border-radius: 5px; /* Rounded corners */
+    text-decoration: none; /* Remove underline */
+    transition: background-color 0.3s; /* Transition for hover effect */
+}
+
+.back-link:hover {
+    background-color: #0056b3; /* Darker shade on hover */
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 20px;
+    background-color: #343a40; /* Dark background for footer */
+    color: #fff; /* Light text color */
+    position: relative;
+    bottom: 0;
+    width: 100%;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .container {
+        width: 95%; /* Make container responsive */
+    }
+
+    h1 {
+        font-size: 2em; /* Adjust heading size on smaller screens */
+    }
+}

@@ -1,0 +1,18 @@
+# Ignore .vscode folder
+.vscode/
+
+# Ignore any parent directories or files outside the project
+BootStrap/
+DjangoProject1/
+File_Organizer/
+Lab/
+Leet/
+Lessons/
+Lessons_1/
+Lessons_Reserve_1/
+OOP/
+Project_Dom/
+*.rdb
+*.aof
+venv/
+

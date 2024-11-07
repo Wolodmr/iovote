@@ -1,0 +1,15 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Chat</title>
+    </head>
+<body data-room-name="{{ room_name }}">
+    <div id="chat-log"></div>
+    <form id="chat-form">
+        <input id="chat-message-input" type="text" placeholder="Type your message here..." />
+        <button type="submit">Send</button>
+    </form>
+</body>
+<script src="{% static 'chat/js/chat.js' %}"></script>
+</html>
