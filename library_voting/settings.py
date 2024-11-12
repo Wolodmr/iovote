@@ -31,6 +31,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'channels',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -38,8 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'main',
-    'users',
-    'channels',
+    'users',   
     'chat',
    
 ]
@@ -78,7 +78,7 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'library_voting.wsgi.application'
-ASGI_APPLICATION = 'library_voting.asgi.application'  # Replace with your project's name
+
 
 # Channel layers (for chat)
 # library_voting/settings.py
@@ -162,9 +162,9 @@ STATIC_ROOT = BASE_DIR / 'staticfiles'
 
 STATICFILES_DIRS = [
     BASE_DIR / 'static',
-    BASE_DIR / 'main/static',
-    BASE_DIR / 'users/static',
-    BASE_DIR / 'chat/static',
+    BASE_DIR / 'main'/'static',
+    BASE_DIR / 'users'/'static',
+    BASE_DIR / 'chat'/'static',
 ]
 
 
