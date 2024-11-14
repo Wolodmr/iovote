@@ -78,6 +78,7 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'library_voting.wsgi.application'
+ASGI_APPLICATION = 'library_voting.asgi.application'
 
 
 # Channel layers (for chat)
@@ -86,10 +87,11 @@ CHANNEL_LAYERS = {
     'default': {
         'BACKEND': 'channels_redis.core.RedisChannelLayer',
         'CONFIG': {
-            "hosts": [('127.0.0.1', 6379)],
+            "hosts": [('127.0.0.1', 6379)],  # Make sure Redis is running on this address
         },
     },
 }
+
 
 CACHES = {
     'default': {

@@ -1,7 +1,6 @@
-# chat/views.py
-from django.shortcuts import render, redirect
+from django.contrib.auth.decorators import login_required
+from django.shortcuts import render
 
-def lobby(request):
-    return render(request, "chat/lobby.html")
-
- 
+@login_required
+def single_room(request):
+    return render(request, 'chat/room.html')

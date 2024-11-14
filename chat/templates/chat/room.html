@@ -1,0 +1,25 @@
+<!-- room.html -->
+
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chat Room</title>
+    
+</head>
+<body>
+    <h1>Welcome to the Chat Room</h1>
+
+    <div id="chat-log">
+        <!-- Chat messages will appear here -->
+    </div>
+
+    <form id="message-form">
+        <input type="text" id="message-input" placeholder="Type your message here..." required>
+        <button type="submit">Send</button>
+    </form>
+    <script type="text/javascript" src="{% static 'chat/js/room.js' %}"></script>
+</body>
+</html>
