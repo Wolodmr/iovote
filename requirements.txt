@@ -1,1 +1,4 @@
-django-debug-toolbar
+celery 
+django
+channels 
+channels-redis

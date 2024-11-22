@@ -1,11 +1,11 @@
-# library_voting/asgi.py
+# vote_cast/asgi.py
 import os
 from django.core.asgi import get_asgi_application
 from channels.routing import ProtocolTypeRouter, URLRouter
 from channels.auth import AuthMiddlewareStack
 from chat.routing import websocket_urlpatterns
 
-os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'library_voting.settings')
+os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'vote_cast.settings')
 
 application = ProtocolTypeRouter({
     'http': get_asgi_application(),

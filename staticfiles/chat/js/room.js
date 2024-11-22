@@ -1,56 +1,44 @@
-document.addEventListener("DOMContentLoaded", () => {
-    const chatLog = document.getElementById("chat-log");
-    const chatForm = document.getElementById("message-form");
-    const messageInput = document.getElementById("message-input");
+// static/chat/js/room.js
+document.addEventListener('DOMContentLoaded', function() {
+    const chatLog = document.querySelector('#chat-log');
+    const messageForm = document.querySelector('#message-form');
+    const messageInput = document.querySelector('#message-input');
 
-    // Check if elements exist before setting onsubmit
-    if (!chatForm || !messageInput) {
-        console.error("Form or input element not found");
+    if (!chatLog || !messageForm || !messageInput) {
+        console.error("Required chat elements are missing.");
         return;
     }
 
-    // Create WebSocket connection
-    const socket = new WebSocket("ws://" + window.location.host + "/ws/chat/main_room/");
+    const socket = new WebSocket('ws://' + window.location.host + '/ws/chat/main_room/');
 
-    socket.onopen = function () {
+    socket.onopen = function() {
         console.log("WebSocket connection established");
     };
 
-    socket.onmessage = function (event) {
-        const data = JSON.parse(event.data);
-        const messageElement = document.createElement("p");
-        if (data.message_type === "notification") {
-            messageElement.style.fontStyle = "italic";
-            messageElement.style.color = "gray";
+    socket.onmessage = function(e) {
+        const data = JSON.parse(e.data);
+        if (data.message && data.username && data.timestamp) {
+            const messageElement = document.createElement('div');
+            messageElement.classList.add('message');
+
+            // Display the message with the username and timestamp
+            messageElement.innerHTML = `<strong>${data.username}</strong> [${data.timestamp}]: ${data.message}`;
+            chatLog.appendChild(messageElement);
+            chatLog.scrollTop = chatLog.scrollHeight;
         }
-        messageElement.textContent = data.message;
-        chatLog.appendChild(messageElement);
     };
 
-    socket.onerror = function (error) {
-        console.error("WebSocket error: ", error);
-        const errorMessage = document.createElement("p");
-        errorMessage.textContent = "An error occurred with the WebSocket connection.";
-        errorMessage.style.color = "red";
-        chatLog.appendChild(errorMessage);
+    socket.onerror = function(e) {
+        console.error("WebSocket error:", e);
     };
 
-    socket.onclose = function () {
-        console.log("WebSocket connection closed");
-        const closeMessage = document.createElement("p");
-        closeMessage.textContent = "WebSocket connection closed.";
-        closeMessage.style.color = "red";
-        chatLog.appendChild(closeMessage);
-    };
+    messageForm.onsubmit = function(e) {
+        e.preventDefault();
 
-    // Send message on form submit
-    chatForm.onsubmit = function (event) {
-        event.preventDefault();
-        const message = messageInput.value;
-
-        if (message.trim() !== "") {
-            socket.send(JSON.stringify({ message: message }));
-            messageInput.value = "";  // Clear input field after sending
+        const message = messageInput.value.trim();
+        if (message) {
+            socket.send(JSON.stringify({'message': message}));
+            messageInput.value = '';
         }
     };
 });

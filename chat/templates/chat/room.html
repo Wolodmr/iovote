@@ -1,5 +1,4 @@
 <!-- room.html -->
-
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
@@ -7,19 +6,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Chat Room</title>
-    
+    <link rel="stylesheet" href="{% static 'chat/css/chat.css' %}">
 </head>
 <body>
     <h1>Welcome to the Chat Room</h1>
 
-    <div id="chat-log">
-        <!-- Chat messages will appear here -->
-    </div>
-
+    <div id="chat-log" class="chat-messages"></div>
+    
     <form id="message-form">
-        <input type="text" id="message-input" placeholder="Type your message here..." required>
-        <button type="submit">Send</button>
+        <label for="message-input" class="visually-hidden">Message</label>
+        <textarea id="message-input" placeholder="Type your message here..." rows="3" required></textarea>
+        <div class="input-button">
+            <button type="submit">Send</button>
+        </div>
     </form>
-    <script type="text/javascript" src="{% static 'chat/js/room.js' %}"></script>
+    
+    <script type="text/javascript" src="{% static 'chat/js/room.js' %}?v={{ timestamp }}"></script>
 </body>
 </html>

@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+<h1>{{ session.title }}</h1>
+<p>{{ session.description }}</p>
+<p><strong>Session Start:</strong> {{ session.session_start_time }}</p>
+<p><strong>Session End:</strong> {{ session.session_end_time }}</p>
+<p><strong>Choice Duration:</strong> {{ session.choice_duration }} days</p>
+<p><strong>Voting Duration:</strong> {{ session.voting_duration }} days</p>
+
+<h2>Available Options:</h2>
+<ul>
+    {% for option in options %}
+        <li>
+            {{ option.title }}
+            {% if option.description %}
+                <p>{{ option.description }}</p>
+            {% endif %}
+        </li>
+    {% empty %}
+        <p>No options are available for this session yet.</p>
+    {% endfor %}
+</ul>
+
+<p>
+    <a href="{% url 'sessions:session_list' %}">Back to Sessions</a>
+    {% if options %}
+        <a href="{% url 'voting_sessions:vote' session.id %}" class="btn btn-primary">Cast Your Vote</a>
+    {% endif %}
+</p>
+{% endblock %}
+
