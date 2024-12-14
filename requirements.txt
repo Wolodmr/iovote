@@ -2,3 +2,5 @@ celery
 django
 channels 
 channels-redis
+django-redis>=5.4.0
+redis

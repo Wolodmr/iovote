@@ -6,5 +6,5 @@ class SessionsConfig(AppConfig):
     name = 'voting_sessions'
     
     
-    def ready(self):
-        import voting_sessions.signals
+    # def ready(self):
+        # import voting_sessions.signals

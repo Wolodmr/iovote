@@ -12,6 +12,7 @@ urlpatterns = [
     path('accounts/', include('django.contrib.auth.urls')),  # This includes the login, logout, password change, etc.
     path('chat/', include('chat.urls')),
     path("voting_sessions/", include("voting_sessions.urls", namespace="voting_sessions")),# Include the chat URLs
+    path('vote/', include('vote.urls')),  # Include the vote app URLs
     # path('voting_sessions/', include('voting_sessions.urls')),  # Voting sessions app URLs
     # path('preliminary_voting/', include('preliminary_voting.urls')),  # Preliminary voting app URLs
     # path('main_voting/', include('main_voting.urls')),  # Main voting app URLs

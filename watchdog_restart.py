@@ -7,7 +7,7 @@ class RestartServerHandler(FileSystemEventHandler):
     def on_modified(self, event):
         if event.src_path.endswith(".py") or event.src_path.endswith(".html"):
             print(f"Change detected in {event.src_path}, restarting server...")
-            subprocess.run(["daphne", "library_voting.asgi:application"])
+            subprocess.run(["daphne", "vote_cast.asgi:application"])
 
 if __name__ == "__main__":
     path = "."  # Directory to watch, typically the project directory

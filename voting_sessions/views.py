@@ -1,39 +1,42 @@
-from django.shortcuts import render, get_object_or_404
-from .models import Session, Option
-from django.views.generic import DetailView
+# voting_sessions/views.py
+
+from django.shortcuts import render, get_object_or_404, redirect
 from django.http import HttpResponse
-from django.views import View
-from voting_sessions.models import Session
-from .models import Option
-from django.http import HttpResponse
-
-def vote(request, session_id):
-    return HttpResponse(f"Voting page for session {session_id}")
-
-class VoteView(View):
-    def post(self, request, session_id):
-        session = get_object_or_404(Session, id=session_id)
-        # Placeholder logic: Process the vote and ensure the user votes only once
-        return HttpResponse(f"Vote recorded for session {session.title}")
-
+from .models import Session
+# from .tasks import notify_session_start, schedule_voting_reminder
+from datetime import timedelta
 
 def session_list(request):
-    """List all current and closed sessions."""
-    sessions = Session.objects.all().order_by("-session_start_time")
-    return render(request, "voting_sessions/session_list.html", {"sessions": sessions})
+    sessions = Session.objects.all()
+    return render(request, "session_list.html", {"sessions": sessions})
 
 def session_detail(request, session_id):
-    """View details of a specific session."""
     session = get_object_or_404(Session, id=session_id)
-    return render(request, "voting_sessions/session_detail.html", {"session": session})
+    return render(request, "session_detail.html", {"session": session})
 
-class SessionDetailView(DetailView):
-    model = Session
-    template_name = "voting_sessions/session_detail.html"
-    context_object_name = "session"
+def create_session(request):
+    if request.method == "POST":
+        # Simplified form handling
+        title = request.POST.get("title")
+        description = request.POST.get("description")
+        session_start_time = request.POST.get("session_start_time")  # Ensure valid datetime format
+        choice_duration = int(request.POST.get("choice_duration"))
+        voting_duration = int(request.POST.get("voting_duration"))
 
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        # Add voting options to the context
-        context["options"] = Option.objects.filter(session=self.object)
-        return context
+        session = Session.objects.create(
+            title=title,
+            description=description,
+            session_start_time=session_start_time,
+            choice_duration=choice_duration,
+            voting_duration=voting_duration
+        )
+
+        # Trigger Celery tasks
+        notify_session_start.delay(session.id)
+        schedule_voting_reminder.apply_async(
+            args=[session.id],
+            eta=session.session_start_time + timedelta(days=choice_duration - 1)
+        )
+
+        return redirect("voting_sessions:session_list")
+    return render(request, "create_session.html")
