@@ -3,6 +3,7 @@ from django.db import models
 from datetime import timedelta
 from django.core.exceptions import ValidationError
 from django.utils import timezone
+from .utils import broadcast_message_to_chat
 
 class Session(models.Model):
     title = models.CharField(max_length=200)
@@ -18,8 +19,25 @@ class Session(models.Model):
         return self.title
     
     def send_notification(self):
-        print(f"Notification sent for session: {self}")  # Print session instance
-        pass
+        """
+        Send notifications for the session via email and internal chat.
+        """
+        # Email logic (placeholder for now)
+        print(f"Email notification sent for session: {self}")
+
+        # Internal chat notification logic
+        chat_message = (
+            f"New session created: {self.title}\n"
+            f"Start Time: {self.session_start_time}\n"
+            f"Description: {self.description}\n"
+            f"Participate here: {self.invitation_endpoint}"
+        )
+        
+        try:
+            broadcast_message_to_chat(chat_message)
+            print(f"Chat notification sent for session: {self}")
+        except Exception as e:
+            print(f"Failed to send chat notification for session {self}: {e}")
     
     def clean(self):
     # Validate that choice_duration and voting_duration are not None

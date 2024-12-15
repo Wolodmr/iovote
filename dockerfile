@@ -46,3 +46,12 @@ COPY . /app
 
 # Command to wait for Redis and start the Celery worker
 CMD ["sh", "-c", "wait-for-it redis:6379 -- celery -A vote_cast worker --loglevel=info"]
+
+# Dockerfile example
+FROM ubuntu:22.04
+
+# Update package list and install redis-tools
+RUN apt-get update && apt-get install -y redis-tools
+
+# Set the default command (optional, adjust as needed)
+CMD ["bash"]
