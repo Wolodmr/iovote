@@ -21,3 +21,4 @@ class Migration(migrations.Migration):
             field=models.URLField(blank=True, default='http://example.com/invite', max_length=500, null=True),
         ),
     ]
+

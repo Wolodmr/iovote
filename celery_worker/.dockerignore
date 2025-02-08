@@ -1,0 +1,14 @@
+# Ignore other files, but allow the celery-worker directory
+!celery_worker/
+*.pyc
+*.pyo
+__pycache__/
+*.log
+.env
+node_modules/
+staticfiles/
+.git
+env/
+venv/
+
+

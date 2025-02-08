@@ -3,7 +3,7 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from django.http import HttpResponse
 from .models import Session
-# from .tasks import notify_session_start, schedule_voting_reminder
+from .tasks import notify_session_start, schedule_voting_reminder
 from datetime import timedelta
 
 def session_list(request):
@@ -40,3 +40,4 @@ def create_session(request):
 
         return redirect("voting_sessions:session_list")
     return render(request, "create_session.html")
+

@@ -1,0 +1,10 @@
+celery 
+django
+channels 
+channels-redis
+django-redis>=5.4.0
+redis
+daphne==4.0.0 
+djangorestframework>=3.14.0 
+
+

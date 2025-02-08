@@ -19,3 +19,4 @@ def handle_session_creation(sender, instance, created, **kwargs):
         send_reminder_notification(instance.id)  # Direct execution in DEBUG mode
     else:
         send_reminder_notification.apply_async(kwargs={'session_id': instance.id})
+

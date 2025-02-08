@@ -22,7 +22,7 @@ SECRET_KEY = os.getenv('DJANGO_SECRET_KEY', 'default-secret-key')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = os.getenv('DJANGO_DEBUG', 'True') == 'True'
 
-ALLOWED_HOSTS = os.getenv('DJANGO_ALLOWED_HOSTS', '').split(',')
+ALLOWED_HOSTS = os.getenv('DJANGO_ALLOWED_HOSTS', '127.0.0.1,localhost').split(',')
 
 # Channel layers (for chat)
 CHANNEL_LAYERS = {
@@ -34,11 +34,16 @@ CHANNEL_LAYERS = {
     },
 }
 
+DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
 # Caching
 CACHES = {
     'default': {
         'BACKEND': 'django_redis.cache.RedisCache',
-        'LOCATION': os.getenv('REDIS_CACHE_URL', 'redis://redis:6379/1'),
+        'LOCATION': 'redis://127.0.0.1:6379/1',  # 'redis' as the hostname assumes it's in the same Docker network.
+        'OPTIONS': {
+            'CLIENT_CLASS': 'django_redis.client.DefaultClient',
+        }
     }
 }
 
@@ -66,11 +71,15 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'rest_framework',
+    'celery_worker',
     'main',
     'users',   
     'chat',
     'voting_sessions',
     'vote',
+    'results',
+    
    
 ]
 
@@ -180,6 +189,7 @@ STATICFILES_DIRS = [
     BASE_DIR / 'users' / 'static',
     BASE_DIR / 'chat' / 'static',
 ]
+
 
 
 

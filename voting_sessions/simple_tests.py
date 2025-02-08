@@ -17,3 +17,4 @@ class SimpleTest(TestCase):
         )
         
         self.assertEqual(session.title, "Test Session")
+

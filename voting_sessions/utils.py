@@ -22,3 +22,4 @@ def broadcast_message_to_chat(message):
             "message": message,
         }
     )
+

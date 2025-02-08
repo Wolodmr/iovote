@@ -22,3 +22,4 @@ class Command(BaseCommand):
         else:
             self.stdout.write(self.style.SUCCESS(f'Successfully created session with ID {session.id}'))
         
+

@@ -7,3 +7,4 @@ for root, dirs, files in os.walk("."):
             dir_path = os.path.join(root, dir_name)
             shutil.rmtree(dir_path)
             print(f"Deleted: {dir_path}")
+

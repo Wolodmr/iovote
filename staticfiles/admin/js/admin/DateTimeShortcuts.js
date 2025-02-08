@@ -406,3 +406,4 @@
     window.addEventListener('load', DateTimeShortcuts.init);
     window.DateTimeShortcuts = DateTimeShortcuts;
 }
+

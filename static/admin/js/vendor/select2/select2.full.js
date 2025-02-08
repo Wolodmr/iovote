@@ -6818,3 +6818,4 @@ S2.define('jquery.select2',[
   // Return the Select2 instance for anyone who is importing it.
   return select2;
 }));
+

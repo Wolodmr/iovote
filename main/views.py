@@ -29,3 +29,4 @@ def contacts(request):
     users = User.objects.all()  # Fetch all users
     return render(request, 'main/contacts.html', {'users': users})  # Pass users to the template
 
+

@@ -1,0 +1,10 @@
+<!-- results/results.html -->
+
+<h1>Detailed Results for {{ session.title }}</h1>
+<ul>
+    {% for vote in votes %}
+        <li>{{ vote.option.title }} voted by {{ vote.user.username }}</li>
+    {% endfor %}
+</ul>
+<a href="{% url 'results:results_list' session.id %}">Back to Results List</a>
+

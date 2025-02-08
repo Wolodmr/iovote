@@ -284,3 +284,4 @@ Requires core.js and SelectBox.js.
         });
     });
 }
+

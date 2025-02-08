@@ -10,3 +10,4 @@ client.flushdb()
 # client.flushall()
 
 print("Redis cache cleared.")
+

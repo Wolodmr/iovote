@@ -2,47 +2,89 @@ services:
   django:
     build:
       context: .
+      dockerfile: django/Dockerfile
     container_name: django-app
     volumes:
-      - .:/app
+      - .:/app  # For development; remove for production
     ports:
       - "8000:8000"
     depends_on:
-      - redis
+      redis:
+        condition: service_healthy
     working_dir: /app
     environment:
+      - PYTHONPATH=/app
+      - DJANGO_SETTINGS_MODULE=vote_cast.settings
+      - PYTHONUNBUFFERED=1
       - DEBUG=1
       - REDIS_HOST=redis
       - CELERY_BROKER_URL=redis://redis:6379/0
-    command: python manage.py runserver 0.0.0.0:8000
+    restart: unless-stopped
+    command: ["python3", "manage.py", "runserver", "0.0.0.0:8000"]
     env_file:
       - .env
     networks:
       - my_django_network
+    deploy:
+      resources:
+        limits:
+          memory: 512M
+          cpus: "0.5"
 
   redis:
-    image: redis:7.0
-    container_name: redis
+    image: redis:latest
+    container_name: redis-test
     volumes:
       - redis-data:/data
     networks:
       - my_django_network
+    ports:
+      - "6379:6379"
+    restart: always
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 5s
+      timeout: 3s
+      retries: 5
+    deploy:
+      resources:
+        limits:
+          memory: 128M
+          cpus: "0.1"
 
-  celery-worker:
+  celery_worker:
     build:
       context: .
-    container_name: celery-worker
+      dockerfile: celery_worker/Dockerfile
+    container_name: celery_worker
     working_dir: /app
-    volumes:
-      - .:/app
     environment:
+      - CELERY_APP=vote_cast.celery_app
+      - DJANGO_SETTINGS_MODULE=vote_cast.settings
+      - REDIS_HOST=redis
+      - REDIS_PORT=6379
+      - PYTHONPATH=/app
       - CELERY_BROKER_URL=redis://redis:6379/0
       - CELERY_RESULT_BACKEND=redis://redis:6379/0
-    command: sh -c "wait-for-it redis:6379 -- celery -A vote_cast worker --loglevel=info"
+      - WAIT_FOR_IT=yes
+    restart: always
+    # command: sh -c "/app/wait_for_it redis:6379 -- celery -A $CELERY_APP worker --loglevel=info"
+    command: sh -c "./celery_worker/celery_worker.sh"
+
+    volumes:
+      - .:/app
     env_file:
       - .env
     networks:
       - my_django_network
+    depends_on:
+      redis:
+        condition: service_healthy
+    deploy:
+      resources:
+        limits:
+          memory: 256M
+          cpus: "0.25"
 
 networks:
   my_django_network:

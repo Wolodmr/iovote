@@ -1,22 +1,40 @@
 # voting_sessions/models.py
+
 from django.db import models
-from datetime import timedelta
 from django.core.exceptions import ValidationError
+from django.utils.timezone import timedelta, make_aware
 from django.utils import timezone
 from .utils import broadcast_message_to_chat
 
+
 class Session(models.Model):
-    title = models.CharField(max_length=200)
-    session_start_time = models.DateTimeField()
-    choice_duration = models.DurationField()
-    voting_duration = models.DurationField()
-    description = models.TextField()
+    title = models.CharField(max_length=200)  # Single title for the session (choices + voting)
+    session_start_time = models.DateTimeField()  # When the session starts (choices phase)
+    session_end_time = models.DateTimeField()
+    choice_duration = models.DurationField()  # Duration of the choices phase
+    voting_duration = models.DurationField()  # Duration of the voting phase
+    description = models.TextField()  # Session description
     creator_email = models.EmailField(max_length=255, blank=True, null=True, default="default@example.com")
     invitation_endpoint = models.URLField(max_length=500, blank=True, null=True, default="http://example.com/invite")
 
-
     def __str__(self):
         return self.title
+    
+    @property
+    def voting_start_time(self):
+        return self.session_start_time + self.choice_duration
+
+    @property
+    def voting_end_time(self):
+        return self.session_end_time
+
+    def is_active(self):
+        now = timezone.now()
+        return self.session_start_time <= now <= self.session_end_time
+
+    def is_voting_active(self):
+        now = timezone.now()
+        return self.voting_start_time <= now <= self.voting_end_time
     
     def send_notification(self):
         """
@@ -38,26 +56,17 @@ class Session(models.Model):
             print(f"Chat notification sent for session: {self}")
         except Exception as e:
             print(f"Failed to send chat notification for session {self}: {e}")
+           
+def clean(self):
+    if self.session_start_time and timezone.is_naive(self.session_start_time):
+        self.session_start_time = timezone.make_aware(self.session_start_time)
+    if self.session_end_time and timezone.is_naive(self.session_end_time):
+        self.session_end_time = timezone.make_aware(self.session_end_time)
     
-    def clean(self):
-    # Validate that choice_duration and voting_duration are not None
-        if self.choice_duration is None:
-            raise ValidationError("Choice duration cannot be null.")
-        if self.voting_duration is None:
-            raise ValidationError("Voting duration cannot be null.")
-        
-        # Validate durations are positive
-        if self.choice_duration <= timedelta(0):
-            raise ValidationError("Choice duration must be a positive value.")
-        if self.voting_duration <= timedelta(0):
-            raise ValidationError("Voting duration must be a positive value.")
-
-        # Validate start time is not in the past
-        if self.session_start_time < timezone.now():
-            raise ValidationError("Session start time cannot be in the past.")
-        max_duration = timedelta(days=24)
-        if self.choice_duration + self.voting_duration > max_duration:
-            raise ValidationError("The combined duration of choice and voting exceeds the allowed limit.")
+    if self.session_start_time < timezone.now():
+        raise ValidationError("Session start time cannot be in the past.")
+    if self.session_end_time < self.session_start_time:
+        raise ValidationError("Session end time must be after the start time.")
 
         
     def save(self, *args, **kwargs):
@@ -86,14 +95,11 @@ class Session(models.Model):
         )
 
     
-    @property
-    def session_end_time(self):
-        return self.session_start_time + self.choice_duration + self.voting_duration
-
 class Option(models.Model):
-    session = models.ForeignKey(Session, on_delete=models.CASCADE, related_name="options")
+    session = models.ForeignKey('voting_sessions.Session', on_delete=models.CASCADE, related_name='options')
     title = models.CharField(max_length=255)
     description = models.TextField(blank=True)
 
     def __str__(self):
         return self.title
+

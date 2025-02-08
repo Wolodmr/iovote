@@ -40,3 +40,4 @@ class ChatConsumer(AsyncWebsocketConsumer):
             'username': username,
             'timestamp': timestamp
         }))
+

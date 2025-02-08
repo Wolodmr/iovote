@@ -22,3 +22,4 @@ async def test_channel_layer():
     await communicator.disconnect()
 
 # To run this test, you can use `asyncio.run(test_channel_layer())` for standalone testing
+

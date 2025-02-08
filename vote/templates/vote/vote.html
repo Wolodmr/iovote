@@ -1,0 +1,14 @@
+<h1>{{ session.title }}</h1>
+<p>{{ session.description }}</p>
+<form method="post" action="{% url 'vote:submit_vote' session.id %}">
+    {% csrf_token %}
+    {% for option in session.options.all %}
+        <div>
+            <label>
+                <input type="radio" name="option" value="{{ option.id }}">
+                {{ option.title }}
+            </label>
+        </div>
+    {% endfor %}
+    <button type="submit">Vote</button>
+</form>

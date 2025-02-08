@@ -9,3 +9,4 @@ urlpatterns = [
     path("<int:session_id>/", views.session_detail, name="session_detail"),  # View session details
     
 ]
+

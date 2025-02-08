@@ -8,3 +8,4 @@ class SessionsConfig(AppConfig):
     
     # def ready(self):
         # import voting_sessions.signals
+

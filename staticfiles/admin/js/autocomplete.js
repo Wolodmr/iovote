@@ -31,3 +31,4 @@
         $(event.target).find('.admin-autocomplete').djangoAdminSelect2();
     });
 }
+

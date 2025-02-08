@@ -77,3 +77,4 @@
     window.initSidebarQuickFilter = initSidebarQuickFilter;
     initSidebarQuickFilter();
 }
+

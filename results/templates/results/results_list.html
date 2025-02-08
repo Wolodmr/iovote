@@ -1,0 +1,8 @@
+<!-- vote/results_list.html -->
+<h1>Results for {{ session.title }}</h1>
+<ul>
+    {% for option in session.options.all %}
+        <li>{{ option.title }}: {{ option.votes.count }} votes</li>
+    {% endfor %}
+</ul>
+
