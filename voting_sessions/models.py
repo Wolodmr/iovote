@@ -4,21 +4,22 @@ from django.db import models
 from django.core.exceptions import ValidationError
 from django.utils.timezone import timedelta, make_aware
 from django.utils import timezone
-from .utils import broadcast_message_to_chat
 
-
+def calculate_default_end_time():
+        return timezone.now() + timedelta(days=3)
+    
 class Session(models.Model):
-    title = models.CharField(max_length=200)  # Single title for the session (choices + voting)
-    session_start_time = models.DateTimeField()  # When the session starts (choices phase)
-    session_end_time = models.DateTimeField()
-    choice_duration = models.DurationField()  # Duration of the choices phase
-    voting_duration = models.DurationField()  # Duration of the voting phase
-    description = models.TextField()  # Session description
+    title = models.CharField(max_length=200, null=True, blank=True)  # Single title for the session (choices + voting)
+    session_start_time = models.DateTimeField(null=True, blank=True)  # When the session starts (choices phase)
+    session_end_time = models.DateTimeField(default=calculate_default_end_time, null=True, blank=True)
+    choice_duration = models.DurationField(null=True, blank=True)  # Duration of the choices phase
+    voting_duration = models.DurationField(null=True, blank=True)  # Duration of the voting phase
+    description = models.TextField(default="Default description", null=True, blank=True)  # Session description
     creator_email = models.EmailField(max_length=255, blank=True, null=True, default="default@example.com")
     invitation_endpoint = models.URLField(max_length=500, blank=True, null=True, default="http://example.com/invite")
 
     def __str__(self):
-        return self.title
+        return self.title    
     
     @property
     def voting_start_time(self):
@@ -38,35 +39,21 @@ class Session(models.Model):
     
     def send_notification(self):
         """
-        Send notifications for the session via email and internal chat.
+        Send notifications for the session via email 
         """
         # Email logic (placeholder for now)
         print(f"Email notification sent for session: {self}")
-
-        # Internal chat notification logic
-        chat_message = (
-            f"New session created: {self.title}\n"
-            f"Start Time: {self.session_start_time}\n"
-            f"Description: {self.description}\n"
-            f"Participate here: {self.invitation_endpoint}"
-        )
-        
-        try:
-            broadcast_message_to_chat(chat_message)
-            print(f"Chat notification sent for session: {self}")
-        except Exception as e:
-            print(f"Failed to send chat notification for session {self}: {e}")
            
-def clean(self):
-    if self.session_start_time and timezone.is_naive(self.session_start_time):
-        self.session_start_time = timezone.make_aware(self.session_start_time)
-    if self.session_end_time and timezone.is_naive(self.session_end_time):
-        self.session_end_time = timezone.make_aware(self.session_end_time)
-    
-    if self.session_start_time < timezone.now():
-        raise ValidationError("Session start time cannot be in the past.")
-    if self.session_end_time < self.session_start_time:
-        raise ValidationError("Session end time must be after the start time.")
+    def clean(self):
+        if self.session_start_time and timezone.is_naive(self.session_start_time):
+            self.session_start_time = timezone.make_aware(self.session_start_time)
+        if self.session_end_time and timezone.is_naive(self.session_end_time):
+            self.session_end_time = timezone.make_aware(self.session_end_time)
+        
+        if self.session_start_time < timezone.now():
+            raise ValidationError("Session start time cannot be in the past.")
+        if self.session_end_time < self.session_start_time:
+            raise ValidationError("Session end time must be after the start time.")
 
         
     def save(self, *args, **kwargs):

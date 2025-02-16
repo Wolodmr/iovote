@@ -3,7 +3,6 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from django.http import HttpResponse
 from .models import Session
-from .tasks import notify_session_start, schedule_voting_reminder
 from datetime import timedelta
 
 def session_list(request):
@@ -29,13 +28,6 @@ def create_session(request):
             session_start_time=session_start_time,
             choice_duration=choice_duration,
             voting_duration=voting_duration
-        )
-
-        # Trigger Celery tasks
-        notify_session_start.delay(session.id)
-        schedule_voting_reminder.apply_async(
-            args=[session.id],
-            eta=session.session_start_time + timedelta(days=choice_duration - 1)
         )
 
         return redirect("voting_sessions:session_list")

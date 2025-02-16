@@ -6,14 +6,9 @@ from voting_sessions.models import Session, Option
 from django.contrib import messages
 from django.http import HttpResponseForbidden
 from django.core.exceptions import ValidationError
-from vote.tasks import example_task
 from django.http import HttpResponse
 import logging
 logger = logging.getLogger(__name__)
-
-def trigger_task(request):
-    example_task.delay()  # Trigger the Celery task asynchronously
-    return HttpResponse("Task triggered successfully.")
 
 print("NULL")
 

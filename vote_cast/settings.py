@@ -12,6 +12,30 @@ https://docs.djangoproject.com/en/5.0/ref/settings/
 
 from pathlib import Path
 import os
+import logging
+
+LOG_LEVEL = os.environ.get("LOG_LEVEL", "INFO")
+
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': False,
+    'handlers': {
+        'console': {
+            'class': 'logging.StreamHandler',
+        },
+    },
+    'root': {
+        'handlers': ['console'],
+        'level': LOG_LEVEL,
+    },
+    'loggers': {
+        'django': {
+            'handlers': ['console'],
+            'level': LOG_LEVEL,
+            'propagate': False,
+        },
+    },
+}
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -24,35 +48,8 @@ DEBUG = os.getenv('DJANGO_DEBUG', 'True') == 'True'
 
 ALLOWED_HOSTS = os.getenv('DJANGO_ALLOWED_HOSTS', '127.0.0.1,localhost').split(',')
 
-# Channel layers (for chat)
-CHANNEL_LAYERS = {
-    'default': {
-        'BACKEND': 'channels_redis.core.RedisChannelLayer',
-        'CONFIG': {
-            "hosts": [(os.getenv('REDIS_HOST', 'redis'), int(os.getenv('REDIS_PORT', 6379)))],
-        },
-    },
-}
-
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-# Caching
-CACHES = {
-    'default': {
-        'BACKEND': 'django_redis.cache.RedisCache',
-        'LOCATION': 'redis://127.0.0.1:6379/1',  # 'redis' as the hostname assumes it's in the same Docker network.
-        'OPTIONS': {
-            'CLIENT_CLASS': 'django_redis.client.DefaultClient',
-        }
-    }
-}
-
-# Celery settings
-# CELERY_BROKER_URL = os.getenv('CELERY_BROKER_URL', 'redis://redis:6379/0')
-CELERY_BROKER_URL = "redis://redis:6379/0"
-CELERY_RESULT_BACKEND = "redis://redis:6379/1"
-CELERY_ACCEPT_CONTENT = ['json']
-CELERY_TASK_SERIALIZER = 'json'
 # Database (SQLite for now, no need for environment variables yet)
 DATABASES = {
     'default': {
@@ -61,10 +58,13 @@ DATABASES = {
     }
 }
 
+# CSRF_COOKIE_SECURE = True
+# SESSION_COOKIE_SECURE = True
+
+
 # Application definition
 
 INSTALLED_APPS = [
-    'channels',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -72,10 +72,9 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'rest_framework',
-    'celery_worker',
+
     'main',
     'users',   
-    'chat',
     'voting_sessions',
     'vote',
     'results',
@@ -101,11 +100,14 @@ TEMPLATES = [
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         'DIRS': [
             BASE_DIR / 'templates',  # Project-level templates folder
-            BASE_DIR / 'chat/templates/chat',  # Chat app templates
             BASE_DIR / 'main/templates/main',  # Main app templates
             BASE_DIR / 'users/templates/users',  # Users app templates
-            BASE_DIR / 'voting_sessions/templates/users',  # Users app templates
-        ],
+            BASE_DIR / 'vote/templates/vote',  # Users app templates
+            BASE_DIR / 'results/templates/results',  # Users app templates
+            BASE_DIR / 'voting_sessions/templates/voting_sessions', 
+        ], 
+    
+
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -124,13 +126,6 @@ ASGI_APPLICATION = 'vote_cast.asgi.application'
 
 # Channel layers (for chat)
 # vote_cast/settings.py
-
-CELERY_TASK_ALWAYS_EAGER = os.getenv('CELERY_TASK_ALWAYS_EAGER', 'False') == 'True'
-CELERY_TASK_EAGER_PROPAGATES = os.getenv('CELERY_TASK_EAGER_PROPAGATES', 'False') == 'True'
-
-# CELERY_TASK_ALWAYS_EAGER = True
-# CELERY_TASK_EAGER_PROPAGATES = True
-
 
 # Database
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
@@ -164,7 +159,7 @@ APPEND_SLASH = True
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'Asia/Tashkent'
+TIME_ZONE = 'CET'
 
 USE_I18N = True
 
@@ -187,7 +182,6 @@ STATICFILES_DIRS = [
     BASE_DIR / 'static',
     BASE_DIR / 'main' / 'static',
     BASE_DIR / 'users' / 'static',
-    BASE_DIR / 'chat' / 'static',
 ]
 
 
