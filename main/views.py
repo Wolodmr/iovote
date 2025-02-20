@@ -16,7 +16,6 @@ def contact_view(request):
     # For now, we'll just return a simple response.
     return HttpResponse(f'Thank you for your message, {name}!')
 
-@login_required
 def home(request):
     return render(request, 'main/home.html', {'user': request.user})
 

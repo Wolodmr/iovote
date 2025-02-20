@@ -1,3 +1,5 @@
+<!-- voting_sessions/templates/voting_sessions/session_list.html -->
+
 {% extends "base.html" %}
 
 {% block content %}
@@ -5,7 +7,7 @@
 <ul>
     {% for session in sessions %}
         <li>
-            <a href="{% url 'sessions:session_detail' session.id %}">
+            <a href="{% url 'voting_sessions:session_detail' session.id %}">
                 {{ session.name }} - {{ session.description }}
             </a>
             <br>

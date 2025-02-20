@@ -1,16 +1,20 @@
+<!-- voting_sessions/templates/voting_sessions/session_detail.html -->
+
 {% extends "base.html" %}
 {% load static %}
 {% block content %}
 <h1>{{ session.title }}</h1>
 <p>{{ session.description }}</p>
+<p><strong>Session Title:</strong> {{ session.title}}</p>
 <p><strong>Session Start:</strong> {{ session.session_start_time }}</p>
 <p><strong>Session End:</strong> {{ session.session_end_time }}</p>
-<p><strong>Choice Duration:</strong> {{ session.choice_duration }} days</p>
-<p><strong>Voting Duration:</strong> {{ session.voting_duration }} days</p>
+<p><strong>Choice Duration:</strong> {{ session.choice_duration }}</p>
+<p><strong>Voting Duration:</strong> {{ session.voting_duration }}</p>
 
+<div class="container">
 <h2>Available Options:</h2>
 <ul>
-    {% for option in options %}
+    {% for option in session.options.all %}
         <li>
             {{ option.title }}
             {% if option.description %}
@@ -23,11 +27,24 @@
 </ul>
 
 <p>
-    <a href="{% url 'sessions:session_list' %}">Back to Sessions</a>
-    {% if options %}
-        <a href="{% url 'voting_sessions:vote' session.id %}" class="btn btn-primary">Cast Your Vote</a>
+    <a href="{% url 'voting_sessions:session_list' %}">Back to Sessions</a>
+    {% if session.options.exists %}
+        <a href="{% url 'vote:vote' session.id %}" class="btn btn-primary">Vote</a>
     {% endif %}
 </p>
+{% if user.is_authenticated %}
+    <form method="post" action="{% url 'vote:vote' session.id %}">
+        {% csrf_token %}
+        <!-- Voting options here -->
+        <button type="submit">Vote</button>
+    </form>
+{% else %}
+    <p>You must <a href="{% url 'login' %}?next={{ request.path }}">log in</a> to vote.</p>
+{% endif %}
 {% endblock %}
+</div>
+
+
+
 
 

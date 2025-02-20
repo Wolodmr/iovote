@@ -1,73 +1,40 @@
-# vote/views.py
-from django.shortcuts import get_object_or_404, render, redirect
+from django.shortcuts import render, get_object_or_404, redirect
+from django.contrib import messages
+from vote.forms import VoteForm
 from .forms import VoteForm
 from vote.models import Vote
 from voting_sessions.models import Session, Option
-from django.contrib import messages
-from django.http import HttpResponseForbidden
+from vote.models import Vote
+from django.contrib.auth.decorators import login_required
 from django.core.exceptions import ValidationError
-from django.http import HttpResponse
-import logging
-logger = logging.getLogger(__name__)
 
-print("NULL")
-
-def submit_vote(request, session_id):
-    print('ONE')
-    print(f"Session ID: {session_id}")
-    print(f"Option ID: {option_id}")
-    print(f"User: {request.user}")
-    logger.info(f"Request method: {request.method}")
-    if request.method == "POST":
-        logger.info(f"POST data: {request.POST}")
-    if request.method == "POST":
-        # Fetch the session
-        session = get_object_or_404(Session, id=session_id)
-
-        # Get the selected option
-        option_id = request.POST.get("option")
-        if not option_id:
-            messages.error(request, "You must select an option before submitting.")
-            return redirect('vote:vote', session_id=session_id)
-
-        # Fetch the option and ensure it's linked to the correct session
-        option = get_object_or_404(session.options, id=option_id)
-
-        # Create the vote
-        try:
-            Vote.objects.create(user=request.user, option=option)
-            messages.success(request, "Your vote has been submitted successfully.")
-        except ValidationError as e:
-            messages.error(request, str(e))
-            return redirect('vote:vote', session_id=session_id)
-
-        # Redirect to the results page
-        return redirect('vote:result', session_id=session_id)
-
-
+@login_required
+def results_detail(request, session_id):
+    session = get_object_or_404(Session, id=session_id)
+    options = session.options.all()
+    votes = Vote.objects.filter(option__in=options)
+    vote_count = votes.count()
+    option_votes = {option: votes.filter(option=option).count() for option in options}
+    return render(request, 'results/results_detail.html', {
+        'session': session,
+        'vote_count': vote_count,
+        'option_votes': option_votes
+    })
+@login_required  
 def vote(request, session_id):
-    try:
-        session = Session.objects.get(id=session_id)
-    except Session.DoesNotExist:
-        # Handle the case where the session doesn't exist
-        return render(request, 'vote/session_not_found.html')  # Redirect or show a 404 page
+    session = get_object_or_404(Session, id=session_id)
+    if Vote.objects.filter(user=request.user, option__session=session).exists():
+        messages.error(request, "You have already voted in this session.")
+        return redirect('voting_sessions:session_detail', session_id=session_id)
+    options = session.options.all()
 
-    if request.method == 'POST':
-        form = VoteForm(request.POST, session=session)
+    if request.method == 'POST':        
+        form = VoteForm(request.POST, session=session, user=request.user)
         if form.is_valid():
-            vote = form.save(commit=False)
-            vote.user = request.user
-            vote.session = session
-            vote.save()
+            form.save()
             messages.success(request, "Your vote has been cast successfully!")
-            return redirect('voting_sessions:session_detail', session_id=session_id)
-        else:
-            messages.error(request, "There was an error with your submission. Please try again.")
+            return redirect('results:results_detail', session_id=session_id)
     else:
-        form = VoteForm(session=session)
+        form = VoteForm(session=session, user=request.user)
 
-    return render(request, 'vote/vote.html', {'form': form, 'session': session})
-
-def result(request):
-    render(request, 'vote/result.html')
-
+    return render(request, 'vote/vote.html', {'form': form, 'session': session, 'options': options})

@@ -1,24 +1,20 @@
+# vote/forms.py
 from django import forms
+from .models import Vote
 from voting_sessions.models import Option
-from vote.models import Vote
 
 class VoteForm(forms.ModelForm):
+    option = forms.ModelChoiceField(queryset=Option.objects.none(), widget=forms.RadioSelect)
+
     class Meta:
         model = Vote
         fields = ['option']
 
     def __init__(self, *args, **kwargs):
-        session = kwargs.pop('session', None)
+        session = kwargs.pop('session')
+        user = kwargs.pop('user')
         super().__init__(*args, **kwargs)
-        if session:
-            self.fields['option'].queryset = Option.objects.filter(session=session)
-
-    def clean(self):
-        cleaned_data = super().clean()
-        user = self.initial.get('user')
-        option = cleaned_data.get('option')
-
-        if user and option and Vote.objects.filter(user=user, option__session=option.session).exists():
-            raise forms.ValidationError("You have already voted in this session.")
-        return cleaned_data
+        self.fields['option'].queryset = session.options.all()
+        self.instance.session = session
+        self.instance.user = user
 

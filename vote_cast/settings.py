@@ -95,6 +95,8 @@ MIDDLEWARE = [
 
 ROOT_URLCONF = 'vote_cast.urls'
 
+BASE_DIR = Path(__file__).resolve().parent.parent
+
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
@@ -105,8 +107,7 @@ TEMPLATES = [
             BASE_DIR / 'vote/templates/vote',  # Users app templates
             BASE_DIR / 'results/templates/results',  # Users app templates
             BASE_DIR / 'voting_sessions/templates/voting_sessions', 
-        ], 
-    
+        ],     
 
         'APP_DIRS': True,
         'OPTIONS': {
@@ -119,6 +120,8 @@ TEMPLATES = [
         },
     },
 ]
+
+LOGIN_REDIRECT_URL = 'home'
 
 WSGI_APPLICATION = 'vote_cast.wsgi.application'
 ASGI_APPLICATION = 'vote_cast.asgi.application'

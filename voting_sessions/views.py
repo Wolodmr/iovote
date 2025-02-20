@@ -1,35 +1,43 @@
 # voting_sessions/views.py
 
 from django.shortcuts import render, get_object_or_404, redirect
-from django.http import HttpResponse
-from .models import Session
-from datetime import timedelta
+from .models import Session, Option  
+from django.contrib import messages
+from django.core.exceptions import ValidationError
+from django.contrib.auth.decorators import login_required
 
 def session_list(request):
     sessions = Session.objects.all()
     return render(request, "session_list.html", {"sessions": sessions})
 
+@login_required
 def session_detail(request, session_id):
     session = get_object_or_404(Session, id=session_id)
     return render(request, "session_detail.html", {"session": session})
 
-def create_session(request):
-    if request.method == "POST":
-        # Simplified form handling
-        title = request.POST.get("title")
-        description = request.POST.get("description")
-        session_start_time = request.POST.get("session_start_time")  # Ensure valid datetime format
-        choice_duration = int(request.POST.get("choice_duration"))
-        voting_duration = int(request.POST.get("voting_duration"))
 
-        session = Session.objects.create(
-            title=title,
-            description=description,
-            session_start_time=session_start_time,
-            choice_duration=choice_duration,
-            voting_duration=voting_duration
-        )
+@login_required  
+def vote(request, session_id):
+    session = get_object_or_404(Session, id=session_id)
+    from vote.models import Vote
+    if request.method == 'POST':
+        option_id = request.POST.get('option')
+        option = get_object_or_404(Option, id=option_id, session=session)
+        try:
+            # Check if the user has already voted in this session
+            if Vote.objects.filter(user=request.user, option__session=session).exists():
+                messages.error(request, "You have already voted in this session.")
+            else:
+                # Create a new vote
+                Vote.objects.create(user=request.user, option=option)
+                messages.success(request, "Your vote has been cast successfully!")
+            return redirect('voting_sessions:session_detail', session_id=session_id)
+        except ValidationError as e:
+            messages.error(request, str(e))
+    else:
+        options = session.options.all()
+        return render(request, 'vote/vote.html', {'session': session, 'options': options})
 
-        return redirect("voting_sessions:session_list")
-    return render(request, "create_session.html")
+
+
 

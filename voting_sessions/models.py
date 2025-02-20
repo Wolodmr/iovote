@@ -89,4 +89,9 @@ class Option(models.Model):
 
     def __str__(self):
         return self.title
+    
+# In your models.py
+class Meta:
+    app_label = 'voting_sessions'
+
 
