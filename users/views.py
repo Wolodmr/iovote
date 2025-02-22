@@ -1,18 +1,11 @@
 #users/views.py
 
-from django.shortcuts import render, redirect
-from django.contrib.auth import login, logout
-from .forms import SignUpForm
-from django.views import View
-from django.shortcuts import render, get_object_or_404, redirect
+from django.shortcuts import render, redirect, get_object_or_404
+from django.contrib.auth import login
 from django.contrib.auth.models import User
+from .forms import SignUpForm
 
-class CustomLogoutView(View):
-    def post(self, request):
-        logout(request)
-        # return redirect('home')
-    
-def user_list(request):    
+def user_list(request):
     users = User.objects.all()
     return render(request, 'users/user_list.html', {'users': users})
 
@@ -30,6 +23,7 @@ def signup(request):
     else:
         form = SignUpForm()
     return render(request, 'registration/signup.html', {'form': form})
+
 
 
 

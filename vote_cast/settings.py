@@ -121,7 +121,7 @@ TEMPLATES = [
     },
 ]
 
-LOGIN_REDIRECT_URL = 'home'
+LOGIN_REDIRECT_URL = '/voting_sessions/'
 
 WSGI_APPLICATION = 'vote_cast.wsgi.application'
 ASGI_APPLICATION = 'vote_cast.asgi.application'

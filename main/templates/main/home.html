@@ -18,13 +18,15 @@
                 <li><a href="{% url 'about' %}"><i class="fas fa-info-circle"></i> About</a></li>
                 <li><a href="{% url 'contacts' %}"><i class="fas fa-address-book"></i> Contacts</a></li>
                 <li><a href="{% url 'users:user_list' %}"><i class="fas fa-users"></i> User List</a></li>
+                <li><a href="{% url 'voting_sessions:session_list' %}"><i class="fas fa-vote-yea"></i> Voting Sessions</a></li>
             </ul>
         </aside>
         
     </nav>
     <div class="container">
-        <h1>Welcome to Library Voting</h1>
-        <p>Participate in voting sessions for various topics in our library community.</p>
+        <h1>Welcome to Vote Cast Application</h1>
+        <p>Participate in voting sessions for various topics in your community.</p>
+        <p>Vote Cast is a simple to use intuitive application. To know more about it, look here:<a href="{% url 'about' %}">About</a></p>
     </div>
 </body>
 </html>
