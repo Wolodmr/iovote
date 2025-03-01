@@ -4,6 +4,10 @@ from django.db import models
 from django.core.exceptions import ValidationError
 from django.utils.timezone import timedelta, make_aware
 from django.utils import timezone
+from django.utils.timezone import now
+from django.utils.timezone import localtime
+from django.utils import timezone    
+from django.core.exceptions import ValidationError
 
 def calculate_default_end_time():
         return timezone.now() + timedelta(days=3)
@@ -12,11 +16,12 @@ class Session(models.Model):
     title = models.CharField(max_length=200, null=True, blank=True)  # Single title for the session (choices + voting)
     session_start_time = models.DateTimeField(null=True, blank=True)  # When the session starts (choices phase)
     session_end_time = models.DateTimeField(default=calculate_default_end_time, null=True, blank=True)
-    choice_duration = models.DurationField(null=True, blank=True)  # Duration of the choices phase
-    voting_duration = models.DurationField(null=True, blank=True)  # Duration of the voting phase
+    choice_duration = models.DurationField(null=True, blank=True, default=timedelta(hours=1))  # Duration of the choices phase
+    voting_duration = models.DurationField(null=True, blank=True, default=timedelta(hours=1))  # Duration of the voting phase
     description = models.TextField(default="Default description", null=True, blank=True)  # Session description
-    creator_email = models.EmailField(max_length=255, blank=True, null=True, default="default@example.com")
-    invitation_endpoint = models.URLField(max_length=500, blank=True, null=True, default="http://example.com/invite")
+    email_sent = models.BooleanField(default=False)
+    creator_email = models.EmailField(max_length=255, blank=True, null=True, default="postvezha@gmail.com")
+    invitation_endpoint = models.URLField(max_length=500, blank=True, null=True, default="https://example.comm")
 
     def __str__(self):
         return self.title    
@@ -27,7 +32,7 @@ class Session(models.Model):
 
     @property
     def voting_end_time(self):
-        return self.session_end_time
+        return self.voting_start_time + self.voting_duration
 
     def is_active(self):
         now = timezone.now()
@@ -43,16 +48,19 @@ class Session(models.Model):
         """
         # Email logic (placeholder for now)
         print(f"Email notification sent for session: {self}")
-           
+
     def clean(self):
-        if self.session_start_time and timezone.is_naive(self.session_start_time):
-            self.session_start_time = timezone.make_aware(self.session_start_time)
-        if self.session_end_time and timezone.is_naive(self.session_end_time):
-            self.session_end_time = timezone.make_aware(self.session_end_time)
         
-        if self.session_start_time < timezone.now():
+        # Ensure datetime fields are aware before validation
+        if timezone.is_naive(self.session_start_time):
+            raise ValidationError("Session start time must be timezone-aware.")
+        if timezone.is_naive(self.session_end_time):
+            raise ValidationError("Session end time must be timezone-aware.")
+
+        # Validate start and end times
+        if localtime(self.session_start_time) < timezone.now():
             raise ValidationError("Session start time cannot be in the past.")
-        if self.session_end_time < self.session_start_time:
+        if localtime(self.session_end_time) < self.session_start_time:
             raise ValidationError("Session end time must be after the start time.")
 
         

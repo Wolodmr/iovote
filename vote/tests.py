@@ -49,10 +49,18 @@ class VoteViewTest(TestCase):
         self.session = Session.objects.create(
             session_end_time=timezone.now()+timedelta(days=3),
             session_start_time=timezone.now() + timedelta(days=1),
-            title= 'Test Option'
+            title= 'Test Option',
+            description = 'Test session',
+            choice_duration=timedelta(days=1),
+            voting_duration=timedelta(days=1),
+            email_sent = False
         )
+        self.user = User.objects.create_user(username='testuser', password='testpass')
+        # (Set up additional test data if needed)
+
         
     def test_vote_list_view(self):
+        self.client.login(username='testuser', password='testpass')
         response = self.client.get(reverse('vote:vote', kwargs={'session_id': self.session.id}))  # Update 'vote_list' with actual URL name
         self.assertEqual(response.status_code, 200)
         self.assertTemplateUsed(response, 'vote/vote.html')  # Update template name if needed

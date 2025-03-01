@@ -20,6 +20,9 @@ def session_detail(request, session_id):
 def vote(request, session_id):
     session = get_object_or_404(Session, id=session_id)
     from vote.models import Vote
+    if not session.is_voting_active():
+        messages.error(request, "Voting is not allowed at this time.")
+        return redirect('voting_sessions:session_list')
     if request.method == 'POST':
         option_id = request.POST.get('option')
         option = get_object_or_404(Option, id=option_id, session=session)

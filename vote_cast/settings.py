@@ -13,6 +13,11 @@ https://docs.djangoproject.com/en/5.0/ref/settings/
 from pathlib import Path
 import os
 import logging
+from decouple import config
+import os
+from dotenv import load_dotenv
+
+load_dotenv()  # Load environment variables from .env file
 
 LOG_LEVEL = os.environ.get("LOG_LEVEL", "INFO")
 
@@ -36,6 +41,26 @@ LOGGING = {
         },
     },
 }
+
+LANGUAGE_CODE = 'en-us'
+
+TIME_ZONE = 'CET'
+
+USE_I18N = True
+
+USE_TZ = True
+
+EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
+EMAIL_HOST = "smtp.gmail.com"
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+EMAIL_USE_SSL = False
+EMAIL_HOST_USER='postvezha@gmail.com'
+EMAIL_HOST_PASSWORD='tfzcwebzuzvkjgbd'
+# DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
+
+import logging
+logging.basicConfig(level=logging.DEBUG)
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -160,13 +185,7 @@ APPEND_SLASH = True
 # Internationalization
 # https://docs.djangoproject.com/en/5.0/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'CET'
-
-USE_I18N = True
-
-USE_TZ = True
 
 
 # Static files (CSS, JavaScript, Images)

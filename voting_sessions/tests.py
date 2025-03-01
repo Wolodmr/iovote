@@ -15,6 +15,7 @@ class SessionModelTests(TestCase):
             description="Test Description",
             session_start_time=start,
             choice_duration=timedelta(days=1),
+            email_sent = False,
             voting_duration=timedelta(days=3),
             session_end_time=start,  # Set a valid end time
         )
@@ -35,6 +36,7 @@ class SessionModelTests(TestCase):
             session_start_time=now() + timedelta(days=1),
             session_end_time=timezone.now() + timedelta(days=4),  # Set a valid end time
             choice_duration=timedelta(days=1),
+            email_sent = False,
             voting_duration=timedelta(days=2),
         )
         self.assertAlmostEqual(session.session_end_time, session.session_start_time + timedelta(days=3), delta=timedelta(milliseconds=1))
@@ -47,6 +49,7 @@ class SessionModelTests(TestCase):
             session_start_time=now() + timedelta(days=1),
             session_end_time=timezone.now() + timedelta(days=4),  # Set a valid end time
             choice_duration=timedelta(days=1),
+            email_sent = False,
             voting_duration=timedelta(days=2),
             
         )
@@ -61,6 +64,7 @@ class SessionModelTests(TestCase):
             session_start_time=now() + timedelta(days=1),
             session_end_time=timezone.now() + timedelta(days=4),
             choice_duration=timedelta(days=1),
+            email_sent = False,
             voting_duration=timedelta(days=2),
         )
         session.save()  # Saving without changes
