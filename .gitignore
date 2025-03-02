@@ -15,5 +15,5 @@ Project_Dom/
 *.rdb
 *.aof
 venv/
-
+.env
 

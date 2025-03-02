@@ -11,6 +11,14 @@ from unittest.mock import patch
 from django.contrib.auth.models import User
 from vote.models import Vote
 from voting_sessions.models import Option, Session  # Replace with actual paths to models
+from django.conf import settings
+
+print("DEBUG FINAL EMAIL_BACKEND:", settings.EMAIL_BACKEND)
+print("DEBUG FINAL EMAIL_HOST:", settings.EMAIL_HOST)
+print("DEBUG FINAL EMAIL_PORT:", settings.EMAIL_PORT)
+print("DEBUG FINAL EMAIL_HOST_USER:", settings.EMAIL_HOST_USER)
+print("DEBUG FINAL EMAIL_HOST_PASSWORD:", settings.EMAIL_HOST_PASSWORD)
+
 
 class VoteModelTest(TestCase):
     def setUp(self):

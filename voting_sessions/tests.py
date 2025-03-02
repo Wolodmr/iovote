@@ -6,6 +6,48 @@ from django.utils import timezone
 from voting_sessions.models import Session
 from unittest.mock import patch
 from datetime import timedelta
+from unittest.mock import patch
+from django.core.mail import send_mail
+from django.test import TestCase
+from django.conf import settings
+from django.test import TestCase
+from unittest.mock import patch
+from django.utils.timezone import now, localtime, timedelta
+from voting_sessions.utils import send_notifications
+from voting_sessions.models import Session
+
+class NotificationTests(TestCase):
+    @patch("voting_sessions.utils.send_mail")
+    def test_send_notifications(self, mock_send_mail):
+        """Ensure send_mail is triggered by send_notifications"""
+
+        # ✅ Create a test session that meets the filtering condition
+        Session.objects.create(
+            title="Test Session",
+            session_start_time=localtime(now()) + timedelta(minutes=30),  # Within 1-hour window
+            creator_email="test@example.com"
+        )
+
+        send_notifications()
+
+        print("📌 mock_send_mail call args:", mock_send_mail.call_args_list)  # Debugging
+
+        mock_send_mail.assert_called()  # ✅ Ensure send_mail was called
+
+
+print("DEBUG FINAL EMAIL_BACKEND:", settings.EMAIL_BACKEND)
+print("DEBUG FINAL EMAIL_HOST:", settings.EMAIL_HOST)
+print("DEBUG FINAL EMAIL_PORT:", settings.EMAIL_PORT)
+print("DEBUG FINAL EMAIL_HOST_USER:", settings.EMAIL_HOST_USER)
+print("DEBUG FINAL EMAIL_HOST_PASSWORD:", settings.EMAIL_HOST_PASSWORD)
+
+
+class YourTestCase(TestCase):
+    @patch("django.core.mail.send_mail")  # This prevents real email sending
+    def test_email_sending(self, mock_send_mail):
+        mock_send_mail.return_value = 1  # Pretend it succeeds
+        # Your test logic here
+
 
 class SessionModelTests(TestCase):
     def test_create_valid_session(self):

@@ -1,7 +1,16 @@
 import os
 import logging
 from django.core.management.base import BaseCommand
-from voting_sessions.utils import send_notifications  
+from voting_sessions.utils import send_notifications
+from unittest.mock import patch
+from django.core.mail import send_mail
+
+print("TEST MODE: Skipping email")
+
+@patch("django.core.mail.send_mail")
+def test_email_function(mock_send_mail):
+    mock_send_mail.return_value = 1  # Simulate successful email sending
+    # Run your test logic here  
 
 logger = logging.getLogger(__name__)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))  # Adjust based on script depth

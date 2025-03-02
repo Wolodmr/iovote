@@ -15,10 +15,50 @@ import os
 import logging
 from decouple import config
 import os
+import sys
 from dotenv import load_dotenv
+from dotenv import dotenv_values
 
-load_dotenv()  # Load environment variables from .env file
+load_dotenv(override=True)  # Ensure .env is reloaded
 
+if "test" in sys.argv:
+    EMAIL_BACKEND = "django.core.mail.backends.locmem.EmailBackend"
+    EMAIL_HOST_PASSWORD = "TEST_PASSWORD"
+
+# Ensure test emails do not use SMTP
+if "test" in sys.argv or "pytest" in sys.argv:
+    EMAIL_BACKEND = "django.core.mail.backends.locmem.EmailBackend"
+    EMAIL_HOST_PASSWORD = "test_password"  # Ensure test environment does not use real credentials
+
+    print(f"DEBUG EMAIL_BACKEND: {EMAIL_BACKEND}")  # Debugging output
+
+load_dotenv(override=True)
+
+load_dotenv()
+env_vars = dotenv_values(".env")
+# Force overwrite the environment variable
+os.environ["EMAIL_HOST_PASSWORD"] = env_vars.get("EMAIL_HOST_PASSWORD", "")
+
+import sys
+
+if "test" in sys.argv:
+    EMAIL_BACKEND = "django.core.mail.backends.locmem.EmailBackend"  # Use in-memory email backend for tests
+
+# Debugging output
+# print("✅ EMAIL_HOST_PASSWORD (Forced from .env):", os.environ["EMAIL_HOST_PASSWORD"])
+
+BASE_DIR = Path(__file__).resolve().parent.parent
+env_path = BASE_DIR / '.env'  # Ensure we specify the path explicitly
+
+
+env_vars = dotenv_values(".env")
+# print("DEBUG ENV LOADING:", env_vars)  # Debugging
+
+EMAIL_HOST_PASSWORD = os.getenv("EMAIL_HOST_PASSWORD")  # Define the variable
+# print("Loaded EMAIL_HOST_PASSWORD:", EMAIL_HOST_PASSWORD)
+
+
+# print("EMAIL_HOST_PASSWORD:", os.environ.get("EMAIL_HOST_PASSWORD"))  # Debugging
 LOG_LEVEL = os.environ.get("LOG_LEVEL", "INFO")
 
 LOGGING = {
@@ -55,10 +95,10 @@ EMAIL_HOST = "smtp.gmail.com"
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 EMAIL_USE_SSL = False
-EMAIL_HOST_USER='postvezha@gmail.com'
-EMAIL_HOST_PASSWORD='tfzcwebzuzvkjgbd'
+EMAIL_HOST_USER = os.getenv("EMAIL_HOST_USER")
+EMAIL_HOST_PASSWORD = os.getenv("EMAIL_HOST_PASSWORD")
 # DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
-
+# print("EMAIL_HOST_PASSWORD:", EMAIL_HOST_PASSWORD)  # Debugging
 import logging
 logging.basicConfig(level=logging.DEBUG)
 
@@ -206,6 +246,31 @@ STATICFILES_DIRS = [
     BASE_DIR / 'users' / 'static',
 ]
 
+import sys
 
+if "test" in sys.argv:
+    EMAIL_BACKEND = "django.core.mail.backends.locmem.EmailBackend"
+    EMAIL_HOST = "localhost"  # Avoid real SMTP lookup
+    EMAIL_PORT = 1025  # Dummy port
+    EMAIL_USE_TLS = False
+    EMAIL_USE_SSL = False
+    EMAIL_HOST_USER = ""
+    EMAIL_HOST_PASSWORD = ""
 
+import sys
 
+if "test" in sys.argv:
+    print("⚠️ Running tests - disabling SMTP settings!")
+    EMAIL_BACKEND = "django.core.mail.backends.locmem.EmailBackend"
+    EMAIL_HOST = ""
+    EMAIL_PORT = None
+    EMAIL_USE_TLS = False
+    EMAIL_USE_SSL = False
+    EMAIL_HOST_USER = ""
+    EMAIL_HOST_PASSWORD = ""
+
+    import os
+    os.environ["EMAIL_HOST_PASSWORD"] = ""  # Force clear
+    
+import os
+os.environ["DJANGO_TESTING"] = "True"
