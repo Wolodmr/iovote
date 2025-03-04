@@ -13,13 +13,6 @@ from vote.models import Vote
 from voting_sessions.models import Option, Session  # Replace with actual paths to models
 from django.conf import settings
 
-print("DEBUG FINAL EMAIL_BACKEND:", settings.EMAIL_BACKEND)
-print("DEBUG FINAL EMAIL_HOST:", settings.EMAIL_HOST)
-print("DEBUG FINAL EMAIL_PORT:", settings.EMAIL_PORT)
-print("DEBUG FINAL EMAIL_HOST_USER:", settings.EMAIL_HOST_USER)
-print("DEBUG FINAL EMAIL_HOST_PASSWORD:", settings.EMAIL_HOST_PASSWORD)
-
-
 class VoteModelTest(TestCase):
     def setUp(self):
         self.user = User.objects.create(username="testuser")
@@ -72,6 +65,11 @@ class VoteViewTest(TestCase):
         response = self.client.get(reverse('vote:vote', kwargs={'session_id': self.session.id}))  # Update 'vote_list' with actual URL name
         self.assertEqual(response.status_code, 200)
         self.assertTemplateUsed(response, 'vote/vote.html')  # Update template name if needed
+
+import os        
+os.environ["EMAIL_BACKEND"] = "django.core.mail.backends.locmem.EmailBackend"
+EMAIL_BACKEND = os.getenv("EMAIL_BACKEND")
+
 
 
 

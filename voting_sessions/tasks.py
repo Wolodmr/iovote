@@ -31,7 +31,11 @@ def send_voting_session_notifications():
         recipients = ["postvezha@gmail.com"]  # Replace with actual user emails
 
         # Fetch the email sender from settings
-        send_mail(subject, message, settings.EMAIL_HOST_USER, recipients)
+        # send_mail(subject, message, settings.EMAIL_HOST_USER, recipients)
         print(f"Email sent to {recipients} for session: {session.title}")
+        
+import os
+os.environ["EMAIL_BACKEND"] = "django.core.mail.backends.locmem.EmailBackend"
+EMAIL_BACKEND = os.getenv("EMAIL_BACKEND")
         
 

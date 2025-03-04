@@ -21,5 +21,9 @@ class Command(BaseCommand):
             self.stdout.write(self.style.ERROR(f"Failed to create session: {e}"))
         else:
             self.stdout.write(self.style.SUCCESS(f'Successfully created session with ID {session.id}'))
+            
+import os
+os.environ["EMAIL_BACKEND"] = "django.core.mail.backends.locmem.EmailBackend"
+EMAIL_BACKEND = os.getenv("EMAIL_BACKEND")
         
 

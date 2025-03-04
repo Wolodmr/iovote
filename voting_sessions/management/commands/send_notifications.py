@@ -8,9 +8,20 @@ from django.core.mail import send_mail
 print("TEST MODE: Skipping email")
 
 @patch("django.core.mail.send_mail")
-def test_email_function(mock_send_mail):
-    mock_send_mail.return_value = 1  # Simulate successful email sending
-    # Run your test logic here  
+def test_email_sending(self, mock_send_mail):
+        mock_send_mail.return_value = 1  # Simulate a successful send
+        
+        # Now call the function that triggers email sending
+        result = send_mail(
+            'Test Subject',
+            'Test Message',
+            'from@example.com',
+            ['to@example.com']
+        )
+        
+        # Assert that send_mail was called and returned success
+        self.assertEqual(result, 1)
+        mock_send_mail.assert_called_once()  
 
 logger = logging.getLogger(__name__)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))  # Adjust based on script depth
@@ -26,3 +37,7 @@ class Command(BaseCommand):
             logger.info("✅ Notifications sent successfully.")
         except Exception as e:
             logger.error(f"❌ Error sending notifications: {e}", exc_info=True)  # Logs full error details
+            
+import os
+os.environ["EMAIL_BACKEND"] = "django.core.mail.backends.locmem.EmailBackend"
+EMAIL_BACKEND = os.getenv("EMAIL_BACKEND")

@@ -20,7 +20,7 @@ class Session(models.Model):
     voting_duration = models.DurationField(null=True, blank=True, default=timedelta(hours=1))  # Duration of the voting phase
     description = models.TextField(default="Default description", null=True, blank=True)  # Session description
     email_sent = models.BooleanField(default=False)
-    creator_email = models.EmailField(max_length=255, blank=True, null=True, default="postvezha@gmail.com")
+    creator_email = models.EmailField(max_length=255, blank=True, null=True, default="sessioncreator@gmail.com")
     invitation_endpoint = models.URLField(max_length=500, blank=True, null=True, default="https://example.comm")
 
     def __str__(self):

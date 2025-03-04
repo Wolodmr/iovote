@@ -21,28 +21,10 @@ from dotenv import dotenv_values
 
 load_dotenv(override=True)  # Ensure .env is reloaded
 
-if "test" in sys.argv:
-    EMAIL_BACKEND = "django.core.mail.backends.locmem.EmailBackend"
-    EMAIL_HOST_PASSWORD = "TEST_PASSWORD"
-
 # Ensure test emails do not use SMTP
-if "test" in sys.argv or "pytest" in sys.argv:
-    EMAIL_BACKEND = "django.core.mail.backends.locmem.EmailBackend"
-    EMAIL_HOST_PASSWORD = "test_password"  # Ensure test environment does not use real credentials
-
-    print(f"DEBUG EMAIL_BACKEND: {EMAIL_BACKEND}")  # Debugging output
-
-load_dotenv(override=True)
-
-load_dotenv()
 env_vars = dotenv_values(".env")
 # Force overwrite the environment variable
 os.environ["EMAIL_HOST_PASSWORD"] = env_vars.get("EMAIL_HOST_PASSWORD", "")
-
-import sys
-
-if "test" in sys.argv:
-    EMAIL_BACKEND = "django.core.mail.backends.locmem.EmailBackend"  # Use in-memory email backend for tests
 
 # Debugging output
 # print("✅ EMAIL_HOST_PASSWORD (Forced from .env):", os.environ["EMAIL_HOST_PASSWORD"])
@@ -90,15 +72,6 @@ USE_I18N = True
 
 USE_TZ = True
 
-EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
-EMAIL_HOST = "smtp.gmail.com"
-EMAIL_PORT = 587
-EMAIL_USE_TLS = True
-EMAIL_USE_SSL = False
-EMAIL_HOST_USER = os.getenv("EMAIL_HOST_USER")
-EMAIL_HOST_PASSWORD = os.getenv("EMAIL_HOST_PASSWORD")
-# DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
-# print("EMAIL_HOST_PASSWORD:", EMAIL_HOST_PASSWORD)  # Debugging
 import logging
 logging.basicConfig(level=logging.DEBUG)
 
@@ -128,6 +101,8 @@ DATABASES = {
 
 
 # Application definition
+
+DEBUG = True
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -222,20 +197,6 @@ AUTH_PASSWORD_VALIDATORS = [
 
 APPEND_SLASH = True
 
-# Internationalization
-# https://docs.djangoproject.com/en/5.0/topics/i18n/
-
-
-
-
-# Static files (CSS, JavaScript, Images)
-
-
-# Default primary key field type
-# https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
-
-
-
 STATIC_URL = '/static/'
 
 STATIC_ROOT = BASE_DIR / 'staticfiles'
@@ -246,21 +207,20 @@ STATICFILES_DIRS = [
     BASE_DIR / 'users' / 'static',
 ]
 
-import sys
+# Default email backend (for production)
+EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
+EMAIL_HOST = "smtp.gmail.com"
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+EMAIL_USE_SSL = False
+EMAIL_HOST_USER = os.getenv("EMAIL_HOST_USER")
+EMAIL_HOST_PASSWORD = os.getenv("EMAIL_HOST_PASSWORD")
 
-if "test" in sys.argv:
-    EMAIL_BACKEND = "django.core.mail.backends.locmem.EmailBackend"
-    EMAIL_HOST = "localhost"  # Avoid real SMTP lookup
-    EMAIL_PORT = 1025  # Dummy port
-    EMAIL_USE_TLS = False
-    EMAIL_USE_SSL = False
-    EMAIL_HOST_USER = ""
-    EMAIL_HOST_PASSWORD = ""
-
-import sys
-
-if "test" in sys.argv:
+TESTING = "test" in sys.argv
+# Override for tests
+if "test" in sys.argv or "pytest" in sys.argv:
     print("⚠️ Running tests - disabling SMTP settings!")
+    
     EMAIL_BACKEND = "django.core.mail.backends.locmem.EmailBackend"
     EMAIL_HOST = ""
     EMAIL_PORT = None
@@ -269,8 +229,6 @@ if "test" in sys.argv:
     EMAIL_HOST_USER = ""
     EMAIL_HOST_PASSWORD = ""
 
-    import os
     os.environ["EMAIL_HOST_PASSWORD"] = ""  # Force clear
-    
-import os
-os.environ["DJANGO_TESTING"] = "True"
+
+    print(f"✅ DEBUG FINAL EMAIL_BACKEND: {EMAIL_BACKEND}")  # Verify override

@@ -4,7 +4,7 @@ from .models import Session, Option
 
 @admin.register(Session)
 class SessionAdmin(admin.ModelAdmin):
-    list_display = ('title', 'session_start_time', 'session_end_time')
+    list_display = ('title', 'session_start_time', 'session_end_time', 'creator_email')
 
 @admin.register(Option)
 class OptionAdmin(admin.ModelAdmin):
