@@ -22,8 +22,5 @@ class Command(BaseCommand):
         else:
             self.stdout.write(self.style.SUCCESS(f'Successfully created session with ID {session.id}'))
             
-import os
-os.environ["EMAIL_BACKEND"] = "django.core.mail.backends.locmem.EmailBackend"
-EMAIL_BACKEND = os.getenv("EMAIL_BACKEND")
-        
+
 

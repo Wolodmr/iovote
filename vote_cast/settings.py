@@ -14,17 +14,28 @@ from pathlib import Path
 import os
 import logging
 from decouple import config
-import os
 import sys
 from dotenv import load_dotenv
 from dotenv import dotenv_values
+import logging
+
+logging.getLogger("django.core.mail").setLevel(logging.CRITICAL)
+
+print('ZERO')
+
+# Load environment variables from a .env file if it exists
+BASE_DIR = Path(__file__).resolve().parent
+load_dotenv(BASE_DIR / ".env")
+
+# Get the settings module, defaulting to 'vote_cast.settings'
+DJANGO_SETTINGS_MODULE = os.getenv("DJANGO_SETTINGS_MODULE", "vote_cast.settings")
 
 load_dotenv(override=True)  # Ensure .env is reloaded
 
 # Ensure test emails do not use SMTP
 env_vars = dotenv_values(".env")
 # Force overwrite the environment variable
-os.environ["EMAIL_HOST_PASSWORD"] = env_vars.get("EMAIL_HOST_PASSWORD", "")
+# os.environ["EMAIL_HOST_PASSWORD"] = env_vars.get("EMAIL_HOST_PASSWORD", "")
 
 # Debugging output
 # print("✅ EMAIL_HOST_PASSWORD (Forced from .env):", os.environ["EMAIL_HOST_PASSWORD"])
@@ -33,11 +44,11 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 env_path = BASE_DIR / '.env'  # Ensure we specify the path explicitly
 
 
-env_vars = dotenv_values(".env")
-# print("DEBUG ENV LOADING:", env_vars)  # Debugging
+# env_vars = dotenv_values(".env")
+# # print("DEBUG ENV LOADING:", env_vars)  # Debugging
 
-EMAIL_HOST_PASSWORD = os.getenv("EMAIL_HOST_PASSWORD")  # Define the variable
-# print("Loaded EMAIL_HOST_PASSWORD:", EMAIL_HOST_PASSWORD)
+# EMAIL_HOST_PASSWORD = os.getenv("EMAIL_HOST_PASSWORD")  # Define the variable
+# # print("Loaded EMAIL_HOST_PASSWORD:", EMAIL_HOST_PASSWORD)
 
 
 # print("EMAIL_HOST_PASSWORD:", os.environ.get("EMAIL_HOST_PASSWORD"))  # Debugging
@@ -48,18 +59,15 @@ LOGGING = {
     'disable_existing_loggers': False,
     'handlers': {
         'console': {
+            'level': 'ERROR',
             'class': 'logging.StreamHandler',
         },
-    },
-    'root': {
-        'handlers': ['console'],
-        'level': LOG_LEVEL,
     },
     'loggers': {
         'django': {
             'handlers': ['console'],
-            'level': LOG_LEVEL,
-            'propagate': False,
+            'level': 'ERROR',
+            'propagate': True,
         },
     },
 }
@@ -194,6 +202,7 @@ AUTH_PASSWORD_VALIDATORS = [
         'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
     },
 ]
+ADMIN_EMAIL = 'postvezha@gmail.com'
 
 APPEND_SLASH = True
 
@@ -212,23 +221,38 @@ EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
 EMAIL_HOST = "smtp.gmail.com"
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
-EMAIL_USE_SSL = False
-EMAIL_HOST_USER = os.getenv("EMAIL_HOST_USER")
-EMAIL_HOST_PASSWORD = os.getenv("EMAIL_HOST_PASSWORD")
+EMAIL_HOST_USER = "postvezha@gmail.com"
+EMAIL_HOST_PASSWORD = "ljosehygsmlcunls"
 
-TESTING = "test" in sys.argv
-# Override for tests
-if "test" in sys.argv or "pytest" in sys.argv:
-    print("⚠️ Running tests - disabling SMTP settings!")
+import logging
+logging.basicConfig(level=logging.DEBUG)
+
+import sys
+
+if "test" in sys.argv:  # Check if running tests
+    DEBUG = True
+    print("🚨 FORCING EMAIL_BACKEND TO CONSOLE IN TESTS")
+    EMAIL_BACKEND = "django.core.mail.backends.loc.EmailBackend"
+    EMAIL_HOST = ''
+    EMAIL_PORT = ''
+    EMAIL_HOST_USER = os.getenv("EMAIL_HOST_USER")
+    EMAIL_HOST_PASSWORD = os.getenv("EMAIL_HOST_PASSWORD")
     
-    EMAIL_BACKEND = "django.core.mail.backends.locmem.EmailBackend"
-    EMAIL_HOST = ""
-    EMAIL_PORT = None
-    EMAIL_USE_TLS = False
-    EMAIL_USE_SSL = False
-    EMAIL_HOST_USER = ""
-    EMAIL_HOST_PASSWORD = ""
+    logger = logging.getLogger(__name__)
+    logger.debug(f"✅ Final EMAIL_BACKEND: {EMAIL_BACKEND}")
 
-    os.environ["EMAIL_HOST_PASSWORD"] = ""  # Force clear
+EMAIL_FAIL_SILENTLY = False
 
-    print(f"✅ DEBUG FINAL EMAIL_BACKEND: {EMAIL_BACKEND}")  # Verify override
+print(f"EMAIL_HOST_USER: {EMAIL_HOST_USER}")
+print(f"EMAIL_HOST_PASSWORD: {EMAIL_HOST_PASSWORD[:3]}***")  # Masked for security
+
+
+
+import os
+
+EMAIL_HOST_USER = os.getenv("EMAIL_HOST_USER", "postvezha@gmail.com")
+EMAIL_HOST_PASSWORD = os.getenv("EMAIL_HOST_PASSWORD", "ljosehygsmlcunls")  # Replace with the correct app password
+
+print(f"✅ Loaded EMAIL_HOST_USER: {EMAIL_HOST_USER}")
+print(f"✅ Loaded EMAIL_HOST_PASSWORD: {EMAIL_HOST_PASSWORD[:3]}***")  # Masked for security
+

@@ -1,69 +1,52 @@
-#woting_sessions/utils.py
-
+#voting_sessions/utils.py
 import os
 import logging
-from django.core.mail import send_mail
-from django.utils.timezone import now, localtime, is_naive, make_aware, get_current_timezone
-from datetime import timedelta
-from voting_sessions.models import Session 
-from unittest.mock import patch
-from django.core.mail import send_mail
 import sys
+from datetime import timedelta
+from django.core.mail import send_mail, get_connection
+from django.utils.timezone import localtime, now
 from django.conf import settings
+from voting_sessions.models import Session
 
-
-
-BASE_DIR = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))  # Adjust based on script depth
-LOG_FILE_PATH = os.path.join(BASE_DIR, "email_debug.log")
+# Logger configuration
+logger = logging.getLogger(__name__)
 logging.basicConfig(
     filename="email_debug.log",
     level=logging.DEBUG,
     format="%(asctime)s - %(levelname)s - %(message)s"
 )
-logger = logging.getLogger(__name__)
-
-import sys
-from django.core.mail import send_mail
 
 def send_notifications():
     """Send email notifications for upcoming voting sessions."""
     
-    # 🚫 Prevent automatic execution in tests
-    if "test" in sys.argv:
-        print("🚫 Skipping send_notifications() during tests.")
-        return  
-
-    print("📌 Running send_notifications()...")  # Debugging line
-
-    cet_now = localtime(now())  
-    target_time = cet_now + timedelta(hours=1)  
-
-    sessions = Session.objects.filter(session_start_time__lte=target_time)
+    cet_now = localtime(now())
+    target_time = cet_now + timedelta(hours=1)
     
-    logger.debug(f"📌 Found {sessions.count()} sessions for notification")
-    print(f"📌 Found {sessions.count()} sessions for notification")  
-
+    sessions = Session.objects.filter(session_start_time__lte=target_time)
+    print(sessions)
+    for session in Session.objects.all():
+        print(session, target_time)
+    logger.debug(f"Found {sessions.count()} sessions for notification")
+    
     if not sessions.exists():
         logger.info("No sessions found for notification.")
-        print("❌ No sessions found for notification.")  
         return
-
+    
     for session in sessions:
-        logger.debug(f"📌 Processing session: {session.title} at {session.session_start_time}")
-        print(f"📌 Processing session: {session.title} at {session.session_start_time}")  
-
         subject = f"Voting Session Reminder: {session.title}"
-        message = f"The voting session '{session.title}' starts in one hour. Don't forget to participate!"
-        recipient_list = [session.creator_email]  
-
+        message = (
+            f"The voting session '{session.title}' starts in one hour. "
+            "Don't forget to participate!"
+        )
+        recipient_list = [session.creator_email]
+        
         try:
-            logger.info(f"📌 Attempting to send email for session: {session.title}")
-            print(f"🚀 Calling send_mail for session: {session.title}")  
-            # send_mail(subject, message, "postvezha@gmail.com", recipient_list)  
-            session.email_sent = True  
+            connection = get_connection(backend=settings.EMAIL_BACKEND)
+            send_mail(
+                subject, message, settings.EMAIL_HOST_USER, recipient_list, connection=connection
+            )
+            session.email_sent = True
             session.save()
-            logger.info(f"✅ Email sent successfully for session: {session.title}")
+            logger.info(f"Email sent successfully for session: {session.title}")
         except Exception as e:
-            logger.error(f"❌ Error sending email for session: {session.title}: {e}", exc_info=True)
-
-
+            logger.error(f"Error sending email for session: {session.title}: {e}", exc_info=True)

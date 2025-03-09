@@ -66,9 +66,9 @@ class VoteViewTest(TestCase):
         self.assertEqual(response.status_code, 200)
         self.assertTemplateUsed(response, 'vote/vote.html')  # Update template name if needed
 
-import os        
-os.environ["EMAIL_BACKEND"] = "django.core.mail.backends.locmem.EmailBackend"
-EMAIL_BACKEND = os.getenv("EMAIL_BACKEND")
+# import os        
+# os.environ["EMAIL_BACKEND"] = "django.core.mail.backends.locmem.EmailBackend"
+# EMAIL_BACKEND = os.getenv("EMAIL_BACKEND")
 
 
 

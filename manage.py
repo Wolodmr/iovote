@@ -3,6 +3,12 @@
 import os
 import sys
 
+if "test" in sys.argv:
+    os.environ.setdefault("DJANGO_SETTINGS_MODULE", "vote_cast.test_settings")
+else:
+    os.environ.setdefault("DJANGO_SETTINGS_MODULE", "vote_cast.settings")
+
+
 def main():
     """Run administrative tasks."""
     os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'vote_cast.settings')

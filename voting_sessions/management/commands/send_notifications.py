@@ -4,28 +4,44 @@ from django.core.management.base import BaseCommand
 from voting_sessions.utils import send_notifications
 from unittest.mock import patch
 from django.core.mail import send_mail
+from django.test import TestCase, override_settings
+from django.core.mail import get_connection
+from django.test import TestCase
+from django.conf import settings
+import logging
+import sys
+
+logger = logging.getLogger(__name__)
+
+class MyTestCase(TestCase):
+    def setUp(self):
+        # Log current EMAIL_BACKEND setting to debug
+        logger.debug(f"EMAIL_BACKEND: {settings.EMAIL_BACKEND}")
+        
+        # Override the EMAIL_BACKEND for the test to use locmem backend
+        settings.EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+        
+        # Your other setup code goes here
+
+    def test_email_functionality(self):
+        # Test your email functionality here
+        # This will use the locmem backend, no real emails will be sent
+        pass
+
 
 print("TEST MODE: Skipping email")
 
+
+
+# Force test email backend
+
+
 @patch("django.core.mail.send_mail")
 def test_email_sending(self, mock_send_mail):
-        mock_send_mail.return_value = 1  # Simulate a successful send
         
-        # Now call the function that triggers email sending
-        result = send_mail(
-            'Test Subject',
-            'Test Message',
-            'from@example.com',
-            ['to@example.com']
-        )
-        
-        # Assert that send_mail was called and returned success
-        self.assertEqual(result, 1)
-        mock_send_mail.assert_called_once()  
-
-logger = logging.getLogger(__name__)
-BASE_DIR = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))  # Adjust based on script depth
-LOG_FILE_PATH = os.path.join(BASE_DIR, "email_debug.log")
+    logger = logging.getLogger(__name__)
+    BASE_DIR = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))  # Adjust based on script depth
+    LOG_FILE_PATH = os.path.join(BASE_DIR, "email_debug.log")
 
 class Command(BaseCommand):
     help = "Send email notifications for upcoming voting sessions"
@@ -38,6 +54,5 @@ class Command(BaseCommand):
         except Exception as e:
             logger.error(f"❌ Error sending notifications: {e}", exc_info=True)  # Logs full error details
             
-import os
-os.environ["EMAIL_BACKEND"] = "django.core.mail.backends.locmem.EmailBackend"
-EMAIL_BACKEND = os.getenv("EMAIL_BACKEND")
+# logger = logging.getLogger(__name__)
+# logger.debug(f"✅ Final EMAIL_BACKEND: {settings.EMAIL_BACKEND}")

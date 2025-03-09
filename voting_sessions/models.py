@@ -1,105 +1,119 @@
-# voting_sessions/models.py
-
 from django.db import models
 from django.core.exceptions import ValidationError
-from django.utils.timezone import timedelta, make_aware
 from django.utils import timezone
-from django.utils.timezone import now
-from django.utils.timezone import localtime
-from django.utils import timezone    
-from django.core.exceptions import ValidationError
+from django.utils.timezone import timedelta
+from django.urls import reverse
+from django.conf import settings
+from django.core.mail import send_mail
 
 def calculate_default_end_time():
-        return timezone.now() + timedelta(days=3)
-    
+    """Default session end time: 3 days from now"""
+    return timezone.now() + timedelta(days=3)
+
 class Session(models.Model):
-    title = models.CharField(max_length=200, null=True, blank=True)  # Single title for the session (choices + voting)
-    session_start_time = models.DateTimeField(null=True, blank=True)  # When the session starts (choices phase)
+    title = models.CharField(max_length=200, null=True, blank=True)
+    session_start_time = models.DateTimeField(null=True, blank=True)
     session_end_time = models.DateTimeField(default=calculate_default_end_time, null=True, blank=True)
-    choice_duration = models.DurationField(null=True, blank=True, default=timedelta(hours=1))  # Duration of the choices phase
-    voting_duration = models.DurationField(null=True, blank=True, default=timedelta(hours=1))  # Duration of the voting phase
-    description = models.TextField(default="Default description", null=True, blank=True)  # Session description
+    choice_duration = models.DurationField(null=True, blank=True, default=timedelta(hours=1))
+    voting_duration = models.DurationField(null=True, blank=True, default=timedelta(hours=1))
+    description = models.TextField(default="Default description", null=True, blank=True)
     email_sent = models.BooleanField(default=False)
-    creator_email = models.EmailField(max_length=255, blank=True, null=True, default="sessioncreator@gmail.com")
-    invitation_endpoint = models.URLField(max_length=500, blank=True, null=True, default="https://example.comm")
+    
+    # Automatically set to admin email from settings
+    creator_email = models.EmailField(
+        max_length=255, 
+        blank=True, 
+        null=True, 
+        default=settings.ADMIN_EMAIL  
+    )
+
+    # Auto-generated invitation link
+    invitation_endpoint = models.URLField(
+        max_length=500, 
+        blank=True, 
+        null=True, 
+        editable=False  
+    )
 
     def __str__(self):
-        return self.title    
+        return self.title or "Unnamed Session"
     
     @property
     def voting_start_time(self):
-        return self.session_start_time + self.choice_duration
+        if self.session_start_time and self.choice_duration:
+            return self.session_start_time + self.choice_duration
+        return None
 
     @property
     def voting_end_time(self):
-        return self.voting_start_time + self.voting_duration
+        if self.voting_start_time and self.voting_duration:
+            return self.voting_start_time + self.voting_duration
+        return None
 
     def is_active(self):
-        now = timezone.now()
-        return self.session_start_time <= now <= self.session_end_time
+        """Check if the session is currently active"""
+        now = timezone.localtime()
+        return self.session_start_time and self.session_start_time <= now <= self.session_end_time
 
     def is_voting_active(self):
-        now = timezone.now()
-        return self.voting_start_time <= now <= self.voting_end_time
-    
+        """Check if voting is currently active"""
+        now = timezone.localtime()
+        return self.voting_start_time and self.voting_start_time <= now <= self.voting_end_time
+
+    def get_invitation_link(self):
+        """Generate the session detail page link dynamically"""
+        site_url = getattr(settings, "SITE_URL", "http://127.0.0.1:8000")  
+        return f"{site_url}{reverse('session_detail', args=[self.id])}"
+
     def send_notification(self):
-        """
-        Send notifications for the session via email 
-        """
-        # Email logic (placeholder for now)
-        print(f"Email notification sent for session: {self}")
+        """Send email notification when a session is created or updated"""
+        if self.creator_email:
+            send_mail(
+                subject=f"Session Notification: {self.title}",
+                message=f"A new session has been created: {self.title}.\nDescription: {self.description}",
+                from_email="noreply@example.com",
+                recipient_list=[self.creator_email],
+                fail_silently=True,
+            )
 
     def clean(self):
-        
-        # Ensure datetime fields are aware before validation
-        if timezone.is_naive(self.session_start_time):
+        """Ensure valid session timings"""
+        if self.session_start_time and timezone.is_naive(self.session_start_time):
             raise ValidationError("Session start time must be timezone-aware.")
-        if timezone.is_naive(self.session_end_time):
+        if self.session_end_time and timezone.is_naive(self.session_end_time):
             raise ValidationError("Session end time must be timezone-aware.")
 
-        # Validate start and end times
-        if localtime(self.session_start_time) < timezone.now():
+        if self.session_start_time and self.session_start_time < timezone.now():
             raise ValidationError("Session start time cannot be in the past.")
-        if localtime(self.session_end_time) < self.session_start_time:
+        if self.session_end_time and self.session_end_time < self.session_start_time:
             raise ValidationError("Session end time must be after the start time.")
 
-        
     def save(self, *args, **kwargs):
-        self.full_clean()  # Ensure validations are applied
-        is_new = self.pk is None  # Check if the instance is being created for the first time
+        """Save session with validation and notification"""
+        self.full_clean()
+
+        # Auto-generate the invitation link
+        if not self.invitation_endpoint:
+            self.invitation_endpoint = self.get_invitation_link()
+        
+        is_new = self.pk is None  
         super().save(*args, **kwargs)
         
-        # Call send_notification only if the instance is newly created or updated
         if is_new or self.has_changes():
             self.send_notification()
 
     def has_changes(self):
-        """
-        Check if certain fields have changed before calling `send_notification`.
-        """
+        """Check if key fields have changed"""
         original = type(self).objects.filter(pk=self.pk).first()
         if not original:
             return False
-        # print(f"Original: {original.title}, New: {self.title}")  # Add print statement to debug
-        return (
-            self.title != original.title
-            or self.description != original.description
-            or self.session_start_time != original.session_start_time
-            or self.choice_duration != original.choice_duration
-            or self.voting_duration != original.voting_duration
-        )
+        fields_to_check = ["title", "description", "session_start_time", "choice_duration", "voting_duration"]
+        return any(getattr(self, field) != getattr(original, field) for field in fields_to_check)
 
-    
 class Option(models.Model):
-    session = models.ForeignKey('voting_sessions.Session', on_delete=models.CASCADE, related_name='options')
+    session = models.ForeignKey(Session, on_delete=models.CASCADE, related_name='options')
     title = models.CharField(max_length=255)
     description = models.TextField(blank=True)
 
     def __str__(self):
         return self.title
-    
-# In your models.py
-class Meta:
-    app_label = 'voting_sessions'
-
-
