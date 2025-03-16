@@ -1,47 +1,33 @@
-{% load static %}
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contacts - Library Voting</title>
-    
-    <link rel="stylesheet" href="{% static 'css/common.css' %}">
-    <link rel="stylesheet" href="{% static 'main/css/styles.css' %}">
-    <link rel="stylesheet" href="{% static 'users/css/user.css' %}">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-</head>
-<body>
-    <nav class="main-nav">
-        <ul>
-            <li><a href="{% url 'home' %}"><i class="fas fa-home"></i> Home</a></li>
-            <li><a href="{% url 'about' %}"><i class="fas fa-info-circle"></i> About</a></li>
-            <li><a href="{% url 'users:user_list' %}"><i class="fas fa-users"></i> User List</a></li>
-        </ul>
-    </nav>
+
+{% extends "base.html" %}
+
+{% block content %}
+    <!-- Contact Form Section -->
     <div class="container">
         <h1>Contact Us</h1>
         <p>If you have any questions, feel free to reach out!</p>
-        <form action="{% url 'contact' %}" method="post">
 
+        <form action="{% url 'contact' %}" method="post">
             {% csrf_token %}
-            <div>
+            <div class="form-group">
                 <label for="name">Name:</label>
                 <input type="text" id="name" name="name" required>
             </div>
-            <div>
+
+            <div class="form-group">
                 <label for="email">Email:</label>
                 <input type="email" id="email" name="email" required>
             </div>
-            <div>
+
+            <div class="form-group">
                 <label for="message">Message:</label>
                 <textarea id="message" name="message" required></textarea>
             </div>
-            <div>
-                <button type="submit">Send Message</button>
+
+            <div class="form-group">
+                <button type="submit" class="btn-submit">Send Message</button>
             </div>
         </form>
     </div>
-</body>
-</html>
+{% endblock %}
 

@@ -7,15 +7,26 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{ user.username }}'s Profile</title>
+
+    <!-- Link to global stylesheet -->
     <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+
+    <!-- Link to user-specific styles -->
     <link rel="stylesheet" href="{% static 'users/css/user.css' %}">
 </head>
 <body>
+
     <div class="container">
         <h1>{{ user.username }}'s Profile</h1>
+        
+        <!-- Display user ID (optional, can be removed if unnecessary) -->
         <p>Details for user ID: {{ user.id }}</p>
+
+        <!-- Link back to the user list -->
         <a class="back-link" href="{% url 'users:user_list' %}">Back to User List</a>
     </div>
+
 </body>
 </html>
+
 

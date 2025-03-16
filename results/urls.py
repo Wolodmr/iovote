@@ -5,8 +5,9 @@ from . import views
 app_name = 'results'
 
 urlpatterns = [
-    path('', views.results_list, name='results_list'),
+    path('', views.results_list, name='results_list'),  
     path('<int:session_id>/detail/', views.results_detail, name='results_detail'),
-     path('<int:session_id>/results/', views.results_detail, name='results_detail'),
+    path('<int:session_id>/results/', views.results_detail, name='results_detail'),  # Duplicate URL pattern
 ]
+
 

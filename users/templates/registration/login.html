@@ -6,16 +6,25 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
+    
+    <!-- Link to external stylesheet -->
     <link rel="stylesheet" href="{% static 'css/styles.css' %}">
 </head>
 <body>
+
     <h1>Login</h1>
+
+    <!-- Login form -->
     <form method="post">
         {% csrf_token %}
         {{ form.as_p }}
-        <button type="submit">Login</button>
+        <button type="submit" class="btn btn-primary">Sign In</button>
     </form>
-    
+    <p class="mt-3">
+        Don't have an account? 
+        <a href="{% url 'users:signup' %}" class="text-primary">Sign Up here</a>.
+    </p>
+    <!-- Password reset link -->
     <a href="{% url 'users:password_reset' %}">Forgot password?</a>
 
 </body>

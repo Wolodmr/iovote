@@ -1,31 +1,31 @@
-from django.shortcuts import render
-from django.contrib.auth.models import User  
-from django.contrib.auth.decorators import login_required
+#main/views.py
 from django.shortcuts import render, redirect
+from django.contrib.auth.models import User  
 from django.http import HttpResponse
 from django.views.decorators.http import require_POST
-from django.views import View
 
 @require_POST
 def contact_view(request):
+    """Handles contact form submission."""
     name = request.POST.get('name')
     email = request.POST.get('email')
     message = request.POST.get('message')
 
-    # Here you would typically handle the form data (e.g., send an email, save to a database, etc.)
-    # For now, we'll just return a simple response.
+    # You can add logic here (e.g., send an email, save to DB, etc.)
     return HttpResponse(f'Thank you for your message, {name}!')
 
 def home(request):
-    return render(request, 'main/home.html', {'user': request.user})
-
+    """Renders the home page."""
+    return render(request, 'main/home.html')
 
 def about(request):
-    users = User.objects.all()  # Fetch all users
-    return render(request, 'main/about.html', {'users': users}) 
+    """Renders the about page with a list of all users."""
+    users = User.objects.all()
+    return render(request, 'main/about.html', {'users': users})
 
 def contacts(request):
-    users = User.objects.all()  # Fetch all users
-    return render(request, 'main/contacts.html', {'users': users})  # Pass users to the template
+    """Renders the contacts page with a list of all users."""
+    users = User.objects.all()
+    return render(request, 'main/contacts.html', {'users': users})
 
 

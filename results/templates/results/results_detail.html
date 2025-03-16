@@ -1,17 +1,21 @@
 <!-- results/templates/results/results_detail.html -->
+{# results/templates/results/results_detail.html #}
 {% extends "base.html" %}
+
 {% block content %}
-<h1>Results for {{ session.title }}</h1>
-<p>{{ session.description }}</p>
+    <h1>{{ session.title }}</h1>
+    <p>{{ session.description }}</p>
 
-<h2>Voting Results:</h2>
-<ul>
-    {% for vote in vote_counts %}
-        <li>{{ vote.option__title }}: {{ vote.count }} votes</li>
-    {% empty %}
+    <h2>Voting Results:</h2>
+    {% if vote_counts %}
+        <ul>
+            {% for vote in vote_counts %}
+                <li>{{ vote.option__title }}: {{ vote.count }} votes</li>
+            {% endfor %}
+        </ul>
+    {% else %}
         <p>No votes have been cast for this session yet.</p>
-    {% endfor %}
-</ul>
+    {% endif %}
 
-<a href="{% url 'voting_sessions:session_list' %}">Back to Sessions</a>
+    <a href="{% url 'voting_sessions:session_list' %}">Back to Sessions</a>
 {% endblock %}

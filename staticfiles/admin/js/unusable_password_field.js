@@ -27,4 +27,3 @@ try {
         option.dispatchEvent(new Event('change'));
     });
 }
-

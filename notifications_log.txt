@@ -2532,3 +2532,17 @@ Traceback (most recent call last):
     return codecs.charmap_encode(input,self.errors,encoding_table)[0]
 UnicodeEncodeError: 'charmap' codec can't encode character '\u2705' in position 0: character maps to <undefined>
 Script finished at Sun 03/09/2025 18:02:09.32 
+Script started at Sat 03/15/2025 19:44:13.35 
+Running Python script... 
+Script finished at Sat 03/15/2025 19:44:16.13 
+Script started at Sat 03/15/2025 19:45:28.76 
+Running Python script... 
+Recipient List: ['postvezha@gmail.com', 'lane061799@gmail.com']
+Generated voting URL: http://127.0.0.1:8000/voting_sessions/invite/47b1e75e-509d-4e95-b25a-117147af8f04/
+Script finished at Sat 03/15/2025 19:45:33.76 
+Script started at Sat 03/15/2025 20:40:17.33 
+Running Python script... 
+Script finished at Sat 03/15/2025 20:40:20.19 
+Script started at Sat 03/15/2025 20:45:19.52 
+Running Python script... 
+Script finished at Sat 03/15/2025 20:45:22.45 

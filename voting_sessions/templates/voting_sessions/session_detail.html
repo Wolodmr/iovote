@@ -1,50 +1,57 @@
-<!-- voting_sessions/templates/voting_sessions/session_detail.html -->
-
 {% extends "base.html" %}
 {% load static %}
 {% block content %}
-<h1>{{ session.title }}</h1>
-<p>{{ session.description }}</p>
-<p><strong>Session Title:</strong> {{ session.title}}</p>
-<p><strong>Session Start:</strong> {{ session.session_start_time }}</p>
-<p><strong>Session End:</strong> {{ session.session_end_time }}</p>
-<p><strong>Choice Duration:</strong> {{ session.choice_duration }}</p>
-<p><strong>Voting Duration:</strong> {{ session.voting_duration }}</p>
 
-<div class="container">
-<h2>Available Options:</h2>
-<ul>
-    {% for option in session.options.all %}
-        <li>
-            {{ option.title }}
-            {% if option.description %}
-                <p>{{ option.description }}</p>
-            {% endif %}
-        </li>
-    {% empty %}
-        <p>No options are available for this session yet.</p>
-    {% endfor %}
-</ul>
+<div class="container mt-3">
+    <h4 class="text-center font-weight-bold mb-2">{{ session.title }}</h4>
+    <p class="text-center text-muted small mb-2">{{ session.description }}</p>
 
-<p>
-    <a href="{% url 'voting_sessions:session_list' %}">Back to Sessions</a>
+    <!-- Session Details -->
+    <div class="card p-2 shadow-sm">
+        <table class="table table-sm table-borderless mb-1">
+            <tbody>
+                <tr>
+                    <th class="text-left">Start:</th><td>{{ session.session_start_time }}</td>
+                    <th class="text-left">End:</th><td>{{ session.session_end_time }}</td>
+                </tr>
+                <tr>
+                    <th class="text-left">Choice Duration:</th><td>{{ session.choice_duration }}</td>
+                    <th class="text-left">Voting Duration:</th><td>{{ session.voting_duration }}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <!-- Available Options -->
+    <h6 class="mt-2 mb-1">Options:</h6>
     {% if session.options.exists %}
-        <a href="{% url 'vote:vote' session.id %}" class="btn btn-primary">Vote</a>
+        <ul class="list-group list-group-flush small">
+            {% for option in session.options.all %}
+                <li class="list-group-item py-1">
+                    <strong>{{ option.title }}</strong>
+                    {% if option.description %}
+                        <span class="text-muted small">{{ option.description }}</span>
+                    {% endif %}
+                </li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p class="text-muted small mb-1">No options available.</p>
     {% endif %}
-</p>
-{% if user.is_authenticated %}
-    <form method="post" action="{% url 'vote:vote' session.id %}">
-        {% csrf_token %}
-        <!-- Voting options here -->
-        <button type="submit">Vote</button>
-    </form>
-{% else %}
-    <p>You must <a href="{% url 'login' %}?next={{ request.path }}">log in</a> to vote.</p>
-{% endif %}
-{% endblock %}
+
+    <!-- Actions -->
+    <div class="d-flex justify-content-between mt-2">
+        <a href="{% url 'voting_sessions:session_list' %}" class="btn btn-sm btn-outline-secondary">Back</a>
+        {% if session.options.exists %}
+            <a href="{% url 'vote:vote' session.id %}" class="btn btn-sm btn-primary">Vote</a>
+        {% endif %}
+    </div>
+
+    {% if not request.user.is_authenticated %}
+        <p class="text-center text-danger small mt-2">
+            <a href="{% url 'login' %}?next={{ request.path }}" class="text-primary">Log in</a> to vote.
+        </p>
+    {% endif %}
 </div>
 
-
-
-
-
+{% endblock %}

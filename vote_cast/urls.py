@@ -1,9 +1,12 @@
+#vote_cast/urls.py
 from django.contrib import admin
 from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.static import static
+import debug_toolbar
 
 urlpatterns = [
+    path("__debug__/", include(debug_toolbar.urls)),
     path('admin/', admin.site.urls),
     path('', include('main.urls')),  # Main app URLs
     path('users/', include('users.urls', namespace='users')),  # Users app URLs
