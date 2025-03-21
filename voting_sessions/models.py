@@ -11,7 +11,7 @@ from django.contrib.auth import get_user_model
 
 
 def calculate_default_end_time():
-    return timezone.now() + timezone.timedelta(days=3)
+    return timezone.now() + timezone.timedelta(days=1)
 
 class Session(models.Model):
     title = models.CharField(max_length=200, null=True, blank=True, unique=True)
@@ -64,14 +64,14 @@ class Session(models.Model):
     @property
     def voting_end_time(self):
         return self.voting_start_time + self.voting_duration
-
+    
     def is_active(self):
-        print(f"DEBUG: session_end_time = {self.session_end_time}")  # Debugging output
         return self.session_end_time and self.session_end_time >= timezone.now()
 
     def is_voting_active(self):
         now = timezone.now()
         return self.voting_start_time <= now <= self.voting_end_time
+    
 
     def send_notification(self):
         if self.creator_email:

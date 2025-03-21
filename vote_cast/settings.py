@@ -15,7 +15,8 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = config('DJANGO_SECRET_KEY', default='default-secret-key')
 DEBUG = config('DJANGO_DEBUG', default=True, cast=bool)
 
-ALLOWED_HOSTS = config('DJANGO_ALLOWED_HOSTS', default='127.0.0.1,localhost').split(',')
+# Ensure ALLOWED_HOSTS is always a list
+ALLOWED_HOSTS = config('DJANGO_ALLOWED_HOSTS', default="127.0.0.1,localhost").split(",")
 
 # Application definition
 INSTALLED_APPS = [
@@ -27,15 +28,20 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'rest_framework',
     "debug_toolbar",
+    'django_plotly_dash',
+    'results',
+    "channels",
+    'crispy_forms',
 
     'main',
     'users',   
     'voting_sessions',
     'vote',
-    'results',
+    
 ]
 
 MIDDLEWARE = [
+    "csp.middleware.CSPMiddleware",
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -43,13 +49,27 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    "django_plotly_dash.middleware.BaseMiddleware",
     "debug_toolbar.middleware.DebugToolbarMiddleware",
-
 ]
 
-INTERNAL_IPS = [
-    "127.0.0.1",
-]
+CSP_FRAME_ANCESTORS = ["'self'"]  # Allows only the same origin to embed iframes
+CSP_DEFAULT_SRC = ["'self'"]  
+CSP_SCRIPT_SRC = ["'self'", "'unsafe-inline'", "https://cdn.plot.ly"]
+CSP_STYLE_SRC = ["'self'", "'unsafe-inline'", "https://fonts.googleapis.com"]
+
+
+X_FRAME_OPTIONS = "SAMEORIGIN"  # Allow iframes on the same domain
+
+PLOTLY_DASH = {
+    "ws_route": "",  # Disable WebSockets
+    "http_plotly_component_prefix": "dash/",
+    "serve_locally": True,  # Serve JavaScript and CSS locally
+    "expose_javascript": True,  # Allow Plotly.js to be exposed
+}
+
+
+INTERNAL_IPS = ["127.0.0.1"]
 
 SITE_URL = "http://127.0.0.1:8000"  # Change this to your production domain
 
@@ -81,7 +101,6 @@ TEMPLATES = [
 from django.urls import reverse_lazy
 
 LOGIN_URL = reverse_lazy('login')
-
 LOGIN_REDIRECT_URL = '/voting_sessions/'
 
 WSGI_APPLICATION = 'vote_cast.wsgi.application'
@@ -103,22 +122,29 @@ AUTH_PASSWORD_VALIDATORS = [
     {'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator'},
 ]
 
+CSRF_COOKIE_HTTPONLY = False  # ✅ Must be False (Default)
+CSRF_COOKIE_SECURE = False  # ✅ Set to False for local developmen
+
 # Localization
 LANGUAGE_CODE = 'en-us'
-TIME_ZONE = 'CET'
+TIME_ZONE = 'Europe/Berlin'  # Change "CET" to a proper Django-compatible timezone
 USE_I18N = True
 USE_TZ = True
 
 # Static Files
 STATIC_URL = '/static/'
-STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'static'),  
-]
 STATIC_ROOT = BASE_DIR / 'staticfiles'
 STATICFILES_DIRS = [
     BASE_DIR / 'static',
     BASE_DIR / 'main/static',
     BASE_DIR / 'users/static',
+]
+
+STATICFILES_FINDERS = [
+    'django.contrib.staticfiles.finders.FileSystemFinder',
+    'django.contrib.staticfiles.finders.AppDirectoriesFinder',
+    'django_plotly_dash.finders.DashAssetFinder',
+    'django_plotly_dash.finders.DashComponentFinder',
 ]
 
 # Email Configuration (Loaded from .env)
@@ -136,8 +162,6 @@ if "test" in sys.argv:
     EMAIL_BACKEND = "django.core.mail.backends.locmem.EmailBackend"
     EMAIL_HOST = ""
     EMAIL_PORT = ""
-    EMAIL_HOST_USER = config("EMAIL_HOST_USER", default="")
-    EMAIL_HOST_PASSWORD = config("EMAIL_HOST_PASSWORD", default="")
     logging.getLogger(__name__).debug(f"✅ Using {EMAIL_BACKEND} for tests")
 
 # Logging Configuration

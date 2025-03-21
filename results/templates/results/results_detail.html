@@ -1,5 +1,3 @@
-<!-- results/templates/results/results_detail.html -->
-{# results/templates/results/results_detail.html #}
 {% extends "base.html" %}
 
 {% block content %}
@@ -7,10 +5,15 @@
     <p>{{ session.description }}</p>
 
     <h2>Voting Results:</h2>
+
     {% if vote_counts %}
+        <p><strong>Total Votes:</strong> {{ total_votes }}</p>
         <ul>
             {% for vote in vote_counts %}
-                <li>{{ vote.option__title }}: {{ vote.count }} votes</li>
+                <li>
+                    <strong>{{ vote.option__title }}</strong>: 
+                    {{ vote.count }} votes ({{ vote.percentage|floatformat:2 }}%)
+                </li>
             {% endfor %}
         </ul>
     {% else %}

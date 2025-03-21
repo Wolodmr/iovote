@@ -1,0 +1,22 @@
+{% load static %}  <!-- ✅ Add this line -->
+{% load plotly_dash %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vote Results</title>
+
+    <!-- Add required Plotly CSS -->
+    <link rel="stylesheet" type="text/css" href="{% static 'dash/css/dash.css' %}">
+
+    <!-- Fix security issues with iframe -->
+    <meta http-equiv="Content-Security-Policy" content="frame-ancestors 'self'">
+</head>
+<body>
+    <h2>Voting Results</h2>
+
+    <!-- Correct Django Plotly Dash app integration -->
+    {% plotly_app name="votes_result" ratio=0.75 %}
+</body>
+</html>

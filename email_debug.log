@@ -322,3 +322,4 @@ django.core.exceptions.ValidationError: {'__all__': ['Session start time cannot 
 2025-03-16 12:37:31,937 - WARNING - No valid email recipients for session: Test Session
 2025-03-16 12:39:12,736 - WARNING - No valid email recipients for session: Test Session
 2025-03-16 12:50:24,198 - INFO - Email sent successfully for session: Test Session
+2025-03-19 20:23:17,152 - INFO - Email sent successfully for session: Test Session

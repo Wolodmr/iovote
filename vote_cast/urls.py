@@ -14,13 +14,12 @@ urlpatterns = [
     path("voting_sessions/", include("voting_sessions.urls", namespace="voting_sessions")),  # Include the voting_sessions URLs
     path('results/', include('results.urls')),  # Include the results app URLs
     path('vote/', include('vote.urls')),  # Corrected path inclusion for the vote app
+    
 ]
 
 if settings.DEBUG:
     urlpatterns += static(settings.STATIC_URL, document_root=settings.STATICFILES_DIRS[0] if settings.STATICFILES_DIRS else settings.BASE_DIR)
     
-import os
-os.environ["EMAIL_BACKEND"] = "django.core.mail.backends.locmem.EmailBackend"
-EMAIL_BACKEND = os.getenv("EMAIL_BACKEND")
+
 
 

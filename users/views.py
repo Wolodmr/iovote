@@ -7,6 +7,16 @@ from .forms import SignUpForm
 from django.contrib.auth.decorators import user_passes_test
 from django.contrib import messages
 from .forms import EmailUpdateForm
+from django.contrib.auth import logout
+
+def custom_logout_view(request):
+    """Logs out the user and redirects to the home page or login page."""
+    if request.method == "POST":  # Ensure logout happens only on POST request
+        logout(request)
+        messages.success(request, "You have been logged out successfully.")
+        return redirect("login")  # Redirect to login page or another page
+
+    return redirect("home")  # Optional: handle GET requests gracefully
 
 
 def is_superuser(user):
@@ -60,8 +70,9 @@ def signup(request):
         form = SignUpForm(request.POST)
         if form.is_valid():
             user = form.save(commit=False)
-            user.set_password(form.cleaned_data["password"])
-            login(request, user)  # Log the user in after successful registration
+            user.set_password(form.cleaned_data["password1"])  # ✅ Use 'password1'
+            user.save()  # ✅ Don't forget to save the user!
+            login(request, user)  # Log in after successful signup
             return redirect('home')
     else:
         form = SignUpForm()

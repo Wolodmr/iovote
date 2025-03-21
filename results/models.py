@@ -3,15 +3,11 @@ from django.db import models
 class Result(models.Model):
     """Model to store voting session results."""
     
-    name = models.CharField(max_length=100)
-    description = models.TextField()
-
-    class Meta:
-        app_label = 'results'
+    option = models.CharField(max_length=100)
+    votes = models.IntegerField(default=0)  # ✅ Ensure this field exists
 
     def __str__(self):
-        """Return a string representation of the result."""
-        return self.name
+        return f"{self.option} - {self.votes} votes"
 
     
 
