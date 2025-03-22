@@ -51,12 +51,32 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     "django_plotly_dash.middleware.BaseMiddleware",
     "debug_toolbar.middleware.DebugToolbarMiddleware",
+    'django.middleware.cache.UpdateCacheMiddleware',  # Store pages in cache
+    'django.middleware.cache.FetchFromCacheMiddleware',  # Serve cached pages
 ]
 
-CSP_FRAME_ANCESTORS = ["'self'"]  # Allows only the same origin to embed iframes
-CSP_DEFAULT_SRC = ["'self'"]  
-CSP_SCRIPT_SRC = ["'self'", "'unsafe-inline'", "https://cdn.plot.ly"]
-CSP_STYLE_SRC = ["'self'", "'unsafe-inline'", "https://fonts.googleapis.com"]
+CACHES = {
+    'default': {
+        'BACKEND': 'django.core.cache.backends.filebased.FileBasedCache',
+        'LOCATION': BASE_DIR / 'cache',  # Cache directory
+        'TIMEOUT': 600,  # Cache timeout (seconds)
+        'OPTIONS': {
+            'MAX_ENTRIES': 1000
+        }
+    }
+}
+
+CSP_DEFAULT_SRC = ("'self'",)
+CSP_STYLE_SRC = ("'self'", "'unsafe-inline'", "https://fonts.googleapis.com", "https://cdn.jsdelivr.net", "https://cdnjs.cloudflare.com")
+CSP_SCRIPT_SRC = ("'self'", "'unsafe-inline'", "https://cdn.plot.ly", "https://code.jquery.com", "https://cdn.jsdelivr.net", "https://stackpath.bootstrapcdn.com")
+CSP_FONT_SRC = ("'self'", "https://fonts.gstatic.com", "https://cdnjs.cloudflare.com", "https://cdn.jsdelivr.net")
+CSP_IMG_SRC = ("'self'", "data:")
+
+
+# CSP_FRAME_ANCESTORS = ["'self'"]  # Allows only the same origin to embed iframes
+# CSP_DEFAULT_SRC = ["'self'"]  
+# CSP_SCRIPT_SRC = ["'self'", "'unsafe-inline'", "https://cdn.plot.ly"]
+# CSP_STYLE_SRC = ["'self'", "'unsafe-inline'", "https://fonts.googleapis.com"]
 
 
 X_FRAME_OPTIONS = "SAMEORIGIN"  # Allow iframes on the same domain
@@ -122,12 +142,16 @@ AUTH_PASSWORD_VALIDATORS = [
     {'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator'},
 ]
 
+# CSP_STYLE_SRC = ("'self'", "'unsafe-inline'", "https://fonts.googleapis.com", "https://cdn.jsdelivr.net", "https://cdnjs.cloudflare.com")
+# CSP_SCRIPT_SRC = ("'self'", "'unsafe-inline'", "https://cdn.plot.ly", "https://code.jquery.com", "https://cdn.jsdelivr.net", "https://stackpath.bootstrapcdn.com")
+
+
 CSRF_COOKIE_HTTPONLY = False  # ✅ Must be False (Default)
 CSRF_COOKIE_SECURE = False  # ✅ Set to False for local developmen
 
 # Localization
 LANGUAGE_CODE = 'en-us'
-TIME_ZONE = 'Europe/Berlin'  # Change "CET" to a proper Django-compatible timezone
+TIME_ZONE = 'CET'  # Change "CET" to a proper Django-compatible timezone
 USE_I18N = True
 USE_TZ = True
 
@@ -165,20 +189,19 @@ if "test" in sys.argv:
     logging.getLogger(__name__).debug(f"✅ Using {EMAIL_BACKEND} for tests")
 
 # Logging Configuration
+
 LOGGING = {
     'version': 1,
     'disable_existing_loggers': False,
     'handlers': {
         'console': {
-            'level': 'ERROR',
             'class': 'logging.StreamHandler',
         },
     },
     'loggers': {
-        'django': {
+        'django.db.backends': {
+            'level': 'DEBUG',
             'handlers': ['console'],
-            'level': 'ERROR',
-            'propagate': True,
         },
     },
 }
