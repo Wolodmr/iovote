@@ -1,0 +1,6 @@
+/* Fix for print color adjustment */
+* {
+    -webkit-print-color-adjust: exact; /* Safari */
+    print-color-adjust: exact; /* Standard */
+}
+  
