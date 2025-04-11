@@ -3,6 +3,9 @@
 
 # Ignore any parent directories or files outside the project
 BootStrap/
+__pycache__/
+*.pyc
+*.pyo
 DjangoProject1/
 File_Organizer/
 Lab/
