@@ -1,0 +1,6 @@
+# nixpacks.toml
+[build]
+  builder = "python310"
+  environment = "production"
+  packages = ["postgresql"]
+

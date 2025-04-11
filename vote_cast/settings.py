@@ -16,6 +16,18 @@ SECRET_KEY = config('DJANGO_SECRET_KEY', default='default-secret-key')
 DEBUG = config('DJANGO_DEBUG', default=True, cast=bool)
 ALLOWED_HOSTS = config('DJANGO_ALLOWED_HOSTS', default="127.0.0.1,localhost").split(",")
 
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': os.getenv('DB_NAME'),
+        'USER': os.getenv('DB_USER'),
+        'PASSWORD': os.getenv('DB_PASSWORD'),
+        'HOST': os.getenv('DB_HOST'),
+        'PORT': os.getenv('DB_PORT'),
+    }
+}
+
+
 # ✅ Installed Applications
 INSTALLED_APPS = [
     # Django Default Apps
@@ -30,7 +42,6 @@ INSTALLED_APPS = [
     'rest_framework',
     "debug_toolbar",
     'django_plotly_dash',
-    "channels",
     'crispy_forms',
 
     # Local Apps
