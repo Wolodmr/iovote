@@ -1,0 +1,34 @@
+.md-sidebar__inner .md-nav__title {    
+    font-size: 15px;
+    color: #44c2de; /* Adjust color as needed */
+}
+
+.pdf-header {
+    width: 100%;
+    height: 20px;  /* Adjust the height as needed */
+    background-color: #007bff; /* Blue strip color */
+    position: fixed;
+    top: 0;
+    left: 0;
+}
+
+.blue-checkmark-list {
+    list-style-type: none; /* Remove default list bullets */
+    padding-left: 0; /* Remove left padding */
+}
+
+.blue-checkmark-list li {
+    display: flex;
+    align-items: center; /* Align checkmark and text vertically */
+    gap: 10px; /* Space between checkmark and text */
+    margin-bottom: 10px; /* Ensure proper spacing between items */
+}
+
+.indented-text {
+    margin-left: 30px; /* Adjust indentation as needed */
+}
+
+body {
+    margin: 0;
+    padding: 0;
+}

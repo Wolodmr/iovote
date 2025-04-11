@@ -1,0 +1,325 @@
+2025-03-10 23:10:40,503 - DEBUG - Found 1 sessions for notification.
+2025-03-10 23:10:40,519 - INFO - Email sent successfully for session: Test Session
+2025-03-11 15:18:41,680 - DEBUG - Found 1 sessions for notification.
+2025-03-11 15:18:41,689 - INFO - Email sent successfully for session: Test Session
+2025-03-11 16:40:04,374 - DEBUG - Found 1 sessions for notification.
+2025-03-11 16:40:04,380 - INFO - Email sent successfully for session: Test Session
+2025-03-11 16:46:13,982 - DEBUG - Found 1 sessions for notification.
+2025-03-11 16:46:13,987 - INFO - Email sent successfully for session: Test Session
+2025-03-11 16:49:58,936 - DEBUG - Found 1 sessions for notification.
+2025-03-11 16:49:58,943 - INFO - Email sent successfully for session: Test Session
+2025-03-11 17:09:23,643 - DEBUG - Found 1 sessions for notification.
+2025-03-11 17:09:23,655 - INFO - Email sent successfully for session: Test Session
+2025-03-11 17:17:32,092 - DEBUG - Found 1 sessions for notification.
+2025-03-11 17:17:32,110 - INFO - Email sent successfully for session: Test Session
+2025-03-11 17:19:34,041 - DEBUG - Found 1 sessions for notification.
+2025-03-11 17:19:34,047 - INFO - Email sent successfully for session: Test Session
+2025-03-11 19:19:29,349 - DEBUG - Found 1 sessions for notification.
+2025-03-11 19:19:29,361 - INFO - Email sent successfully for session: Test Session
+2025-03-11 19:22:52,041 - DEBUG - Found 1 sessions for notification.
+2025-03-11 19:22:52,054 - INFO - Email sent successfully for session: Test Session
+2025-03-11 19:36:53,792 - DEBUG - Found 1 sessions for notification.
+2025-03-11 19:36:53,820 - INFO - Email sent successfully for session: Test Session
+2025-03-11 19:40:53,188 - DEBUG - Found 1 sessions for notification.
+2025-03-11 19:40:53,206 - INFO - Email sent successfully for session: Test Session
+2025-03-11 20:04:51,796 - DEBUG - Found 1 sessions for notification.
+2025-03-11 20:04:51,817 - INFO - Email sent successfully for session: Test Session
+2025-03-11 20:06:08,790 - DEBUG - Found 1 sessions for notification.
+2025-03-11 20:06:08,822 - INFO - Email sent successfully for session: Test Session
+2025-03-11 20:07:05,439 - DEBUG - Found 1 sessions for notification.
+2025-03-11 20:07:05,439 - INFO - Email sent successfully for session: Test Session
+2025-03-11 20:26:17,122 - DEBUG - Found 1 sessions for notification.
+2025-03-11 20:26:17,135 - INFO - Email sent successfully for session: Test Session
+2025-03-11 20:27:20,853 - DEBUG - Found 1 sessions for notification.
+2025-03-11 20:27:20,875 - INFO - Email sent successfully for session: Test Session
+2025-03-11 20:29:49,315 - DEBUG - Found 1 sessions for notification.
+2025-03-11 20:29:49,324 - INFO - Email sent successfully for session: Test Session
+2025-03-11 20:31:35,907 - DEBUG - Found 1 sessions for notification.
+2025-03-11 20:31:35,913 - INFO - Email sent successfully for session: Test Session
+2025-03-11 20:37:17,055 - DEBUG - Found 1 sessions for notification.
+2025-03-11 20:37:17,063 - INFO - Email sent successfully for session: Test Session
+2025-03-11 20:41:52,067 - DEBUG - Found 1 sessions for notification.
+2025-03-11 20:41:52,080 - INFO - Email sent successfully for session: Test Session
+2025-03-11 20:43:54,850 - DEBUG - Found 1 sessions for notification.
+2025-03-11 20:43:54,855 - INFO - Email sent successfully for session: Test Session
+2025-03-11 20:49:30,516 - DEBUG - Found 1 sessions for notification.
+2025-03-11 20:49:30,531 - INFO - Email sent successfully for session: Test Session
+2025-03-11 21:45:03,745 - DEBUG - Found 1 sessions for notification.
+2025-03-11 21:45:03,752 - INFO - Email sent successfully for session: Test Session
+2025-03-11 21:48:41,954 - DEBUG - Found 1 sessions for notification.
+2025-03-11 21:48:41,962 - INFO - Email sent successfully for session: Test Session
+2025-03-11 22:17:59,362 - DEBUG - Found 1 sessions for notification.
+2025-03-11 22:17:59,362 - INFO - Email sent successfully for session: Test Session
+2025-03-11 22:23:36,521 - DEBUG - Found 1 sessions for notification.
+2025-03-11 22:23:36,545 - INFO - Email sent successfully for session: Test Session
+2025-03-11 23:58:12,934 - DEBUG - Found 1 sessions for notification.
+2025-03-11 23:58:12,939 - INFO - Email sent successfully for session: Test Session
+2025-03-13 22:24:37,501 - DEBUG - Found 1 sessions for notification.
+2025-03-13 22:24:37,508 - INFO - Email sent successfully for session: Test Session
+2025-03-14 17:56:35,225 - DEBUG - Found 1 sessions for notification.
+2025-03-14 17:56:35,225 - INFO - Email sent successfully for session: Test Session
+2025-03-14 18:43:29,984 - DEBUG - Found 1 sessions for notification.
+2025-03-14 18:43:30,005 - INFO - Email sent successfully for session: Test Session
+2025-03-14 19:22:58,977 - DEBUG - Found 1 sessions for notification.
+2025-03-14 19:22:58,999 - INFO - Email sent successfully for session: Test Session
+2025-03-14 20:17:25,072 - INFO - \U0001f4e2 Running send_notifications command...
+2025-03-14 20:17:25,119 - DEBUG - Found 1 sessions for notification.
+2025-03-14 20:17:26,786 - ERROR - Error sending email for session 'Best Place': {'__all__': ['Session start time cannot be in the past.']}
+Traceback (most recent call last):
+  File "C:\VS_Code\Camp_programs\Projects\vote_cast\voting_sessions\utils.py", line 39, in send_notifications
+    session.save()
+  File "C:\VS_Code\Camp_programs\Projects\vote_cast\voting_sessions\models.py", line 95, in save
+    self.full_clean()
+  File "C:\VS_Code\Camp_programs\Projects\vote_cast\venv\lib\site-packages\django\db\models\base.py", line 1651, in full_clean
+    raise ValidationError(errors)
+django.core.exceptions.ValidationError: {'__all__': ['Session start time cannot be in the past.']}
+2025-03-14 20:17:26,817 - INFO - \u2705 Notifications sent successfully.
+2025-03-14 20:59:22,867 - INFO - \U0001f4e2 Running send_notifications command...
+2025-03-14 20:59:22,898 - DEBUG - Found 1 sessions for notification.
+2025-03-14 20:59:22,914 - ERROR - \u274c Error sending notifications: 'Settings' object has no attribute 'SITE_DOMAIN'
+Traceback (most recent call last):
+  File "C:\VS_Code\Camp_programs\Projects\vote_cast\voting_sessions\management\commands\send_notifications.py", line 17, in handle
+    send_notifications()
+  File "C:\VS_Code\Camp_programs\Projects\vote_cast\voting_sessions\utils.py", line 35, in send_notifications
+    voting_url = f"{settings.SITE_DOMAIN}{reverse('vote_session', kwargs={'uuid': session.uuid})}"
+  File "C:\VS_Code\Camp_programs\Projects\vote_cast\venv\lib\site-packages\django\conf\__init__.py", line 83, in __getattr__
+    val = getattr(_wrapped, name)
+AttributeError: 'Settings' object has no attribute 'SITE_DOMAIN'
+2025-03-14 21:01:48,165 - INFO - \U0001f4e2 Running send_notifications command...
+2025-03-14 21:01:48,196 - DEBUG - Found 1 sessions for notification.
+2025-03-14 21:01:48,212 - ERROR - \u274c Error sending notifications: 'Settings' object has no attribute 'SITE_DOMAIN'
+Traceback (most recent call last):
+  File "C:\VS_Code\Camp_programs\Projects\vote_cast\voting_sessions\management\commands\send_notifications.py", line 17, in handle
+    send_notifications()
+  File "C:\VS_Code\Camp_programs\Projects\vote_cast\voting_sessions\utils.py", line 35, in send_notifications
+    voting_url = f"{settings.SITE_DOMAIN}{reverse('vote_session', kwargs={'uuid': session.uuid})}"
+  File "C:\VS_Code\Camp_programs\Projects\vote_cast\venv\lib\site-packages\django\conf\__init__.py", line 83, in __getattr__
+    val = getattr(_wrapped, name)
+AttributeError: 'Settings' object has no attribute 'SITE_DOMAIN'
+2025-03-14 21:03:08,153 - INFO - \U0001f4e2 Running send_notifications command...
+2025-03-14 21:03:08,326 - DEBUG - Found 1 sessions for notification.
+2025-03-14 21:03:08,330 - ERROR - \u274c Error sending notifications: 'Settings' object has no attribute 'SITE_DOMAIN'
+Traceback (most recent call last):
+  File "C:\VS_Code\Camp_programs\Projects\vote_cast\voting_sessions\management\commands\send_notifications.py", line 17, in handle
+    send_notifications()
+  File "C:\VS_Code\Camp_programs\Projects\vote_cast\voting_sessions\utils.py", line 37, in send_notifications
+    voting_url = f"{settings.SITE_DOMAIN}{reverse('vote_session', kwargs={'uuid': session.uuid})}"
+  File "C:\VS_Code\Camp_programs\Projects\vote_cast\venv\lib\site-packages\django\conf\__init__.py", line 83, in __getattr__
+    val = getattr(_wrapped, name)
+AttributeError: 'Settings' object has no attribute 'SITE_DOMAIN'
+2025-03-14 21:05:17,153 - INFO - \U0001f4e2 Running send_notifications command...
+2025-03-14 21:05:17,197 - DEBUG - Found 1 sessions for notification.
+2025-03-14 21:05:17,214 - ERROR - \u274c Error sending notifications: 'Settings' object has no attribute 'SITE_DOMAIN'
+Traceback (most recent call last):
+  File "C:\VS_Code\Camp_programs\Projects\vote_cast\voting_sessions\management\commands\send_notifications.py", line 17, in handle
+    send_notifications()
+  File "C:\VS_Code\Camp_programs\Projects\vote_cast\voting_sessions\utils.py", line 39, in send_notifications
+    voting_url = f"{settings.SITE_DOMAIN}{reverse('vote_session', kwargs={'uuid': session.uuid})}"
+  File "C:\VS_Code\Camp_programs\Projects\vote_cast\venv\lib\site-packages\django\conf\__init__.py", line 83, in __getattr__
+    val = getattr(_wrapped, name)
+AttributeError: 'Settings' object has no attribute 'SITE_DOMAIN'
+2025-03-14 21:07:05,039 - INFO - \U0001f4e2 Running send_notifications command...
+2025-03-14 21:07:05,090 - DEBUG - Found 1 sessions for notification.
+2025-03-14 21:07:05,108 - ERROR - \u274c Error sending notifications: 'Settings' object has no attribute 'SITE_DOMAIN'
+Traceback (most recent call last):
+  File "C:\VS_Code\Camp_programs\Projects\vote_cast\voting_sessions\management\commands\send_notifications.py", line 17, in handle
+    send_notifications()
+  File "C:\VS_Code\Camp_programs\Projects\vote_cast\voting_sessions\utils.py", line 39, in send_notifications
+    voting_url = f"{settings.SITE_DOMAIN}{reverse('vote_session', kwargs={'uuid': session.uuid})}"
+  File "C:\VS_Code\Camp_programs\Projects\vote_cast\venv\lib\site-packages\django\conf\__init__.py", line 83, in __getattr__
+    val = getattr(_wrapped, name)
+AttributeError: 'Settings' object has no attribute 'SITE_DOMAIN'
+2025-03-14 21:09:15,176 - INFO - \U0001f4e2 Running send_notifications command...
+2025-03-14 21:09:15,227 - DEBUG - Found 1 sessions for notification.
+2025-03-14 21:09:15,254 - ERROR - \u274c Error sending notifications: 'Settings' object has no attribute 'SITE_DOMAIN'
+Traceback (most recent call last):
+  File "C:\VS_Code\Camp_programs\Projects\vote_cast\voting_sessions\management\commands\send_notifications.py", line 17, in handle
+    send_notifications()
+  File "C:\VS_Code\Camp_programs\Projects\vote_cast\voting_sessions\utils.py", line 39, in send_notifications
+    voting_url = f"{settings.SITE_DOMAIN}{reverse('vote_session', kwargs={'uuid': session.uuid})}"
+  File "C:\VS_Code\Camp_programs\Projects\vote_cast\venv\lib\site-packages\django\conf\__init__.py", line 83, in __getattr__
+    val = getattr(_wrapped, name)
+AttributeError: 'Settings' object has no attribute 'SITE_DOMAIN'
+2025-03-14 21:10:29,694 - INFO - \U0001f4e2 Running send_notifications command...
+2025-03-14 21:10:29,774 - DEBUG - Found 1 sessions for notification.
+2025-03-14 21:10:29,790 - ERROR - \u274c Error sending notifications: 'Settings' object has no attribute 'SITE_DOMAIN'
+Traceback (most recent call last):
+  File "C:\VS_Code\Camp_programs\Projects\vote_cast\voting_sessions\management\commands\send_notifications.py", line 17, in handle
+    send_notifications()
+  File "C:\VS_Code\Camp_programs\Projects\vote_cast\voting_sessions\utils.py", line 41, in send_notifications
+    voting_url = f"{settings.SITE_DOMAIN}{reverse('vote_session', kwargs={'uuid': session.uuid})}"
+  File "C:\VS_Code\Camp_programs\Projects\vote_cast\venv\lib\site-packages\django\conf\__init__.py", line 83, in __getattr__
+    val = getattr(_wrapped, name)
+AttributeError: 'Settings' object has no attribute 'SITE_DOMAIN'
+2025-03-14 21:47:34,688 - INFO - \U0001f4e2 Running send_notifications command...
+2025-03-14 21:47:34,768 - DEBUG - Found 1 sessions for notification.
+2025-03-14 21:47:34,772 - ERROR - \u274c Error sending notifications: Reverse for 'voting_sessions' not found. 'voting_sessions' is not a valid view function or pattern name.
+Traceback (most recent call last):
+  File "C:\VS_Code\Camp_programs\Projects\vote_cast\voting_sessions\management\commands\send_notifications.py", line 17, in handle
+    send_notifications()
+  File "C:\VS_Code\Camp_programs\Projects\vote_cast\voting_sessions\utils.py", line 41, in send_notifications
+    voting_url = f"{settings.SITE_URL}{reverse('voting_sessions', kwargs={'uuid': session.uuid})}"
+  File "C:\VS_Code\Camp_programs\Projects\vote_cast\venv\lib\site-packages\django\urls\base.py", line 88, in reverse
+    return resolver._reverse_with_prefix(view, prefix, *args, **kwargs)
+  File "C:\VS_Code\Camp_programs\Projects\vote_cast\venv\lib\site-packages\django\urls\resolvers.py", line 831, in _reverse_with_prefix
+    raise NoReverseMatch(msg)
+django.urls.exceptions.NoReverseMatch: Reverse for 'voting_sessions' not found. 'voting_sessions' is not a valid view function or pattern name.
+2025-03-15 13:51:28,370 - INFO - \U0001f4e2 Running send_notifications command...
+2025-03-15 13:51:28,549 - DEBUG - Found 1 sessions for notification.
+2025-03-15 13:51:28,841 - ERROR - \u274c Error sending notifications: Reverse for 'voting_sessions' not found. 'voting_sessions' is not a valid view function or pattern name.
+Traceback (most recent call last):
+  File "C:\VS_Code\Camp_programs\Projects\vote_cast\voting_sessions\management\commands\send_notifications.py", line 17, in handle
+    send_notifications()
+  File "C:\VS_Code\Camp_programs\Projects\vote_cast\voting_sessions\utils.py", line 41, in send_notifications
+    voting_url = f"{settings.SITE_URL}{reverse('voting_sessions', kwargs={'uuid': session.uuid})}"
+  File "C:\VS_Code\Camp_programs\Projects\vote_cast\venv\lib\site-packages\django\urls\base.py", line 88, in reverse
+    return resolver._reverse_with_prefix(view, prefix, *args, **kwargs)
+  File "C:\VS_Code\Camp_programs\Projects\vote_cast\venv\lib\site-packages\django\urls\resolvers.py", line 831, in _reverse_with_prefix
+    raise NoReverseMatch(msg)
+django.urls.exceptions.NoReverseMatch: Reverse for 'voting_sessions' not found. 'voting_sessions' is not a valid view function or pattern name.
+2025-03-15 14:01:00,654 - INFO - \U0001f4e2 Running send_notifications command...
+2025-03-15 14:01:00,741 - DEBUG - Found 1 sessions for notification.
+2025-03-15 14:01:00,754 - ERROR - \u274c Error sending notifications: Reverse for 'vote_sessions' not found. 'vote_sessions' is not a valid view function or pattern name.
+Traceback (most recent call last):
+  File "C:\VS_Code\Camp_programs\Projects\vote_cast\voting_sessions\management\commands\send_notifications.py", line 17, in handle
+    send_notifications()
+  File "C:\VS_Code\Camp_programs\Projects\vote_cast\voting_sessions\utils.py", line 41, in send_notifications
+    voting_url = f"{settings.SITE_URL}{reverse('vote_sessions', kwargs={'uuid': session.uuid})}"
+  File "C:\VS_Code\Camp_programs\Projects\vote_cast\venv\lib\site-packages\django\urls\base.py", line 88, in reverse
+    return resolver._reverse_with_prefix(view, prefix, *args, **kwargs)
+  File "C:\VS_Code\Camp_programs\Projects\vote_cast\venv\lib\site-packages\django\urls\resolvers.py", line 831, in _reverse_with_prefix
+    raise NoReverseMatch(msg)
+django.urls.exceptions.NoReverseMatch: Reverse for 'vote_sessions' not found. 'vote_sessions' is not a valid view function or pattern name.
+2025-03-15 14:17:46,906 - ERROR - Error sending email for session 'Best Place': {'__all__': ['Session start time cannot be in the past.']}
+Traceback (most recent call last):
+  File "C:\VS_Code\Camp_programs\Projects\vote_cast\voting_sessions\utils.py", line 43, in send_notifications
+    session.save()
+  File "C:\VS_Code\Camp_programs\Projects\vote_cast\voting_sessions\models.py", line 97, in save
+    self.full_clean()
+  File "C:\VS_Code\Camp_programs\Projects\vote_cast\venv\lib\site-packages\django\db\models\base.py", line 1651, in full_clean
+    raise ValidationError(errors)
+django.core.exceptions.ValidationError: {'__all__': ['Session start time cannot be in the past.']}
+2025-03-15 14:24:58,617 - INFO - \U0001f4e2 Running send_notifications command...
+2025-03-15 14:25:01,000 - ERROR - Error sending email for session 'Best Place': {'__all__': ['Session start time cannot be in the past.']}
+Traceback (most recent call last):
+  File "C:\VS_Code\Camp_programs\Projects\vote_cast\voting_sessions\utils.py", line 43, in send_notifications
+    session.save()
+  File "C:\VS_Code\Camp_programs\Projects\vote_cast\voting_sessions\models.py", line 97, in save
+    self.full_clean()
+  File "C:\VS_Code\Camp_programs\Projects\vote_cast\venv\lib\site-packages\django\db\models\base.py", line 1651, in full_clean
+    raise ValidationError(errors)
+django.core.exceptions.ValidationError: {'__all__': ['Session start time cannot be in the past.']}
+2025-03-15 14:25:01,000 - INFO - \u2705 Notifications sent successfully.
+2025-03-15 14:32:54,356 - INFO - \U0001f4e2 Running send_notifications command...
+2025-03-15 14:32:56,848 - ERROR - Error sending email for session 'Best Place': {'__all__': ['Session start time cannot be in the past.']}
+Traceback (most recent call last):
+  File "C:\VS_Code\Camp_programs\Projects\vote_cast\voting_sessions\utils.py", line 44, in send_notifications
+    session.save()
+  File "C:\VS_Code\Camp_programs\Projects\vote_cast\voting_sessions\models.py", line 97, in save
+    self.full_clean()
+  File "C:\VS_Code\Camp_programs\Projects\vote_cast\venv\lib\site-packages\django\db\models\base.py", line 1651, in full_clean
+    raise ValidationError(errors)
+django.core.exceptions.ValidationError: {'__all__': ['Session start time cannot be in the past.']}
+2025-03-15 14:32:56,848 - INFO - \u2705 Notifications sent successfully.
+2025-03-15 15:08:22,890 - INFO - \U0001f4e2 Running send_notifications command...
+2025-03-15 15:08:25,334 - ERROR - Error sending email for session 'Best Place': {'__all__': ['Session start time cannot be in the past.']}
+Traceback (most recent call last):
+  File "C:\VS_Code\Camp_programs\Projects\vote_cast\voting_sessions\utils.py", line 46, in send_notifications
+    session.save()
+  File "C:\VS_Code\Camp_programs\Projects\vote_cast\voting_sessions\models.py", line 97, in save
+    self.full_clean()
+  File "C:\VS_Code\Camp_programs\Projects\vote_cast\venv\lib\site-packages\django\db\models\base.py", line 1651, in full_clean
+    raise ValidationError(errors)
+django.core.exceptions.ValidationError: {'__all__': ['Session start time cannot be in the past.']}
+2025-03-15 15:08:25,349 - INFO - \u2705 Notifications sent successfully.
+2025-03-15 16:22:52,072 - INFO - \U0001f4e2 Running send_notifications command...
+2025-03-15 16:22:53,466 - ERROR - Error sending email for session 'Best Place': {'__all__': ['Session start time cannot be in the past.']}
+Traceback (most recent call last):
+  File "C:\VS_Code\Camp_programs\Projects\vote_cast\voting_sessions\utils.py", line 46, in send_notifications
+    session.save()
+  File "C:\VS_Code\Camp_programs\Projects\vote_cast\voting_sessions\models.py", line 97, in save
+    self.full_clean()
+  File "C:\VS_Code\Camp_programs\Projects\vote_cast\venv\lib\site-packages\django\db\models\base.py", line 1651, in full_clean
+    raise ValidationError(errors)
+django.core.exceptions.ValidationError: {'__all__': ['Session start time cannot be in the past.']}
+2025-03-15 16:22:53,466 - INFO - \u2705 Notifications sent successfully.
+2025-03-15 16:34:48,466 - INFO - \U0001f4e2 Running send_notifications command...
+2025-03-15 16:34:49,874 - INFO - Email sent successfully for session: Best Place
+2025-03-15 16:34:49,874 - INFO - \u2705 Notifications sent successfully.
+2025-03-15 16:35:51,945 - INFO - \U0001f4e2 Running send_notifications command...
+2025-03-15 16:35:53,447 - INFO - Email sent successfully for session: Best Place
+2025-03-15 16:35:53,447 - INFO - \u2705 Notifications sent successfully.
+2025-03-15 17:12:56,517 - INFO - \U0001f4e2 Running send_notifications command...
+2025-03-15 17:12:58,209 - INFO - Email sent successfully for session: Best Place
+2025-03-15 17:12:58,209 - INFO - \u2705 Notifications sent successfully.
+2025-03-15 17:48:12,417 - INFO - \U0001f4e2 Running send_notifications command...
+2025-03-15 17:48:14,141 - INFO - Email sent successfully for session: Best Place
+2025-03-15 17:48:14,141 - INFO - \u2705 Notifications sent successfully.
+2025-03-15 18:22:44,601 - INFO - \U0001f4e2 Running send_notifications command...
+2025-03-15 18:22:44,632 - INFO - No sessions found for notification.
+2025-03-15 18:22:44,632 - INFO - \u2705 Notifications sent successfully.
+2025-03-15 18:25:38,105 - INFO - \U0001f4e2 Running send_notifications command...
+2025-03-15 18:25:38,137 - INFO - No sessions found for notification.
+2025-03-15 18:25:38,137 - INFO - \u2705 Notifications sent successfully.
+2025-03-15 18:26:04,841 - INFO - \U0001f4e2 Running send_notifications command...
+2025-03-15 18:26:04,888 - INFO - No sessions found for notification.
+2025-03-15 18:26:04,888 - INFO - \u2705 Notifications sent successfully.
+2025-03-15 18:26:33,109 - INFO - \U0001f4e2 Running send_notifications command...
+2025-03-15 18:26:33,151 - INFO - No sessions found for notification.
+2025-03-15 18:26:33,151 - INFO - \u2705 Notifications sent successfully.
+2025-03-15 18:28:22,950 - INFO - \U0001f4e2 Running send_notifications command...
+2025-03-15 18:28:22,966 - INFO - No sessions found for notification.
+2025-03-15 18:28:22,966 - INFO - \u2705 Notifications sent successfully.
+2025-03-15 18:29:44,499 - INFO - \U0001f4e2 Running send_notifications command...
+2025-03-15 18:29:46,224 - INFO - Email sent successfully for session: Best Place
+2025-03-15 18:29:46,240 - INFO - \u2705 Notifications sent successfully.
+2025-03-15 18:31:08,708 - INFO - \U0001f4e2 Running send_notifications command...
+2025-03-15 18:31:10,165 - INFO - Email sent successfully for session: Best Place
+2025-03-15 18:31:10,165 - INFO - \u2705 Notifications sent successfully.
+2025-03-15 18:36:05,201 - INFO - \U0001f4e2 Running send_notifications command...
+2025-03-15 18:36:06,762 - INFO - Email sent successfully for session: Best Place
+2025-03-15 18:36:06,762 - INFO - \u2705 Notifications sent successfully.
+2025-03-15 19:44:15,820 - INFO - \U0001f4e2 Running send_notifications command...
+2025-03-15 19:44:15,867 - INFO - No sessions found for notification.
+2025-03-15 19:44:15,867 - INFO - \u2705 Notifications sent successfully.
+2025-03-15 19:45:32,013 - INFO - \U0001f4e2 Running send_notifications command...
+2025-03-15 19:45:33,497 - INFO - Email sent successfully for session: Best Place
+2025-03-15 19:45:33,497 - INFO - \u2705 Notifications sent successfully.
+2025-03-15 20:40:19,807 - INFO - \U0001f4e2 Running send_notifications command...
+2025-03-15 20:40:19,838 - INFO - No sessions found for notification.
+2025-03-15 20:40:19,838 - INFO - \u2705 Notifications sent successfully.
+2025-03-15 20:45:22,190 - INFO - \U0001f4e2 Running send_notifications command...
+2025-03-15 20:45:22,207 - INFO - No sessions found for notification.
+2025-03-15 20:45:22,207 - INFO - \u2705 Notifications sent successfully.
+2025-03-15 21:21:45,207 - INFO - \U0001f4e2 Running send_notifications command...
+2025-03-15 21:21:45,238 - INFO - No sessions found for notification.
+2025-03-15 21:21:45,238 - INFO - \u2705 Notifications sent successfully.
+2025-03-15 21:23:41,181 - INFO - \U0001f4e2 Running send_notifications command...
+2025-03-15 21:23:42,850 - INFO - Email sent successfully for session: Best Place
+2025-03-15 21:23:42,850 - INFO - \u2705 Notifications sent successfully.
+2025-03-15 21:30:20,077 - INFO - \U0001f4e2 Running send_notifications command...
+2025-03-15 21:30:21,455 - INFO - Email sent successfully for session: Best Place
+2025-03-15 21:30:21,455 - INFO - \u2705 Notifications sent successfully.
+2025-03-15 21:35:22,025 - INFO - \U0001f4e2 Running send_notifications command...
+2025-03-15 21:35:24,604 - INFO - Email sent successfully for session: Best Place
+2025-03-15 21:35:24,620 - INFO - \u2705 Notifications sent successfully.
+2025-03-15 21:40:19,754 - INFO - \U0001f4e2 Running send_notifications command...
+2025-03-15 21:40:21,411 - INFO - Email sent successfully for session: Best Place
+2025-03-15 21:40:21,411 - INFO - \u2705 Notifications sent successfully.
+2025-03-16 11:22:21,463 - INFO - \U0001f4e2 Running send_notifications command...
+2025-03-16 11:22:23,229 - INFO - Email sent successfully for session: Best Place
+2025-03-16 11:22:23,229 - INFO - \u2705 Notifications sent successfully.
+2025-03-16 11:47:11,421 - WARNING - No valid email recipients for session: Test Session
+2025-03-16 12:15:19,763 - INFO - \U0001f4e2 Running send_notifications command...
+2025-03-16 12:15:21,464 - INFO - Email sent successfully for session: Best Place
+2025-03-16 12:15:21,464 - INFO - \u2705 Notifications sent successfully.
+2025-03-16 12:16:47,139 - WARNING - No valid email recipients for session: Test Session
+2025-03-16 12:17:59,091 - WARNING - No valid email recipients for session: Test Session
+2025-03-16 12:21:07,090 - WARNING - No valid email recipients for session: Test Session
+2025-03-16 12:26:45,933 - WARNING - No valid email recipients for session: Test Session
+2025-03-16 12:27:38,783 - WARNING - No valid email recipients for session: Test Session
+2025-03-16 12:29:00,999 - WARNING - No valid email recipients for session: Test Session
+2025-03-16 12:37:31,937 - WARNING - No valid email recipients for session: Test Session
+2025-03-16 12:39:12,736 - WARNING - No valid email recipients for session: Test Session
+2025-03-16 12:50:24,198 - INFO - Email sent successfully for session: Test Session
+2025-03-19 20:23:17,152 - INFO - Email sent successfully for session: Test Session

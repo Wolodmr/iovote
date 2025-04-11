@@ -9,7 +9,7 @@ app_name = "voting_sessions"
 urlpatterns = [
     path('', views.session_list, name='session_list'),
     path('<int:session_id>/', views.session_detail, name='session_detail'),
-    path("vote/<int:session_id>/", vote, name="vote"),  # Ensure this line exists!
+    path("vote/<int:session_id>/", vote, name="vote"), 
     path('invite/<uuid:session_uuid>/', session_invite, name='session_invite'),
 ]
 

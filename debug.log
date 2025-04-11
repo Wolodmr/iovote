@@ -1,0 +1,808 @@
+(0.000) 
+            SELECT name, type FROM sqlite_master
+            WHERE type in ('table', 'view') AND NOT name='sqlite_sequence'
+            ORDER BY name; args=None; alias=default
+(0.016) SELECT "django_migrations"."id", "django_migrations"."app", "django_migrations"."name", "django_migrations"."applied" FROM "django_migrations"; args=(); alias=default
+(0.016) 
+            SELECT name, type FROM sqlite_master
+            WHERE type in ('table', 'view') AND NOT name='sqlite_sequence'
+            ORDER BY name; args=None; alias=default
+(0.000) SELECT "django_migrations"."id", "django_migrations"."app", "django_migrations"."name", "django_migrations"."applied" FROM "django_migrations"; args=(); alias=default
+(0.000) 
+            SELECT name, type FROM sqlite_master
+            WHERE type in ('table', 'view') AND NOT name='sqlite_sequence'
+            ORDER BY name; args=None; alias=default
+(0.000) SELECT "django_migrations"."id", "django_migrations"."app", "django_migrations"."name", "django_migrations"."applied" FROM "django_migrations"; args=(); alias=default
+(0.000) 
+            SELECT name, type FROM sqlite_master
+            WHERE type in ('table', 'view') AND NOT name='sqlite_sequence'
+            ORDER BY name; args=None; alias=default
+(0.000) SELECT "django_migrations"."id", "django_migrations"."app", "django_migrations"."name", "django_migrations"."applied" FROM "django_migrations"; args=(); alias=default
+(0.015) 
+            SELECT name, type FROM sqlite_master
+            WHERE type in ('table', 'view') AND NOT name='sqlite_sequence'
+            ORDER BY name; args=None; alias=default
+(0.000) SELECT "django_migrations"."id", "django_migrations"."app", "django_migrations"."name", "django_migrations"."applied" FROM "django_migrations"; args=(); alias=default
+(0.000) 
+            SELECT name, type FROM sqlite_master
+            WHERE type in ('table', 'view') AND NOT name='sqlite_sequence'
+            ORDER BY name; args=None; alias=default
+(0.000) SELECT "django_migrations"."id", "django_migrations"."app", "django_migrations"."name", "django_migrations"."applied" FROM "django_migrations"; args=(); alias=default
+(0.000) SELECT 1 AS "a" FROM "results_result" LIMIT 1; args=(1,); alias=default
+(0.000) SELECT "results_result"."id", "results_result"."option", "results_result"."votes" FROM "results_result"; args=(); alias=default
+(0.000) SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE "django_content_type"."app_label" = 'admin'; args=('admin',); alias=default
+(0.000) SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE ("django_content_type"."app_label" = 'admin' AND "django_content_type"."model" IN ('logentry')); args=('admin', 'logentry'); alias=default
+(0.000) SELECT "auth_permission"."content_type_id", "auth_permission"."codename" FROM "auth_permission" INNER JOIN "django_content_type" ON ("auth_permission"."content_type_id" = "django_content_type"."id") WHERE "auth_permission"."content_type_id" IN (1) ORDER BY "django_content_type"."app_label" ASC, "django_content_type"."model" ASC, "auth_permission"."codename" ASC; args=(1,); alias=default
+(0.000) SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE "django_content_type"."app_label" = 'admin'; args=('admin',); alias=default
+(0.000) SELECT "results_result"."option", "results_result"."votes" FROM "results_result"; args=(); alias=default
+(0.000) SELECT 1 AS "a" FROM "results_result" LIMIT 1; args=(1,); alias=default
+(0.000) SELECT "results_result"."id", "results_result"."option", "results_result"."votes" FROM "results_result"; args=(); alias=default
+(0.000) SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE "django_content_type"."app_label" = 'auth'; args=('auth',); alias=default
+(0.000) SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE ("django_content_type"."app_label" = 'auth' AND "django_content_type"."model" IN ('group', 'user', 'permission')); args=('auth', 'group', 'user', 'permission'); alias=default
+(0.000) SELECT "auth_permission"."content_type_id", "auth_permission"."codename" FROM "auth_permission" INNER JOIN "django_content_type" ON ("auth_permission"."content_type_id" = "django_content_type"."id") WHERE "auth_permission"."content_type_id" IN (2, 3, 4) ORDER BY "django_content_type"."app_label" ASC, "django_content_type"."model" ASC, "auth_permission"."codename" ASC; args=(2, 3, 4); alias=default
+(0.000) SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE "django_content_type"."app_label" = 'auth'; args=('auth',); alias=default
+(0.000) SELECT "results_result"."option", "results_result"."votes" FROM "results_result"; args=(); alias=default
+(0.000) SELECT 1 AS "a" FROM "results_result" LIMIT 1; args=(1,); alias=default
+(0.000) SELECT "results_result"."id", "results_result"."option", "results_result"."votes" FROM "results_result"; args=(); alias=default
+(0.000) SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE "django_content_type"."app_label" = 'contenttypes'; args=('contenttypes',); alias=default
+(0.000) SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE ("django_content_type"."app_label" = 'contenttypes' AND "django_content_type"."model" IN ('contenttype')); args=('contenttypes', 'contenttype'); alias=default
+(0.000) SELECT "auth_permission"."content_type_id", "auth_permission"."codename" FROM "auth_permission" INNER JOIN "django_content_type" ON ("auth_permission"."content_type_id" = "django_content_type"."id") WHERE "auth_permission"."content_type_id" IN (5) ORDER BY "django_content_type"."app_label" ASC, "django_content_type"."model" ASC, "auth_permission"."codename" ASC; args=(5,); alias=default
+(0.000) SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE "django_content_type"."app_label" = 'contenttypes'; args=('contenttypes',); alias=default
+(0.000) SELECT "results_result"."option", "results_result"."votes" FROM "results_result"; args=(); alias=default
+(0.000) SELECT 1 AS "a" FROM "results_result" LIMIT 1; args=(1,); alias=default
+(0.000) SELECT "results_result"."id", "results_result"."option", "results_result"."votes" FROM "results_result"; args=(); alias=default
+(0.000) SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE "django_content_type"."app_label" = 'sessions'; args=('sessions',); alias=default
+(0.000) SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE ("django_content_type"."app_label" = 'sessions' AND "django_content_type"."model" IN ('session')); args=('sessions', 'session'); alias=default
+(0.000) SELECT "auth_permission"."content_type_id", "auth_permission"."codename" FROM "auth_permission" INNER JOIN "django_content_type" ON ("auth_permission"."content_type_id" = "django_content_type"."id") WHERE "auth_permission"."content_type_id" IN (6) ORDER BY "django_content_type"."app_label" ASC, "django_content_type"."model" ASC, "auth_permission"."codename" ASC; args=(6,); alias=default
+(0.000) SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE "django_content_type"."app_label" = 'sessions'; args=('sessions',); alias=default
+(0.000) SELECT "results_result"."option", "results_result"."votes" FROM "results_result"; args=(); alias=default
+(0.000) SELECT 1 AS "a" FROM "results_result" LIMIT 1; args=(1,); alias=default
+(0.000) SELECT "results_result"."id", "results_result"."option", "results_result"."votes" FROM "results_result"; args=(); alias=default
+(0.000) SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE "django_content_type"."app_label" = 'django_plotly_dash'; args=('django_plotly_dash',); alias=default
+(0.000) SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE ("django_content_type"."app_label" = 'django_plotly_dash' AND "django_content_type"."model" IN ('statelessapp', 'dashapp')); args=('django_plotly_dash', 'statelessapp', 'dashapp'); alias=default
+(0.000) SELECT "auth_permission"."content_type_id", "auth_permission"."codename" FROM "auth_permission" INNER JOIN "django_content_type" ON ("auth_permission"."content_type_id" = "django_content_type"."id") WHERE "auth_permission"."content_type_id" IN (11, 12) ORDER BY "django_content_type"."app_label" ASC, "django_content_type"."model" ASC, "auth_permission"."codename" ASC; args=(11, 12); alias=default
+(0.000) SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE "django_content_type"."app_label" = 'django_plotly_dash'; args=('django_plotly_dash',); alias=default
+(0.000) SELECT "results_result"."option", "results_result"."votes" FROM "results_result"; args=(); alias=default
+(0.000) SELECT 1 AS "a" FROM "results_result" LIMIT 1; args=(1,); alias=default
+(0.000) SELECT "results_result"."id", "results_result"."option", "results_result"."votes" FROM "results_result"; args=(); alias=default
+(0.000) SELECT "results_result"."option", "results_result"."votes" FROM "results_result"; args=(); alias=default
+(0.000) SELECT 1 AS "a" FROM "results_result" LIMIT 1; args=(1,); alias=default
+(0.000) SELECT "results_result"."id", "results_result"."option", "results_result"."votes" FROM "results_result"; args=(); alias=default
+(0.000) SELECT "results_result"."option", "results_result"."votes" FROM "results_result"; args=(); alias=default
+(0.015) SELECT 1 AS "a" FROM "results_result" LIMIT 1; args=(1,); alias=default
+(0.000) SELECT "results_result"."id", "results_result"."option", "results_result"."votes" FROM "results_result"; args=(); alias=default
+(0.000) SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE "django_content_type"."app_label" = 'voting_sessions'; args=('voting_sessions',); alias=default
+(0.000) SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE ("django_content_type"."app_label" = 'voting_sessions' AND "django_content_type"."model" IN ('session', 'sessionuser', 'option')); args=('voting_sessions', 'session', 'sessionuser', 'option'); alias=default
+(0.000) SELECT "auth_permission"."content_type_id", "auth_permission"."codename" FROM "auth_permission" INNER JOIN "django_content_type" ON ("auth_permission"."content_type_id" = "django_content_type"."id") WHERE "auth_permission"."content_type_id" IN (8, 13, 7) ORDER BY "django_content_type"."app_label" ASC, "django_content_type"."model" ASC, "auth_permission"."codename" ASC; args=(8, 13, 7); alias=default
+(0.000) SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE "django_content_type"."app_label" = 'voting_sessions'; args=('voting_sessions',); alias=default
+(0.000) SELECT "results_result"."option", "results_result"."votes" FROM "results_result"; args=(); alias=default
+(0.000) SELECT 1 AS "a" FROM "results_result" LIMIT 1; args=(1,); alias=default
+(0.000) SELECT "results_result"."id", "results_result"."option", "results_result"."votes" FROM "results_result"; args=(); alias=default
+(0.000) SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE "django_content_type"."app_label" = 'vote'; args=('vote',); alias=default
+(0.000) SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE ("django_content_type"."app_label" = 'vote' AND "django_content_type"."model" IN ('vote')); args=('vote', 'vote'); alias=default
+(0.000) SELECT "auth_permission"."content_type_id", "auth_permission"."codename" FROM "auth_permission" INNER JOIN "django_content_type" ON ("auth_permission"."content_type_id" = "django_content_type"."id") WHERE "auth_permission"."content_type_id" IN (9) ORDER BY "django_content_type"."app_label" ASC, "django_content_type"."model" ASC, "auth_permission"."codename" ASC; args=(9,); alias=default
+(0.000) SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE "django_content_type"."app_label" = 'vote'; args=('vote',); alias=default
+(0.000) SELECT "results_result"."option", "results_result"."votes" FROM "results_result"; args=(); alias=default
+(0.000) SELECT 1 AS "a" FROM "results_result" LIMIT 1; args=(1,); alias=default
+(0.000) SELECT "results_result"."id", "results_result"."option", "results_result"."votes" FROM "results_result"; args=(); alias=default
+(0.016) SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE "django_content_type"."app_label" = 'results'; args=('results',); alias=default
+(0.000) SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE ("django_content_type"."app_label" = 'results' AND "django_content_type"."model" IN ('result')); args=('results', 'result'); alias=default
+(0.000) SELECT "auth_permission"."content_type_id", "auth_permission"."codename" FROM "auth_permission" INNER JOIN "django_content_type" ON ("auth_permission"."content_type_id" = "django_content_type"."id") WHERE "auth_permission"."content_type_id" IN (10) ORDER BY "django_content_type"."app_label" ASC, "django_content_type"."model" ASC, "auth_permission"."codename" ASC; args=(10,); alias=default
+(0.000) SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE "django_content_type"."app_label" = 'results'; args=('results',); alias=default
+(0.000) SELECT "results_result"."option", "results_result"."votes" FROM "results_result"; args=(); alias=default
+(0.000) 
+            SELECT name, type FROM sqlite_master
+            WHERE type in ('table', 'view') AND NOT name='sqlite_sequence'
+            ORDER BY name; args=None; alias=default
+(0.015) SELECT "django_migrations"."id", "django_migrations"."app", "django_migrations"."name", "django_migrations"."applied" FROM "django_migrations"; args=(); alias=default
+(0.000) 
+            SELECT name, type FROM sqlite_master
+            WHERE type in ('table', 'view') AND NOT name='sqlite_sequence'
+            ORDER BY name; args=None; alias=default
+(0.000) SELECT "django_migrations"."id", "django_migrations"."app", "django_migrations"."name", "django_migrations"."applied" FROM "django_migrations"; args=(); alias=default
+(0.000) 
+            SELECT name, type FROM sqlite_master
+            WHERE type in ('table', 'view') AND NOT name='sqlite_sequence'
+            ORDER BY name; args=None; alias=default
+(0.000) SELECT "django_migrations"."id", "django_migrations"."app", "django_migrations"."name", "django_migrations"."applied" FROM "django_migrations"; args=(); alias=default
+(0.000) 
+            SELECT name, type FROM sqlite_master
+            WHERE type in ('table', 'view') AND NOT name='sqlite_sequence'
+            ORDER BY name; args=None; alias=default
+(0.000) SELECT "django_migrations"."id", "django_migrations"."app", "django_migrations"."name", "django_migrations"."applied" FROM "django_migrations"; args=(); alias=default
+(0.000) SELECT 1 AS "a" FROM "results_result" LIMIT 1; args=(1,); alias=default
+(0.000) SELECT "results_result"."id", "results_result"."option", "results_result"."votes" FROM "results_result"; args=(); alias=default
+(0.000) SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE "django_content_type"."app_label" = 'admin'; args=('admin',); alias=default
+(0.000) SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE ("django_content_type"."app_label" = 'admin' AND "django_content_type"."model" IN ('logentry')); args=('admin', 'logentry'); alias=default
+(0.000) SELECT "auth_permission"."content_type_id", "auth_permission"."codename" FROM "auth_permission" INNER JOIN "django_content_type" ON ("auth_permission"."content_type_id" = "django_content_type"."id") WHERE "auth_permission"."content_type_id" IN (1) ORDER BY "django_content_type"."app_label" ASC, "django_content_type"."model" ASC, "auth_permission"."codename" ASC; args=(1,); alias=default
+(0.000) SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE "django_content_type"."app_label" = 'admin'; args=('admin',); alias=default
+(0.000) SELECT "results_result"."option", "results_result"."votes" FROM "results_result"; args=(); alias=default
+(0.000) SELECT 1 AS "a" FROM "results_result" LIMIT 1; args=(1,); alias=default
+(0.015) SELECT "results_result"."id", "results_result"."option", "results_result"."votes" FROM "results_result"; args=(); alias=default
+(0.000) SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE "django_content_type"."app_label" = 'auth'; args=('auth',); alias=default
+(0.000) SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE ("django_content_type"."app_label" = 'auth' AND "django_content_type"."model" IN ('permission', 'user', 'group')); args=('auth', 'permission', 'user', 'group'); alias=default
+(0.000) SELECT "auth_permission"."content_type_id", "auth_permission"."codename" FROM "auth_permission" INNER JOIN "django_content_type" ON ("auth_permission"."content_type_id" = "django_content_type"."id") WHERE "auth_permission"."content_type_id" IN (2, 3, 4) ORDER BY "django_content_type"."app_label" ASC, "django_content_type"."model" ASC, "auth_permission"."codename" ASC; args=(2, 3, 4); alias=default
+(0.000) SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE "django_content_type"."app_label" = 'auth'; args=('auth',); alias=default
+(0.000) SELECT "results_result"."option", "results_result"."votes" FROM "results_result"; args=(); alias=default
+(0.000) SELECT 1 AS "a" FROM "results_result" LIMIT 1; args=(1,); alias=default
+(0.000) SELECT "results_result"."id", "results_result"."option", "results_result"."votes" FROM "results_result"; args=(); alias=default
+(0.000) SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE "django_content_type"."app_label" = 'contenttypes'; args=('contenttypes',); alias=default
+(0.000) SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE ("django_content_type"."app_label" = 'contenttypes' AND "django_content_type"."model" IN ('contenttype')); args=('contenttypes', 'contenttype'); alias=default
+(0.000) SELECT "auth_permission"."content_type_id", "auth_permission"."codename" FROM "auth_permission" INNER JOIN "django_content_type" ON ("auth_permission"."content_type_id" = "django_content_type"."id") WHERE "auth_permission"."content_type_id" IN (5) ORDER BY "django_content_type"."app_label" ASC, "django_content_type"."model" ASC, "auth_permission"."codename" ASC; args=(5,); alias=default
+(0.000) SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE "django_content_type"."app_label" = 'contenttypes'; args=('contenttypes',); alias=default
+(0.000) SELECT "results_result"."option", "results_result"."votes" FROM "results_result"; args=(); alias=default
+(0.016) SELECT 1 AS "a" FROM "results_result" LIMIT 1; args=(1,); alias=default
+(0.000) SELECT "results_result"."id", "results_result"."option", "results_result"."votes" FROM "results_result"; args=(); alias=default
+(0.016) SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE "django_content_type"."app_label" = 'sessions'; args=('sessions',); alias=default
+(0.000) SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE ("django_content_type"."app_label" = 'sessions' AND "django_content_type"."model" IN ('session')); args=('sessions', 'session'); alias=default
+(0.000) SELECT "auth_permission"."content_type_id", "auth_permission"."codename" FROM "auth_permission" INNER JOIN "django_content_type" ON ("auth_permission"."content_type_id" = "django_content_type"."id") WHERE "auth_permission"."content_type_id" IN (6) ORDER BY "django_content_type"."app_label" ASC, "django_content_type"."model" ASC, "auth_permission"."codename" ASC; args=(6,); alias=default
+(0.000) SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE "django_content_type"."app_label" = 'sessions'; args=('sessions',); alias=default
+(0.000) SELECT "results_result"."option", "results_result"."votes" FROM "results_result"; args=(); alias=default
+(0.000) SELECT 1 AS "a" FROM "results_result" LIMIT 1; args=(1,); alias=default
+(0.000) SELECT "results_result"."id", "results_result"."option", "results_result"."votes" FROM "results_result"; args=(); alias=default
+(0.000) SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE "django_content_type"."app_label" = 'django_plotly_dash'; args=('django_plotly_dash',); alias=default
+(0.000) SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE ("django_content_type"."app_label" = 'django_plotly_dash' AND "django_content_type"."model" IN ('dashapp', 'statelessapp')); args=('django_plotly_dash', 'dashapp', 'statelessapp'); alias=default
+(0.000) SELECT "auth_permission"."content_type_id", "auth_permission"."codename" FROM "auth_permission" INNER JOIN "django_content_type" ON ("auth_permission"."content_type_id" = "django_content_type"."id") WHERE "auth_permission"."content_type_id" IN (11, 12) ORDER BY "django_content_type"."app_label" ASC, "django_content_type"."model" ASC, "auth_permission"."codename" ASC; args=(11, 12); alias=default
+(0.000) SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE "django_content_type"."app_label" = 'django_plotly_dash'; args=('django_plotly_dash',); alias=default
+(0.000) SELECT "results_result"."option", "results_result"."votes" FROM "results_result"; args=(); alias=default
+(0.000) SELECT 1 AS "a" FROM "results_result" LIMIT 1; args=(1,); alias=default
+(0.000) SELECT "results_result"."id", "results_result"."option", "results_result"."votes" FROM "results_result"; args=(); alias=default
+(0.000) SELECT "results_result"."option", "results_result"."votes" FROM "results_result"; args=(); alias=default
+(0.000) SELECT 1 AS "a" FROM "results_result" LIMIT 1; args=(1,); alias=default
+(0.000) SELECT "results_result"."id", "results_result"."option", "results_result"."votes" FROM "results_result"; args=(); alias=default
+(0.000) SELECT "results_result"."option", "results_result"."votes" FROM "results_result"; args=(); alias=default
+(0.000) SELECT 1 AS "a" FROM "results_result" LIMIT 1; args=(1,); alias=default
+(0.016) SELECT "results_result"."id", "results_result"."option", "results_result"."votes" FROM "results_result"; args=(); alias=default
+(0.000) SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE "django_content_type"."app_label" = 'voting_sessions'; args=('voting_sessions',); alias=default
+(0.000) SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE ("django_content_type"."app_label" = 'voting_sessions' AND "django_content_type"."model" IN ('session', 'option', 'sessionuser')); args=('voting_sessions', 'session', 'option', 'sessionuser'); alias=default
+(0.000) SELECT "auth_permission"."content_type_id", "auth_permission"."codename" FROM "auth_permission" INNER JOIN "django_content_type" ON ("auth_permission"."content_type_id" = "django_content_type"."id") WHERE "auth_permission"."content_type_id" IN (8, 13, 7) ORDER BY "django_content_type"."app_label" ASC, "django_content_type"."model" ASC, "auth_permission"."codename" ASC; args=(8, 13, 7); alias=default
+(0.000) SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE "django_content_type"."app_label" = 'voting_sessions'; args=('voting_sessions',); alias=default
+(0.000) SELECT "results_result"."option", "results_result"."votes" FROM "results_result"; args=(); alias=default
+(0.000) SELECT 1 AS "a" FROM "results_result" LIMIT 1; args=(1,); alias=default
+(0.000) SELECT "results_result"."id", "results_result"."option", "results_result"."votes" FROM "results_result"; args=(); alias=default
+(0.000) SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE "django_content_type"."app_label" = 'vote'; args=('vote',); alias=default
+(0.000) SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE ("django_content_type"."app_label" = 'vote' AND "django_content_type"."model" IN ('vote')); args=('vote', 'vote'); alias=default
+(0.000) SELECT "auth_permission"."content_type_id", "auth_permission"."codename" FROM "auth_permission" INNER JOIN "django_content_type" ON ("auth_permission"."content_type_id" = "django_content_type"."id") WHERE "auth_permission"."content_type_id" IN (9) ORDER BY "django_content_type"."app_label" ASC, "django_content_type"."model" ASC, "auth_permission"."codename" ASC; args=(9,); alias=default
+(0.000) SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE "django_content_type"."app_label" = 'vote'; args=('vote',); alias=default
+(0.000) SELECT "results_result"."option", "results_result"."votes" FROM "results_result"; args=(); alias=default
+(0.000) SELECT 1 AS "a" FROM "results_result" LIMIT 1; args=(1,); alias=default
+(0.000) SELECT "results_result"."id", "results_result"."option", "results_result"."votes" FROM "results_result"; args=(); alias=default
+(0.000) SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE "django_content_type"."app_label" = 'results'; args=('results',); alias=default
+(0.000) SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE ("django_content_type"."app_label" = 'results' AND "django_content_type"."model" IN ('result')); args=('results', 'result'); alias=default
+(0.000) SELECT "auth_permission"."content_type_id", "auth_permission"."codename" FROM "auth_permission" INNER JOIN "django_content_type" ON ("auth_permission"."content_type_id" = "django_content_type"."id") WHERE "auth_permission"."content_type_id" IN (10) ORDER BY "django_content_type"."app_label" ASC, "django_content_type"."model" ASC, "auth_permission"."codename" ASC; args=(10,); alias=default
+(0.000) SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE "django_content_type"."app_label" = 'results'; args=('results',); alias=default
+(0.000) SELECT "results_result"."option", "results_result"."votes" FROM "results_result"; args=(); alias=default
+(0.016) 
+            SELECT name, type FROM sqlite_master
+            WHERE type in ('table', 'view') AND NOT name='sqlite_sequence'
+            ORDER BY name; args=None; alias=default
+(0.031) SELECT "django_migrations"."id", "django_migrations"."app", "django_migrations"."name", "django_migrations"."applied" FROM "django_migrations"; args=(); alias=default
+(0.000) 
+            SELECT name, type FROM sqlite_master
+            WHERE type in ('table', 'view') AND NOT name='sqlite_sequence'
+            ORDER BY name; args=None; alias=default
+(0.000) SELECT "django_migrations"."id", "django_migrations"."app", "django_migrations"."name", "django_migrations"."applied" FROM "django_migrations"; args=(); alias=default
+(0.000) 
+            SELECT name, type FROM sqlite_master
+            WHERE type in ('table', 'view') AND NOT name='sqlite_sequence'
+            ORDER BY name; args=None; alias=default
+(0.016) SELECT "django_migrations"."id", "django_migrations"."app", "django_migrations"."name", "django_migrations"."applied" FROM "django_migrations"; args=(); alias=default
+(0.000) 
+            SELECT name, type FROM sqlite_master
+            WHERE type in ('table', 'view') AND NOT name='sqlite_sequence'
+            ORDER BY name; args=None; alias=default
+(0.000) SELECT "django_migrations"."id", "django_migrations"."app", "django_migrations"."name", "django_migrations"."applied" FROM "django_migrations"; args=(); alias=default
+(0.000) 
+            SELECT name, type FROM sqlite_master
+            WHERE type in ('table', 'view') AND NOT name='sqlite_sequence'
+            ORDER BY name; args=None; alias=default
+(0.000) SELECT "django_migrations"."id", "django_migrations"."app", "django_migrations"."name", "django_migrations"."applied" FROM "django_migrations"; args=(); alias=default
+(0.000) SELECT 1 AS "a" FROM "results_result" LIMIT 1; args=(1,); alias=default
+(0.000) SELECT "results_result"."id", "results_result"."option", "results_result"."votes" FROM "results_result"; args=(); alias=default
+(0.000) SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE "django_content_type"."app_label" = 'admin'; args=('admin',); alias=default
+(0.000) SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE ("django_content_type"."app_label" = 'admin' AND "django_content_type"."model" IN ('logentry')); args=('admin', 'logentry'); alias=default
+(0.000) SELECT "auth_permission"."content_type_id", "auth_permission"."codename" FROM "auth_permission" INNER JOIN "django_content_type" ON ("auth_permission"."content_type_id" = "django_content_type"."id") WHERE "auth_permission"."content_type_id" IN (1) ORDER BY "django_content_type"."app_label" ASC, "django_content_type"."model" ASC, "auth_permission"."codename" ASC; args=(1,); alias=default
+(0.000) SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE "django_content_type"."app_label" = 'admin'; args=('admin',); alias=default
+(0.000) SELECT 1 AS "a" FROM "results_result" LIMIT 1; args=(1,); alias=default
+(0.000) SELECT "results_result"."id", "results_result"."option", "results_result"."votes" FROM "results_result"; args=(); alias=default
+(0.000) SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE "django_content_type"."app_label" = 'auth'; args=('auth',); alias=default
+(0.000) SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE ("django_content_type"."app_label" = 'auth' AND "django_content_type"."model" IN ('permission', 'group', 'user')); args=('auth', 'permission', 'group', 'user'); alias=default
+(0.000) SELECT "auth_permission"."content_type_id", "auth_permission"."codename" FROM "auth_permission" INNER JOIN "django_content_type" ON ("auth_permission"."content_type_id" = "django_content_type"."id") WHERE "auth_permission"."content_type_id" IN (2, 3, 4) ORDER BY "django_content_type"."app_label" ASC, "django_content_type"."model" ASC, "auth_permission"."codename" ASC; args=(2, 3, 4); alias=default
+(0.000) SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE "django_content_type"."app_label" = 'auth'; args=('auth',); alias=default
+(0.000) SELECT 1 AS "a" FROM "results_result" LIMIT 1; args=(1,); alias=default
+(0.000) SELECT "results_result"."id", "results_result"."option", "results_result"."votes" FROM "results_result"; args=(); alias=default
+(0.000) SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE "django_content_type"."app_label" = 'contenttypes'; args=('contenttypes',); alias=default
+(0.000) SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE ("django_content_type"."app_label" = 'contenttypes' AND "django_content_type"."model" IN ('contenttype')); args=('contenttypes', 'contenttype'); alias=default
+(0.000) SELECT "auth_permission"."content_type_id", "auth_permission"."codename" FROM "auth_permission" INNER JOIN "django_content_type" ON ("auth_permission"."content_type_id" = "django_content_type"."id") WHERE "auth_permission"."content_type_id" IN (5) ORDER BY "django_content_type"."app_label" ASC, "django_content_type"."model" ASC, "auth_permission"."codename" ASC; args=(5,); alias=default
+(0.000) SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE "django_content_type"."app_label" = 'contenttypes'; args=('contenttypes',); alias=default
+(0.000) SELECT 1 AS "a" FROM "results_result" LIMIT 1; args=(1,); alias=default
+(0.000) SELECT "results_result"."id", "results_result"."option", "results_result"."votes" FROM "results_result"; args=(); alias=default
+(0.000) SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE "django_content_type"."app_label" = 'sessions'; args=('sessions',); alias=default
+(0.000) SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE ("django_content_type"."app_label" = 'sessions' AND "django_content_type"."model" IN ('session')); args=('sessions', 'session'); alias=default
+(0.000) SELECT "auth_permission"."content_type_id", "auth_permission"."codename" FROM "auth_permission" INNER JOIN "django_content_type" ON ("auth_permission"."content_type_id" = "django_content_type"."id") WHERE "auth_permission"."content_type_id" IN (6) ORDER BY "django_content_type"."app_label" ASC, "django_content_type"."model" ASC, "auth_permission"."codename" ASC; args=(6,); alias=default
+(0.000) SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE "django_content_type"."app_label" = 'sessions'; args=('sessions',); alias=default
+(0.000) SELECT 1 AS "a" FROM "results_result" LIMIT 1; args=(1,); alias=default
+(0.000) SELECT "results_result"."id", "results_result"."option", "results_result"."votes" FROM "results_result"; args=(); alias=default
+(0.000) SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE "django_content_type"."app_label" = 'django_plotly_dash'; args=('django_plotly_dash',); alias=default
+(0.000) SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE ("django_content_type"."app_label" = 'django_plotly_dash' AND "django_content_type"."model" IN ('dashapp', 'statelessapp')); args=('django_plotly_dash', 'dashapp', 'statelessapp'); alias=default
+(0.000) SELECT "auth_permission"."content_type_id", "auth_permission"."codename" FROM "auth_permission" INNER JOIN "django_content_type" ON ("auth_permission"."content_type_id" = "django_content_type"."id") WHERE "auth_permission"."content_type_id" IN (11, 12) ORDER BY "django_content_type"."app_label" ASC, "django_content_type"."model" ASC, "auth_permission"."codename" ASC; args=(11, 12); alias=default
+(0.000) SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE "django_content_type"."app_label" = 'django_plotly_dash'; args=('django_plotly_dash',); alias=default
+(0.000) SELECT 1 AS "a" FROM "results_result" LIMIT 1; args=(1,); alias=default
+(0.000) SELECT "results_result"."id", "results_result"."option", "results_result"."votes" FROM "results_result"; args=(); alias=default
+(0.000) SELECT 1 AS "a" FROM "results_result" LIMIT 1; args=(1,); alias=default
+(0.000) SELECT "results_result"."id", "results_result"."option", "results_result"."votes" FROM "results_result"; args=(); alias=default
+(0.000) SELECT 1 AS "a" FROM "results_result" LIMIT 1; args=(1,); alias=default
+(0.000) SELECT "results_result"."id", "results_result"."option", "results_result"."votes" FROM "results_result"; args=(); alias=default
+(0.000) SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE "django_content_type"."app_label" = 'voting_sessions'; args=('voting_sessions',); alias=default
+(0.000) SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE ("django_content_type"."app_label" = 'voting_sessions' AND "django_content_type"."model" IN ('sessionuser', 'option', 'session')); args=('voting_sessions', 'sessionuser', 'option', 'session'); alias=default
+(0.000) SELECT "auth_permission"."content_type_id", "auth_permission"."codename" FROM "auth_permission" INNER JOIN "django_content_type" ON ("auth_permission"."content_type_id" = "django_content_type"."id") WHERE "auth_permission"."content_type_id" IN (8, 13, 7) ORDER BY "django_content_type"."app_label" ASC, "django_content_type"."model" ASC, "auth_permission"."codename" ASC; args=(8, 13, 7); alias=default
+(0.000) SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE "django_content_type"."app_label" = 'voting_sessions'; args=('voting_sessions',); alias=default
+(0.000) SELECT 1 AS "a" FROM "results_result" LIMIT 1; args=(1,); alias=default
+(0.000) SELECT "results_result"."id", "results_result"."option", "results_result"."votes" FROM "results_result"; args=(); alias=default
+(0.000) SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE "django_content_type"."app_label" = 'vote'; args=('vote',); alias=default
+(0.000) SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE ("django_content_type"."app_label" = 'vote' AND "django_content_type"."model" IN ('vote')); args=('vote', 'vote'); alias=default
+(0.000) SELECT "auth_permission"."content_type_id", "auth_permission"."codename" FROM "auth_permission" INNER JOIN "django_content_type" ON ("auth_permission"."content_type_id" = "django_content_type"."id") WHERE "auth_permission"."content_type_id" IN (9) ORDER BY "django_content_type"."app_label" ASC, "django_content_type"."model" ASC, "auth_permission"."codename" ASC; args=(9,); alias=default
+(0.016) SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE "django_content_type"."app_label" = 'vote'; args=('vote',); alias=default
+(0.000) SELECT 1 AS "a" FROM "results_result" LIMIT 1; args=(1,); alias=default
+(0.000) SELECT "results_result"."id", "results_result"."option", "results_result"."votes" FROM "results_result"; args=(); alias=default
+(0.000) SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE "django_content_type"."app_label" = 'results'; args=('results',); alias=default
+(0.000) SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE ("django_content_type"."app_label" = 'results' AND "django_content_type"."model" IN ('result')); args=('results', 'result'); alias=default
+(0.000) SELECT "auth_permission"."content_type_id", "auth_permission"."codename" FROM "auth_permission" INNER JOIN "django_content_type" ON ("auth_permission"."content_type_id" = "django_content_type"."id") WHERE "auth_permission"."content_type_id" IN (10) ORDER BY "django_content_type"."app_label" ASC, "django_content_type"."model" ASC, "auth_permission"."codename" ASC; args=(10,); alias=default
+(0.000) SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE "django_content_type"."app_label" = 'results'; args=('results',); alias=default
+(0.000) 
+            SELECT name, type FROM sqlite_master
+            WHERE type in ('table', 'view') AND NOT name='sqlite_sequence'
+            ORDER BY name; args=None; alias=default
+(0.000) SELECT "django_migrations"."id", "django_migrations"."app", "django_migrations"."name", "django_migrations"."applied" FROM "django_migrations"; args=(); alias=default
+(0.000) 
+            SELECT name, type FROM sqlite_master
+            WHERE type in ('table', 'view') AND NOT name='sqlite_sequence'
+            ORDER BY name; args=None; alias=default
+(0.000) SELECT "django_migrations"."id", "django_migrations"."app", "django_migrations"."name", "django_migrations"."applied" FROM "django_migrations"; args=(); alias=default
+(0.000) 
+            SELECT name, type FROM sqlite_master
+            WHERE type in ('table', 'view') AND NOT name='sqlite_sequence'
+            ORDER BY name; args=None; alias=default
+(0.000) SELECT "django_migrations"."id", "django_migrations"."app", "django_migrations"."name", "django_migrations"."applied" FROM "django_migrations"; args=(); alias=default
+(0.000) 
+            SELECT name, type FROM sqlite_master
+            WHERE type in ('table', 'view') AND NOT name='sqlite_sequence'
+            ORDER BY name; args=None; alias=default
+(0.000) SELECT "django_migrations"."id", "django_migrations"."app", "django_migrations"."name", "django_migrations"."applied" FROM "django_migrations"; args=(); alias=default
+(0.000) SELECT 1 AS "a" FROM "results_result" LIMIT 1; args=(1,); alias=default
+(0.000) SELECT "results_result"."id", "results_result"."option", "results_result"."votes" FROM "results_result"; args=(); alias=default
+(0.000) SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE "django_content_type"."app_label" = 'admin'; args=('admin',); alias=default
+(0.000) SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE ("django_content_type"."app_label" = 'admin' AND "django_content_type"."model" IN ('logentry')); args=('admin', 'logentry'); alias=default
+(0.000) SELECT "auth_permission"."content_type_id", "auth_permission"."codename" FROM "auth_permission" INNER JOIN "django_content_type" ON ("auth_permission"."content_type_id" = "django_content_type"."id") WHERE "auth_permission"."content_type_id" IN (1) ORDER BY "django_content_type"."app_label" ASC, "django_content_type"."model" ASC, "auth_permission"."codename" ASC; args=(1,); alias=default
+(0.000) SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE "django_content_type"."app_label" = 'admin'; args=('admin',); alias=default
+(0.000) SELECT "results_result"."option", "results_result"."votes" FROM "results_result"; args=(); alias=default
+(0.000) SELECT 1 AS "a" FROM "results_result" LIMIT 1; args=(1,); alias=default
+(0.000) SELECT "results_result"."id", "results_result"."option", "results_result"."votes" FROM "results_result"; args=(); alias=default
+(0.000) SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE "django_content_type"."app_label" = 'auth'; args=('auth',); alias=default
+(0.000) SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE ("django_content_type"."app_label" = 'auth' AND "django_content_type"."model" IN ('group', 'user', 'permission')); args=('auth', 'group', 'user', 'permission'); alias=default
+(0.000) SELECT "auth_permission"."content_type_id", "auth_permission"."codename" FROM "auth_permission" INNER JOIN "django_content_type" ON ("auth_permission"."content_type_id" = "django_content_type"."id") WHERE "auth_permission"."content_type_id" IN (2, 3, 4) ORDER BY "django_content_type"."app_label" ASC, "django_content_type"."model" ASC, "auth_permission"."codename" ASC; args=(2, 3, 4); alias=default
+(0.000) SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE "django_content_type"."app_label" = 'auth'; args=('auth',); alias=default
+(0.000) SELECT "results_result"."option", "results_result"."votes" FROM "results_result"; args=(); alias=default
+(0.000) SELECT 1 AS "a" FROM "results_result" LIMIT 1; args=(1,); alias=default
+(0.000) SELECT "results_result"."id", "results_result"."option", "results_result"."votes" FROM "results_result"; args=(); alias=default
+(0.000) SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE "django_content_type"."app_label" = 'contenttypes'; args=('contenttypes',); alias=default
+(0.000) SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE ("django_content_type"."app_label" = 'contenttypes' AND "django_content_type"."model" IN ('contenttype')); args=('contenttypes', 'contenttype'); alias=default
+(0.000) SELECT "auth_permission"."content_type_id", "auth_permission"."codename" FROM "auth_permission" INNER JOIN "django_content_type" ON ("auth_permission"."content_type_id" = "django_content_type"."id") WHERE "auth_permission"."content_type_id" IN (5) ORDER BY "django_content_type"."app_label" ASC, "django_content_type"."model" ASC, "auth_permission"."codename" ASC; args=(5,); alias=default
+(0.000) SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE "django_content_type"."app_label" = 'contenttypes'; args=('contenttypes',); alias=default
+(0.000) SELECT "results_result"."option", "results_result"."votes" FROM "results_result"; args=(); alias=default
+(0.000) SELECT 1 AS "a" FROM "results_result" LIMIT 1; args=(1,); alias=default
+(0.000) SELECT "results_result"."id", "results_result"."option", "results_result"."votes" FROM "results_result"; args=(); alias=default
+(0.000) SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE "django_content_type"."app_label" = 'sessions'; args=('sessions',); alias=default
+(0.000) SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE ("django_content_type"."app_label" = 'sessions' AND "django_content_type"."model" IN ('session')); args=('sessions', 'session'); alias=default
+(0.000) SELECT "auth_permission"."content_type_id", "auth_permission"."codename" FROM "auth_permission" INNER JOIN "django_content_type" ON ("auth_permission"."content_type_id" = "django_content_type"."id") WHERE "auth_permission"."content_type_id" IN (6) ORDER BY "django_content_type"."app_label" ASC, "django_content_type"."model" ASC, "auth_permission"."codename" ASC; args=(6,); alias=default
+(0.000) SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE "django_content_type"."app_label" = 'sessions'; args=('sessions',); alias=default
+(0.000) SELECT "results_result"."option", "results_result"."votes" FROM "results_result"; args=(); alias=default
+(0.000) SELECT 1 AS "a" FROM "results_result" LIMIT 1; args=(1,); alias=default
+(0.000) SELECT "results_result"."id", "results_result"."option", "results_result"."votes" FROM "results_result"; args=(); alias=default
+(0.000) SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE "django_content_type"."app_label" = 'django_plotly_dash'; args=('django_plotly_dash',); alias=default
+(0.016) SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE ("django_content_type"."app_label" = 'django_plotly_dash' AND "django_content_type"."model" IN ('dashapp', 'statelessapp')); args=('django_plotly_dash', 'dashapp', 'statelessapp'); alias=default
+(0.000) SELECT "auth_permission"."content_type_id", "auth_permission"."codename" FROM "auth_permission" INNER JOIN "django_content_type" ON ("auth_permission"."content_type_id" = "django_content_type"."id") WHERE "auth_permission"."content_type_id" IN (11, 12) ORDER BY "django_content_type"."app_label" ASC, "django_content_type"."model" ASC, "auth_permission"."codename" ASC; args=(11, 12); alias=default
+(0.000) SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE "django_content_type"."app_label" = 'django_plotly_dash'; args=('django_plotly_dash',); alias=default
+(0.000) SELECT "results_result"."option", "results_result"."votes" FROM "results_result"; args=(); alias=default
+(0.000) SELECT 1 AS "a" FROM "results_result" LIMIT 1; args=(1,); alias=default
+(0.000) SELECT "results_result"."id", "results_result"."option", "results_result"."votes" FROM "results_result"; args=(); alias=default
+(0.000) SELECT "results_result"."option", "results_result"."votes" FROM "results_result"; args=(); alias=default
+(0.000) SELECT 1 AS "a" FROM "results_result" LIMIT 1; args=(1,); alias=default
+(0.000) SELECT "results_result"."id", "results_result"."option", "results_result"."votes" FROM "results_result"; args=(); alias=default
+(0.000) SELECT "results_result"."option", "results_result"."votes" FROM "results_result"; args=(); alias=default
+(0.000) SELECT 1 AS "a" FROM "results_result" LIMIT 1; args=(1,); alias=default
+(0.000) SELECT "results_result"."id", "results_result"."option", "results_result"."votes" FROM "results_result"; args=(); alias=default
+(0.000) SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE "django_content_type"."app_label" = 'voting_sessions'; args=('voting_sessions',); alias=default
+(0.016) SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE ("django_content_type"."app_label" = 'voting_sessions' AND "django_content_type"."model" IN ('sessionuser', 'session', 'option')); args=('voting_sessions', 'sessionuser', 'session', 'option'); alias=default
+(0.000) SELECT "auth_permission"."content_type_id", "auth_permission"."codename" FROM "auth_permission" INNER JOIN "django_content_type" ON ("auth_permission"."content_type_id" = "django_content_type"."id") WHERE "auth_permission"."content_type_id" IN (8, 13, 7) ORDER BY "django_content_type"."app_label" ASC, "django_content_type"."model" ASC, "auth_permission"."codename" ASC; args=(8, 13, 7); alias=default
+(0.000) SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE "django_content_type"."app_label" = 'voting_sessions'; args=('voting_sessions',); alias=default
+(0.000) SELECT "results_result"."option", "results_result"."votes" FROM "results_result"; args=(); alias=default
+(0.000) SELECT 1 AS "a" FROM "results_result" LIMIT 1; args=(1,); alias=default
+(0.000) SELECT "results_result"."id", "results_result"."option", "results_result"."votes" FROM "results_result"; args=(); alias=default
+(0.000) SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE "django_content_type"."app_label" = 'vote'; args=('vote',); alias=default
+(0.000) SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE ("django_content_type"."app_label" = 'vote' AND "django_content_type"."model" IN ('vote')); args=('vote', 'vote'); alias=default
+(0.000) SELECT "auth_permission"."content_type_id", "auth_permission"."codename" FROM "auth_permission" INNER JOIN "django_content_type" ON ("auth_permission"."content_type_id" = "django_content_type"."id") WHERE "auth_permission"."content_type_id" IN (9) ORDER BY "django_content_type"."app_label" ASC, "django_content_type"."model" ASC, "auth_permission"."codename" ASC; args=(9,); alias=default
+(0.000) SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE "django_content_type"."app_label" = 'vote'; args=('vote',); alias=default
+(0.000) SELECT "results_result"."option", "results_result"."votes" FROM "results_result"; args=(); alias=default
+(0.000) SELECT 1 AS "a" FROM "results_result" LIMIT 1; args=(1,); alias=default
+(0.000) SELECT "results_result"."id", "results_result"."option", "results_result"."votes" FROM "results_result"; args=(); alias=default
+(0.000) SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE "django_content_type"."app_label" = 'results'; args=('results',); alias=default
+(0.000) SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE ("django_content_type"."app_label" = 'results' AND "django_content_type"."model" IN ('result')); args=('results', 'result'); alias=default
+(0.000) SELECT "auth_permission"."content_type_id", "auth_permission"."codename" FROM "auth_permission" INNER JOIN "django_content_type" ON ("auth_permission"."content_type_id" = "django_content_type"."id") WHERE "auth_permission"."content_type_id" IN (10) ORDER BY "django_content_type"."app_label" ASC, "django_content_type"."model" ASC, "auth_permission"."codename" ASC; args=(10,); alias=default
+(0.000) SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE "django_content_type"."app_label" = 'results'; args=('results',); alias=default
+(0.000) SELECT "results_result"."option", "results_result"."votes" FROM "results_result"; args=(); alias=default
+(0.000) 
+            SELECT name, type FROM sqlite_master
+            WHERE type in ('table', 'view') AND NOT name='sqlite_sequence'
+            ORDER BY name; args=None; alias=default
+(0.000) SELECT "django_migrations"."id", "django_migrations"."app", "django_migrations"."name", "django_migrations"."applied" FROM "django_migrations"; args=(); alias=default
+(0.000) 
+            SELECT name, type FROM sqlite_master
+            WHERE type in ('table', 'view') AND NOT name='sqlite_sequence'
+            ORDER BY name; args=None; alias=default
+(0.000) SELECT "django_migrations"."id", "django_migrations"."app", "django_migrations"."name", "django_migrations"."applied" FROM "django_migrations"; args=(); alias=default
+(0.000) 
+            SELECT name, type FROM sqlite_master
+            WHERE type in ('table', 'view') AND NOT name='sqlite_sequence'
+            ORDER BY name; args=None; alias=default
+(0.000) SELECT "django_migrations"."id", "django_migrations"."app", "django_migrations"."name", "django_migrations"."applied" FROM "django_migrations"; args=(); alias=default
+(0.000) 
+            SELECT name, type FROM sqlite_master
+            WHERE type in ('table', 'view') AND NOT name='sqlite_sequence'
+            ORDER BY name; args=None; alias=default
+(0.000) SELECT "django_migrations"."id", "django_migrations"."app", "django_migrations"."name", "django_migrations"."applied" FROM "django_migrations"; args=(); alias=default
+(0.000) SELECT 1 AS "a" FROM "results_result" LIMIT 1; args=(1,); alias=default
+(0.000) SELECT "results_result"."id", "results_result"."option", "results_result"."votes" FROM "results_result"; args=(); alias=default
+(0.000) SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE "django_content_type"."app_label" = 'admin'; args=('admin',); alias=default
+(0.000) SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE ("django_content_type"."app_label" = 'admin' AND "django_content_type"."model" IN ('logentry')); args=('admin', 'logentry'); alias=default
+(0.000) SELECT "auth_permission"."content_type_id", "auth_permission"."codename" FROM "auth_permission" INNER JOIN "django_content_type" ON ("auth_permission"."content_type_id" = "django_content_type"."id") WHERE "auth_permission"."content_type_id" IN (1) ORDER BY "django_content_type"."app_label" ASC, "django_content_type"."model" ASC, "auth_permission"."codename" ASC; args=(1,); alias=default
+(0.000) SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE "django_content_type"."app_label" = 'admin'; args=('admin',); alias=default
+(0.000) SELECT 1 AS "a" FROM "results_result" LIMIT 1; args=(1,); alias=default
+(0.000) SELECT "results_result"."id", "results_result"."option", "results_result"."votes" FROM "results_result"; args=(); alias=default
+(0.000) SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE "django_content_type"."app_label" = 'auth'; args=('auth',); alias=default
+(0.000) SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE ("django_content_type"."app_label" = 'auth' AND "django_content_type"."model" IN ('group', 'user', 'permission')); args=('auth', 'group', 'user', 'permission'); alias=default
+(0.000) SELECT "auth_permission"."content_type_id", "auth_permission"."codename" FROM "auth_permission" INNER JOIN "django_content_type" ON ("auth_permission"."content_type_id" = "django_content_type"."id") WHERE "auth_permission"."content_type_id" IN (2, 3, 4) ORDER BY "django_content_type"."app_label" ASC, "django_content_type"."model" ASC, "auth_permission"."codename" ASC; args=(2, 3, 4); alias=default
+(0.000) SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE "django_content_type"."app_label" = 'auth'; args=('auth',); alias=default
+(0.000) SELECT 1 AS "a" FROM "results_result" LIMIT 1; args=(1,); alias=default
+(0.000) SELECT "results_result"."id", "results_result"."option", "results_result"."votes" FROM "results_result"; args=(); alias=default
+(0.000) SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE "django_content_type"."app_label" = 'contenttypes'; args=('contenttypes',); alias=default
+(0.000) SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE ("django_content_type"."app_label" = 'contenttypes' AND "django_content_type"."model" IN ('contenttype')); args=('contenttypes', 'contenttype'); alias=default
+(0.000) SELECT "auth_permission"."content_type_id", "auth_permission"."codename" FROM "auth_permission" INNER JOIN "django_content_type" ON ("auth_permission"."content_type_id" = "django_content_type"."id") WHERE "auth_permission"."content_type_id" IN (5) ORDER BY "django_content_type"."app_label" ASC, "django_content_type"."model" ASC, "auth_permission"."codename" ASC; args=(5,); alias=default
+(0.000) SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE "django_content_type"."app_label" = 'contenttypes'; args=('contenttypes',); alias=default
+(0.000) SELECT 1 AS "a" FROM "results_result" LIMIT 1; args=(1,); alias=default
+(0.000) SELECT "results_result"."id", "results_result"."option", "results_result"."votes" FROM "results_result"; args=(); alias=default
+(0.000) SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE "django_content_type"."app_label" = 'sessions'; args=('sessions',); alias=default
+(0.000) SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE ("django_content_type"."app_label" = 'sessions' AND "django_content_type"."model" IN ('session')); args=('sessions', 'session'); alias=default
+(0.000) SELECT "auth_permission"."content_type_id", "auth_permission"."codename" FROM "auth_permission" INNER JOIN "django_content_type" ON ("auth_permission"."content_type_id" = "django_content_type"."id") WHERE "auth_permission"."content_type_id" IN (6) ORDER BY "django_content_type"."app_label" ASC, "django_content_type"."model" ASC, "auth_permission"."codename" ASC; args=(6,); alias=default
+(0.000) SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE "django_content_type"."app_label" = 'sessions'; args=('sessions',); alias=default
+(0.000) SELECT 1 AS "a" FROM "results_result" LIMIT 1; args=(1,); alias=default
+(0.000) SELECT "results_result"."id", "results_result"."option", "results_result"."votes" FROM "results_result"; args=(); alias=default
+(0.000) SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE "django_content_type"."app_label" = 'django_plotly_dash'; args=('django_plotly_dash',); alias=default
+(0.000) SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE ("django_content_type"."app_label" = 'django_plotly_dash' AND "django_content_type"."model" IN ('dashapp', 'statelessapp')); args=('django_plotly_dash', 'dashapp', 'statelessapp'); alias=default
+(0.000) SELECT "auth_permission"."content_type_id", "auth_permission"."codename" FROM "auth_permission" INNER JOIN "django_content_type" ON ("auth_permission"."content_type_id" = "django_content_type"."id") WHERE "auth_permission"."content_type_id" IN (11, 12) ORDER BY "django_content_type"."app_label" ASC, "django_content_type"."model" ASC, "auth_permission"."codename" ASC; args=(11, 12); alias=default
+(0.000) SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE "django_content_type"."app_label" = 'django_plotly_dash'; args=('django_plotly_dash',); alias=default
+(0.000) SELECT 1 AS "a" FROM "results_result" LIMIT 1; args=(1,); alias=default
+(0.000) SELECT "results_result"."id", "results_result"."option", "results_result"."votes" FROM "results_result"; args=(); alias=default
+(0.000) SELECT 1 AS "a" FROM "results_result" LIMIT 1; args=(1,); alias=default
+(0.000) SELECT "results_result"."id", "results_result"."option", "results_result"."votes" FROM "results_result"; args=(); alias=default
+(0.000) SELECT 1 AS "a" FROM "results_result" LIMIT 1; args=(1,); alias=default
+(0.000) SELECT "results_result"."id", "results_result"."option", "results_result"."votes" FROM "results_result"; args=(); alias=default
+(0.000) SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE "django_content_type"."app_label" = 'voting_sessions'; args=('voting_sessions',); alias=default
+(0.000) SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE ("django_content_type"."app_label" = 'voting_sessions' AND "django_content_type"."model" IN ('session', 'sessionuser', 'option')); args=('voting_sessions', 'session', 'sessionuser', 'option'); alias=default
+(0.000) SELECT "auth_permission"."content_type_id", "auth_permission"."codename" FROM "auth_permission" INNER JOIN "django_content_type" ON ("auth_permission"."content_type_id" = "django_content_type"."id") WHERE "auth_permission"."content_type_id" IN (8, 13, 7) ORDER BY "django_content_type"."app_label" ASC, "django_content_type"."model" ASC, "auth_permission"."codename" ASC; args=(8, 13, 7); alias=default
+(0.000) SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE "django_content_type"."app_label" = 'voting_sessions'; args=('voting_sessions',); alias=default
+(0.000) SELECT 1 AS "a" FROM "results_result" LIMIT 1; args=(1,); alias=default
+(0.000) SELECT "results_result"."id", "results_result"."option", "results_result"."votes" FROM "results_result"; args=(); alias=default
+(0.000) SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE "django_content_type"."app_label" = 'vote'; args=('vote',); alias=default
+(0.000) SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE ("django_content_type"."app_label" = 'vote' AND "django_content_type"."model" IN ('vote')); args=('vote', 'vote'); alias=default
+(0.000) SELECT "auth_permission"."content_type_id", "auth_permission"."codename" FROM "auth_permission" INNER JOIN "django_content_type" ON ("auth_permission"."content_type_id" = "django_content_type"."id") WHERE "auth_permission"."content_type_id" IN (9) ORDER BY "django_content_type"."app_label" ASC, "django_content_type"."model" ASC, "auth_permission"."codename" ASC; args=(9,); alias=default
+(0.000) SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE "django_content_type"."app_label" = 'vote'; args=('vote',); alias=default
+(0.000) SELECT 1 AS "a" FROM "results_result" LIMIT 1; args=(1,); alias=default
+(0.000) SELECT "results_result"."id", "results_result"."option", "results_result"."votes" FROM "results_result"; args=(); alias=default
+(0.000) SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE "django_content_type"."app_label" = 'results'; args=('results',); alias=default
+(0.000) SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE ("django_content_type"."app_label" = 'results' AND "django_content_type"."model" IN ('result')); args=('results', 'result'); alias=default
+(0.015) SELECT "auth_permission"."content_type_id", "auth_permission"."codename" FROM "auth_permission" INNER JOIN "django_content_type" ON ("auth_permission"."content_type_id" = "django_content_type"."id") WHERE "auth_permission"."content_type_id" IN (10) ORDER BY "django_content_type"."app_label" ASC, "django_content_type"."model" ASC, "auth_permission"."codename" ASC; args=(10,); alias=default
+(0.000) SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE "django_content_type"."app_label" = 'results'; args=('results',); alias=default
+(0.000) 
+            SELECT name, type FROM sqlite_master
+            WHERE type in ('table', 'view') AND NOT name='sqlite_sequence'
+            ORDER BY name; args=None; alias=default
+(0.000) SELECT "django_migrations"."id", "django_migrations"."app", "django_migrations"."name", "django_migrations"."applied" FROM "django_migrations"; args=(); alias=default
+(0.000) SELECT "django_session"."session_key", "django_session"."session_data", "django_session"."expire_date" FROM "django_session" WHERE ("django_session"."expire_date" > '2025-03-23 19:38:10.223340' AND "django_session"."session_key" = 'ydlxx4jrfzkttb02y3fjaemv3fbp0t5s') LIMIT 21; args=('2025-03-23 19:38:10.223340', 'ydlxx4jrfzkttb02y3fjaemv3fbp0t5s'); alias=default
+(0.000) SELECT "auth_user"."id", "auth_user"."password", "auth_user"."last_login", "auth_user"."is_superuser", "auth_user"."username", "auth_user"."first_name", "auth_user"."last_name", "auth_user"."email", "auth_user"."is_staff", "auth_user"."is_active", "auth_user"."date_joined" FROM "auth_user" WHERE "auth_user"."id" = 21 LIMIT 21; args=(21,); alias=default
+(0.000) SELECT "django_session"."session_key", "django_session"."session_data", "django_session"."expire_date" FROM "django_session" WHERE ("django_session"."expire_date" > '2025-03-23 19:38:12.269172' AND "django_session"."session_key" = 'ydlxx4jrfzkttb02y3fjaemv3fbp0t5s') LIMIT 21; args=('2025-03-23 19:38:12.269172', 'ydlxx4jrfzkttb02y3fjaemv3fbp0t5s'); alias=default
+(0.000) SELECT "django_session"."session_key", "django_session"."session_data", "django_session"."expire_date" FROM "django_session" WHERE ("django_session"."expire_date" > '2025-03-23 19:38:53.495755' AND "django_session"."session_key" = 'ydlxx4jrfzkttb02y3fjaemv3fbp0t5s') LIMIT 21; args=('2025-03-23 19:38:53.495755', 'ydlxx4jrfzkttb02y3fjaemv3fbp0t5s'); alias=default
+(0.000) SELECT "auth_user"."id", "auth_user"."password", "auth_user"."last_login", "auth_user"."is_superuser", "auth_user"."username", "auth_user"."first_name", "auth_user"."last_name", "auth_user"."email", "auth_user"."is_staff", "auth_user"."is_active", "auth_user"."date_joined" FROM "auth_user" WHERE "auth_user"."id" = 21 LIMIT 21; args=(21,); alias=default
+(0.000) SELECT "django_session"."session_key", "django_session"."session_data", "django_session"."expire_date" FROM "django_session" WHERE ("django_session"."expire_date" > '2025-03-23 19:38:55.583835' AND "django_session"."session_key" = 'ydlxx4jrfzkttb02y3fjaemv3fbp0t5s') LIMIT 21; args=('2025-03-23 19:38:55.583835', 'ydlxx4jrfzkttb02y3fjaemv3fbp0t5s'); alias=default
+(0.000) SELECT "auth_user"."id", "auth_user"."password", "auth_user"."last_login", "auth_user"."is_superuser", "auth_user"."username", "auth_user"."first_name", "auth_user"."last_name", "auth_user"."email", "auth_user"."is_staff", "auth_user"."is_active", "auth_user"."date_joined" FROM "auth_user" WHERE "auth_user"."id" = 21 LIMIT 21; args=(21,); alias=default
+(0.000) SELECT "django_session"."session_key", "django_session"."session_data", "django_session"."expire_date" FROM "django_session" WHERE ("django_session"."expire_date" > '2025-03-23 19:38:58.079092' AND "django_session"."session_key" = 'ydlxx4jrfzkttb02y3fjaemv3fbp0t5s') LIMIT 21; args=('2025-03-23 19:38:58.079092', 'ydlxx4jrfzkttb02y3fjaemv3fbp0t5s'); alias=default
+(0.000) SELECT "auth_user"."id", "auth_user"."password", "auth_user"."last_login", "auth_user"."is_superuser", "auth_user"."username", "auth_user"."first_name", "auth_user"."last_name", "auth_user"."email", "auth_user"."is_staff", "auth_user"."is_active", "auth_user"."date_joined" FROM "auth_user" WHERE "auth_user"."id" = 21 LIMIT 21; args=(21,); alias=default
+(0.000) SELECT "voting_sessions_session"."id", "voting_sessions_session"."title", "voting_sessions_session"."session_start_time", "voting_sessions_session"."session_end_time", "voting_sessions_session"."choice_duration", "voting_sessions_session"."voting_duration", "voting_sessions_session"."description", "voting_sessions_session"."email_sent", "voting_sessions_session"."creator_email", "voting_sessions_session"."uuid" FROM "voting_sessions_session"; args=(); alias=default
+(0.000) SELECT "voting_sessions_option"."id", "voting_sessions_option"."session_id", "voting_sessions_option"."title", "voting_sessions_option"."description" FROM "voting_sessions_option" WHERE "voting_sessions_option"."session_id" IN (1, 2); args=(1, 2); alias=default
+(0.000) SELECT "django_session"."session_key", "django_session"."session_data", "django_session"."expire_date" FROM "django_session" WHERE ("django_session"."expire_date" > '2025-03-23 19:39:00.492199' AND "django_session"."session_key" = 'ydlxx4jrfzkttb02y3fjaemv3fbp0t5s') LIMIT 21; args=('2025-03-23 19:39:00.492199', 'ydlxx4jrfzkttb02y3fjaemv3fbp0t5s'); alias=default
+(0.000) SELECT "auth_user"."id", "auth_user"."password", "auth_user"."last_login", "auth_user"."is_superuser", "auth_user"."username", "auth_user"."first_name", "auth_user"."last_name", "auth_user"."email", "auth_user"."is_staff", "auth_user"."is_active", "auth_user"."date_joined" FROM "auth_user" WHERE "auth_user"."id" = 21 LIMIT 21; args=(21,); alias=default
+(0.000) SELECT "voting_sessions_session"."id", "voting_sessions_session"."title", "voting_sessions_session"."session_start_time", "voting_sessions_session"."session_end_time", "voting_sessions_session"."choice_duration", "voting_sessions_session"."voting_duration", "voting_sessions_session"."description", "voting_sessions_session"."email_sent", "voting_sessions_session"."creator_email", "voting_sessions_session"."uuid" FROM "voting_sessions_session" WHERE "voting_sessions_session"."id" = 1 LIMIT 21; args=(1,); alias=default
+(0.000) SELECT "voting_sessions_option"."id", "voting_sessions_option"."session_id", "voting_sessions_option"."title", "voting_sessions_option"."description" FROM "voting_sessions_option" WHERE "voting_sessions_option"."session_id" IN (1); args=(1,); alias=default
+(0.015) SELECT "django_session"."session_key", "django_session"."session_data", "django_session"."expire_date" FROM "django_session" WHERE ("django_session"."expire_date" > '2025-03-23 19:39:03.648236' AND "django_session"."session_key" = 'ydlxx4jrfzkttb02y3fjaemv3fbp0t5s') LIMIT 21; args=('2025-03-23 19:39:03.648236', 'ydlxx4jrfzkttb02y3fjaemv3fbp0t5s'); alias=default
+(0.000) SELECT "auth_user"."id", "auth_user"."password", "auth_user"."last_login", "auth_user"."is_superuser", "auth_user"."username", "auth_user"."first_name", "auth_user"."last_name", "auth_user"."email", "auth_user"."is_staff", "auth_user"."is_active", "auth_user"."date_joined" FROM "auth_user" WHERE "auth_user"."id" = 21 LIMIT 21; args=(21,); alias=default
+(0.000) SELECT "voting_sessions_session"."id", "voting_sessions_session"."title" FROM "voting_sessions_session"; args=(); alias=default
+(0.015) SELECT "voting_sessions_session"."id", "voting_sessions_session"."title" FROM "voting_sessions_session" WHERE "voting_sessions_session"."id" = 1 LIMIT 21; args=(1,); alias=default
+(0.000) SELECT "voting_sessions_option"."title", COUNT("vote_vote"."id") AS "count" FROM "vote_vote" INNER JOIN "voting_sessions_option" ON ("vote_vote"."option_id" = "voting_sessions_option"."id") WHERE "voting_sessions_option"."session_id" = 1 GROUP BY "voting_sessions_option"."title"; args=(1,); alias=default
+(0.000) SELECT "django_session"."session_key", "django_session"."session_data", "django_session"."expire_date" FROM "django_session" WHERE ("django_session"."expire_date" > '2025-03-23 19:39:05.700133' AND "django_session"."session_key" = 'ydlxx4jrfzkttb02y3fjaemv3fbp0t5s') LIMIT 21; args=('2025-03-23 19:39:05.700133', 'ydlxx4jrfzkttb02y3fjaemv3fbp0t5s'); alias=default
+(0.000) SELECT "auth_user"."id", "auth_user"."password", "auth_user"."last_login", "auth_user"."is_superuser", "auth_user"."username", "auth_user"."first_name", "auth_user"."last_name", "auth_user"."email", "auth_user"."is_staff", "auth_user"."is_active", "auth_user"."date_joined" FROM "auth_user" WHERE "auth_user"."id" = 21 LIMIT 21; args=(21,); alias=default
+(0.000) SELECT "voting_sessions_session"."id", "voting_sessions_session"."description" FROM "voting_sessions_session" WHERE "voting_sessions_session"."id" = 1 LIMIT 21; args=(1,); alias=default
+(0.000) 
+            SELECT name, type FROM sqlite_master
+            WHERE type in ('table', 'view') AND NOT name='sqlite_sequence'
+            ORDER BY name; args=None; alias=default
+(0.000) SELECT "django_migrations"."id", "django_migrations"."app", "django_migrations"."name", "django_migrations"."applied" FROM "django_migrations"; args=(); alias=default
+(0.000) 
+            SELECT name, type FROM sqlite_master
+            WHERE type in ('table', 'view') AND NOT name='sqlite_sequence'
+            ORDER BY name; args=None; alias=default
+(0.000) SELECT "django_migrations"."id", "django_migrations"."app", "django_migrations"."name", "django_migrations"."applied" FROM "django_migrations"; args=(); alias=default
+(0.000) 
+            SELECT name, type FROM sqlite_master
+            WHERE type in ('table', 'view') AND NOT name='sqlite_sequence'
+            ORDER BY name; args=None; alias=default
+(0.000) SELECT "django_migrations"."id", "django_migrations"."app", "django_migrations"."name", "django_migrations"."applied" FROM "django_migrations"; args=(); alias=default
+(0.000) SELECT 1 AS "a" FROM "results_result" LIMIT 1; args=(1,); alias=default
+(0.000) SELECT "results_result"."id", "results_result"."option", "results_result"."votes" FROM "results_result"; args=(); alias=default
+(0.000) SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE "django_content_type"."app_label" = 'admin'; args=('admin',); alias=default
+(0.000) SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE ("django_content_type"."app_label" = 'admin' AND "django_content_type"."model" IN ('logentry')); args=('admin', 'logentry'); alias=default
+(0.000) SELECT "auth_permission"."content_type_id", "auth_permission"."codename" FROM "auth_permission" INNER JOIN "django_content_type" ON ("auth_permission"."content_type_id" = "django_content_type"."id") WHERE "auth_permission"."content_type_id" IN (1) ORDER BY "django_content_type"."app_label" ASC, "django_content_type"."model" ASC, "auth_permission"."codename" ASC; args=(1,); alias=default
+(0.000) SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE "django_content_type"."app_label" = 'admin'; args=('admin',); alias=default
+(0.000) SELECT 1 AS "a" FROM "results_result" LIMIT 1; args=(1,); alias=default
+(0.000) SELECT "results_result"."id", "results_result"."option", "results_result"."votes" FROM "results_result"; args=(); alias=default
+(0.000) SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE "django_content_type"."app_label" = 'auth'; args=('auth',); alias=default
+(0.000) SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE ("django_content_type"."app_label" = 'auth' AND "django_content_type"."model" IN ('permission', 'user', 'group')); args=('auth', 'permission', 'user', 'group'); alias=default
+(0.000) SELECT "auth_permission"."content_type_id", "auth_permission"."codename" FROM "auth_permission" INNER JOIN "django_content_type" ON ("auth_permission"."content_type_id" = "django_content_type"."id") WHERE "auth_permission"."content_type_id" IN (2, 3, 4) ORDER BY "django_content_type"."app_label" ASC, "django_content_type"."model" ASC, "auth_permission"."codename" ASC; args=(2, 3, 4); alias=default
+(0.000) SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE "django_content_type"."app_label" = 'auth'; args=('auth',); alias=default
+(0.000) SELECT 1 AS "a" FROM "results_result" LIMIT 1; args=(1,); alias=default
+(0.000) SELECT "results_result"."id", "results_result"."option", "results_result"."votes" FROM "results_result"; args=(); alias=default
+(0.000) SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE "django_content_type"."app_label" = 'contenttypes'; args=('contenttypes',); alias=default
+(0.000) SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE ("django_content_type"."app_label" = 'contenttypes' AND "django_content_type"."model" IN ('contenttype')); args=('contenttypes', 'contenttype'); alias=default
+(0.000) SELECT "auth_permission"."content_type_id", "auth_permission"."codename" FROM "auth_permission" INNER JOIN "django_content_type" ON ("auth_permission"."content_type_id" = "django_content_type"."id") WHERE "auth_permission"."content_type_id" IN (5) ORDER BY "django_content_type"."app_label" ASC, "django_content_type"."model" ASC, "auth_permission"."codename" ASC; args=(5,); alias=default
+(0.000) SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE "django_content_type"."app_label" = 'contenttypes'; args=('contenttypes',); alias=default
+(0.000) SELECT 1 AS "a" FROM "results_result" LIMIT 1; args=(1,); alias=default
+(0.000) SELECT "results_result"."id", "results_result"."option", "results_result"."votes" FROM "results_result"; args=(); alias=default
+(0.000) SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE "django_content_type"."app_label" = 'sessions'; args=('sessions',); alias=default
+(0.000) SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE ("django_content_type"."app_label" = 'sessions' AND "django_content_type"."model" IN ('session')); args=('sessions', 'session'); alias=default
+(0.000) SELECT "auth_permission"."content_type_id", "auth_permission"."codename" FROM "auth_permission" INNER JOIN "django_content_type" ON ("auth_permission"."content_type_id" = "django_content_type"."id") WHERE "auth_permission"."content_type_id" IN (6) ORDER BY "django_content_type"."app_label" ASC, "django_content_type"."model" ASC, "auth_permission"."codename" ASC; args=(6,); alias=default
+(0.000) SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE "django_content_type"."app_label" = 'sessions'; args=('sessions',); alias=default
+(0.000) SELECT 1 AS "a" FROM "results_result" LIMIT 1; args=(1,); alias=default
+(0.000) SELECT "results_result"."id", "results_result"."option", "results_result"."votes" FROM "results_result"; args=(); alias=default
+(0.000) SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE "django_content_type"."app_label" = 'django_plotly_dash'; args=('django_plotly_dash',); alias=default
+(0.000) SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE ("django_content_type"."app_label" = 'django_plotly_dash' AND "django_content_type"."model" IN ('dashapp', 'statelessapp')); args=('django_plotly_dash', 'dashapp', 'statelessapp'); alias=default
+(0.000) SELECT "auth_permission"."content_type_id", "auth_permission"."codename" FROM "auth_permission" INNER JOIN "django_content_type" ON ("auth_permission"."content_type_id" = "django_content_type"."id") WHERE "auth_permission"."content_type_id" IN (11, 12) ORDER BY "django_content_type"."app_label" ASC, "django_content_type"."model" ASC, "auth_permission"."codename" ASC; args=(11, 12); alias=default
+(0.000) SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE "django_content_type"."app_label" = 'django_plotly_dash'; args=('django_plotly_dash',); alias=default
+(0.000) SELECT 1 AS "a" FROM "results_result" LIMIT 1; args=(1,); alias=default
+(0.000) SELECT "results_result"."id", "results_result"."option", "results_result"."votes" FROM "results_result"; args=(); alias=default
+(0.000) SELECT 1 AS "a" FROM "results_result" LIMIT 1; args=(1,); alias=default
+(0.000) SELECT "results_result"."id", "results_result"."option", "results_result"."votes" FROM "results_result"; args=(); alias=default
+(0.000) SELECT 1 AS "a" FROM "results_result" LIMIT 1; args=(1,); alias=default
+(0.000) SELECT "results_result"."id", "results_result"."option", "results_result"."votes" FROM "results_result"; args=(); alias=default
+(0.000) SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE "django_content_type"."app_label" = 'voting_sessions'; args=('voting_sessions',); alias=default
+(0.000) SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE ("django_content_type"."app_label" = 'voting_sessions' AND "django_content_type"."model" IN ('option', 'session', 'sessionuser')); args=('voting_sessions', 'option', 'session', 'sessionuser'); alias=default
+(0.000) SELECT "auth_permission"."content_type_id", "auth_permission"."codename" FROM "auth_permission" INNER JOIN "django_content_type" ON ("auth_permission"."content_type_id" = "django_content_type"."id") WHERE "auth_permission"."content_type_id" IN (8, 13, 7) ORDER BY "django_content_type"."app_label" ASC, "django_content_type"."model" ASC, "auth_permission"."codename" ASC; args=(8, 13, 7); alias=default
+(0.000) SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE "django_content_type"."app_label" = 'voting_sessions'; args=('voting_sessions',); alias=default
+(0.000) SELECT 1 AS "a" FROM "results_result" LIMIT 1; args=(1,); alias=default
+(0.000) SELECT "results_result"."id", "results_result"."option", "results_result"."votes" FROM "results_result"; args=(); alias=default
+(0.000) SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE "django_content_type"."app_label" = 'vote'; args=('vote',); alias=default
+(0.000) SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE ("django_content_type"."app_label" = 'vote' AND "django_content_type"."model" IN ('vote')); args=('vote', 'vote'); alias=default
+(0.000) SELECT "auth_permission"."content_type_id", "auth_permission"."codename" FROM "auth_permission" INNER JOIN "django_content_type" ON ("auth_permission"."content_type_id" = "django_content_type"."id") WHERE "auth_permission"."content_type_id" IN (9) ORDER BY "django_content_type"."app_label" ASC, "django_content_type"."model" ASC, "auth_permission"."codename" ASC; args=(9,); alias=default
+(0.000) SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE "django_content_type"."app_label" = 'vote'; args=('vote',); alias=default
+(0.000) SELECT 1 AS "a" FROM "results_result" LIMIT 1; args=(1,); alias=default
+(0.000) SELECT "results_result"."id", "results_result"."option", "results_result"."votes" FROM "results_result"; args=(); alias=default
+(0.000) SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE "django_content_type"."app_label" = 'results'; args=('results',); alias=default
+(0.000) SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE ("django_content_type"."app_label" = 'results' AND "django_content_type"."model" IN ('result')); args=('results', 'result'); alias=default
+(0.000) SELECT "auth_permission"."content_type_id", "auth_permission"."codename" FROM "auth_permission" INNER JOIN "django_content_type" ON ("auth_permission"."content_type_id" = "django_content_type"."id") WHERE "auth_permission"."content_type_id" IN (10) ORDER BY "django_content_type"."app_label" ASC, "django_content_type"."model" ASC, "auth_permission"."codename" ASC; args=(10,); alias=default
+(0.000) SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE "django_content_type"."app_label" = 'results'; args=('results',); alias=default
+(0.000) 
+            SELECT name, type FROM sqlite_master
+            WHERE type in ('table', 'view') AND NOT name='sqlite_sequence'
+            ORDER BY name; args=None; alias=default
+(0.000) SELECT "django_migrations"."id", "django_migrations"."app", "django_migrations"."name", "django_migrations"."applied" FROM "django_migrations"; args=(); alias=default
+(0.015) SELECT "django_session"."session_key", "django_session"."session_data", "django_session"."expire_date" FROM "django_session" WHERE ("django_session"."expire_date" > '2025-03-24 08:23:29.363423' AND "django_session"."session_key" = 'ydlxx4jrfzkttb02y3fjaemv3fbp0t5s') LIMIT 21; args=('2025-03-24 08:23:29.363423', 'ydlxx4jrfzkttb02y3fjaemv3fbp0t5s'); alias=default
+(0.000) SELECT "auth_user"."id", "auth_user"."password", "auth_user"."last_login", "auth_user"."is_superuser", "auth_user"."username", "auth_user"."first_name", "auth_user"."last_name", "auth_user"."email", "auth_user"."is_staff", "auth_user"."is_active", "auth_user"."date_joined" FROM "auth_user" WHERE "auth_user"."id" = 21 LIMIT 21; args=(21,); alias=default
+(0.015) SELECT "django_session"."session_key", "django_session"."session_data", "django_session"."expire_date" FROM "django_session" WHERE ("django_session"."expire_date" > '2025-03-24 08:23:37.766932' AND "django_session"."session_key" = 'ydlxx4jrfzkttb02y3fjaemv3fbp0t5s') LIMIT 21; args=('2025-03-24 08:23:37.766932', 'ydlxx4jrfzkttb02y3fjaemv3fbp0t5s'); alias=default
+(0.000) SELECT "auth_user"."id", "auth_user"."password", "auth_user"."last_login", "auth_user"."is_superuser", "auth_user"."username", "auth_user"."first_name", "auth_user"."last_name", "auth_user"."email", "auth_user"."is_staff", "auth_user"."is_active", "auth_user"."date_joined" FROM "auth_user" WHERE "auth_user"."id" = 21 LIMIT 21; args=(21,); alias=default
+(0.000) SELECT "django_session"."session_key", "django_session"."session_data", "django_session"."expire_date" FROM "django_session" WHERE ("django_session"."expire_date" > '2025-03-24 08:23:47.191129' AND "django_session"."session_key" = 'ydlxx4jrfzkttb02y3fjaemv3fbp0t5s') LIMIT 21; args=('2025-03-24 08:23:47.191129', 'ydlxx4jrfzkttb02y3fjaemv3fbp0t5s'); alias=default
+(0.000) SELECT "django_session"."session_key", "django_session"."session_data", "django_session"."expire_date" FROM "django_session" WHERE ("django_session"."expire_date" > '2025-03-24 08:23:55.452731' AND "django_session"."session_key" = 'ydlxx4jrfzkttb02y3fjaemv3fbp0t5s') LIMIT 21; args=('2025-03-24 08:23:55.452731', 'ydlxx4jrfzkttb02y3fjaemv3fbp0t5s'); alias=default
+(0.000) SELECT "auth_user"."id", "auth_user"."password", "auth_user"."last_login", "auth_user"."is_superuser", "auth_user"."username", "auth_user"."first_name", "auth_user"."last_name", "auth_user"."email", "auth_user"."is_staff", "auth_user"."is_active", "auth_user"."date_joined" FROM "auth_user" WHERE "auth_user"."id" = 21 LIMIT 21; args=(21,); alias=default
+(0.000) SELECT "django_session"."session_key", "django_session"."session_data", "django_session"."expire_date" FROM "django_session" WHERE ("django_session"."expire_date" > '2025-03-24 08:24:01.449482' AND "django_session"."session_key" = 'ydlxx4jrfzkttb02y3fjaemv3fbp0t5s') LIMIT 21; args=('2025-03-24 08:24:01.449482', 'ydlxx4jrfzkttb02y3fjaemv3fbp0t5s'); alias=default
+(0.000) SELECT "auth_user"."id", "auth_user"."password", "auth_user"."last_login", "auth_user"."is_superuser", "auth_user"."username", "auth_user"."first_name", "auth_user"."last_name", "auth_user"."email", "auth_user"."is_staff", "auth_user"."is_active", "auth_user"."date_joined" FROM "auth_user" WHERE "auth_user"."id" = 21 LIMIT 21; args=(21,); alias=default
+(0.000) SELECT "django_session"."session_key", "django_session"."session_data", "django_session"."expire_date" FROM "django_session" WHERE "django_session"."session_key" = 'ydlxx4jrfzkttb02y3fjaemv3fbp0t5s' LIMIT 21; args=('ydlxx4jrfzkttb02y3fjaemv3fbp0t5s',); alias=default
+(0.063) DELETE FROM "django_session" WHERE "django_session"."session_key" IN ('ydlxx4jrfzkttb02y3fjaemv3fbp0t5s'); args=('ydlxx4jrfzkttb02y3fjaemv3fbp0t5s',); alias=default
+(0.000) 
+            SELECT name, type FROM sqlite_master
+            WHERE type in ('table', 'view') AND NOT name='sqlite_sequence'
+            ORDER BY name; args=None; alias=default
+(0.000) SELECT "django_migrations"."id", "django_migrations"."app", "django_migrations"."name", "django_migrations"."applied" FROM "django_migrations"; args=(); alias=default
+(0.000) 
+            SELECT name, type FROM sqlite_master
+            WHERE type in ('table', 'view') AND NOT name='sqlite_sequence'
+            ORDER BY name; args=None; alias=default
+(0.000) SELECT "django_migrations"."id", "django_migrations"."app", "django_migrations"."name", "django_migrations"."applied" FROM "django_migrations"; args=(); alias=default
+(0.000) SELECT 1 AS "a" FROM "auth_user" WHERE "auth_user"."username" LIKE 'ken' ESCAPE '\' LIMIT 1; args=(1, 'ken'); alias=default
+(0.000) SELECT 1 AS "a" FROM "auth_user" WHERE "auth_user"."email" = 'ken@gmail.com' LIMIT 1; args=(1, 'ken@gmail.com'); alias=default
+(0.000) SELECT "auth_user"."id", "auth_user"."password", "auth_user"."last_login", "auth_user"."is_superuser", "auth_user"."username", "auth_user"."first_name", "auth_user"."last_name", "auth_user"."email", "auth_user"."is_staff", "auth_user"."is_active", "auth_user"."date_joined" FROM "auth_user" WHERE "auth_user"."username" = 'ken' LIMIT 21; args=('ken',); alias=default
+(0.000) SELECT 1 AS "a" FROM "django_session" WHERE "django_session"."session_key" = 'e1hkqhaa0jpd0fb8t4m1ofr6ms65qdyt' LIMIT 1; args=(1, 'e1hkqhaa0jpd0fb8t4m1ofr6ms65qdyt'); alias=default
+(0.000) BEGIN; args=None; alias=default
+(0.000) INSERT INTO "django_session" ("session_key", "session_data", "expire_date") VALUES ('e1hkqhaa0jpd0fb8t4m1ofr6ms65qdyt', 'e30:1twdfm:eOL5oMPJ_1VpSvLcDTbDRhSSPmgJi-8Om_U3s_PdXiI', '2025-04-07 09:00:42.063324'); args=('e1hkqhaa0jpd0fb8t4m1ofr6ms65qdyt', 'e30:1twdfm:eOL5oMPJ_1VpSvLcDTbDRhSSPmgJi-8Om_U3s_PdXiI', '2025-04-07 09:00:42.063324'); alias=default
+(0.000) COMMIT; args=None; alias=default
+(0.016) UPDATE "auth_user" SET "last_login" = '2025-03-24 09:00:42.082566' WHERE "auth_user"."id" = 1; args=('2025-03-24 09:00:42.082566', 1); alias=default
+(0.000) BEGIN; args=None; alias=default
+(0.000) UPDATE "django_session" SET "session_data" = '.eJxVjMsOwiAQRf-FtSGAPF267zcQhhmkaiAp7cr479qkC93ec859sZi2tcZt0BJnZBcm2el3g5Qf1HaA99Runefe1mUGviv8oINPHel5Pdy_g5pG_dY-kCHrs0KBukjwRYARymbntDXSyaKy9aABwBbMPqUQRCEKZ_QgXWDvD-j_OEo:1twdfm:Jd3W_efEabGY31w5rVExNj7czkBlQ8DqSM3P0gbc0ck', "expire_date" = '2025-04-07 09:00:42.165204' WHERE "django_session"."session_key" = 'e1hkqhaa0jpd0fb8t4m1ofr6ms65qdyt'; args=('.eJxVjMsOwiAQRf-FtSGAPF267zcQhhmkaiAp7cr479qkC93ec859sZi2tcZt0BJnZBcm2el3g5Qf1HaA99Runefe1mUGviv8oINPHel5Pdy_g5pG_dY-kCHrs0KBukjwRYARymbntDXSyaKy9aABwBbMPqUQRCEKZ_QgXWDvD-j_OEo:1twdfm:Jd3W_efEabGY31w5rVExNj7czkBlQ8DqSM3P0gbc0ck', '2025-04-07 09:00:42.165204', 'e1hkqhaa0jpd0fb8t4m1ofr6ms65qdyt'); alias=default
+(0.016) COMMIT; args=None; alias=default
+(0.000) SELECT "django_session"."session_key", "django_session"."session_data", "django_session"."expire_date" FROM "django_session" WHERE ("django_session"."expire_date" > '2025-03-24 09:00:42.427521' AND "django_session"."session_key" = 'e1hkqhaa0jpd0fb8t4m1ofr6ms65qdyt') LIMIT 21; args=('2025-03-24 09:00:42.427521', 'e1hkqhaa0jpd0fb8t4m1ofr6ms65qdyt'); alias=default
+(0.000) SELECT "auth_user"."id", "auth_user"."password", "auth_user"."last_login", "auth_user"."is_superuser", "auth_user"."username", "auth_user"."first_name", "auth_user"."last_name", "auth_user"."email", "auth_user"."is_staff", "auth_user"."is_active", "auth_user"."date_joined" FROM "auth_user" WHERE "auth_user"."id" = 1 LIMIT 21; args=(1,); alias=default
+(0.000) SELECT "voting_sessions_session"."id", "voting_sessions_session"."title", "voting_sessions_session"."session_start_time", "voting_sessions_session"."session_end_time", "voting_sessions_session"."choice_duration", "voting_sessions_session"."voting_duration", "voting_sessions_session"."description", "voting_sessions_session"."email_sent", "voting_sessions_session"."creator_email", "voting_sessions_session"."uuid" FROM "voting_sessions_session"; args=(); alias=default
+(0.000) SELECT "voting_sessions_option"."id", "voting_sessions_option"."session_id", "voting_sessions_option"."title", "voting_sessions_option"."description" FROM "voting_sessions_option" WHERE "voting_sessions_option"."session_id" IN (1, 2); args=(1, 2); alias=default
+(0.000) SELECT "django_session"."session_key", "django_session"."session_data", "django_session"."expire_date" FROM "django_session" WHERE ("django_session"."expire_date" > '2025-03-24 09:00:51.565249' AND "django_session"."session_key" = 'e1hkqhaa0jpd0fb8t4m1ofr6ms65qdyt') LIMIT 21; args=('2025-03-24 09:00:51.565249', 'e1hkqhaa0jpd0fb8t4m1ofr6ms65qdyt'); alias=default
+(0.000) SELECT "auth_user"."id", "auth_user"."password", "auth_user"."last_login", "auth_user"."is_superuser", "auth_user"."username", "auth_user"."first_name", "auth_user"."last_name", "auth_user"."email", "auth_user"."is_staff", "auth_user"."is_active", "auth_user"."date_joined" FROM "auth_user" WHERE "auth_user"."id" = 1 LIMIT 21; args=(1,); alias=default
+(0.016) SELECT "voting_sessions_session"."id", "voting_sessions_session"."title", "voting_sessions_session"."session_start_time", "voting_sessions_session"."session_end_time", "voting_sessions_session"."choice_duration", "voting_sessions_session"."voting_duration", "voting_sessions_session"."description", "voting_sessions_session"."email_sent", "voting_sessions_session"."creator_email", "voting_sessions_session"."uuid" FROM "voting_sessions_session" WHERE "voting_sessions_session"."id" = 1 LIMIT 21; args=(1,); alias=default
+(0.000) SELECT "voting_sessions_option"."id", "voting_sessions_option"."session_id", "voting_sessions_option"."title", "voting_sessions_option"."description" FROM "voting_sessions_option" WHERE "voting_sessions_option"."session_id" IN (1); args=(1,); alias=default
+(0.000) SELECT "django_session"."session_key", "django_session"."session_data", "django_session"."expire_date" FROM "django_session" WHERE ("django_session"."expire_date" > '2025-03-24 10:10:58.504293' AND "django_session"."session_key" = 'e1hkqhaa0jpd0fb8t4m1ofr6ms65qdyt') LIMIT 21; args=('2025-03-24 10:10:58.504293', 'e1hkqhaa0jpd0fb8t4m1ofr6ms65qdyt'); alias=default
+(0.000) SELECT "auth_user"."id", "auth_user"."password", "auth_user"."last_login", "auth_user"."is_superuser", "auth_user"."username", "auth_user"."first_name", "auth_user"."last_name", "auth_user"."email", "auth_user"."is_staff", "auth_user"."is_active", "auth_user"."date_joined" FROM "auth_user" WHERE "auth_user"."id" = 1 LIMIT 21; args=(1,); alias=default
+(0.000) SELECT "django_session"."session_key", "django_session"."session_data", "django_session"."expire_date" FROM "django_session" WHERE ("django_session"."expire_date" > '2025-03-24 10:11:37.927439' AND "django_session"."session_key" = 'e1hkqhaa0jpd0fb8t4m1ofr6ms65qdyt') LIMIT 21; args=('2025-03-24 10:11:37.927439', 'e1hkqhaa0jpd0fb8t4m1ofr6ms65qdyt'); alias=default
+(0.015) SELECT "auth_user"."id", "auth_user"."password", "auth_user"."last_login", "auth_user"."is_superuser", "auth_user"."username", "auth_user"."first_name", "auth_user"."last_name", "auth_user"."email", "auth_user"."is_staff", "auth_user"."is_active", "auth_user"."date_joined" FROM "auth_user" WHERE "auth_user"."id" = 1 LIMIT 21; args=(1,); alias=default
+(0.000) SELECT "django_session"."session_key", "django_session"."session_data", "django_session"."expire_date" FROM "django_session" WHERE ("django_session"."expire_date" > '2025-03-24 10:13:06.561385' AND "django_session"."session_key" = 'e1hkqhaa0jpd0fb8t4m1ofr6ms65qdyt') LIMIT 21; args=('2025-03-24 10:13:06.561385', 'e1hkqhaa0jpd0fb8t4m1ofr6ms65qdyt'); alias=default
+(0.000) SELECT "django_session"."session_key", "django_session"."session_data", "django_session"."expire_date" FROM "django_session" WHERE ("django_session"."expire_date" > '2025-03-24 10:13:40.419220' AND "django_session"."session_key" = 'e1hkqhaa0jpd0fb8t4m1ofr6ms65qdyt') LIMIT 21; args=('2025-03-24 10:13:40.419220', 'e1hkqhaa0jpd0fb8t4m1ofr6ms65qdyt'); alias=default
+(0.000) SELECT "django_session"."session_key", "django_session"."session_data", "django_session"."expire_date" FROM "django_session" WHERE ("django_session"."expire_date" > '2025-03-24 10:15:14.147321' AND "django_session"."session_key" = 'e1hkqhaa0jpd0fb8t4m1ofr6ms65qdyt') LIMIT 21; args=('2025-03-24 10:15:14.147321', 'e1hkqhaa0jpd0fb8t4m1ofr6ms65qdyt'); alias=default
+(0.016) 
+            SELECT name, type FROM sqlite_master
+            WHERE type in ('table', 'view') AND NOT name='sqlite_sequence'
+            ORDER BY name; args=None; alias=default
+(0.000) SELECT "django_migrations"."id", "django_migrations"."app", "django_migrations"."name", "django_migrations"."applied" FROM "django_migrations"; args=(); alias=default
+(0.016) SELECT "django_session"."session_key", "django_session"."session_data", "django_session"."expire_date" FROM "django_session" WHERE ("django_session"."expire_date" > '2025-03-24 10:17:11.762907' AND "django_session"."session_key" = 'e1hkqhaa0jpd0fb8t4m1ofr6ms65qdyt') LIMIT 21; args=('2025-03-24 10:17:11.762907', 'e1hkqhaa0jpd0fb8t4m1ofr6ms65qdyt'); alias=default
+(0.000) SELECT "django_session"."session_key", "django_session"."session_data", "django_session"."expire_date" FROM "django_session" WHERE ("django_session"."expire_date" > '2025-03-24 10:19:51.760062' AND "django_session"."session_key" = 'e1hkqhaa0jpd0fb8t4m1ofr6ms65qdyt') LIMIT 21; args=('2025-03-24 10:19:51.760062', 'e1hkqhaa0jpd0fb8t4m1ofr6ms65qdyt'); alias=default
+(0.000) SELECT "auth_user"."id", "auth_user"."password", "auth_user"."last_login", "auth_user"."is_superuser", "auth_user"."username", "auth_user"."first_name", "auth_user"."last_name", "auth_user"."email", "auth_user"."is_staff", "auth_user"."is_active", "auth_user"."date_joined" FROM "auth_user" WHERE "auth_user"."id" = 1 LIMIT 21; args=(1,); alias=default
+(0.000) SELECT "django_session"."session_key", "django_session"."session_data", "django_session"."expire_date" FROM "django_session" WHERE ("django_session"."expire_date" > '2025-03-24 11:03:21.989866' AND "django_session"."session_key" = 'e1hkqhaa0jpd0fb8t4m1ofr6ms65qdyt') LIMIT 21; args=('2025-03-24 11:03:21.989866', 'e1hkqhaa0jpd0fb8t4m1ofr6ms65qdyt'); alias=default
+(0.000) SELECT "auth_user"."id", "auth_user"."password", "auth_user"."last_login", "auth_user"."is_superuser", "auth_user"."username", "auth_user"."first_name", "auth_user"."last_name", "auth_user"."email", "auth_user"."is_staff", "auth_user"."is_active", "auth_user"."date_joined" FROM "auth_user" WHERE "auth_user"."id" = 1 LIMIT 21; args=(1,); alias=default
+(0.000) SELECT COUNT(*) AS "__count" FROM "voting_sessions_session"; args=(); alias=default
+(0.016) SELECT COUNT(*) AS "__count" FROM "voting_sessions_session"; args=(); alias=default
+(0.000) SELECT "voting_sessions_session"."id", "voting_sessions_session"."title", "voting_sessions_session"."session_start_time", "voting_sessions_session"."session_end_time", "voting_sessions_session"."choice_duration", "voting_sessions_session"."voting_duration", "voting_sessions_session"."description", "voting_sessions_session"."email_sent", "voting_sessions_session"."creator_email", "voting_sessions_session"."uuid" FROM "voting_sessions_session" ORDER BY "voting_sessions_session"."id" DESC; args=(); alias=default
+(0.000) SELECT "django_session"."session_key", "django_session"."session_data", "django_session"."expire_date" FROM "django_session" WHERE ("django_session"."expire_date" > '2025-03-24 11:03:23.578865' AND "django_session"."session_key" = 'e1hkqhaa0jpd0fb8t4m1ofr6ms65qdyt') LIMIT 21; args=('2025-03-24 11:03:23.578865', 'e1hkqhaa0jpd0fb8t4m1ofr6ms65qdyt'); alias=default
+(0.000) SELECT "auth_user"."id", "auth_user"."password", "auth_user"."last_login", "auth_user"."is_superuser", "auth_user"."username", "auth_user"."first_name", "auth_user"."last_name", "auth_user"."email", "auth_user"."is_staff", "auth_user"."is_active", "auth_user"."date_joined" FROM "auth_user" WHERE "auth_user"."id" = 1 LIMIT 21; args=(1,); alias=default
+(0.000) SELECT "django_session"."session_key", "django_session"."session_data", "django_session"."expire_date" FROM "django_session" WHERE ("django_session"."expire_date" > '2025-03-24 11:03:28.605770' AND "django_session"."session_key" = 'e1hkqhaa0jpd0fb8t4m1ofr6ms65qdyt') LIMIT 21; args=('2025-03-24 11:03:28.605770', 'e1hkqhaa0jpd0fb8t4m1ofr6ms65qdyt'); alias=default
+(0.000) SELECT "auth_user"."id", "auth_user"."password", "auth_user"."last_login", "auth_user"."is_superuser", "auth_user"."username", "auth_user"."first_name", "auth_user"."last_name", "auth_user"."email", "auth_user"."is_staff", "auth_user"."is_active", "auth_user"."date_joined" FROM "auth_user" WHERE "auth_user"."id" = 1 LIMIT 21; args=(1,); alias=default
+(0.000) SELECT "django_session"."session_key", "django_session"."session_data", "django_session"."expire_date" FROM "django_session" WHERE ("django_session"."expire_date" > '2025-03-24 11:03:31.370251' AND "django_session"."session_key" = 'e1hkqhaa0jpd0fb8t4m1ofr6ms65qdyt') LIMIT 21; args=('2025-03-24 11:03:31.370251', 'e1hkqhaa0jpd0fb8t4m1ofr6ms65qdyt'); alias=default
+(0.000) SELECT "auth_user"."id", "auth_user"."password", "auth_user"."last_login", "auth_user"."is_superuser", "auth_user"."username", "auth_user"."first_name", "auth_user"."last_name", "auth_user"."email", "auth_user"."is_staff", "auth_user"."is_active", "auth_user"."date_joined" FROM "auth_user" WHERE "auth_user"."id" = 1 LIMIT 21; args=(1,); alias=default
+(0.000) SELECT "django_session"."session_key", "django_session"."session_data", "django_session"."expire_date" FROM "django_session" WHERE ("django_session"."expire_date" > '2025-03-24 11:06:17.136824' AND "django_session"."session_key" = 'e1hkqhaa0jpd0fb8t4m1ofr6ms65qdyt') LIMIT 21; args=('2025-03-24 11:06:17.136824', 'e1hkqhaa0jpd0fb8t4m1ofr6ms65qdyt'); alias=default
+(0.000) SELECT "django_session"."session_key", "django_session"."session_data", "django_session"."expire_date" FROM "django_session" WHERE ("django_session"."expire_date" > '2025-03-24 11:06:41.198356' AND "django_session"."session_key" = 'e1hkqhaa0jpd0fb8t4m1ofr6ms65qdyt') LIMIT 21; args=('2025-03-24 11:06:41.198356', 'e1hkqhaa0jpd0fb8t4m1ofr6ms65qdyt'); alias=default
+(0.000) 
+            SELECT name, type FROM sqlite_master
+            WHERE type in ('table', 'view') AND NOT name='sqlite_sequence'
+            ORDER BY name; args=None; alias=default
+(0.000) SELECT "django_migrations"."id", "django_migrations"."app", "django_migrations"."name", "django_migrations"."applied" FROM "django_migrations"; args=(); alias=default
+(0.016) SELECT "django_session"."session_key", "django_session"."session_data", "django_session"."expire_date" FROM "django_session" WHERE ("django_session"."expire_date" > '2025-03-24 11:07:35.585468' AND "django_session"."session_key" = 'e1hkqhaa0jpd0fb8t4m1ofr6ms65qdyt') LIMIT 21; args=('2025-03-24 11:07:35.585468', 'e1hkqhaa0jpd0fb8t4m1ofr6ms65qdyt'); alias=default
+(0.000) SELECT "django_session"."session_key", "django_session"."session_data", "django_session"."expire_date" FROM "django_session" WHERE ("django_session"."expire_date" > '2025-03-24 11:08:49.425336' AND "django_session"."session_key" = 'e1hkqhaa0jpd0fb8t4m1ofr6ms65qdyt') LIMIT 21; args=('2025-03-24 11:08:49.425336', 'e1hkqhaa0jpd0fb8t4m1ofr6ms65qdyt'); alias=default
+(0.000) SELECT "django_session"."session_key", "django_session"."session_data", "django_session"."expire_date" FROM "django_session" WHERE ("django_session"."expire_date" > '2025-03-24 11:10:14.339481' AND "django_session"."session_key" = 'e1hkqhaa0jpd0fb8t4m1ofr6ms65qdyt') LIMIT 21; args=('2025-03-24 11:10:14.339481', 'e1hkqhaa0jpd0fb8t4m1ofr6ms65qdyt'); alias=default
+(0.000) SELECT "django_session"."session_key", "django_session"."session_data", "django_session"."expire_date" FROM "django_session" WHERE ("django_session"."expire_date" > '2025-03-24 11:14:09.634051' AND "django_session"."session_key" = 'e1hkqhaa0jpd0fb8t4m1ofr6ms65qdyt') LIMIT 21; args=('2025-03-24 11:14:09.634051', 'e1hkqhaa0jpd0fb8t4m1ofr6ms65qdyt'); alias=default
+(0.016) SELECT "auth_user"."id", "auth_user"."password", "auth_user"."last_login", "auth_user"."is_superuser", "auth_user"."username", "auth_user"."first_name", "auth_user"."last_name", "auth_user"."email", "auth_user"."is_staff", "auth_user"."is_active", "auth_user"."date_joined" FROM "auth_user" WHERE "auth_user"."id" = 1 LIMIT 21; args=(1,); alias=default
+(0.000) SELECT "django_session"."session_key", "django_session"."session_data", "django_session"."expire_date" FROM "django_session" WHERE ("django_session"."expire_date" > '2025-03-24 11:14:11.448201' AND "django_session"."session_key" = 'e1hkqhaa0jpd0fb8t4m1ofr6ms65qdyt') LIMIT 21; args=('2025-03-24 11:14:11.448201', 'e1hkqhaa0jpd0fb8t4m1ofr6ms65qdyt'); alias=default
+(0.000) SELECT "django_session"."session_key", "django_session"."session_data", "django_session"."expire_date" FROM "django_session" WHERE ("django_session"."expire_date" > '2025-03-24 11:14:50.683357' AND "django_session"."session_key" = 'e1hkqhaa0jpd0fb8t4m1ofr6ms65qdyt') LIMIT 21; args=('2025-03-24 11:14:50.683357', 'e1hkqhaa0jpd0fb8t4m1ofr6ms65qdyt'); alias=default
+(0.000) SELECT "django_session"."session_key", "django_session"."session_data", "django_session"."expire_date" FROM "django_session" WHERE ("django_session"."expire_date" > '2025-03-24 11:15:17.048064' AND "django_session"."session_key" = 'e1hkqhaa0jpd0fb8t4m1ofr6ms65qdyt') LIMIT 21; args=('2025-03-24 11:15:17.048064', 'e1hkqhaa0jpd0fb8t4m1ofr6ms65qdyt'); alias=default
+(0.000) 
+            SELECT name, type FROM sqlite_master
+            WHERE type in ('table', 'view') AND NOT name='sqlite_sequence'
+            ORDER BY name; args=None; alias=default
+(0.000) SELECT "django_migrations"."id", "django_migrations"."app", "django_migrations"."name", "django_migrations"."applied" FROM "django_migrations"; args=(); alias=default
+(0.000) SELECT "django_session"."session_key", "django_session"."session_data", "django_session"."expire_date" FROM "django_session" WHERE ("django_session"."expire_date" > '2025-03-24 11:19:37.186615' AND "django_session"."session_key" = 'e1hkqhaa0jpd0fb8t4m1ofr6ms65qdyt') LIMIT 21; args=('2025-03-24 11:19:37.186615', 'e1hkqhaa0jpd0fb8t4m1ofr6ms65qdyt'); alias=default
+(0.000) SELECT "django_session"."session_key", "django_session"."session_data", "django_session"."expire_date" FROM "django_session" WHERE ("django_session"."expire_date" > '2025-03-24 11:26:54.919167' AND "django_session"."session_key" = 'e1hkqhaa0jpd0fb8t4m1ofr6ms65qdyt') LIMIT 21; args=('2025-03-24 11:26:54.919167', 'e1hkqhaa0jpd0fb8t4m1ofr6ms65qdyt'); alias=default
+(0.000) SELECT "auth_user"."id", "auth_user"."password", "auth_user"."last_login", "auth_user"."is_superuser", "auth_user"."username", "auth_user"."first_name", "auth_user"."last_name", "auth_user"."email", "auth_user"."is_staff", "auth_user"."is_active", "auth_user"."date_joined" FROM "auth_user" WHERE "auth_user"."id" = 1 LIMIT 21; args=(1,); alias=default
+(0.015) 
+            SELECT name, type FROM sqlite_master
+            WHERE type in ('table', 'view') AND NOT name='sqlite_sequence'
+            ORDER BY name; args=None; alias=default
+(0.016) SELECT "django_migrations"."id", "django_migrations"."app", "django_migrations"."name", "django_migrations"."applied" FROM "django_migrations"; args=(); alias=default
+(0.000) 
+            SELECT name, type FROM sqlite_master
+            WHERE type in ('table', 'view') AND NOT name='sqlite_sequence'
+            ORDER BY name; args=None; alias=default
+(0.000) SELECT "django_migrations"."id", "django_migrations"."app", "django_migrations"."name", "django_migrations"."applied" FROM "django_migrations"; args=(); alias=default
+(0.016) 
+            SELECT name, type FROM sqlite_master
+            WHERE type in ('table', 'view') AND NOT name='sqlite_sequence'
+            ORDER BY name; args=None; alias=default
+(0.000) SELECT "django_migrations"."id", "django_migrations"."app", "django_migrations"."name", "django_migrations"."applied" FROM "django_migrations"; args=(); alias=default
+(0.000) 
+            SELECT name, type FROM sqlite_master
+            WHERE type in ('table', 'view') AND NOT name='sqlite_sequence'
+            ORDER BY name; args=None; alias=default
+(0.000) SELECT "django_migrations"."id", "django_migrations"."app", "django_migrations"."name", "django_migrations"."applied" FROM "django_migrations"; args=(); alias=default
+(0.000) SELECT "django_session"."session_key", "django_session"."session_data", "django_session"."expire_date" FROM "django_session" WHERE ("django_session"."expire_date" > '2025-04-06 10:35:04.828900' AND "django_session"."session_key" = 'e1hkqhaa0jpd0fb8t4m1ofr6ms65qdyt') LIMIT 21; args=('2025-04-06 10:35:04.828900', 'e1hkqhaa0jpd0fb8t4m1ofr6ms65qdyt'); alias=default
+(0.000) SELECT "django_session"."session_key", "django_session"."session_data", "django_session"."expire_date" FROM "django_session" WHERE ("django_session"."expire_date" > '2025-04-06 10:35:08.074726' AND "django_session"."session_key" = 'e1hkqhaa0jpd0fb8t4m1ofr6ms65qdyt') LIMIT 21; args=('2025-04-06 10:35:08.074726', 'e1hkqhaa0jpd0fb8t4m1ofr6ms65qdyt'); alias=default
+(0.000) SELECT "django_session"."session_key", "django_session"."session_data", "django_session"."expire_date" FROM "django_session" WHERE ("django_session"."expire_date" > '2025-04-06 10:35:11.177912' AND "django_session"."session_key" = 'e1hkqhaa0jpd0fb8t4m1ofr6ms65qdyt') LIMIT 21; args=('2025-04-06 10:35:11.177912', 'e1hkqhaa0jpd0fb8t4m1ofr6ms65qdyt'); alias=default
+(0.016) SELECT "django_session"."session_key", "django_session"."session_data", "django_session"."expire_date" FROM "django_session" WHERE ("django_session"."expire_date" > '2025-04-06 10:35:14.422067' AND "django_session"."session_key" = 'e1hkqhaa0jpd0fb8t4m1ofr6ms65qdyt') LIMIT 21; args=('2025-04-06 10:35:14.422067', 'e1hkqhaa0jpd0fb8t4m1ofr6ms65qdyt'); alias=default
+(0.000) SELECT "django_session"."session_key", "django_session"."session_data", "django_session"."expire_date" FROM "django_session" WHERE ("django_session"."expire_date" > '2025-04-06 10:35:17.551775' AND "django_session"."session_key" = 'e1hkqhaa0jpd0fb8t4m1ofr6ms65qdyt') LIMIT 21; args=('2025-04-06 10:35:17.551775', 'e1hkqhaa0jpd0fb8t4m1ofr6ms65qdyt'); alias=default
+(0.000) SELECT "django_session"."session_key", "django_session"."session_data", "django_session"."expire_date" FROM "django_session" WHERE ("django_session"."expire_date" > '2025-04-06 10:35:20.678403' AND "django_session"."session_key" = 'e1hkqhaa0jpd0fb8t4m1ofr6ms65qdyt') LIMIT 21; args=('2025-04-06 10:35:20.678403', 'e1hkqhaa0jpd0fb8t4m1ofr6ms65qdyt'); alias=default
+(0.000) SELECT "django_session"."session_key", "django_session"."session_data", "django_session"."expire_date" FROM "django_session" WHERE ("django_session"."expire_date" > '2025-04-06 10:35:23.783681' AND "django_session"."session_key" = 'e1hkqhaa0jpd0fb8t4m1ofr6ms65qdyt') LIMIT 21; args=('2025-04-06 10:35:23.783681', 'e1hkqhaa0jpd0fb8t4m1ofr6ms65qdyt'); alias=default
+(0.015) SELECT "django_session"."session_key", "django_session"."session_data", "django_session"."expire_date" FROM "django_session" WHERE ("django_session"."expire_date" > '2025-04-06 10:35:27.007119' AND "django_session"."session_key" = 'e1hkqhaa0jpd0fb8t4m1ofr6ms65qdyt') LIMIT 21; args=('2025-04-06 10:35:27.007119', 'e1hkqhaa0jpd0fb8t4m1ofr6ms65qdyt'); alias=default
+(0.000) SELECT "django_session"."session_key", "django_session"."session_data", "django_session"."expire_date" FROM "django_session" WHERE ("django_session"."expire_date" > '2025-04-06 10:35:30.245923' AND "django_session"."session_key" = 'e1hkqhaa0jpd0fb8t4m1ofr6ms65qdyt') LIMIT 21; args=('2025-04-06 10:35:30.245923', 'e1hkqhaa0jpd0fb8t4m1ofr6ms65qdyt'); alias=default
+(0.000) SELECT "django_session"."session_key", "django_session"."session_data", "django_session"."expire_date" FROM "django_session" WHERE ("django_session"."expire_date" > '2025-04-06 10:35:33.395066' AND "django_session"."session_key" = 'e1hkqhaa0jpd0fb8t4m1ofr6ms65qdyt') LIMIT 21; args=('2025-04-06 10:35:33.395066', 'e1hkqhaa0jpd0fb8t4m1ofr6ms65qdyt'); alias=default
+(0.000) SELECT "django_session"."session_key", "django_session"."session_data", "django_session"."expire_date" FROM "django_session" WHERE ("django_session"."expire_date" > '2025-04-06 10:35:36.497128' AND "django_session"."session_key" = 'e1hkqhaa0jpd0fb8t4m1ofr6ms65qdyt') LIMIT 21; args=('2025-04-06 10:35:36.497128', 'e1hkqhaa0jpd0fb8t4m1ofr6ms65qdyt'); alias=default
+(0.000) SELECT "django_session"."session_key", "django_session"."session_data", "django_session"."expire_date" FROM "django_session" WHERE ("django_session"."expire_date" > '2025-04-06 10:35:39.580269' AND "django_session"."session_key" = 'e1hkqhaa0jpd0fb8t4m1ofr6ms65qdyt') LIMIT 21; args=('2025-04-06 10:35:39.580269', 'e1hkqhaa0jpd0fb8t4m1ofr6ms65qdyt'); alias=default
+(0.000) SELECT "django_session"."session_key", "django_session"."session_data", "django_session"."expire_date" FROM "django_session" WHERE ("django_session"."expire_date" > '2025-04-06 10:35:42.673595' AND "django_session"."session_key" = 'e1hkqhaa0jpd0fb8t4m1ofr6ms65qdyt') LIMIT 21; args=('2025-04-06 10:35:42.673595', 'e1hkqhaa0jpd0fb8t4m1ofr6ms65qdyt'); alias=default
+(0.000) SELECT "django_session"."session_key", "django_session"."session_data", "django_session"."expire_date" FROM "django_session" WHERE ("django_session"."expire_date" > '2025-04-06 10:35:45.771496' AND "django_session"."session_key" = 'e1hkqhaa0jpd0fb8t4m1ofr6ms65qdyt') LIMIT 21; args=('2025-04-06 10:35:45.771496', 'e1hkqhaa0jpd0fb8t4m1ofr6ms65qdyt'); alias=default
+(0.000) SELECT "django_session"."session_key", "django_session"."session_data", "django_session"."expire_date" FROM "django_session" WHERE ("django_session"."expire_date" > '2025-04-06 10:35:48.871773' AND "django_session"."session_key" = 'e1hkqhaa0jpd0fb8t4m1ofr6ms65qdyt') LIMIT 21; args=('2025-04-06 10:35:48.871773', 'e1hkqhaa0jpd0fb8t4m1ofr6ms65qdyt'); alias=default
+(0.000) SELECT "django_session"."session_key", "django_session"."session_data", "django_session"."expire_date" FROM "django_session" WHERE ("django_session"."expire_date" > '2025-04-06 10:35:51.963815' AND "django_session"."session_key" = 'e1hkqhaa0jpd0fb8t4m1ofr6ms65qdyt') LIMIT 21; args=('2025-04-06 10:35:51.963815', 'e1hkqhaa0jpd0fb8t4m1ofr6ms65qdyt'); alias=default
+(0.000) SELECT "django_session"."session_key", "django_session"."session_data", "django_session"."expire_date" FROM "django_session" WHERE ("django_session"."expire_date" > '2025-04-06 10:35:55.184744' AND "django_session"."session_key" = 'e1hkqhaa0jpd0fb8t4m1ofr6ms65qdyt') LIMIT 21; args=('2025-04-06 10:35:55.184744', 'e1hkqhaa0jpd0fb8t4m1ofr6ms65qdyt'); alias=default
+(0.000) SELECT "django_session"."session_key", "django_session"."session_data", "django_session"."expire_date" FROM "django_session" WHERE ("django_session"."expire_date" > '2025-04-06 10:35:55.936491' AND "django_session"."session_key" = 'e1hkqhaa0jpd0fb8t4m1ofr6ms65qdyt') LIMIT 21; args=('2025-04-06 10:35:55.936491', 'e1hkqhaa0jpd0fb8t4m1ofr6ms65qdyt'); alias=default
+(0.000) SELECT "django_session"."session_key", "django_session"."session_data", "django_session"."expire_date" FROM "django_session" WHERE ("django_session"."expire_date" > '2025-04-06 10:53:21.992138' AND "django_session"."session_key" = 'e1hkqhaa0jpd0fb8t4m1ofr6ms65qdyt') LIMIT 21; args=('2025-04-06 10:53:21.992138', 'e1hkqhaa0jpd0fb8t4m1ofr6ms65qdyt'); alias=default
+(0.000) SELECT "django_session"."session_key", "django_session"."session_data", "django_session"."expire_date" FROM "django_session" WHERE ("django_session"."expire_date" > '2025-04-06 10:53:24.187264' AND "django_session"."session_key" = 'e1hkqhaa0jpd0fb8t4m1ofr6ms65qdyt') LIMIT 21; args=('2025-04-06 10:53:24.187264', 'e1hkqhaa0jpd0fb8t4m1ofr6ms65qdyt'); alias=default
+(0.000) 
+            SELECT name, type FROM sqlite_master
+            WHERE type in ('table', 'view') AND NOT name='sqlite_sequence'
+            ORDER BY name; args=None; alias=default
+(0.000) SELECT "django_migrations"."id", "django_migrations"."app", "django_migrations"."name", "django_migrations"."applied" FROM "django_migrations"; args=(); alias=default
+(0.000) 
+            SELECT name, type FROM sqlite_master
+            WHERE type in ('table', 'view') AND NOT name='sqlite_sequence'
+            ORDER BY name; args=None; alias=default
+(0.000) SELECT "django_migrations"."id", "django_migrations"."app", "django_migrations"."name", "django_migrations"."applied" FROM "django_migrations"; args=(); alias=default
+(0.000) 
+            SELECT name, type FROM sqlite_master
+            WHERE type in ('table', 'view') AND NOT name='sqlite_sequence'
+            ORDER BY name; args=None; alias=default
+(0.000) SELECT "django_migrations"."id", "django_migrations"."app", "django_migrations"."name", "django_migrations"."applied" FROM "django_migrations"; args=(); alias=default
+(0.000) SELECT 1 AS "a" FROM "results_result" LIMIT 1; args=(1,); alias=default
+(0.000) SELECT "results_result"."id", "results_result"."option", "results_result"."votes" FROM "results_result"; args=(); alias=default
+(0.000) SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE "django_content_type"."app_label" = 'admin'; args=('admin',); alias=default
+(0.000) SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE ("django_content_type"."app_label" = 'admin' AND "django_content_type"."model" IN ('logentry')); args=('admin', 'logentry'); alias=default
+(0.000) SELECT "auth_permission"."content_type_id", "auth_permission"."codename" FROM "auth_permission" INNER JOIN "django_content_type" ON ("auth_permission"."content_type_id" = "django_content_type"."id") WHERE "auth_permission"."content_type_id" IN (1) ORDER BY "django_content_type"."app_label" ASC, "django_content_type"."model" ASC, "auth_permission"."codename" ASC; args=(1,); alias=default
+(0.000) SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE "django_content_type"."app_label" = 'admin'; args=('admin',); alias=default
+(0.000) SELECT 1 AS "a" FROM "results_result" LIMIT 1; args=(1,); alias=default
+(0.000) SELECT "results_result"."id", "results_result"."option", "results_result"."votes" FROM "results_result"; args=(); alias=default
+(0.000) SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE "django_content_type"."app_label" = 'auth'; args=('auth',); alias=default
+(0.000) SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE ("django_content_type"."app_label" = 'auth' AND "django_content_type"."model" IN ('group', 'permission', 'user')); args=('auth', 'group', 'permission', 'user'); alias=default
+(0.000) SELECT "auth_permission"."content_type_id", "auth_permission"."codename" FROM "auth_permission" INNER JOIN "django_content_type" ON ("auth_permission"."content_type_id" = "django_content_type"."id") WHERE "auth_permission"."content_type_id" IN (2, 3, 4) ORDER BY "django_content_type"."app_label" ASC, "django_content_type"."model" ASC, "auth_permission"."codename" ASC; args=(2, 3, 4); alias=default
+(0.000) SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE "django_content_type"."app_label" = 'auth'; args=('auth',); alias=default
+(0.000) SELECT 1 AS "a" FROM "results_result" LIMIT 1; args=(1,); alias=default
+(0.000) SELECT "results_result"."id", "results_result"."option", "results_result"."votes" FROM "results_result"; args=(); alias=default
+(0.000) SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE "django_content_type"."app_label" = 'contenttypes'; args=('contenttypes',); alias=default
+(0.000) SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE ("django_content_type"."app_label" = 'contenttypes' AND "django_content_type"."model" IN ('contenttype')); args=('contenttypes', 'contenttype'); alias=default
+(0.000) SELECT "auth_permission"."content_type_id", "auth_permission"."codename" FROM "auth_permission" INNER JOIN "django_content_type" ON ("auth_permission"."content_type_id" = "django_content_type"."id") WHERE "auth_permission"."content_type_id" IN (5) ORDER BY "django_content_type"."app_label" ASC, "django_content_type"."model" ASC, "auth_permission"."codename" ASC; args=(5,); alias=default
+(0.000) SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE "django_content_type"."app_label" = 'contenttypes'; args=('contenttypes',); alias=default
+(0.000) SELECT 1 AS "a" FROM "results_result" LIMIT 1; args=(1,); alias=default
+(0.000) SELECT "results_result"."id", "results_result"."option", "results_result"."votes" FROM "results_result"; args=(); alias=default
+(0.000) SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE "django_content_type"."app_label" = 'sessions'; args=('sessions',); alias=default
+(0.000) SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE ("django_content_type"."app_label" = 'sessions' AND "django_content_type"."model" IN ('session')); args=('sessions', 'session'); alias=default
+(0.000) SELECT "auth_permission"."content_type_id", "auth_permission"."codename" FROM "auth_permission" INNER JOIN "django_content_type" ON ("auth_permission"."content_type_id" = "django_content_type"."id") WHERE "auth_permission"."content_type_id" IN (6) ORDER BY "django_content_type"."app_label" ASC, "django_content_type"."model" ASC, "auth_permission"."codename" ASC; args=(6,); alias=default
+(0.000) SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE "django_content_type"."app_label" = 'sessions'; args=('sessions',); alias=default
+(0.000) SELECT 1 AS "a" FROM "results_result" LIMIT 1; args=(1,); alias=default
+(0.000) SELECT "results_result"."id", "results_result"."option", "results_result"."votes" FROM "results_result"; args=(); alias=default
+(0.000) SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE "django_content_type"."app_label" = 'django_plotly_dash'; args=('django_plotly_dash',); alias=default
+(0.000) SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE ("django_content_type"."app_label" = 'django_plotly_dash' AND "django_content_type"."model" IN ('dashapp', 'statelessapp')); args=('django_plotly_dash', 'dashapp', 'statelessapp'); alias=default
+(0.000) SELECT "auth_permission"."content_type_id", "auth_permission"."codename" FROM "auth_permission" INNER JOIN "django_content_type" ON ("auth_permission"."content_type_id" = "django_content_type"."id") WHERE "auth_permission"."content_type_id" IN (11, 12) ORDER BY "django_content_type"."app_label" ASC, "django_content_type"."model" ASC, "auth_permission"."codename" ASC; args=(11, 12); alias=default
+(0.000) SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE "django_content_type"."app_label" = 'django_plotly_dash'; args=('django_plotly_dash',); alias=default
+(0.000) SELECT 1 AS "a" FROM "results_result" LIMIT 1; args=(1,); alias=default
+(0.000) SELECT "results_result"."id", "results_result"."option", "results_result"."votes" FROM "results_result"; args=(); alias=default
+(0.000) SELECT 1 AS "a" FROM "results_result" LIMIT 1; args=(1,); alias=default
+(0.000) SELECT "results_result"."id", "results_result"."option", "results_result"."votes" FROM "results_result"; args=(); alias=default
+(0.000) SELECT 1 AS "a" FROM "results_result" LIMIT 1; args=(1,); alias=default
+(0.000) SELECT "results_result"."id", "results_result"."option", "results_result"."votes" FROM "results_result"; args=(); alias=default
+(0.000) SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE "django_content_type"."app_label" = 'voting_sessions'; args=('voting_sessions',); alias=default
+(0.000) SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE ("django_content_type"."app_label" = 'voting_sessions' AND "django_content_type"."model" IN ('option', 'session', 'sessionuser')); args=('voting_sessions', 'option', 'session', 'sessionuser'); alias=default
+(0.000) SELECT "auth_permission"."content_type_id", "auth_permission"."codename" FROM "auth_permission" INNER JOIN "django_content_type" ON ("auth_permission"."content_type_id" = "django_content_type"."id") WHERE "auth_permission"."content_type_id" IN (8, 13, 7) ORDER BY "django_content_type"."app_label" ASC, "django_content_type"."model" ASC, "auth_permission"."codename" ASC; args=(8, 13, 7); alias=default
+(0.000) SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE "django_content_type"."app_label" = 'voting_sessions'; args=('voting_sessions',); alias=default
+(0.000) SELECT 1 AS "a" FROM "results_result" LIMIT 1; args=(1,); alias=default
+(0.000) SELECT "results_result"."id", "results_result"."option", "results_result"."votes" FROM "results_result"; args=(); alias=default
+(0.000) SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE "django_content_type"."app_label" = 'vote'; args=('vote',); alias=default
+(0.000) SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE ("django_content_type"."app_label" = 'vote' AND "django_content_type"."model" IN ('vote')); args=('vote', 'vote'); alias=default
+(0.000) SELECT "auth_permission"."content_type_id", "auth_permission"."codename" FROM "auth_permission" INNER JOIN "django_content_type" ON ("auth_permission"."content_type_id" = "django_content_type"."id") WHERE "auth_permission"."content_type_id" IN (9) ORDER BY "django_content_type"."app_label" ASC, "django_content_type"."model" ASC, "auth_permission"."codename" ASC; args=(9,); alias=default
+(0.000) SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE "django_content_type"."app_label" = 'vote'; args=('vote',); alias=default
+(0.000) SELECT 1 AS "a" FROM "results_result" LIMIT 1; args=(1,); alias=default
+(0.000) SELECT "results_result"."id", "results_result"."option", "results_result"."votes" FROM "results_result"; args=(); alias=default
+(0.000) SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE "django_content_type"."app_label" = 'results'; args=('results',); alias=default
+(0.000) SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE ("django_content_type"."app_label" = 'results' AND "django_content_type"."model" IN ('result')); args=('results', 'result'); alias=default
+(0.000) SELECT "auth_permission"."content_type_id", "auth_permission"."codename" FROM "auth_permission" INNER JOIN "django_content_type" ON ("auth_permission"."content_type_id" = "django_content_type"."id") WHERE "auth_permission"."content_type_id" IN (10) ORDER BY "django_content_type"."app_label" ASC, "django_content_type"."model" ASC, "auth_permission"."codename" ASC; args=(10,); alias=default
+(0.000) SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE "django_content_type"."app_label" = 'results'; args=('results',); alias=default
+(0.000) 
+            SELECT name, type FROM sqlite_master
+            WHERE type in ('table', 'view') AND NOT name='sqlite_sequence'
+            ORDER BY name; args=None; alias=default
+(0.000) SELECT "django_migrations"."id", "django_migrations"."app", "django_migrations"."name", "django_migrations"."applied" FROM "django_migrations"; args=(); alias=default
+(0.000) 
+            SELECT name, type FROM sqlite_master
+            WHERE type in ('table', 'view') AND NOT name='sqlite_sequence'
+            ORDER BY name; args=None; alias=default
+(0.000) SELECT "django_migrations"."id", "django_migrations"."app", "django_migrations"."name", "django_migrations"."applied" FROM "django_migrations"; args=(); alias=default
+(0.000) 
+            SELECT name, type FROM sqlite_master
+            WHERE type in ('table', 'view') AND NOT name='sqlite_sequence'
+            ORDER BY name; args=None; alias=default
+(0.000) SELECT "django_migrations"."id", "django_migrations"."app", "django_migrations"."name", "django_migrations"."applied" FROM "django_migrations"; args=(); alias=default
+(0.000) SELECT 1 AS "a" FROM "results_result" LIMIT 1; args=(1,); alias=default
+(0.000) SELECT "results_result"."id", "results_result"."option", "results_result"."votes" FROM "results_result"; args=(); alias=default
+(0.000) SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE "django_content_type"."app_label" = 'admin'; args=('admin',); alias=default
+(0.000) SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE ("django_content_type"."app_label" = 'admin' AND "django_content_type"."model" IN ('logentry')); args=('admin', 'logentry'); alias=default
+(0.000) SELECT "auth_permission"."content_type_id", "auth_permission"."codename" FROM "auth_permission" INNER JOIN "django_content_type" ON ("auth_permission"."content_type_id" = "django_content_type"."id") WHERE "auth_permission"."content_type_id" IN (1) ORDER BY "django_content_type"."app_label" ASC, "django_content_type"."model" ASC, "auth_permission"."codename" ASC; args=(1,); alias=default
+(0.000) SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE "django_content_type"."app_label" = 'admin'; args=('admin',); alias=default
+(0.000) SELECT 1 AS "a" FROM "results_result" LIMIT 1; args=(1,); alias=default
+(0.000) SELECT "results_result"."id", "results_result"."option", "results_result"."votes" FROM "results_result"; args=(); alias=default
+(0.000) SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE "django_content_type"."app_label" = 'auth'; args=('auth',); alias=default
+(0.000) SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE ("django_content_type"."app_label" = 'auth' AND "django_content_type"."model" IN ('user', 'group', 'permission')); args=('auth', 'user', 'group', 'permission'); alias=default
+(0.000) SELECT "auth_permission"."content_type_id", "auth_permission"."codename" FROM "auth_permission" INNER JOIN "django_content_type" ON ("auth_permission"."content_type_id" = "django_content_type"."id") WHERE "auth_permission"."content_type_id" IN (2, 3, 4) ORDER BY "django_content_type"."app_label" ASC, "django_content_type"."model" ASC, "auth_permission"."codename" ASC; args=(2, 3, 4); alias=default
+(0.000) SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE "django_content_type"."app_label" = 'auth'; args=('auth',); alias=default
+(0.000) SELECT 1 AS "a" FROM "results_result" LIMIT 1; args=(1,); alias=default
+(0.000) SELECT "results_result"."id", "results_result"."option", "results_result"."votes" FROM "results_result"; args=(); alias=default
+(0.000) SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE "django_content_type"."app_label" = 'contenttypes'; args=('contenttypes',); alias=default
+(0.000) SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE ("django_content_type"."app_label" = 'contenttypes' AND "django_content_type"."model" IN ('contenttype')); args=('contenttypes', 'contenttype'); alias=default
+(0.000) SELECT "auth_permission"."content_type_id", "auth_permission"."codename" FROM "auth_permission" INNER JOIN "django_content_type" ON ("auth_permission"."content_type_id" = "django_content_type"."id") WHERE "auth_permission"."content_type_id" IN (5) ORDER BY "django_content_type"."app_label" ASC, "django_content_type"."model" ASC, "auth_permission"."codename" ASC; args=(5,); alias=default
+(0.016) SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE "django_content_type"."app_label" = 'contenttypes'; args=('contenttypes',); alias=default
+(0.000) SELECT 1 AS "a" FROM "results_result" LIMIT 1; args=(1,); alias=default
+(0.000) SELECT "results_result"."id", "results_result"."option", "results_result"."votes" FROM "results_result"; args=(); alias=default
+(0.000) SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE "django_content_type"."app_label" = 'sessions'; args=('sessions',); alias=default
+(0.000) SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE ("django_content_type"."app_label" = 'sessions' AND "django_content_type"."model" IN ('session')); args=('sessions', 'session'); alias=default
+(0.000) SELECT "auth_permission"."content_type_id", "auth_permission"."codename" FROM "auth_permission" INNER JOIN "django_content_type" ON ("auth_permission"."content_type_id" = "django_content_type"."id") WHERE "auth_permission"."content_type_id" IN (6) ORDER BY "django_content_type"."app_label" ASC, "django_content_type"."model" ASC, "auth_permission"."codename" ASC; args=(6,); alias=default
+(0.000) SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE "django_content_type"."app_label" = 'sessions'; args=('sessions',); alias=default
+(0.000) SELECT 1 AS "a" FROM "results_result" LIMIT 1; args=(1,); alias=default
+(0.000) SELECT "results_result"."id", "results_result"."option", "results_result"."votes" FROM "results_result"; args=(); alias=default
+(0.016) SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE "django_content_type"."app_label" = 'django_plotly_dash'; args=('django_plotly_dash',); alias=default
+(0.000) SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE ("django_content_type"."app_label" = 'django_plotly_dash' AND "django_content_type"."model" IN ('dashapp', 'statelessapp')); args=('django_plotly_dash', 'dashapp', 'statelessapp'); alias=default
+(0.000) SELECT "auth_permission"."content_type_id", "auth_permission"."codename" FROM "auth_permission" INNER JOIN "django_content_type" ON ("auth_permission"."content_type_id" = "django_content_type"."id") WHERE "auth_permission"."content_type_id" IN (11, 12) ORDER BY "django_content_type"."app_label" ASC, "django_content_type"."model" ASC, "auth_permission"."codename" ASC; args=(11, 12); alias=default
+(0.000) SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE "django_content_type"."app_label" = 'django_plotly_dash'; args=('django_plotly_dash',); alias=default
+(0.000) SELECT 1 AS "a" FROM "results_result" LIMIT 1; args=(1,); alias=default
+(0.000) SELECT "results_result"."id", "results_result"."option", "results_result"."votes" FROM "results_result"; args=(); alias=default
+(0.000) SELECT 1 AS "a" FROM "results_result" LIMIT 1; args=(1,); alias=default
+(0.000) SELECT "results_result"."id", "results_result"."option", "results_result"."votes" FROM "results_result"; args=(); alias=default
+(0.000) SELECT 1 AS "a" FROM "results_result" LIMIT 1; args=(1,); alias=default
+(0.000) SELECT "results_result"."id", "results_result"."option", "results_result"."votes" FROM "results_result"; args=(); alias=default
+(0.000) SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE "django_content_type"."app_label" = 'voting_sessions'; args=('voting_sessions',); alias=default
+(0.000) SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE ("django_content_type"."app_label" = 'voting_sessions' AND "django_content_type"."model" IN ('session', 'sessionuser', 'option')); args=('voting_sessions', 'session', 'sessionuser', 'option'); alias=default
+(0.000) SELECT "auth_permission"."content_type_id", "auth_permission"."codename" FROM "auth_permission" INNER JOIN "django_content_type" ON ("auth_permission"."content_type_id" = "django_content_type"."id") WHERE "auth_permission"."content_type_id" IN (8, 13, 7) ORDER BY "django_content_type"."app_label" ASC, "django_content_type"."model" ASC, "auth_permission"."codename" ASC; args=(8, 13, 7); alias=default
+(0.000) SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE "django_content_type"."app_label" = 'voting_sessions'; args=('voting_sessions',); alias=default
+(0.000) SELECT 1 AS "a" FROM "results_result" LIMIT 1; args=(1,); alias=default
+(0.000) SELECT "results_result"."id", "results_result"."option", "results_result"."votes" FROM "results_result"; args=(); alias=default
+(0.000) SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE "django_content_type"."app_label" = 'vote'; args=('vote',); alias=default
+(0.000) SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE ("django_content_type"."app_label" = 'vote' AND "django_content_type"."model" IN ('vote')); args=('vote', 'vote'); alias=default
+(0.000) SELECT "auth_permission"."content_type_id", "auth_permission"."codename" FROM "auth_permission" INNER JOIN "django_content_type" ON ("auth_permission"."content_type_id" = "django_content_type"."id") WHERE "auth_permission"."content_type_id" IN (9) ORDER BY "django_content_type"."app_label" ASC, "django_content_type"."model" ASC, "auth_permission"."codename" ASC; args=(9,); alias=default
+(0.000) SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE "django_content_type"."app_label" = 'vote'; args=('vote',); alias=default
+(0.000) SELECT 1 AS "a" FROM "results_result" LIMIT 1; args=(1,); alias=default
+(0.000) SELECT "results_result"."id", "results_result"."option", "results_result"."votes" FROM "results_result"; args=(); alias=default
+(0.000) SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE "django_content_type"."app_label" = 'results'; args=('results',); alias=default
+(0.000) SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE ("django_content_type"."app_label" = 'results' AND "django_content_type"."model" IN ('result')); args=('results', 'result'); alias=default
+(0.000) SELECT "auth_permission"."content_type_id", "auth_permission"."codename" FROM "auth_permission" INNER JOIN "django_content_type" ON ("auth_permission"."content_type_id" = "django_content_type"."id") WHERE "auth_permission"."content_type_id" IN (10) ORDER BY "django_content_type"."app_label" ASC, "django_content_type"."model" ASC, "auth_permission"."codename" ASC; args=(10,); alias=default
+(0.000) SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE "django_content_type"."app_label" = 'results'; args=('results',); alias=default
+(0.015) 
+            SELECT name, type FROM sqlite_master
+            WHERE type in ('table', 'view') AND NOT name='sqlite_sequence'
+            ORDER BY name; args=None; alias=default
+(0.000) SELECT "django_migrations"."id", "django_migrations"."app", "django_migrations"."name", "django_migrations"."applied" FROM "django_migrations"; args=(); alias=default
+(0.015) SELECT 1 AS "a" FROM "auth_user" WHERE "auth_user"."username" LIKE 'bobby' ESCAPE '\' LIMIT 1; args=(1, 'bobby'); alias=default
+(0.000) SELECT 1 AS "a" FROM "auth_user" WHERE "auth_user"."email" = 'bobby@gmail.com' LIMIT 1; args=(1, 'bobby@gmail.com'); alias=default
+(0.000) SELECT 1 AS "a" FROM "auth_user" WHERE "auth_user"."username" = 'bobby' LIMIT 1; args=(1, 'bobby'); alias=default
+(0.016) INSERT INTO "auth_user" ("password", "last_login", "is_superuser", "username", "first_name", "last_name", "email", "is_staff", "is_active", "date_joined") VALUES ('pbkdf2_sha256$870000$COVaU4rTzHgLXahn3zFJ79$DtfOr0sBl9H7ICKnHPz7hGdVuHEV/5Wku2Vjwrob78M=', NULL, 0, 'bobby', '', '', 'bobby@gmail.com', 0, 1, '2025-04-11 15:23:27.956265') RETURNING "auth_user"."id"; args=('pbkdf2_sha256$870000$COVaU4rTzHgLXahn3zFJ79$DtfOr0sBl9H7ICKnHPz7hGdVuHEV/5Wku2Vjwrob78M=', None, False, 'bobby', '', '', 'bobby@gmail.com', False, True, '2025-04-11 15:23:27.956265'); alias=default
+(0.000) SELECT 1 AS "a" FROM "django_session" WHERE "django_session"."session_key" = 'pmdyaxjjmcp5j6at9ur2blmjly0l0hd6' LIMIT 1; args=(1, 'pmdyaxjjmcp5j6at9ur2blmjly0l0hd6'); alias=default
+(0.000) BEGIN; args=None; alias=default
+(0.015) INSERT INTO "django_session" ("session_key", "session_data", "expire_date") VALUES ('pmdyaxjjmcp5j6at9ur2blmjly0l0hd6', 'e30:1u3GE6:EKu0dyLU-POCxaqTXQAvf_YiyWsWbiLM71kGHT8c8I0', '2025-04-25 15:23:30.254883'); args=('pmdyaxjjmcp5j6at9ur2blmjly0l0hd6', 'e30:1u3GE6:EKu0dyLU-POCxaqTXQAvf_YiyWsWbiLM71kGHT8c8I0', '2025-04-25 15:23:30.254883'); alias=default
+(0.000) COMMIT; args=None; alias=default
+(0.016) UPDATE "auth_user" SET "last_login" = '2025-04-11 15:23:30.270886' WHERE "auth_user"."id" = 33; args=('2025-04-11 15:23:30.270886', 33); alias=default
+(0.000) BEGIN; args=None; alias=default
+(0.000) UPDATE "django_session" SET "session_data" = '.eJxVjMsOwiAQRf-FtSHAIDAu3fcbyPCSqoGktCvjv2uTLnR7zzn3xTxta_XbyIufE7swAHb6HQPFR247SXdqt85jb-syB74r_KCDTz3l5_Vw_w4qjfqtz5AyaWURQViUOiiwpkgKRAalCBZMjjqCU1ZHmRySKiBtFlDQOKXY-wPplTca:1u3GE6:m-mXaAlxzj6zPprXMBC4UP1RzoX7tcE-eB3qkjPX0eE', "expire_date" = '2025-04-25 15:23:30.338518' WHERE "django_session"."session_key" = 'pmdyaxjjmcp5j6at9ur2blmjly0l0hd6'; args=('.eJxVjMsOwiAQRf-FtSHAIDAu3fcbyPCSqoGktCvjv2uTLnR7zzn3xTxta_XbyIufE7swAHb6HQPFR247SXdqt85jb-syB74r_KCDTz3l5_Vw_w4qjfqtz5AyaWURQViUOiiwpkgKRAalCBZMjjqCU1ZHmRySKiBtFlDQOKXY-wPplTca:1u3GE6:m-mXaAlxzj6zPprXMBC4UP1RzoX7tcE-eB3qkjPX0eE', '2025-04-25 15:23:30.338518', 'pmdyaxjjmcp5j6at9ur2blmjly0l0hd6'); alias=default
+(0.016) COMMIT; args=None; alias=default
+(0.016) SELECT "django_session"."session_key", "django_session"."session_data", "django_session"."expire_date" FROM "django_session" WHERE ("django_session"."expire_date" > '2025-04-11 15:23:30.553581' AND "django_session"."session_key" = 'pmdyaxjjmcp5j6at9ur2blmjly0l0hd6') LIMIT 21; args=('2025-04-11 15:23:30.553581', 'pmdyaxjjmcp5j6at9ur2blmjly0l0hd6'); alias=default
+(0.000) SELECT "auth_user"."id", "auth_user"."password", "auth_user"."last_login", "auth_user"."is_superuser", "auth_user"."username", "auth_user"."first_name", "auth_user"."last_name", "auth_user"."email", "auth_user"."is_staff", "auth_user"."is_active", "auth_user"."date_joined" FROM "auth_user" WHERE "auth_user"."id" = 33 LIMIT 21; args=(33,); alias=default
+(0.000) SELECT "django_session"."session_key", "django_session"."session_data", "django_session"."expire_date" FROM "django_session" WHERE ("django_session"."expire_date" > '2025-04-11 15:23:45.810250' AND "django_session"."session_key" = 'pmdyaxjjmcp5j6at9ur2blmjly0l0hd6') LIMIT 21; args=('2025-04-11 15:23:45.810250', 'pmdyaxjjmcp5j6at9ur2blmjly0l0hd6'); alias=default
+(0.000) SELECT "auth_user"."id", "auth_user"."password", "auth_user"."last_login", "auth_user"."is_superuser", "auth_user"."username", "auth_user"."first_name", "auth_user"."last_name", "auth_user"."email", "auth_user"."is_staff", "auth_user"."is_active", "auth_user"."date_joined" FROM "auth_user" WHERE "auth_user"."id" = 33 LIMIT 21; args=(33,); alias=default
+(0.000) SELECT "voting_sessions_session"."id", "voting_sessions_session"."title", "voting_sessions_session"."session_start_time", "voting_sessions_session"."session_end_time", "voting_sessions_session"."choice_duration", "voting_sessions_session"."voting_duration", "voting_sessions_session"."description", "voting_sessions_session"."email_sent", "voting_sessions_session"."creator_email", "voting_sessions_session"."uuid" FROM "voting_sessions_session"; args=(); alias=default
+(0.000) SELECT "voting_sessions_option"."id", "voting_sessions_option"."session_id", "voting_sessions_option"."title", "voting_sessions_option"."description" FROM "voting_sessions_option" WHERE "voting_sessions_option"."session_id" IN (1, 2); args=(1, 2); alias=default
+(0.000) SELECT "django_session"."session_key", "django_session"."session_data", "django_session"."expire_date" FROM "django_session" WHERE ("django_session"."expire_date" > '2025-04-11 15:23:49.781679' AND "django_session"."session_key" = 'pmdyaxjjmcp5j6at9ur2blmjly0l0hd6') LIMIT 21; args=('2025-04-11 15:23:49.781679', 'pmdyaxjjmcp5j6at9ur2blmjly0l0hd6'); alias=default
+(0.000) SELECT "auth_user"."id", "auth_user"."password", "auth_user"."last_login", "auth_user"."is_superuser", "auth_user"."username", "auth_user"."first_name", "auth_user"."last_name", "auth_user"."email", "auth_user"."is_staff", "auth_user"."is_active", "auth_user"."date_joined" FROM "auth_user" WHERE "auth_user"."id" = 33 LIMIT 21; args=(33,); alias=default
+(0.000) SELECT "voting_sessions_session"."id", "voting_sessions_session"."title", "voting_sessions_session"."session_start_time", "voting_sessions_session"."session_end_time", "voting_sessions_session"."choice_duration", "voting_sessions_session"."voting_duration", "voting_sessions_session"."description", "voting_sessions_session"."email_sent", "voting_sessions_session"."creator_email", "voting_sessions_session"."uuid" FROM "voting_sessions_session" WHERE "voting_sessions_session"."id" = 1 LIMIT 21; args=(1,); alias=default
+(0.000) SELECT "voting_sessions_option"."id", "voting_sessions_option"."session_id", "voting_sessions_option"."title", "voting_sessions_option"."description" FROM "voting_sessions_option" WHERE "voting_sessions_option"."session_id" IN (1); args=(1,); alias=default
+(0.000) SELECT "django_session"."session_key", "django_session"."session_data", "django_session"."expire_date" FROM "django_session" WHERE ("django_session"."expire_date" > '2025-04-11 15:24:07.224887' AND "django_session"."session_key" = 'pmdyaxjjmcp5j6at9ur2blmjly0l0hd6') LIMIT 21; args=('2025-04-11 15:24:07.224887', 'pmdyaxjjmcp5j6at9ur2blmjly0l0hd6'); alias=default
+(0.000) SELECT "auth_user"."id", "auth_user"."password", "auth_user"."last_login", "auth_user"."is_superuser", "auth_user"."username", "auth_user"."first_name", "auth_user"."last_name", "auth_user"."email", "auth_user"."is_staff", "auth_user"."is_active", "auth_user"."date_joined" FROM "auth_user" WHERE "auth_user"."id" = 33 LIMIT 21; args=(33,); alias=default
+(0.000) SELECT "voting_sessions_session"."id", "voting_sessions_session"."title", "voting_sessions_session"."session_start_time", "voting_sessions_session"."session_end_time", "voting_sessions_session"."choice_duration", "voting_sessions_session"."voting_duration", "voting_sessions_session"."description", "voting_sessions_session"."email_sent", "voting_sessions_session"."creator_email", "voting_sessions_session"."uuid" FROM "voting_sessions_session" WHERE "voting_sessions_session"."id" = 1 LIMIT 21; args=(1,); alias=default
+(0.000) SELECT "voting_sessions_option"."id", "voting_sessions_option"."session_id", "voting_sessions_option"."title", "voting_sessions_option"."description" FROM "voting_sessions_option" WHERE "voting_sessions_option"."session_id" IN (1); args=(1,); alias=default
+(0.000) SELECT "django_session"."session_key", "django_session"."session_data", "django_session"."expire_date" FROM "django_session" WHERE ("django_session"."expire_date" > '2025-04-11 15:24:07.496009' AND "django_session"."session_key" = 'pmdyaxjjmcp5j6at9ur2blmjly0l0hd6') LIMIT 21; args=('2025-04-11 15:24:07.496009', 'pmdyaxjjmcp5j6at9ur2blmjly0l0hd6'); alias=default
+(0.000) SELECT "auth_user"."id", "auth_user"."password", "auth_user"."last_login", "auth_user"."is_superuser", "auth_user"."username", "auth_user"."first_name", "auth_user"."last_name", "auth_user"."email", "auth_user"."is_staff", "auth_user"."is_active", "auth_user"."date_joined" FROM "auth_user" WHERE "auth_user"."id" = 33 LIMIT 21; args=(33,); alias=default
+(0.000) SELECT "voting_sessions_session"."id", "voting_sessions_session"."title", "voting_sessions_session"."session_start_time", "voting_sessions_session"."session_end_time", "voting_sessions_session"."choice_duration", "voting_sessions_session"."voting_duration", "voting_sessions_session"."description", "voting_sessions_session"."email_sent", "voting_sessions_session"."creator_email", "voting_sessions_session"."uuid" FROM "voting_sessions_session"; args=(); alias=default
+(0.000) SELECT "voting_sessions_option"."id", "voting_sessions_option"."session_id", "voting_sessions_option"."title", "voting_sessions_option"."description" FROM "voting_sessions_option" WHERE "voting_sessions_option"."session_id" IN (1, 2); args=(1, 2); alias=default
+(0.000) 
+            SELECT name, type FROM sqlite_master
+            WHERE type in ('table', 'view') AND NOT name='sqlite_sequence'
+            ORDER BY name; args=None; alias=default
+(0.000) SELECT "django_migrations"."id", "django_migrations"."app", "django_migrations"."name", "django_migrations"."applied" FROM "django_migrations"; args=(); alias=default

@@ -1,11 +1,18 @@
-
 {% extends "base.html" %}
 
 {% block content %}
-    <!-- Contact Form Section -->
     <div class="container">
         <h1>Contact Us</h1>
         <p>If you have any questions, feel free to reach out!</p>
+
+        <!-- ✅ Display Success/Error Messages -->
+        {% if messages %}
+            <ul class="messages">
+                {% for message in messages %}
+                    <li class="{{ message.tags }}">{{ message }}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
 
         <form action="{% url 'contact' %}" method="post">
             {% csrf_token %}
@@ -30,4 +37,3 @@
         </form>
     </div>
 {% endblock %}
-

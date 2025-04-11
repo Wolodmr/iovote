@@ -1,0 +1,13 @@
+/* General styles */
+body {
+    font-size: 20px;
+    line-height: 1.6;
+    letter-spacing: 1px;
+    word-spacing: 1px;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    line-height: 1.4; /* Less space between lines */
+    letter-spacing: 0.5px; /* Less character spacing */
+}
+

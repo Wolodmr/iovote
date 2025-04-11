@@ -1,0 +1,10 @@
+celery 
+django
+channels 
+channels-redis
+django-redis
+redis
+daphne
+djangorestframework
+
+

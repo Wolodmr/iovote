@@ -2,99 +2,106 @@
 Django settings for vote_cast project.
 """
 
-from pathlib import Path
 import os
-import logging
-from decouple import config
 import sys
+import logging
+from pathlib import Path
+from decouple import config
 
-# Define the project base directory
+# 📌 Project Base Directory
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-# Load environment variables
+# 📌 Security & Debugging
 SECRET_KEY = config('DJANGO_SECRET_KEY', default='default-secret-key')
 DEBUG = config('DJANGO_DEBUG', default=True, cast=bool)
-
-# Ensure ALLOWED_HOSTS is always a list
 ALLOWED_HOSTS = config('DJANGO_ALLOWED_HOSTS', default="127.0.0.1,localhost").split(",")
 
-# Application definition
+# ✅ Installed Applications
 INSTALLED_APPS = [
+    # Django Default Apps
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+
+    # Third-Party Apps
     'rest_framework',
     "debug_toolbar",
     'django_plotly_dash',
-    'results',
     "channels",
     'crispy_forms',
 
+    # Local Apps
     'main',
-    'users',   
+    'users',
     'voting_sessions',
     'vote',
-    
+    'results',
 ]
 
+# ✅ Middleware Configuration
 MIDDLEWARE = [
+    # Security & Performance
     "csp.middleware.CSPMiddleware",
     'django.middleware.security.SecurityMiddleware',
+
+    # Debug Toolbar
+    "debug_toolbar.middleware.DebugToolbarMiddleware",
+
+    # Cache Middleware
+    'django.middleware.cache.UpdateCacheMiddleware',
+    'django.middleware.cache.FetchFromCacheMiddleware',
+
+    # Django Default Middleware
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    
+    # Django Plotly Dash Middleware
     "django_plotly_dash.middleware.BaseMiddleware",
-    "debug_toolbar.middleware.DebugToolbarMiddleware",
-    'django.middleware.cache.UpdateCacheMiddleware',  # Store pages in cache
-    'django.middleware.cache.FetchFromCacheMiddleware',  # Serve cached pages
 ]
 
+# ✅ Django Debug Toolbar
+INTERNAL_IPS = ["127.0.0.1"]
+
+# ✅ Caching Configuration
 CACHES = {
     'default': {
         'BACKEND': 'django.core.cache.backends.filebased.FileBasedCache',
-        'LOCATION': BASE_DIR / 'cache',  # Cache directory
-        'TIMEOUT': 600,  # Cache timeout (seconds)
-        'OPTIONS': {
-            'MAX_ENTRIES': 1000
-        }
+        'LOCATION': BASE_DIR / 'cache',
+        'TIMEOUT': 600,  # 10 minutes
+        'OPTIONS': {'MAX_ENTRIES': 1000}
     }
 }
 
+# ✅ Content Security Policy (CSP)
 CSP_DEFAULT_SRC = ("'self'",)
 CSP_STYLE_SRC = ("'self'", "'unsafe-inline'", "https://fonts.googleapis.com", "https://cdn.jsdelivr.net", "https://cdnjs.cloudflare.com")
 CSP_SCRIPT_SRC = ("'self'", "'unsafe-inline'", "https://cdn.plot.ly", "https://code.jquery.com", "https://cdn.jsdelivr.net", "https://stackpath.bootstrapcdn.com")
 CSP_FONT_SRC = ("'self'", "https://fonts.gstatic.com", "https://cdnjs.cloudflare.com", "https://cdn.jsdelivr.net")
 CSP_IMG_SRC = ("'self'", "data:")
 
+# ✅ Allow Embedding Dash Apps in Iframes
+X_FRAME_OPTIONS = "SAMEORIGIN"
 
-# CSP_FRAME_ANCESTORS = ["'self'"]  # Allows only the same origin to embed iframes
-# CSP_DEFAULT_SRC = ["'self'"]  
-# CSP_SCRIPT_SRC = ["'self'", "'unsafe-inline'", "https://cdn.plot.ly"]
-# CSP_STYLE_SRC = ["'self'", "'unsafe-inline'", "https://fonts.googleapis.com"]
-
-
-X_FRAME_OPTIONS = "SAMEORIGIN"  # Allow iframes on the same domain
-
+# ✅ Plotly Dash Configuration
 PLOTLY_DASH = {
     "ws_route": "",  # Disable WebSockets
     "http_plotly_component_prefix": "dash/",
-    "serve_locally": True,  # Serve JavaScript and CSS locally
-    "expose_javascript": True,  # Allow Plotly.js to be exposed
+    "serve_locally": True,
+    "expose_javascript": True,
 }
 
-
-INTERNAL_IPS = ["127.0.0.1"]
-
-SITE_URL = "http://127.0.0.1:8000"  # Change this to your production domain
-
+# ✅ URL Configuration
+SITE_URL = "http://127.0.0.1:8000"
 ROOT_URLCONF = 'vote_cast.urls'
 
+# ✅ Template Settings
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
@@ -105,7 +112,7 @@ TEMPLATES = [
             BASE_DIR / 'vote/templates/vote',
             BASE_DIR / 'results/templates/results',
             BASE_DIR / 'voting_sessions/templates/voting_sessions',
-        ],     
+        ],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -118,15 +125,16 @@ TEMPLATES = [
     },
 ]
 
+# ✅ Authentication
 from django.urls import reverse_lazy
-
 LOGIN_URL = reverse_lazy('login')
 LOGIN_REDIRECT_URL = '/voting_sessions/'
 
+# ✅ WSGI & ASGI Applications
 WSGI_APPLICATION = 'vote_cast.wsgi.application'
 ASGI_APPLICATION = 'vote_cast.asgi.application'
 
-# Database Configuration (SQLite for now)
+# ✅ Database Configuration (SQLite)
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
@@ -134,7 +142,7 @@ DATABASES = {
     }
 }
 
-# Password Validation
+# ✅ Password Validation
 AUTH_PASSWORD_VALIDATORS = [
     {'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator'},
     {'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator'},
@@ -142,20 +150,18 @@ AUTH_PASSWORD_VALIDATORS = [
     {'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator'},
 ]
 
-# CSP_STYLE_SRC = ("'self'", "'unsafe-inline'", "https://fonts.googleapis.com", "https://cdn.jsdelivr.net", "https://cdnjs.cloudflare.com")
-# CSP_SCRIPT_SRC = ("'self'", "'unsafe-inline'", "https://cdn.plot.ly", "https://code.jquery.com", "https://cdn.jsdelivr.net", "https://stackpath.bootstrapcdn.com")
 
+# ✅ CSRF Configuration
+CSRF_COOKIE_HTTPONLY = False
+CSRF_COOKIE_SECURE = False  # Set to False for local development
 
-CSRF_COOKIE_HTTPONLY = False  # ✅ Must be False (Default)
-CSRF_COOKIE_SECURE = False  # ✅ Set to False for local developmen
-
-# Localization
+# ✅ Localization
 LANGUAGE_CODE = 'en-us'
-TIME_ZONE = 'CET'  # Change "CET" to a proper Django-compatible timezone
+TIME_ZONE = 'CET'  # Adjust timezone as needed
 USE_I18N = True
 USE_TZ = True
 
-# Static Files
+# ✅ Static Files
 STATIC_URL = '/static/'
 STATIC_ROOT = BASE_DIR / 'staticfiles'
 STATICFILES_DIRS = [
@@ -171,7 +177,7 @@ STATICFILES_FINDERS = [
     'django_plotly_dash.finders.DashComponentFinder',
 ]
 
-# Email Configuration (Loaded from .env)
+# ✅ Email Configuration
 EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
 EMAIL_HOST = "smtp.gmail.com"
 EMAIL_PORT = 587
@@ -180,7 +186,7 @@ EMAIL_HOST_USER = config("EMAIL_HOST_USER", default="")
 EMAIL_HOST_PASSWORD = config("EMAIL_HOST_PASSWORD", default="")
 EMAIL_FAIL_SILENTLY = False
 
-# Test Email Backend
+# 📌 Use in Tests
 if "test" in sys.argv:
     DEBUG = True
     EMAIL_BACKEND = "django.core.mail.backends.locmem.EmailBackend"
@@ -188,20 +194,21 @@ if "test" in sys.argv:
     EMAIL_PORT = ""
     logging.getLogger(__name__).debug(f"✅ Using {EMAIL_BACKEND} for tests")
 
-# Logging Configuration
-
+# ✅ Logging Configuration
 LOGGING = {
     'version': 1,
     'disable_existing_loggers': False,
     'handlers': {
-        'console': {
-            'class': 'logging.StreamHandler',
+        'file': {
+            'level': 'DEBUG',
+            'class': 'logging.FileHandler',
+            'filename': 'debug.log',
         },
     },
     'loggers': {
         'django.db.backends': {
             'level': 'DEBUG',
-            'handlers': ['console'],
+            'handlers': ['file'],
         },
     },
 }

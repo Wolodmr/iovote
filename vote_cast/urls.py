@@ -6,7 +6,7 @@ from django.conf.urls.static import static
 import debug_toolbar
 
 urlpatterns = [
-    path("__debug__/", include(debug_toolbar.urls)),
+    
     path('admin/', admin.site.urls),
     path('', include('main.urls')),  # Main app URLs
     path('users/', include('users.urls', namespace='users')),  # Users app URLs
@@ -19,7 +19,9 @@ urlpatterns = [
 
 if settings.DEBUG:
     urlpatterns += static(settings.STATIC_URL, document_root=settings.STATICFILES_DIRS[0] if settings.STATICFILES_DIRS else settings.BASE_DIR)
+    urlpatterns += [path('__debug__/', include('debug_toolbar.urls'))]
     
+
 
 
 

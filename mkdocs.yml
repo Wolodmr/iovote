@@ -1,0 +1,56 @@
+site_name: Vote Cast Documentation
+
+theme:
+  name: material
+  features:
+    - navigation.sections   # Enables sidebar sections
+    - navigation.expand
+    - toc.integrate
+  palette:
+    - scheme: default
+      primary: blue
+      accent: indigo
+      toggle:
+        icon: material/weather-night
+        name: Switch to dark mode
+    - scheme: slate
+      primary: blue
+      accent: indigo
+      toggle:
+        icon: material/white-balance-sunny
+        name: Switch to light mode
+    
+
+nav:
+  - Home: index.md
+  - About: about.md
+  - Getting Started:
+      - Installation: installation.md
+      - Deployment: deployment.md
+  - Project Overview:
+      - Structure: structure.md
+      - Features: features.md
+      - Roadmap: roadmap.md
+  - Optimization:
+      - Performance: optimization.md
+  - Development:
+      - API & Forms: api.md
+      - Contribution Guide: contribute.md
+  - Future Plans: future.md
+
+plugins:
+  - search
+  # - pdf-export:
+  #     output_path: site/documentation/document.pdf
+
+extra:
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/Wolodmr/vote_cast
+
+extra_css:
+  - assets/stylesheets/extra.css
+  - site/assets/pdf.css
+
+site_url: "file://C:/VS_Code/Camp_programs/Projects/vote_cast/site/"
+
