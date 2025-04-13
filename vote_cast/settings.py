@@ -22,7 +22,7 @@ DATABASES = {
 # 📌 Security & Debugging
 SECRET_KEY = config('DJANGO_SECRET_KEY', default='default-secret-key')
 DEBUG = False
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['.railway.app', '127.0.0.1', 'localhost', 'vote-cast-production.up.railway.app']
 
 # ✅ Installed Applications
 INSTALLED_APPS = [
