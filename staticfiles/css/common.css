@@ -7,6 +7,13 @@ body {
     margin: 0;
     padding: 0;
 }
+.navbar .fa, .navbar .fas, .navbar .far, .navbar .fab {
+    font-size: .5rem; /* Adjust this size as needed */
+    width: 10px;
+    height: 10px;
+    line-height: 10px;
+}
+
 
 /* 🟢 Navbar Styling */
 .navbar {
@@ -27,7 +34,26 @@ body {
     align-items: center;
     gap: 8px; /* Space between icon & text */
     transition: all 0.3s ease-in-out;
+    display: flex;
+    flex-direction: column;
 }
+.navbar .nav-link i {
+    margin-bottom: 5px; /* Adjust spacing between icon and text */
+}
+
+.navbar-brand.font-weight-bold {
+    font-size: 2em;
+    font-weight: 600;
+    color: rgb(212, 212, 242);
+    background: rgb(18, 78, 182);
+}
+
+.navbar {
+    width: 100%;
+    max-width: none; /* Override Bootstrap constraints */
+    background-color: white; /* Optional: Ensure white background if needed */
+}
+
 
 /* 🟢 Hover Effect */
 .navbar .nav-link:hover {
@@ -138,7 +164,7 @@ body {
     font-size: 1.5em; /* Increase size */
     font-weight: bold;
     text-decoration: none !important; /* Remove underline */
-    padding: 8px 15px; /* Increase padding for better spacing */
+    padding: 10px 15px; /* Increase padding for better spacing */
 }
 
 /* Make background lighter */
@@ -147,14 +173,44 @@ body {
 }
 
 .navbar-brand {
-    font-size: 3em;
-    color: blue;
-    font-weight: bold;
+    font-size: 10em;
+    color: rgb(19, 19, 125);
+    font-weight: 600;
 }
 
-button.btn-log.btn-link.nav-link {
+
+.button.btn-log.btn-link.nav-link {
     background-color: rgb(231, 231, 238);
     color: white;
+}
+.navbar-nav .nav-item:last-child {
+    border: none !important;
+    box-shadow: none !important;
+}
+
+.navbar .nav-item:last-child .nav-link {
+    all: unset !important;  /* Resets all styles */
+    display: block;  /* Ensures it behaves like other navbar links */
+    padding: 15px 20px;  /* Adjust padding to match other buttons */
+    color: rgb(208, 0, 255); /* Match other navbar items */
+    font-size: 3em;
+    font-weight: 600;
+    /*text-decoration: none !important;*/
+    background: blue;
+}
+
+.btn {
+    white-space: nowrap !important; /* Prevents text from stacking */
+    height: 50px !important;
+    min-width: 50px; /* Adjust width */
+    background: rgb(26, 131, 175);
+}
+
+input[type="radio"] {
+    width: 20px; /* Make it larger */
+    height: 20px;
+    accent-color: #007bff; /* Change color (Bootstrap Blue) */
+    border: 2px solid #0056b3; /* Add a darker border */
 }
 
 th {
@@ -169,10 +225,31 @@ th {
     font-weight: bold;
     border-radius: 8px;
 }
+.navbar .fa, .navbar .fas, .navbar .far, .navbar .fab {
+    font-size: .5rem; /* Adjust this size as needed */
+    width: 10px;
+    height: 10px;
+    line-height: 10px;
+}
+.navbar .fa, 
+.navbar .fas, 
+.navbar .far, 
+.navbar .fab { 
+    font-size: 1rem !important; /* Normal icon size */
+    width: auto;
+    height: auto;
+    line-height: normal;
+}
+
+.navbar a .fa { 
+    display: inline-block; 
+    vertical-align: middle; 
+}
+
 
 .alert-success {
     background-color: #e2f0e3; /* Custom green */
-    color: white;
+    color: rgb(45, 164, 79);
 }
 
 /* Form Styles */

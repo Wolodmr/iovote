@@ -32,7 +32,7 @@ def vote(request, session_id):
     session = get_object_or_404(Session.objects.prefetch_related('options'), id=session_id)
 
     if not session.is_voting_active():
-        messages.error(request, "Voting is not allowed because the session has ended.")
+        messages.error(request, "Voting is not allowed because the session has not started yet or has already ended.")
         return redirect('voting_sessions:session_list')
 
     options = {option.id: option for option in session.options.all()}  # Fetch options as a dictionary

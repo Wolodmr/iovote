@@ -866,3 +866,54 @@
             WHERE type in ('table', 'view') AND NOT name='sqlite_sequence'
             ORDER BY name; args=None; alias=default
 (0.000) SELECT "django_migrations"."id", "django_migrations"."app", "django_migrations"."name", "django_migrations"."applied" FROM "django_migrations"; args=(); alias=default
+(0.046) 
+            SELECT name, type FROM sqlite_master
+            WHERE type in ('table', 'view') AND NOT name='sqlite_sequence'
+            ORDER BY name; args=None; alias=default
+(0.000) SELECT "django_migrations"."id", "django_migrations"."app", "django_migrations"."name", "django_migrations"."applied" FROM "django_migrations"; args=(); alias=default
+(0.016) 
+            SELECT name, type FROM sqlite_master
+            WHERE type in ('table', 'view') AND NOT name='sqlite_sequence'
+            ORDER BY name; args=None; alias=default
+(0.000) SELECT "django_migrations"."id", "django_migrations"."app", "django_migrations"."name", "django_migrations"."applied" FROM "django_migrations"; args=(); alias=default
+(0.000) SELECT "django_session"."session_key", "django_session"."session_data", "django_session"."expire_date" FROM "django_session" WHERE ("django_session"."expire_date" > '2025-04-12 21:26:38.375013' AND "django_session"."session_key" = 'ygscllsc89b7tcut7kv0bfxwk2egiys1') LIMIT 21; args=('2025-04-12 21:26:38.375013', 'ygscllsc89b7tcut7kv0bfxwk2egiys1'); alias=default
+(0.000) SELECT "auth_user"."id", "auth_user"."password", "auth_user"."last_login", "auth_user"."is_superuser", "auth_user"."username", "auth_user"."first_name", "auth_user"."last_name", "auth_user"."email", "auth_user"."is_staff", "auth_user"."is_active", "auth_user"."date_joined" FROM "auth_user" WHERE "auth_user"."id" = 1 LIMIT 21; args=(1,); alias=default
+(0.000) SELECT "voting_sessions_session"."id", "voting_sessions_session"."title", "voting_sessions_session"."session_start_time", "voting_sessions_session"."session_end_time", "voting_sessions_session"."choice_duration", "voting_sessions_session"."voting_duration", "voting_sessions_session"."description", "voting_sessions_session"."email_sent", "voting_sessions_session"."creator_email", "voting_sessions_session"."uuid" FROM "voting_sessions_session" WHERE "voting_sessions_session"."id" = 1 LIMIT 21; args=(1,); alias=default
+(0.000) SELECT "voting_sessions_option"."id", "voting_sessions_option"."session_id", "voting_sessions_option"."title", "voting_sessions_option"."description" FROM "voting_sessions_option" WHERE "voting_sessions_option"."session_id" IN (1); args=(1,); alias=default
+(0.000) 
+            SELECT name, type FROM sqlite_master
+            WHERE type in ('table', 'view') AND NOT name='sqlite_sequence'
+            ORDER BY name; args=None; alias=default
+(0.000) SELECT "django_migrations"."id", "django_migrations"."app", "django_migrations"."name", "django_migrations"."applied" FROM "django_migrations"; args=(); alias=default
+(0.000) SELECT "django_session"."session_key", "django_session"."session_data", "django_session"."expire_date" FROM "django_session" WHERE ("django_session"."expire_date" > '2025-04-12 21:28:14.087773' AND "django_session"."session_key" = 'ygscllsc89b7tcut7kv0bfxwk2egiys1') LIMIT 21; args=('2025-04-12 21:28:14.087773', 'ygscllsc89b7tcut7kv0bfxwk2egiys1'); alias=default
+(0.000) SELECT "django_session"."session_key", "django_session"."session_data", "django_session"."expire_date" FROM "django_session" WHERE ("django_session"."expire_date" > '2025-04-12 21:38:55.649108' AND "django_session"."session_key" = 'ygscllsc89b7tcut7kv0bfxwk2egiys1') LIMIT 21; args=('2025-04-12 21:38:55.649108', 'ygscllsc89b7tcut7kv0bfxwk2egiys1'); alias=default
+(0.000) SELECT "auth_user"."id", "auth_user"."password", "auth_user"."last_login", "auth_user"."is_superuser", "auth_user"."username", "auth_user"."first_name", "auth_user"."last_name", "auth_user"."email", "auth_user"."is_staff", "auth_user"."is_active", "auth_user"."date_joined" FROM "auth_user" WHERE "auth_user"."id" = 1 LIMIT 21; args=(1,); alias=default
+(0.000) SELECT "django_session"."session_key", "django_session"."session_data", "django_session"."expire_date" FROM "django_session" WHERE ("django_session"."expire_date" > '2025-04-12 21:38:58.650646' AND "django_session"."session_key" = 'ygscllsc89b7tcut7kv0bfxwk2egiys1') LIMIT 21; args=('2025-04-12 21:38:58.650646', 'ygscllsc89b7tcut7kv0bfxwk2egiys1'); alias=default
+(0.000) SELECT "auth_user"."id", "auth_user"."password", "auth_user"."last_login", "auth_user"."is_superuser", "auth_user"."username", "auth_user"."first_name", "auth_user"."last_name", "auth_user"."email", "auth_user"."is_staff", "auth_user"."is_active", "auth_user"."date_joined" FROM "auth_user" WHERE "auth_user"."id" = 1 LIMIT 21; args=(1,); alias=default
+(0.000) SELECT "django_session"."session_key", "django_session"."session_data", "django_session"."expire_date" FROM "django_session" WHERE ("django_session"."expire_date" > '2025-04-12 21:39:03.346316' AND "django_session"."session_key" = 'ygscllsc89b7tcut7kv0bfxwk2egiys1') LIMIT 21; args=('2025-04-12 21:39:03.346316', 'ygscllsc89b7tcut7kv0bfxwk2egiys1'); alias=default
+(0.000) SELECT "auth_user"."id", "auth_user"."password", "auth_user"."last_login", "auth_user"."is_superuser", "auth_user"."username", "auth_user"."first_name", "auth_user"."last_name", "auth_user"."email", "auth_user"."is_staff", "auth_user"."is_active", "auth_user"."date_joined" FROM "auth_user" WHERE "auth_user"."id" = 1 LIMIT 21; args=(1,); alias=default
+(0.000) SELECT "django_session"."session_key", "django_session"."session_data", "django_session"."expire_date" FROM "django_session" WHERE ("django_session"."expire_date" > '2025-04-12 21:39:05.362375' AND "django_session"."session_key" = 'ygscllsc89b7tcut7kv0bfxwk2egiys1') LIMIT 21; args=('2025-04-12 21:39:05.362375', 'ygscllsc89b7tcut7kv0bfxwk2egiys1'); alias=default
+(0.000) SELECT "auth_user"."id", "auth_user"."password", "auth_user"."last_login", "auth_user"."is_superuser", "auth_user"."username", "auth_user"."first_name", "auth_user"."last_name", "auth_user"."email", "auth_user"."is_staff", "auth_user"."is_active", "auth_user"."date_joined" FROM "auth_user" WHERE "auth_user"."id" = 1 LIMIT 21; args=(1,); alias=default
+(0.000) SELECT "auth_user"."id", "auth_user"."password", "auth_user"."last_login", "auth_user"."is_superuser", "auth_user"."username", "auth_user"."first_name", "auth_user"."last_name", "auth_user"."email", "auth_user"."is_staff", "auth_user"."is_active", "auth_user"."date_joined" FROM "auth_user"; args=(); alias=default
+(0.000) 
+            SELECT name, type FROM sqlite_master
+            WHERE type in ('table', 'view') AND NOT name='sqlite_sequence'
+            ORDER BY name; args=None; alias=default
+(0.000) SELECT "django_migrations"."id", "django_migrations"."app", "django_migrations"."name", "django_migrations"."applied" FROM "django_migrations"; args=(); alias=default
+(0.000) SELECT "django_session"."session_key", "django_session"."session_data", "django_session"."expire_date" FROM "django_session" WHERE ("django_session"."expire_date" > '2025-04-12 21:41:35.327353' AND "django_session"."session_key" = 'ygscllsc89b7tcut7kv0bfxwk2egiys1') LIMIT 21; args=('2025-04-12 21:41:35.327353', 'ygscllsc89b7tcut7kv0bfxwk2egiys1'); alias=default
+(0.000) SELECT "django_session"."session_key", "django_session"."session_data", "django_session"."expire_date" FROM "django_session" WHERE ("django_session"."expire_date" > '2025-04-12 21:42:20.307349' AND "django_session"."session_key" = 'ygscllsc89b7tcut7kv0bfxwk2egiys1') LIMIT 21; args=('2025-04-12 21:42:20.307349', 'ygscllsc89b7tcut7kv0bfxwk2egiys1'); alias=default
+(0.000) 
+            SELECT name, type FROM sqlite_master
+            WHERE type in ('table', 'view') AND NOT name='sqlite_sequence'
+            ORDER BY name; args=None; alias=default
+(0.000) SELECT "django_migrations"."id", "django_migrations"."app", "django_migrations"."name", "django_migrations"."applied" FROM "django_migrations"; args=(); alias=default
+(0.000) 
+            SELECT name, type FROM sqlite_master
+            WHERE type in ('table', 'view') AND NOT name='sqlite_sequence'
+            ORDER BY name; args=None; alias=default
+(0.000) SELECT "django_migrations"."id", "django_migrations"."app", "django_migrations"."name", "django_migrations"."applied" FROM "django_migrations"; args=(); alias=default
+(0.000) 
+            SELECT name, type FROM sqlite_master
+            WHERE type in ('table', 'view') AND NOT name='sqlite_sequence'
+            ORDER BY name; args=None; alias=default
+(0.000) SELECT "django_migrations"."id", "django_migrations"."app", "django_migrations"."name", "django_migrations"."applied" FROM "django_migrations"; args=(); alias=default

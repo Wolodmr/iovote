@@ -1,9 +1,33 @@
+# Python
+*.pyc
+__pycache__/
+
+# Virtual environments
+venv/
+.env
+
+# SQLite & backup files
+*.sqlite3
+*.sqlite3-*
+
+# Static & media (generated or uploaded)
+staticfiles/
+media/
+
+# OS
+.DS_Store
+
+# VS Code
+.vscode/
+
+# Bytecode or logs
+*.log
+
 # Ignore .vscode folder
 .vscode/
 
 # Ignore any parent directories or files outside the project
 BootStrap/
-__pycache__/
 *.pyc
 *.pyo
 DjangoProject1/
@@ -17,6 +41,13 @@ OOP/
 Project_Dom/
 *.rdb
 *.aof
-venv/
-.env
+.DS_Store
+.idea/
+*.py[cod]
+db.sqlite3
+*.sqlite3
+*.log
+*.whl
+*.bak
+*.tmp
 

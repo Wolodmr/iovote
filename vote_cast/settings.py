@@ -18,11 +18,11 @@ DATABASES = {
     }
 }
 
+
 # 📌 Security & Debugging
 SECRET_KEY = config('DJANGO_SECRET_KEY', default='default-secret-key')
-DEBUG = config('DJANGO_DEBUG', default=True, cast=bool)
-ALLOWED_HOSTS = config('DJANGO_ALLOWED_HOSTS', default="127.0.0.1,localhost").split(",")
-
+DEBUG = False
+ALLOWED_HOSTS = ['*']
 
 # ✅ Installed Applications
 INSTALLED_APPS = [
@@ -36,7 +36,6 @@ INSTALLED_APPS = [
 
     # Third-Party Apps
     'rest_framework',
-    "debug_toolbar",
     'django_plotly_dash',
     'crispy_forms',
 
@@ -53,9 +52,7 @@ MIDDLEWARE = [
     # Security & Performance
     "csp.middleware.CSPMiddleware",
     'django.middleware.security.SecurityMiddleware',
-
-    # Debug Toolbar
-    "debug_toolbar.middleware.DebugToolbarMiddleware",
+    "whitenoise.middleware.WhiteNoiseMiddleware",
 
     # Cache Middleware
     'django.middleware.cache.UpdateCacheMiddleware',
@@ -72,6 +69,11 @@ MIDDLEWARE = [
     # Django Plotly Dash Middleware
     "django_plotly_dash.middleware.BaseMiddleware",
 ]
+
+if DEBUG:
+    INSTALLED_APPS += ["debug_toolbar"]
+    MIDDLEWARE.insert(0, "debug_toolbar.middleware.DebugToolbarMiddleware")
+
 
 # ✅ Django Debug Toolbar
 INTERNAL_IPS = ["127.0.0.1"]
@@ -170,12 +172,9 @@ USE_TZ = True
 
 # ✅ Static Files
 STATIC_URL = '/static/'
-STATIC_ROOT = BASE_DIR / 'staticfiles'
-STATICFILES_DIRS = [
-    BASE_DIR / 'static',
-    BASE_DIR / 'main/static',
-    BASE_DIR / 'users/static',
-]
+STATIC_ROOT = BASE_DIR / "staticfiles"    # used by collectstatic
+STATICFILES_DIRS = [BASE_DIR / "static"] 
+STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 
 STATICFILES_FINDERS = [
     'django.contrib.staticfiles.finders.FileSystemFinder',
