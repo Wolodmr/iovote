@@ -1,0 +1,353 @@
+/* 🟢 Global Styles */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f7f9fc;
+    color: #333;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+}
+.navbar .fa, .navbar .fas, .navbar .far, .navbar .fab {
+    font-size: .5rem; /* Adjust this size as needed */
+    width: 10px;
+    height: 10px;
+    line-height: 10px;
+}
+
+
+/* 🟢 Navbar Styling */
+.navbar {
+    background: linear-gradient(135deg, #005bb5, #0073e6); /* Nice blue gradient */
+    color:rgb(45, 78, 243);
+    padding: 12px 20px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* 🟢 Navbar Links */
+.navbar .nav-link {
+    color: rgb(45, 78, 243) !important;
+    font-weight: bold;
+    font-size: 5em;
+    padding: 1px 1px;
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    gap: 8px; /* Space between icon & text */
+    transition: all 0.3s ease-in-out;
+    display: flex;
+    flex-direction: column;
+}
+.navbar .nav-link i {
+    margin-bottom: 5px; /* Adjust spacing between icon and text */
+}
+
+.navbar-brand.font-weight-bold {
+    font-size: 2em;
+    font-weight: 600;
+    color: rgb(212, 212, 242);
+    background: rgb(18, 78, 182);
+}
+
+.navbar {
+    width: 100%;
+    max-width: none; /* Override Bootstrap constraints */
+    background-color: white; /* Optional: Ensure white background if needed */
+}
+
+
+/* 🟢 Hover Effect */
+.navbar .nav-link:hover {
+    background: rgba(255, 255, 255, 0.2);
+    color: #ffdd57 !important; /* Yellow highlight */
+    transform: scale(1.05);
+}
+
+/* 🟢 Navbar Icons */
+.navbar .nav-link i {
+    font-size: 5em;
+    margin-right: 5px;
+    display: flex !important;
+}
+
+/* 🟢 Active Page Indicator */
+.navbar .nav-item.active .nav-link {
+    background: rgba(255, 255, 255, 0.3);
+    color: #ffdd57 !important;
+}
+
+/* 🟢 Buttons */
+.btn {
+    background-color: #83aeda;
+    color: white;
+    padding: 8px 8px;
+    border: none;
+    border-radius: 6px;
+    font-size: 1rem;
+    transition: 0.3s;
+}
+
+.btn:hover {
+    background-color: #003d80;
+    transform: scale(1.05);
+}
+
+/* 🟢 Ensure Spacing & Layout Consistency */
+.container {
+    max-width: 1000px;
+    margin: auto;
+    padding: 20px;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* 🟢 Responsive Fix */
+@media (max-width: 768px) {
+    .navbar-nav {
+        display: flex !important;
+        flex-direction: row !important;
+        align-items: center;
+        justify-content: flex-end;
+        gap: 15px;
+    }
+    .navbar .nav-link {
+        justify-content: center;
+    }
+}
+
+@media (min-width: 992px) {
+    .navbar-collapse {
+        display: flex !important;
+        flex-direction: row !important;
+        justify-content: space-between !important;
+    }
+}
+
+/* Ensure the navbar items align horizontally */
+.navbar-nav {
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 15px;
+    width: 100%;
+}
+
+/* Fix navbar collapse behavior */
+.navbar-collapse {
+    display: flex !important;
+    flex-direction: row !important;
+    justify-content: space-between !important;
+    width: 100%;
+}
+
+/* Prevent weird stacking on larger screens */
+@media (min-width: 992px) {
+    .navbar-nav {
+        flex-direction: row !important;
+    }
+    .navbar-collapse {
+        flex-direction: row !important;
+    }
+}
+.navbar-nav {
+    list-style: none;
+    padding-left: 15px; /* Adjust this value as needed */
+    padding: 0;
+    margin: 0;
+}
+.navbar-nav .nav-item:first-child {
+    margin-left: 15px; /* Adjust this value as needed */
+}
+
+.navbar .nav-link {
+    font-size: 1.5em; /* Increase size */
+    font-weight: bold;
+    text-decoration: none !important; /* Remove underline */
+    padding: 10px 15px; /* Increase padding for better spacing */
+}
+
+/* Make background lighter */
+body {
+    background-color: #f2f4f8 !important; /* Lighter shade */
+}
+
+.navbar-brand {
+    font-size: 10em;
+    color: rgb(19, 19, 125);
+    font-weight: 600;
+}
+
+
+.button.btn-log.btn-link.nav-link {
+    background-color: rgb(231, 231, 238);
+    color: white;
+}
+.navbar-nav .nav-item:last-child {
+    border: none !important;
+    box-shadow: none !important;
+}
+
+.navbar .nav-item:last-child .nav-link {
+    all: unset !important;  /* Resets all styles */
+    display: block;  /* Ensures it behaves like other navbar links */
+    padding: 15px 20px;  /* Adjust padding to match other buttons */
+    color: rgb(208, 0, 255); /* Match other navbar items */
+    font-size: 3em;
+    font-weight: 600;
+    /*text-decoration: none !important;*/
+    background: blue;
+}
+
+.btn {
+    white-space: nowrap !important; /* Prevents text from stacking */
+    height: 50px !important;
+    min-width: 50px; /* Adjust width */
+    background: rgb(26, 131, 175);
+}
+
+input[type="radio"] {
+    width: 20px; /* Make it larger */
+    height: 20px;
+    accent-color: #007bff; /* Change color (Bootstrap Blue) */
+    border: 2px solid #0056b3; /* Add a darker border */
+}
+
+th {
+    text-align: left;
+    color: blue;
+    padding: 4px 40px;
+}
+
+.navbar-nav .nav-link.active {
+    background-color: #cfddea !important; /* Change background */
+    color: rgb(24, 24, 130) !important; /* Change text color */
+    font-weight: bold;
+    border-radius: 8px;
+}
+.navbar .fa, .navbar .fas, .navbar .far, .navbar .fab {
+    font-size: .5rem; /* Adjust this size as needed */
+    width: 10px;
+    height: 10px;
+    line-height: 10px;
+}
+.navbar .fa, 
+.navbar .fas, 
+.navbar .far, 
+.navbar .fab { 
+    font-size: 1rem !important; /* Normal icon size */
+    width: auto;
+    height: auto;
+    line-height: normal;
+}
+
+.navbar a .fa { 
+    display: inline-block; 
+    vertical-align: middle; 
+}
+
+
+.alert-success {
+    background-color: #e2f0e3; /* Custom green */
+    color: rgb(45, 164, 79);
+}
+
+/* Form Styles */
+
+/* Form Container */
+form {
+    background: #ffffff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Form Labels */
+form label {
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 5px;
+    display: block;
+}
+
+/* Form Inputs */
+form input,
+form select,
+form textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1rem;
+    transition: border 0.3s ease-in-out;
+}
+
+/* Focus Effect on Inputs */
+form input:focus,
+form select:focus,
+form textarea:focus {
+    border-color: #0073e6;
+    outline: none;
+    box-shadow: 0 0 5px rgba(0, 115, 230, 0.3);
+}
+
+/* Submit Button */
+form button {
+    width: 100%;
+    background-color: #3170ab;
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 6px;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: background 0.3s, transform 0.2s;
+}
+
+/* Submit Button Hover */
+form button:hover {
+    background-color: #005bb5;
+    transform: scale(1.03);
+}
+
+/* Form Links (like "Already have an account?") */
+form p {
+    text-align: center;
+    margin-top: 10px;
+    font-size: 0.9rem;
+}
+
+form p a {
+    color: #0073e6;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+form p a:hover {
+    text-decoration: underline;
+}
+
+
+.container, .row {
+    text-align: left !important;
+    justify-content: flex-start !important;
+}
+
+.form-check {
+    display: inline-flex !important;
+    flex-direction: column !important; /* Ensure vertical stacking */
+    align-items: flex-start !important; /* Align items to the left */
+    padding: 10px;
+}
+
+/* Style for success messages */
+/* Ensure only success messages get styled */
+.alert-success, .success {
+    background-color: #d4edda !important;  /* Light green */
+    color: #155724 !important;  /* Dark green text */
+    border: 1px solid #c3e6cb !important;
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
