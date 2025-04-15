@@ -1,24 +1,26 @@
 {% extends "base.html" %}
 
 {% block content %}
-    <h1>{{ session.title }}</h1>
-    <p>{{ session.description }}</p>
+    <div class="scrollable-container">
+        <h1>{{ session.title }}</h1>
+        <p>{{ session.description }}</p>
 
-    <h2>Voting Results:</h2>
+        <h2>Voting Results:</h2>
 
-    {% if vote_counts %}
-        <p><strong>Total Votes:</strong> {{ total_votes }}</p>
-        <ul>
-            {% for vote in vote_counts %}
-                <li>
-                    <strong>{{ vote.option__title }}</strong>: 
-                    {{ vote.count }} votes ({{ vote.percentage|floatformat:2 }}%)
-                </li>
-            {% endfor %}
-        </ul>
-    {% else %}
-        <p>No votes have been cast for this session yet.</p>
-    {% endif %}
+        {% if vote_counts %}
+            <p><strong>Total Votes:</strong> {{ total_votes }}</p>
+            <ul>
+                {% for vote in vote_counts %}
+                    <li>
+                        <strong>{{ vote.option__title }}</strong>: 
+                        {{ vote.count }} votes ({{ vote.percentage|floatformat:2 }}%)
+                    </li>
+                {% endfor %}
+            </ul>
+        {% else %}
+            <p>No votes have been cast for this session yet.</p>
+        {% endif %}
 
-    <a href="{% url 'voting_sessions:session_list' %}">Back to Sessions</a>
+        <a href="{% url 'voting_sessions:session_list' %}">Back to Sessions</a>
+</div>
 {% endblock %}

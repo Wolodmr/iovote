@@ -3,17 +3,19 @@
 {% extends "base.html" %}
 
 {% block content %}
-<h1>Sessions</h1>
-<ul>
-    {% for session in sessions %}
-        <li>
-            <a href="{% url 'voting_sessions:session_detail' session.id %}">
-                {{ session.name }} - {{ session.description }}
-            </a>
-            <br>
-            Starts: {{ session.session_start_time }} | Ends: {{ session.session_end_time }}
-        </li>
-    {% endfor %}
-</ul>
+<div class="container mt-3 scrollable-container">
+    <h1>Sessions</h1>
+    <ul>
+        {% for session in sessions %}
+            <li>
+                <a href="{% url 'voting_sessions:session_detail' session.id %}">
+                    {{ session.name }} - {{ session.description }}
+                </a>
+                <br>
+                Starts: {{ session.session_start_time }} | Ends: {{ session.session_end_time }}
+            </li>
+        {% endfor %}
+    </ul>
+</div>
 {% endblock %}
 

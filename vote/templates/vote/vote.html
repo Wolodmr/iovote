@@ -1,6 +1,7 @@
 {% extends "base.html" %}
 
 {% block content %}
+<div class="scrollable-container">
     {% if not user.is_authenticated %}
         <p>You must be logged in to vote.</p>
     {% endif %}
@@ -16,4 +17,5 @@
 
     <!-- Link to view voting results -->
     <a href="{% url 'results:results_detail' session.id %}">Results</a>
+</div>
 {% endblock %}

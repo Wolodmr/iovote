@@ -3,14 +3,16 @@
 {% extends "base.html" %}
 
 {% block content %}
-    <h1>All Voting Sessions</h1>
-    <ul>
-        {% for session in sessions %}
-            <li>
-                <a href="{% url 'results:results_detail' session.id %}">{{ session.title }}</a>
-            </li>
-        {% empty %}
-            <li>No voting sessions available.</li>
-        {% endfor %}
-    </ul>
+    <div class="scrollable-container">
+        <h1>All Voting Sessions</h1>
+        <ul>
+            {% for session in sessions %}
+                <li>
+                    <a href="{% url 'results:results_detail' session.id %}">{{ session.title }}</a>
+                </li>
+            {% empty %}
+                <li>No voting sessions available.</li>
+            {% endfor %}
+        </ul>
+    </div>
 {% endblock %}
