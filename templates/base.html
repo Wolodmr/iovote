@@ -12,6 +12,21 @@
     
     <!-- FontAwesome for Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <!-- First load Bootstrap -->
+    <link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap.min.css' %}">
+
+    <!-- Then your CSS overrides -->
+    <link rel="stylesheet" href="{% static 'css/common.css' %}">
+    <style>
+        .navbar-toggler {
+          visibility: hidden;
+        }
+      </style>
+      <script>
+        window.addEventListener("load", function () {
+          document.querySelector(".navbar-toggler").style.visibility = "visible";
+        });
+      </script>  
 
 </head>
 <body>

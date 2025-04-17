@@ -37,11 +37,11 @@ html, body {
 }
 
 .navbar-brand {
-    font-size: 2.5em;
-    font-weight: 700;
-    
+    font-size: 2.4em;
+    font-weight: 700;   
     text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
-    padding: 5px 15px; /* Adjust padding for proper alignment */
+    padding: 10px 80px 10px 0px; /* Adjust padding for proper alignment */
+    margin-left: 10px;
     border-radius: 8px;
     display: inline-block;
     margin: 0;
@@ -124,9 +124,7 @@ html, body {
     }
 
     .navbar-brand {
-        font-size: 2.5em;
-        
-        margin-left: auto; /* Align to the left */
+        font-size: 2.4em;  
     }
 
     .navbar-toggler {
@@ -169,7 +167,7 @@ html, body {
 
 /* 🟢 Custom Adjustments */
 .custom-styles .container {
-    max-width: 950px;
+    max-width: 1000px;
     margin: auto;
     padding: 20px;
     background: #FFFFFF;
@@ -181,11 +179,10 @@ html, body {
 }
 
 .custom-styles .navbar-brand {
-    font-size: 2.5em;
     font-weight: bold;
     color: #66a5bc;
     text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
-    margin-right: auto;
+    
 }
 
 .bg-primary {
@@ -197,7 +194,7 @@ html, body {
 }
 
 .container {
-    max-width: 950px !important;
+    max-width: 1000px !important;
     margin: 0 auto;
     padding: 20px;
     background: white;
@@ -208,12 +205,12 @@ html, body {
 }
 
 .custom-styles .navbar-brand {
-    font-size: 2.5em;
+    font-size: 2.4em;
     font-weight: bold;
     text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
 }
 .page-wrapper {
-    max-width: 950px;
+    max-width: 1000px;
     margin: 0 auto;
     padding: 0 20px;
     box-sizing: border-box;
@@ -223,7 +220,7 @@ html, body {
     background-color: #96c3f1;
   }
 
-  form {
+form {
     margin: 20px 0;
     padding: 20px;
     border: 1px solid #ccc;
@@ -263,3 +260,90 @@ form button {
 form button:hover {
     background-color: #003d80; /* Darker blue on hover */
 }
+
+.navbar {
+    padding-left: 0 !important;
+  }
+  
+.navbar-brand {
+    margin-left: 10px !important;
+  }
+
+nav.navbar .navbar-brand {
+    margin-left: 0px;
+  }
+
+.navbar .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: nowrap;
+  }
+  
+.navbar-brand {
+    font-size: 2.4em;
+    white-space: nowrap;
+    flex-shrink: 1;
+  }
+  
+.navbar-toggler {
+    margin-left: auto;
+    flex-shrink: 0;
+  }
+  
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+.navbar-brand {
+    flex-shrink: 0;
+  }
+  
+.navbar-toggler {
+    margin-left: auto;
+  }
+/* Ensure the container aligns items in one line */
+.navbar .container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: nowrap;
+  }
+  
+  /* Prevent brand from pushing toggler */
+.navbar-brand {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 60%;
+    flex-shrink: 1;
+  }
+  
+  /* Force the toggler to stay at the right */
+.navbar-toggler {
+    margin-left: auto;
+    flex-shrink: 0;
+  }
+.navbar .container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: nowrap;
+  }
+  
+.navbar-brand {
+    font-size: 2.4em;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 100%; /* Allow full space */
+    flex: 1 1 auto;   /* Grow but also shrink if needed */
+  }
+  
+.navbar-toggler {
+    flex: 0 0 auto;    /* Do not shrink */
+    margin-left: auto; /* Push it all the way to the right */
+  }
+   
