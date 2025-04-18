@@ -23,7 +23,7 @@ CSRF_TRUSTED_ORIGINS = ['https://votecast-production.up.railway.app']
 
 # 📌 Security & Debugging
 SECRET_KEY = config('DJANGO_SECRET_KEY', default='default-secret-key')
-DEBUG = False
+DEBUG = True
 ALLOWED_HOSTS = ['votecast-production.up.railway.app', '127.0.0.1', 'localhost']
 
 # ✅ Installed Applications

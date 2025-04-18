@@ -17,9 +17,6 @@ media/
 # OS
 .DS_Store
 
-# VS Code
-.vscode/
-
 # Bytecode or logs
 *.log
 
@@ -51,3 +48,4 @@ db.sqlite3
 *.bak
 *.tmp
 
+data.json
