@@ -10,7 +10,7 @@
         {% for session in sessions %}
             <li>
                 <a href="{% url 'voting_sessions:session_detail' session.id %}">
-                    {{ session.name }} - {{ session.description }}
+                    {{ session.title }} - {{ session.description }}
                 </a>
                 <br>
                 Starts: {{ session.session_start_time }} | Ends: {{ session.session_end_time }}
