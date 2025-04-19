@@ -23,8 +23,9 @@ CSRF_TRUSTED_ORIGINS = ['https://votecast-production.up.railway.app']
 
 # 📌 Security & Debugging
 SECRET_KEY = config('DJANGO_SECRET_KEY', default='default-secret-key')
-DEBUG = False
+DEBUG = True
 ALLOWED_HOSTS = ['votecast-production.up.railway.app', '127.0.0.1', 'localhost']
+DEFAULT_FROM_EMAIL = 'postvezha@gmail.com'
 
 # ✅ Installed Applications
 INSTALLED_APPS = [
@@ -217,6 +218,11 @@ LOGGING = {
         'django.db.backends': {
             'level': 'DEBUG',
             'handlers': ['file'],
+        },
+        'voting_sessions.management.commands.send_notifications': {
+            'level': 'INFO',
+            'handlers': ['file'],
+            'propagate': False,
         },
     },
 }

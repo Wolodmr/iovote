@@ -39,6 +39,7 @@ def send_notifications():
 
         # ✅ Fetch emails efficiently
         recipient_list = list(session.users.values_list("email", flat=True).filter(email__gt=""))
+        print('recipient_list = ', recipient_list)
 
         logger.info(f"📩 Sending emails for session '{session.title}' to {len(recipient_list)} recipients.")
 

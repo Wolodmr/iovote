@@ -14,6 +14,7 @@ class Command(BaseCommand):
         logger.info("📢 Running send_notifications command...")
 
         try:
+            print('SEND')
             send_notifications()
             logger.info("✅ Notifications sent successfully.")
         except Exception as e:

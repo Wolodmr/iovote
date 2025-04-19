@@ -19,7 +19,7 @@ class Session(models.Model):
     voting_duration = models.DurationField(null=True, blank=True, default=timezone.timedelta(hours=1))
     description = models.TextField(default="Default description", null=True, blank=True)
     email_sent = models.BooleanField(default=False, db_index=True)  # ✅ Indexed
-    creator_email = models.EmailField(max_length=255, blank=True, null=True, default="admin@example.com")
+    creator_email = models.EmailField(max_length=255, blank=True, null=True, default="postvezha@gmail.com")
     uuid = models.UUIDField(default=uuid.uuid4, unique=True, editable=False)
     users = models.ManyToManyField(get_user_model(), related_name="sessions", through="SessionUser")  # ✅ Optimized ManyToMany
 
@@ -47,7 +47,7 @@ class Session(models.Model):
 
         # ✅ Optimized email fetching
         recipient_list = list(self.users.values_list("email", flat=True).filter(email__gt=""))
-
+        print('model.recipient_list = ', recipient_list)
         if recipient_list:
             send_mail(
                 subject=subject,
