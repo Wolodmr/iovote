@@ -48,5 +48,5 @@ db.sqlite3
 *.bak
 *.tmp
 
-data.json
+
 
