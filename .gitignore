@@ -41,7 +41,6 @@ Project_Dom/
 .DS_Store
 .idea/
 *.py[cod]
-db.sqlite3
 *.sqlite3
 *.log
 *.whl
