@@ -18,7 +18,7 @@ DATABASES = {
     }
 }
 
-CSRF_TRUSTED_ORIGINS = ['https://votecast-production.up.railway.app']
+CSRF_TRUSTED_ORIGINS = ['https://vote-cast.up.railway.app']
 
 
 # 📌 Security & Debugging
