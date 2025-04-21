@@ -6,14 +6,6 @@ __pycache__/
 venv/
 .env
 
-# SQLite & backup files
-*.sqlite3
-*.sqlite3-*
-
-# Static & media (generated or uploaded)
-staticfiles/
-media/
-
 # OS
 .DS_Store
 
@@ -41,7 +33,6 @@ Project_Dom/
 .DS_Store
 .idea/
 *.py[cod]
-*.sqlite3
 *.log
 *.whl
 *.bak

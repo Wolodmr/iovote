@@ -175,7 +175,7 @@ USE_TZ = True
 
 # ✅ Static Files
 STATIC_URL = '/static/'
-STATIC_ROOT = BASE_DIR / "staticfiles"    # used by collectstatic
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')   # used by collectstatic
 STATICFILES_DIRS = [BASE_DIR / "static"] 
 STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 
