@@ -4,23 +4,40 @@
     
 {% block content %}
 <div class="container scrollable-container">
-    <h1>About the Vote Cast Application</h1>
-    <h2>What is Vote Cast Application For</h2>       
-        <p>Vote Cast Application allows for interested people to organize online voting sessions on any subject. </p>
-        <p>Voting sessions is a natural instrument of public opinion research and making decisions in democratic countries: in societies, parties, movements, communities, companies, associations, unions etc.</p>
-        <h2>Main principles of Vote Cast Application</h2>
-    <ul>
-        <li>Voting sessions are being prepared by admin of the application.</li>
-        <li>Any voting session includes two stages: stage of option choice and stage of voting for chosen option.</li>
-        <li>After a prepared voting session is started, all the signed up users are sent email notifications.</li>
-        <li>Votes are closed for anonymity of voters.</li>
-        <li>Only authenticated user can vote. </li>
-        <li>Each user can vote only once per voting session only for one option from the set of options.</li>
-    </ul>
-    
+    <h2>🧐 What is Vote Cast?</h2>       
+        <p>Vote Cast is a lightweight web application designed to run single-stage online voting sessions. It helps
+        organizations and<br>
+        communities collect decisions, preferences, or opinions in a simple and democratic way. Use it in:</p>
+        <Ul>
+            <li>Local initiatives & public communities</li>
+
+            <li>Political groups & civic organizations</li>
+
+            <li>Companies, teams, unions, and beyond</li>
+        </Ul>
+        <h3>⚙️ How Voting Works</h3>
+        <ul>
+            <li>Admin creates a session and sets available voting options</li>
+
+            <li>All signed-up users are notified via email</li>
+
+            <li>Voting is anonymous to ensure privacy</li>
+
+            <li>Only authenticated users can vote</li>
+        </ul>
+        <h3>🔐 Why Use Vote Cast?</h3>
+        <ul>
+            <li>Transparent and fair voting mechanics</li>
+
+            <li>Designed for simplicity — no distractions</li>
+
+            <li>Focused on privacy, security, and accessibility</li>
+        </ul>
+
+        Vote Cast is ideal for small to mid-sized groups who need a quick and trustworthy way to gather votes online.<br>
 
 
-    <a href="{% url 'home' %}">Back to Home</a>
+    <p>🔗 <a href="{% url 'home' %}"> Back to Home</a> | 🔗 <a href="{% url 'users:signup' %}"> Sign Up</a> | 🔗 <a href="{% url 'contacts' %}">Contacts</a></p>
 </div>
 {% endblock %}
 
