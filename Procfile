@@ -1,1 +1,1 @@
-web: gunicorn vote_cast.wsgi
+web: gunicorn vote_cast.wsgi:application

@@ -4,12 +4,13 @@ from django.contrib import messages
 from django.contrib import admin
 from .models import Session, Option
 
-
+@admin.register(Session)
 class SessionAdmin(admin.ModelAdmin):
     list_display = ('title', 'session_start_time', 'session_end_time', 'is_active', 'email_sent', 'id', 'uuid')
     list_filter = ('session_start_time', 'session_end_time')
     search_fields = ('title', 'description')
     actions = ['send_invites_action']
+    exclude = ('voting_duration',)
     
     def send_invites_action(self, request, queryset):
         """Admin action to send invitations."""

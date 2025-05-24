@@ -3,6 +3,7 @@ Django settings for vote_cast project.
 """
 
 import os
+import dj_database_url
 import sys
 import logging
 from pathlib import Path
@@ -23,8 +24,8 @@ CSRF_TRUSTED_ORIGINS = ['https://vote-cast.up.railway.app']
 
 # 📌 Security & Debugging
 SECRET_KEY = config('DJANGO_SECRET_KEY', default='default-secret-key')
-DEBUG = False
-ALLOWED_HOSTS = ['vote-cast.up.railway.app', '127.0.0.1', 'localhost']
+DEBUG = os.getenv("DEBUG", "False") == "True"
+ALLOWED_HOSTS = ['vote-cast.up.railway.app', '127.0.0.1', 'localhost', 'vote-cast.onrender.com']
 DEFAULT_FROM_EMAIL = 'postvezha@gmail.com'
 
 # ✅ Installed Applications
@@ -39,7 +40,7 @@ INSTALLED_APPS = [
 
     # Third-Party Apps
     'rest_framework',
-    'django_plotly_dash',
+    # 'django_plotly_dash',
     'crispy_forms',
 
     # Local Apps
@@ -70,7 +71,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     
     # Django Plotly Dash Middleware
-    "django_plotly_dash.middleware.BaseMiddleware",
+    # "django_plotly_dash.middleware.BaseMiddleware",
 ]
 
 if DEBUG:
@@ -102,12 +103,12 @@ CSP_IMG_SRC = ("'self'", "data:")
 X_FRAME_OPTIONS = "SAMEORIGIN"
 
 # ✅ Plotly Dash Configuration
-PLOTLY_DASH = {
-    "ws_route": "",  # Disable WebSockets
-    "http_plotly_component_prefix": "dash/",
-    "serve_locally": True,
-    "expose_javascript": True,
-}
+# PLOTLY_DASH = {
+#     "ws_route": "",  # Disable WebSockets
+#     "http_plotly_component_prefix": "dash/",
+#     "serve_locally": True,
+#     "expose_javascript": True,
+# }
 
 # ✅ URL Configuration
 SITE_URL = "http://127.0.0.1:8000"
@@ -115,7 +116,13 @@ ROOT_URLCONF = 'vote_cast.urls'
 
 # ✅ Template Settings
 TEMPLATES = [
-    {
+    {   
+        'OPTIONS': {
+            'loaders': [
+                'django.template.loaders.filesystem.Loader',
+                'django.template.loaders.app_directories.Loader',
+            ],
+        },
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         'DIRS': [
             BASE_DIR / 'templates',
@@ -148,10 +155,11 @@ ASGI_APPLICATION = 'vote_cast.asgi.application'
 
 # ✅ Database Configuration (SQLite)
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
+    'default': dj_database_url.config(
+        default='sqlite:///db.sqlite3',  # Fallback to SQLite if DATABASE_URL not set
+        conn_max_age=600,
+        ssl_require=False  # Set to True for PostgreSQL in production
+    )
 }
 
 # ✅ Password Validation
@@ -179,11 +187,14 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')   # used by collectstatic
 STATICFILES_DIRS = [BASE_DIR / "static"] 
 STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 
+# SECURITY HEADERS for Render
+SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+
 STATICFILES_FINDERS = [
     'django.contrib.staticfiles.finders.FileSystemFinder',
     'django.contrib.staticfiles.finders.AppDirectoriesFinder',
-    'django_plotly_dash.finders.DashAssetFinder',
-    'django_plotly_dash.finders.DashComponentFinder',
+    # 'django_plotly_dash.finders.DashAssetFinder',
+    # 'django_plotly_dash.finders.DashComponentFinder',
 ]
 
 # ✅ Email Configuration

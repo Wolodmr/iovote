@@ -37,6 +37,22 @@ Project_Dom/
 *.whl
 *.bak
 *.tmp
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+
+# Django cache
+cache/
+
+
+# Logs
+*.log
+
+# Output PDFs
+output/
+
+# VS Code settings (optional)
+.vscode/
 
 
 

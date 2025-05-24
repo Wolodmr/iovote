@@ -2,7 +2,7 @@
 from django.urls import path
 from . import views
 from .views import results_dashboard
-from django_plotly_dash.views import add_to_session
+# from django_plotly_dash.views import add_to_session
 from django.views.generic import TemplateView
 from django.urls import path, include
 

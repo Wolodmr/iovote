@@ -2,15 +2,15 @@ from django.shortcuts import render, get_object_or_404
 from django.db.models import Count
 from voting_sessions.models import Session
 from vote.models import Vote
-from django_plotly_dash import DjangoDash
-from dash import dcc, html
-import plotly.express as px
+# from django_plotly_dash import DjangoDash
+# from dash import dcc, html
+# import plotly.express as px
 import pandas as pd
 from django.apps import apps
 from django.db.models.signals import post_migrate
 
 # ✅ Initialize Dash App inside views.py (Only once)
-app = DjangoDash("votes_result")
+# app = DjangoDash("votes_result")
 
 
 def get_results_data():

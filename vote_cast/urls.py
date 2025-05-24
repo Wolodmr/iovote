@@ -1,4 +1,5 @@
 #vote_cast/urls.py
+from django.views.generic import RedirectView
 from django.contrib import admin
 from django.urls import path, include
 from django.conf import settings
@@ -7,6 +8,7 @@ import debug_toolbar
 
 urlpatterns = [
     
+    path('favicon.ico', RedirectView.as_view(url='/static/images/favicon.ico', permanent=True)),
     path('admin/', admin.site.urls),
     path('', include('main.urls')),  # Main app URLs
     path('users/', include('users.urls', namespace='users')),  # Users app URLs
