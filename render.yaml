@@ -1,6 +1,6 @@
 services:
   - type: web
-    name: vote-cast
+    name: vote_cast
     env: python
     buildCommand: "./build.sh"
     startCommand: "gunicorn vote_cast.wsgi:application"
@@ -12,12 +12,12 @@ services:
       - key: DEBUG
         value: False
       - key: ALLOWED_HOSTS
-        value: your-subdomain.onrender.com
+        value: vote-cast.onrender.com
       - key: DATABASE_URL
         fromDatabase:
-          name: vote-cast-db
+          name: vote_cast_db
           property: connectionString
 
 databases:
-  - name: vote-cast-db
+  - name: vote_cast_db
     plan: free
