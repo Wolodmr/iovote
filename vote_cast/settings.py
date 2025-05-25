@@ -22,7 +22,7 @@ CSRF_TRUSTED_ORIGINS = ['https://vote-cast.up.railway.app']
 # 📌 Security & Debugging
 SECRET_KEY = config('DJANGO_SECRET_KEY', default='default-secret-key')
 DEBUG = config("DEBUG", default=False, cast=bool)
-ALLOWED_HOSTS = os.getenv("ALLOWED_HOSTS", "127.0.0.1,localhost").split(",")
+ALLOWED_HOSTS = ['vote-cast-5.onrender.com']
 DEFAULT_FROM_EMAIL = 'postvezha@gmail.com'
 
 # ✅ Installed Applications
