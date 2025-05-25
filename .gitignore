@@ -54,5 +54,5 @@ output/
 # VS Code settings (optional)
 .vscode/
 
-
+db.sqlite3
 
