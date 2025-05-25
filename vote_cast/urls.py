@@ -23,6 +23,18 @@ if settings.DEBUG:
     urlpatterns += static(settings.STATIC_URL, document_root=settings.STATICFILES_DIRS[0] if settings.STATICFILES_DIRS else settings.BASE_DIR)
     urlpatterns += [path('__debug__/', include('debug_toolbar.urls'))]
     
+from django.contrib.auth import get_user_model
+from django.db.utils import IntegrityError
+
+try:
+    User = get_user_model()
+    if not User.objects.filter(username="admin").exists():
+        User.objects.create_superuser("admin", "admin@example.com", "adminpassword123")
+        print("✅ Superuser 'admin' created")
+except IntegrityError:
+    pass
+except Exception as e:
+    print(f"⚠️ Error creating superuser: {e}")
 
 
 
