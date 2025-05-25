@@ -13,10 +13,7 @@ from decouple import config
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 DATABASES = {
-    "default": {
-        "ENGINE": "django.db.backends.sqlite3",
-        "NAME": os.path.join(BASE_DIR, "db.sqlite3"),
-    }
+    "default": dj_database_url.config(default=config("DATABASE_URL"))
 }
 
 CSRF_TRUSTED_ORIGINS = ['https://vote-cast.up.railway.app']
