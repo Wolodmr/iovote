@@ -13,7 +13,9 @@ from decouple import config
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 DATABASES = {
-    "default": dj_database_url.config(default=config("DATABASE_URL"))
+    "default": dj_database_url.config(
+        default=config("DATABASE_URL", default="sqlite:///db.sqlite3")
+    )
 }
 
 CSRF_TRUSTED_ORIGINS = ['https://vote-cast.up.railway.app']
@@ -21,9 +23,10 @@ CSRF_TRUSTED_ORIGINS = ['https://vote-cast.up.railway.app']
 
 # 📌 Security & Debugging
 SECRET_KEY = config('DJANGO_SECRET_KEY', default='default-secret-key')
-DEBUG = True
-ALLOWED_HOSTS = ['*']
+DEBUG = config('DEBUG', default=False, cast=bool)
+ALLOWED_HOSTS = ['vote-cast-5.onrender.com']
 DEFAULT_FROM_EMAIL = 'postvezha@gmail.com'
+ADMINS = [('Admin', 'postvezha@gmail.com')]
 
 # ✅ Installed Applications
 INSTALLED_APPS = [
@@ -70,7 +73,7 @@ MIDDLEWARE = [
     # Django Plotly Dash Middleware
     # "django_plotly_dash.middleware.BaseMiddleware",
 ]
-
+MIDDLEWARE.append('vote_cast.middleware.EmailErrorMiddleware')
 if DEBUG:
     INSTALLED_APPS += ["debug_toolbar"]
     MIDDLEWARE.insert(0, "debug_toolbar.middleware.DebugToolbarMiddleware")
@@ -149,15 +152,6 @@ LOGIN_REDIRECT_URL = '/voting_sessions/'
 # ✅ WSGI & ASGI Applications
 WSGI_APPLICATION = 'vote_cast.wsgi.application'
 ASGI_APPLICATION = 'vote_cast.asgi.application'
-
-# ✅ Database Configuration (SQLite)
-DATABASES = {
-    'default': dj_database_url.config(
-        default='sqlite:///db.sqlite3',  # Fallback to SQLite if DATABASE_URL not set
-        conn_max_age=600,
-        ssl_require=False  # Set to True for PostgreSQL in production
-    )
-}
 
 # ✅ Password Validation
 AUTH_PASSWORD_VALIDATORS = [

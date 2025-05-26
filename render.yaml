@@ -1,1 +1,31 @@
+services:
+  - type: web
+    name: vote-cast
+    env: python
+    plan: free
+    buildCommand: "./manage.py collectstatic --noinput"
+    startCommand: "gunicorn vote_cast.wsgi:application"
+    envVars:
+      - key: DJANGO_SETTINGS_MODULE
+        value: vote_cast.settings
+      - key: DATABASE_URL
+        fromDatabase:
+          name: vote-cast-db
+          property: connectionString
+      - key: DEBUG
+        value: "False"
+      - key: EMAIL_HOST
+        value: smtp.gmail.com
+      - key: EMAIL_PORT
+        value: "587"
+      - key: EMAIL_USE_TLS
+        value: "True"
+      - key: EMAIL_HOST_USER
+        value: postvezha@gmail.com
+      - key: EMAIL_HOST_PASSWORD
+        sync: false
+    autoDeploy: true
 
+databases:
+  - name: vote-cast-db
+    plan: free

@@ -1,20 +1,76 @@
-# Vote Cast
+## 🚀 Deployment to Render
 
-A Django-based online voting system that allows users to create and participate in voting sessions.
+The Vote Cast project is live at: [https://vote-cast-5.onrender.com](https://vote-cast-5.onrender.com)
 
-## Features
-- User authentication
-- Vote casting with real-time updates
-- Result analytics (to be implemented)
-- Admin panel for managing sessions
+### ✅ Render Deployment Summary
 
-## Installation
-1. Clone the repo: `git clone https://github.com/Wolodmr/VoteCast.git`
-2. Install dependencies: `pip install -r requirements.txt`
-3. Run migrations: `python manage.py migrate`
-4. Start the server: `python manage.py runserver`
+1. **Platform:** Render (Free Plan)
+2. **Web Service:** Python/Django
+3. **Database:** PostgreSQL (Free)
+4. **Static Files:** Collected with `collectstatic`
+5. **Production WSGI Server:** Gunicorn
 
-## License
-MIT License
+---
 
+### 🔧 Deployment Setup Steps
 
+#### 1. **render.yaml**
+Make sure your repository includes a `render.yaml` file like this:
+
+```yaml
+# See render_deploy_config.yaml in this repo
+```
+
+#### 2. **Environment Variables on Render**
+Go to your Render Dashboard → your Web Service → **Environment** tab, and add the following:
+
+- `DJANGO_SETTINGS_MODULE=vote_cast.settings`
+- `DATABASE_URL=<autoconfigured>`
+- `DEBUG=False`
+- `EMAIL_HOST=smtp.gmail.com`
+- `EMAIL_PORT=587`
+- `EMAIL_USE_TLS=True`
+- `EMAIL_HOST_USER=postvezha@gmail.com`
+- `EMAIL_HOST_PASSWORD=<your app password>` (Mark as Secret)
+
+#### 3. **buildCommand**
+```bash
+./manage.py collectstatic --noinput
+```
+
+#### 4. **startCommand**
+```bash
+gunicorn vote_cast.wsgi:application
+```
+
+---
+
+### 🛡️ Email Security Best Practices
+- Use **App Passwords** instead of your main Gmail password.
+- Store sensitive info like `EMAIL_HOST_PASSWORD` as **Secret environment variables**.
+- Avoid committing passwords to GitHub or anywhere in plaintext.
+
+---
+
+### 🧪 Testing Email in Production
+Use the admin panel to add a session and trigger a confirmation email. Ensure the SMTP settings work by checking Gmail's "Sent" folder.
+
+---
+
+### 📁 Recommended File Structure for Render Deployment
+```
+vote_cast/
+├── vote_cast/
+│   ├── settings.py
+│   ├── wsgi.py
+├── manage.py
+├── render.yaml
+├── requirements.txt
+```
+
+---
+
+### 👥 Author
+**Vladimir Shkurko**  
+Django Developer  
+[LinkedIn](https://www.linkedin.com/in/vladimir-shkurko-07962333a) | [GitHub](https://github.com/Wolodmr) | [Email](mailto:postvezha@gmail.com)
