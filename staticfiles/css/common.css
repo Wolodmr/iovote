@@ -346,4 +346,13 @@ nav.navbar .navbar-brand {
     flex: 0 0 auto;    /* Do not shrink */
     margin-left: auto; /* Push it all the way to the right */
   }
-   
+
+.no-bullets {
+    list-style-type: none;
+    padding-left: 0;
+    margin-left: 0;
+  }
+ p.text-center text-muted small mb-2{
+    font-size: 1.8rem; 
+    color: #0073e6;
+ } 

@@ -15,7 +15,7 @@ class Session(models.Model):
     title = models.CharField(max_length=200, null=True, blank=True, unique=True)
     session_start_time = models.DateTimeField(null=True, blank=True, db_index=True)  # ✅ Indexed
     session_end_time = models.DateTimeField(default=calculate_default_end_time, null=True, blank=True, db_index=True)  
-    choice_duration = models.DurationField(null=True, blank=True, default=timezone.timedelta(hours=1))
+    choice_duration = models.DurationField(null=True, blank=True, default=timezone.timedelta(minutes=1))
     voting_duration = models.DurationField(null=True, blank=True, default=timezone.timedelta(hours=1))
     description = models.TextField(default="Default description", null=True, blank=True)
     email_sent = models.BooleanField(default=False, db_index=True)  # ✅ Indexed

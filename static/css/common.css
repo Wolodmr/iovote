@@ -352,4 +352,13 @@ nav.navbar .navbar-brand {
     padding-left: 0;
     margin-left: 0;
   }
-  
+ p.text-muted {
+    font-size: 1.1rem !important;
+    font-weight: bold;
+ } 
+ 
+.text-muted.small {
+  color: #105ca2 !important;
+  font-size: 0.875rem; /* example override for .small */
+  font-weight: bold;
+}
