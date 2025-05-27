@@ -352,13 +352,16 @@ nav.navbar .navbar-brand {
     padding-left: 0;
     margin-left: 0;
   }
- p.text-muted {
-    font-size: 1.1rem !important;
-    font-weight: bold;
- } 
+ p.text-center.text-muted.small.mb-2 {
+  color: #105ca2 !important;         /* darker color */
+  font-size: 1rem !important;     /* increase size slightly */
+  margin-bottom: 1rem !important; /* adjust spacing if needed */
+  text-align: center !important;  /* ensure text remains centered */
+}
  
 .text-muted.small {
   color: #105ca2 !important;
   font-size: 0.875rem; /* example override for .small */
   font-weight: bold;
+  margin-left: 1rem !important;
 }
