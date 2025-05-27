@@ -352,7 +352,7 @@ nav.navbar .navbar-brand {
     padding-left: 0;
     margin-left: 0;
   }
- p.text-center.text-muted.small.mb-2 {
+p.text-center.text-muted.small.mb-2 {
   color: #105ca2 !important;         /* darker color */
   font-size: 1rem !important;     /* increase size slightly */
   margin-bottom: 1rem !important; /* adjust spacing if needed */
