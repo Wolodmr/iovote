@@ -16,7 +16,6 @@ venv/
 .vscode/
 
 # Ignore any parent directories or files outside the project
-BootStrap/
 *.pyc
 *.pyo
 DjangoProject1/
