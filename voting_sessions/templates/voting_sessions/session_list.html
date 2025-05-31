@@ -8,13 +8,23 @@
     <h1>Sessions</h1>
     <ul>
         {% for session in sessions %}
-            <li>
-                <a href="{% url 'voting_sessions:session_detail' session.id %}">
-                    {{ session.title }} - {{ session.description }}
-                </a>
-                <br>
-                Starts: {{ session.session_start_time }} | Ends: {{ session.session_end_time }}
-            </li>
+        <li>
+            <a href="{% url 'voting_sessions:session_detail' session.id %}">
+                {{ session.title }} - {{ session.description }}
+            </a>
+            <br>
+            Starts: {{ session.session_start_time }} |
+            Ends: {{ session.session_end_time }} |
+            <strong>Status:</strong>
+            {% if session.is_active %}
+                <span style="color: green; font-weight: bold;">Active</span>
+            {% else %}
+                <span style="color: gray; font-weight: bold;">Nonactive</span>
+            {% endif %}
+        </li>
+        {% empty %}
+            <li>No voting sessions available.</li>
+
         {% endfor %}
     </ul>
 </div>

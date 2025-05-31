@@ -11,11 +11,11 @@ class Command(BaseCommand):
     help = "Send email notifications for upcoming voting sessions"
 
     def handle(self, *args, **kwargs):
-        logger.info("📢 Running send_notifications command...")
+        logger.info(" Running send_notifications command...")
 
         try:
             print('SEND')
             send_notifications()
-            logger.info("✅ Notifications sent successfully.")
+            logger.info(" Notifications sent successfully.")
         except Exception as e:
-            logger.error(f"❌ Error sending notifications: {e}", exc_info=True)
+            logger.error(f" Error sending notifications: {e}", exc_info=True)

@@ -111,7 +111,8 @@ X_FRAME_OPTIONS = "SAMEORIGIN"
 # }
 
 # ✅ URL Configuration
-SITE_URL = "http://127.0.0.1:8000"
+SITE_URL = 'http://127.0.0.1:8000/'
+    
 ROOT_URLCONF = 'vote_cast.urls'
 
 # ✅ Template Settings
