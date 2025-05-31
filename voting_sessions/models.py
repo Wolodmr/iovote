@@ -169,7 +169,7 @@ class Session(models.Model):
 
     @property
     def voting_end_time(self):
-        return self.voting_start_time + self.voting_duration
+        return self.voting_start_time
 
     def is_active(self):
         return self.session_end_time and self.session_end_time >= timezone.now()

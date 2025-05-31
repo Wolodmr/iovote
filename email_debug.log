@@ -1272,3 +1272,13 @@ NameError: name 'subject' is not defined
             WHERE type in ('table', 'view') AND NOT name='sqlite_sequence'
             ORDER BY name; args=None; alias=default
 2025-05-31 18:34:40,508 - DEBUG - (0.000) SELECT "django_migrations"."id", "django_migrations"."app", "django_migrations"."name", "django_migrations"."applied" FROM "django_migrations"; args=(); alias=default
+2025-05-31 19:09:14,989 - DEBUG - (0.000) SELECT "django_session"."session_key", "django_session"."session_data", "django_session"."expire_date" FROM "django_session" WHERE ("django_session"."expire_date" > '2025-05-31 17:09:14.974502' AND "django_session"."session_key" = 'p0hni2czd07uux5h8443atoja2hwqq6x') LIMIT 21; args=('2025-05-31 17:09:14.974502', 'p0hni2czd07uux5h8443atoja2hwqq6x'); alias=default
+2025-05-31 19:09:15,057 - DEBUG - (0.000) SELECT "auth_user"."id", "auth_user"."password", "auth_user"."last_login", "auth_user"."is_superuser", "auth_user"."username", "auth_user"."first_name", "auth_user"."last_name", "auth_user"."email", "auth_user"."is_staff", "auth_user"."is_active", "auth_user"."date_joined" FROM "auth_user" WHERE "auth_user"."id" = 1 LIMIT 21; args=(1,); alias=default
+2025-05-31 19:21:45,653 - INFO - C:\VS_Code\Camp_programs\Projects\vote_cast\voting_sessions\models.py changed, reloading.
+2025-05-31 19:21:51,642 - INFO - Watching for file changes with StatReloader
+2025-05-31 19:21:54,054 - DEBUG - (0.000) SELECT 1 AS "a" FROM "auth_user" WHERE "auth_user"."username" = 'admin' LIMIT 1; args=(1, 'admin'); alias=default
+2025-05-31 19:21:54,520 - DEBUG - (0.000) 
+            SELECT name, type FROM sqlite_master
+            WHERE type in ('table', 'view') AND NOT name='sqlite_sequence'
+            ORDER BY name; args=None; alias=default
+2025-05-31 19:21:54,523 - DEBUG - (0.000) SELECT "django_migrations"."id", "django_migrations"."app", "django_migrations"."name", "django_migrations"."applied" FROM "django_migrations"; args=(); alias=default
