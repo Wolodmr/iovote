@@ -95,7 +95,7 @@ class Session(models.Model):
         else:
             choice_disp = f"{int(duration.days)} days"
 
-        voting_url = settings.SITE_URL or "https://vote-cast.onrender.com/"
+        voting_url = "https://vote-cast.onrender.com/"
 
         subject = f"🚀 Ready to Vote? A New Session '{self.title}' Awaits You!"
         html_message = f"""
