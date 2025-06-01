@@ -31,7 +31,7 @@ def vote(request, session_id):
     """Allow a user to cast a vote in an active session."""
     session = get_object_or_404(Session.objects.prefetch_related('options'), id=session_id)
 
-    if not session.is_voting_active():
+    if not session.is_voting_active:
         messages.error(request, "Voting is not allowed because the session has not started yet or has already ended.")
         return redirect('voting_sessions:session_list')
 

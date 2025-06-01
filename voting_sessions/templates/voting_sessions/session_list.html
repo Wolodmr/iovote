@@ -13,8 +13,9 @@
             - {{ session.description }}
             
             <br>
-            <strong>Starts:</strong> {{ session.session_start_time }} |
-            <strong>Ends:</strong> {{ session.session_end_time }} |
+            <strong>Starts:</strong> {{ session.session_start_time }}<br>
+            <strong>Ends:</strong> {{ session.session_end_time }} <br>
+
             <strong>Status:</strong>
             {% if session.is_voting_active %}
                 <span style="color: green; font-weight: bold;">Active</span>
@@ -22,6 +23,7 @@
                 <span style="color: gray; font-weight: bold;">Inactive</span>
             {% endif %}
         </li>
+        <li style="list-style-type: none; height: 1em;"></li> <!-- Empty line -->
         {% empty %}
             <li>No voting sessions available.</li>
 
