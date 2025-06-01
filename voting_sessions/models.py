@@ -178,6 +178,10 @@ class Session(models.Model):
     def is_voting_active(self):
         now = timezone.now()
         return self.voting_start_time <= now <= self.voting_end_time
+    def is_outdated(self):
+        now = timezone.now()
+        return now > self.voting_end_time
+        
 
 class Option(models.Model):
     session = models.ForeignKey(Session, on_delete=models.CASCADE, related_name="options")
