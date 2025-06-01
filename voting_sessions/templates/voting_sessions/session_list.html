@@ -13,8 +13,9 @@
             - {{ session.description }}
             
             <br>
-            <strong>Starts:</strong> {{ session.session_start_time }}<br>
-            <strong>Ends:</strong> {{ session.session_end_time }} <br>
+            <strong>Option Choice Starts:</strong> {{ session.session_start_time }}<br>
+            <strong>Voting Starts:</strong> {{ session.voting_start_time }}<br>
+            <strong>Voting Ends:</strong> {{ session.session_end_time }} <br>
 
             <strong>Status:</strong>
             {% if session.is_voting_active %}
