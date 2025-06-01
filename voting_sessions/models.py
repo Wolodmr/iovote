@@ -94,11 +94,12 @@ class Session(models.Model):
             choice_disp = f"{int(seconds // 3600)} hours"
         else:
             choice_disp = f"{int(duration.days)} days"
-
+        
         voting_url = "https://vote-cast.onrender.com/"
 
         subject = f"🚀 Ready to Vote? A New Session '{self.title}' Awaits You!"
         html_message = f"""
+       
         <html>
         <body style="font-family: Arial, sans-serif; line-height: 1.6;">
             <h2 style="color: #2e6c80;">🗳️ New Session: {self.title}</h2>
@@ -172,8 +173,8 @@ class Session(models.Model):
         return self.session_end_time
 
     def is_active(self):
-        return self.session_end_time and self.session_end_time >= timezone.now()
-
+        return self.session_end_time >= timezone.now()
+    @property
     def is_voting_active(self):
         now = timezone.now()
         return self.voting_start_time <= now <= self.voting_end_time
