@@ -9,12 +9,12 @@
     <ul>
         {% for session in sessions %}
         <li>
-            <a href="{% url 'voting_sessions:session_detail' session.id %}">
-                {{ session.title }} - {{ session.description }}
-            </a>
+            <a href="{% url 'voting_sessions:session_detail' session.id %}"><strong>{{ session.title }}</strong></a>
+            - {{ session.description }}
+            
             <br>
-            Starts: {{ session.session_start_time }} |
-            Ends: {{ session.session_end_time }} |
+            <strong>Starts:</strong> {{ session.session_start_time }} |
+            <strong>Ends:</strong> {{ session.session_end_time }} |
             <strong>Status:</strong>
             {% if session.is_voting_active %}
                 <span style="color: green; font-weight: bold;">Active</span>
