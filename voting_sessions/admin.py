@@ -6,7 +6,7 @@ from .models import Session, Option
 
 @admin.register(Session)
 class SessionAdmin(admin.ModelAdmin):
-    list_display = ('title', 'session_start_time', 'session_end_time', 'get_status', 'id', 'uuid')
+    list_display = ('title', 'session_start_time', 'session_end_time', 'get_status', 'id')
     def get_status(self, obj):
         return obj.status
     get_status.short_description = 'Status'
@@ -14,7 +14,7 @@ class SessionAdmin(admin.ModelAdmin):
     list_filter = ('session_start_time', 'session_end_time')
     search_fields = ('title', 'description')
     actions = ['send_invites_action']
-    exclude = ('voting_duration','email_sent')
+    exclude = ('voting_duration','email_sent', 'uuid')
     readonly_fields = ('get_status',)
     
 if not admin.site.is_registered(Session):
