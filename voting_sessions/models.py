@@ -56,22 +56,6 @@ class Session(models.Model):
             logger.info(f"No invite emails sent for session '{self.title}': no recipients.")
             return
 
-        send_mail(
-            subject=f"Invitation to Vote in: {self.title}",
-            message=(
-                f"Dear Voter,\n\n"
-                f"You are invited to participate in the voting session '{self.title}'.\n"
-                f"Access the session here: {self.get_invite_url()}\n\n"
-                f"Thank you for your participation!"
-            ),
-            from_email=settings.DEFAULT_FROM_EMAIL,
-            recipient_list=recipient_list,
-            fail_silently=False,
-        )
-        self.email_sent = True
-        self.save(update_fields=["email_sent"])
-        logger.info(f"Invites sent for session '{self.title}'.")
-
     def send_notification(self):
         """Notify all users with emails about session creation/update."""
         User = get_user_model()
@@ -181,6 +165,15 @@ class Session(models.Model):
     def is_outdated(self):
         now = timezone.now()
         return now > self.voting_end_time
+    
+    @property 
+    def status(self):        
+        now = timezone.now()
+        if now < self.voting_start_time:
+            return "Inactive"
+        elif now > self.session_end_time:
+            return "Outdated"
+        return "Active"
         
 
 class Option(models.Model):

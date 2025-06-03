@@ -6,22 +6,17 @@ from .models import Session, Option
 
 @admin.register(Session)
 class SessionAdmin(admin.ModelAdmin):
-    list_display = ('title', 'session_start_time', 'session_end_time', 'email_sent', 'id', 'uuid')
+    list_display = ('title', 'session_start_time', 'session_end_time', 'get_status', 'id', 'uuid')
+    def get_status(self, obj):
+        return obj.status
+    get_status.short_description = 'Status'
+    
     list_filter = ('session_start_time', 'session_end_time')
     search_fields = ('title', 'description')
     actions = ['send_invites_action']
-    exclude = ('voting_duration',)
+    exclude = ('voting_duration','email_sent')
+    readonly_fields = ('get_status',)
     
-    def send_invites_action(self, request, queryset):
-        """Admin action to send invitations."""
-        for session in queryset:
-            if not session.email_sent:
-                session.send_invites()
-                self.message_user(request, f"Invitations sent for session: {session.title}", messages.SUCCESS)
-            else:
-                self.message_user(request, f"Invitations were already sent for: {session.title}", messages.WARNING)
-    send_invites_action.short_description = "Send Email Invitations"
-#admin.site.register(Session, SessionAdmin)
 if not admin.site.is_registered(Session):
     admin.site.register(Session, SessionAdmin)
 
