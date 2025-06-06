@@ -9,6 +9,10 @@ The Vote Cast project is live at: [https://vote-cast-5.onrender.com](https://vot
 3. **Database:** PostgreSQL (Free)
 4. **Static Files:** Collected with `collectstatic`
 5. **Production WSGI Server:** Gunicorn
+⚠️ Note:
+For demo purposes, the app currently uses SQLite in production due to Render’s PostgreSQL pricing model.
+While the app runs correctly, the deployed Admin Panel cannot save data — a known SQLite limitation on Render.
+For full backend functionality, PostgreSQL is recommended and fully supported.
 
 ---
 
