@@ -1,6 +1,8 @@
+<div class="pdf-header"></div>
+
 # Future Plans
 
-The *Vote Cast* project is designed to be an efficient and user-friendly voting platform. While the current version includes essential voting and result management features, there are several potential enhancements planned for future development.
+The *ioVote* project is designed to be an efficient and user-friendly voting platform. While the current version includes essential voting and result management features, there are several potential enhancements planned for future development.
 
 ## 1. Planned Enhancements
 
@@ -39,6 +41,6 @@ The *Vote Cast* project is designed to be an efficient and user-friendly voting 
 ---
 
 ## Conclusion
-The *Vote Cast* project has a solid foundation, but continuous improvements will ensure it remains a powerful and flexible voting platform. The planned enhancements will improve user experience, security, and performance, making it even more efficient.
+The *ioVote* project has a solid foundation, but continuous improvements will ensure it remains a powerful and flexible voting platform. The planned enhancements will improve user experience, security, and performance, making it even more efficient.
 
 🚀 **Stay tuned for future updates!**

@@ -1,3 +1,4 @@
+<!-- results/templates/results/results_detail.html -->
 {% extends "base.html" %}
 {% load static %}
 
@@ -22,6 +23,13 @@
         <p class="text-muted">No votes have been cast for this session yet.</p>
     {% endif %}
 
-    <a href="{% url 'voting_sessions:session_list' %}" class="btn btn-primary mt-3">Back to Sessions</a>
+    <div class="d-flex justify-content-start gap-2 mt-4">
+        <a href="{% url 'voting_sessions:session_list' %}" class="btn btn-outline-secondary">
+            ← Back to Sessions
+        </a>
+        <a href="{% url 'voting_sessions:session_charts' session.id %}" class="btn btn-info text-white">
+            📊 View Charts
+        </a>
+    </div>
 </div>
 {% endblock %}

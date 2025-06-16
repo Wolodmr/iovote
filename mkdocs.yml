@@ -1,4 +1,4 @@
-site_name: Vote Cast Documentation
+site_name: ioVote Documentation
 
 theme:
   name: material
@@ -46,11 +46,11 @@ plugins:
 extra:
   social:
     - icon: fontawesome/brands/github
-      link: https://github.com/Wolodmr/vote_cast
+      link: https://github.com/Wolodmr/iovote
 
 extra_css:
   - assets/stylesheets/extra.css
   - site/assets/pdf.css
 
-site_url: "file://C:/VS_Code/Camp_programs/Projects/vote_cast/site/"
+site_url: "file://C:/VS_Code/Camp_programs/Projects/iovote/site/"
 

@@ -5,6 +5,7 @@
     {% block content %}
 
     <div class="container mt-3 scrollable-container page-wrapper">
+    
         <h2 class="text-center font-weight-bold mb-2">{{ session.title }}</h4>
         <p class="text-center text-muted small mb-2">{{ session.description }}</p>
 
@@ -71,6 +72,14 @@
             </p>
         {% endif %}
     </div>
-
+  
+    {% for session in sessions %}
+    <div>
+        <h3>{{ session.title }}</h3>
+        <p>{{ session.description }}</p>
+       
+             
+    </div>
+    {% endfor %}
     {% endblock %}
 </div>

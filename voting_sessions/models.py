@@ -11,6 +11,7 @@ from django.conf import settings
 from django.contrib.auth import get_user_model
 import logging
 import uuid
+from django.contrib.auth.models import User
 
 logger = logging.getLogger(__name__)
 logging.basicConfig(
@@ -190,3 +191,11 @@ class SessionUser(models.Model):
 
     class Meta:
         unique_together = ("session", "user")
+
+class SessionAccess(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    session = models.ForeignKey('Session', on_delete=models.CASCADE)
+    accessed_at = models.DateTimeField(auto_now=True)
+
+    class Meta:
+        unique_together = ('user', 'session')  # Prevent duplicate entries

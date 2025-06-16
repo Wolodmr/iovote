@@ -4,14 +4,14 @@ import os
 import sys
 
 if "test" in sys.argv:
-    os.environ.setdefault("DJANGO_SETTINGS_MODULE", "vote_cast.test_settings")
+    os.environ.setdefault("DJANGO_SETTINGS_MODULE", "iovote.test_settings")
 else:
-    os.environ.setdefault("DJANGO_SETTINGS_MODULE", "vote_cast.settings")
+    os.environ.setdefault("DJANGO_SETTINGS_MODULE", "iovote.settings")
 
 
 def main():
     """Run administrative tasks."""
-    os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'vote_cast.settings')
+    os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'iovote.settings')
     try:
         from django.core.management import execute_from_command_line
     except ImportError as exc:

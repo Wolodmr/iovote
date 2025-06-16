@@ -1,6 +1,8 @@
-# Future Enhancements (Roadmap)
+<div class="pdf-header"></div>
 
-The *Vote Cast* project is designed for future improvements and scalability. Below are planned enhancements:
+# Roadmap
+
+The *ioVote* project is designed for future improvements and scalability. Below are planned enhancements:
 
 ## 1. Dash Integration for Visual Analytics
 - Adding interactive charts for voting results.
@@ -18,4 +20,4 @@ The *Vote Cast* project is designed for future improvements and scalability. Bel
 - Expanding API for third-party integrations.
 - Providing public endpoints for data access.
 
-These enhancements will make *Vote Cast* more efficient and feature-rich.
+These enhancements will make *ioVote* more efficient and feature-rich.

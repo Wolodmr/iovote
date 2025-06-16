@@ -18,7 +18,7 @@ class Vote(models.Model):
         session (Session): The voting session associated with the vote.
     """
     user = models.ForeignKey(User, on_delete=models.CASCADE, null=True, blank=True)
-    option = models.ForeignKey("voting_sessions.Option", on_delete=models.CASCADE)
+    option = models.ForeignKey("voting_sessions.Option", on_delete=models.CASCADE, related_name='votes')
     created_at = models.DateTimeField(auto_now_add=True, null=True, blank=True)
     session = models.ForeignKey('voting_sessions.Session', on_delete=models.CASCADE, null=True)
 

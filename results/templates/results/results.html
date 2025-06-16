@@ -1,0 +1,70 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>📊 Results for {{ session.title }}</h2>
+
+<canvas id="barChart" width="400" height="200"></canvas>
+<canvas id="pieChart" width="400" height="200"></canvas>
+<canvas id="lineChart" width="400" height="200"></canvas>
+<canvas id="turnoutChart" width="400" height="200"></canvas>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+const demoVotes = {{ demo_votes|safe }};
+const totalVotes = {{ total_votes }};
+const timelineData = {{ timeline_data|safe }};
+const votedUsers = {{ voted_users }};
+const registeredUsers = {{ registered_users }};
+
+// Bar Chart: Votes per candidate
+new Chart(document.getElementById("barChart"), {
+    type: 'bar',
+    data: {
+        labels: Object.keys(demoVotes),
+        datasets: [{
+            label: 'Votes per Candidate',
+            data: Object.values(demoVotes),
+            backgroundColor: ['#007bff', '#28a745', '#ffc107'],
+        }]
+    }
+});
+
+// Pie Chart: Vote percentages
+new Chart(document.getElementById("pieChart"), {
+    type: 'pie',
+    data: {
+        labels: Object.keys(demoVotes),
+        datasets: [{
+            data: Object.values(demoVotes),
+            backgroundColor: ['#007bff', '#28a745', '#ffc107'],
+        }]
+    }
+});
+
+// Line Chart: Voting activity over time
+new Chart(document.getElementById("lineChart"), {
+    type: 'line',
+    data: {
+        labels: timelineData.map(item => item.time),
+        datasets: [{
+            label: 'Votes Over Time',
+            data: timelineData.map(item => item.votes),
+            fill: false,
+            borderColor: '#17a2b8',
+            tension: 0.1
+        }]
+    }
+});
+
+// Turnout Chart
+new Chart(document.getElementById("turnoutChart"), {
+    type: 'doughnut',
+    data: {
+        labels: ['Voted', 'Not Voted'],
+        datasets: [{
+            data: [votedUsers, registeredUsers - votedUsers],
+            backgroundColor: ['#28a745', '#dc3545'],
+        }]
+    }
+});
+</script>
+{% endblock %}

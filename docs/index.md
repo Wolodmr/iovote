@@ -2,12 +2,12 @@
 
 <!-- Welcome Section with a Yellow Sun Icon -->
 <img src="assets/icons/sun.svg" width="48" height="48" alt="Sun icon">  
-**Welcome to Vote Cast Documentation**  
+**Welcome to ioVote Documentation**  
 
-## What is Vote Cast?  
-Vote Cast is a web-based voting system designed to facilitate secure and transparent voting processes. Whether it's for elections, polls, or surveys, Vote Cast allows users to cast their votes easily while providing real-time analytics of results.
+## What is ioVote?  
+ioVote is a web-based voting system designed to facilitate secure and transparent voting processes. Whether it's for elections, polls, or surveys, ioVote allows users to cast their votes easily while providing real-time analytics of results.
 
-This documentation serves as a comprehensive guide to help you understand, install, and use Vote Cast efficiently.
+This documentation serves as a comprehensive guide to help you understand, install, and use ioVote efficiently.
 
 <!-- Key Features Section with a Blue Square-Check Icon -->
 <p><img src="assets/icons/check-square.svg" width="20" height="20" alt="Square-check icon">
@@ -43,8 +43,8 @@ This documentation serves as a comprehensive guide to help you understand, insta
 <strong>GETTING STARTED</strong></p>
 
 <p class="indented-text">
-  To start using Vote Cast, check out the <strong>Installation Guide</strong> for step-by-step instructions on setting it up.
-  For an overview of how Vote Cast works, visit the <strong>Project Overview</strong> section.
+  To start using ioVote, check out the <strong>Installation Guide</strong> for step-by-step instructions on setting it up.
+  For an overview of how ioVote works, visit the <strong>Project Overview</strong> section.
 </p>
 
 ## <span style="display: flex; align-items: center;">
@@ -52,11 +52,11 @@ This documentation serves as a comprehensive guide to help you understand, insta
   <strong>SOURCE CODE & CONTRIBUTIONS</strong>
 </span>  
 
-Vote Cast is open-source! You can find the full codebase and contribute to the project on GitHub:  
+ioVote is open-source! You can find the full codebase and contribute to the project on GitHub:  
 
 <span style="display: flex; align-items: center;">
   <img src="assets/icons/link.svg" width="24" height="24" alt="Link icon" style="margin-right: 8px;">
-  <a href="https://github.com/Wolodmr/vote_cast"><strong>Vote Cast </strong></a>
+  <a href="https://github.com/Wolodmr/iovote"><strong>ioVote</strong></a>
 </span>  
 
 Want to contribute? Check out our **Contribution Guide**!  

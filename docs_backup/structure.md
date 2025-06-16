@@ -1,6 +1,8 @@
+<div class="pdf-header"></div>
+
 # Project Structure
 
-The *Vote Cast* project is structured into multiple Django apps, each responsible for specific functionality. Below is an overview of the key apps and their roles.
+The *ioVote* project is structured into multiple Django apps, each responsible for specific functionality. Below is an overview of the key apps and their roles.
 
 ## Main Apps
 

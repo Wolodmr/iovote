@@ -2,7 +2,7 @@ import os
 import django
 
 # ✅ Set up Django before accessing models
-os.environ.setdefault("DJANGO_SETTINGS_MODULE", "vote_cast.settings")
+os.environ.setdefault("DJANGO_SETTINGS_MODULE", "iovote.settings")
 django.setup()
 
 from dash import Dash, dcc, html

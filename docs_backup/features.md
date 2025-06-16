@@ -1,6 +1,8 @@
+<div class="pdf-header"></div>
+
 # Features & Functionality
 
-*Vote Cast* provides a streamlined and efficient online voting experience. Below are its core features:
+*ioVote* provides a streamlined and efficient online voting experience. Below are its core features:
 
 ## 1. User Authentication
 - Secure signup and login system.

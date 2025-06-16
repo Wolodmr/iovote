@@ -1,6 +1,9 @@
-About Vote Cast
-What is Vote Cast?
-Vote Cast is an online voting system designed to simplify the process of creating and managing voting sessions. It provides a secure and user-friendly platform for users to cast their votes and view real-time results.
+<div class="pdf-header"></div>
+
+# About ioVote
+
+What is ioVote?
+ioVote is an online voting system designed to simplify the process of creating and managing voting sessions. It provides a secure and user-friendly platform for users to cast their votes and view real-time results.
 
 KEY HIGHLIGHTS ✅
 
@@ -15,7 +18,7 @@ KEY HIGHLIGHTS ✅
   <li>✅ <strong>Restricted Voting Period</strong> – Users can only cast their votes within the designated approval period, ensuring a fair and controlled process.</li>
 </ul>
 
-WHY CHOOSE VOTE CAST?
+WHY CHOOSE ioVOTE?
 
-Vote Cast is built with efficiency and transparency in mind. Whether it's for elections, surveys, or opinion polls, this platform ensures fairness and accuracy while maintaining an intuitive experience for users.
+ioVote is built with efficiency and transparency in mind. Whether it's for elections, surveys, or opinion polls, this platform ensures fairness and accuracy while maintaining an intuitive experience for users.
 

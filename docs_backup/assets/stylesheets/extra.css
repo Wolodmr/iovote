@@ -27,3 +27,8 @@
 .indented-text {
     margin-left: 30px; /* Adjust indentation as needed */
 }
+
+body {
+    margin: 0;
+    padding: 0;
+}

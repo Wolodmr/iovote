@@ -2,7 +2,7 @@
 
 # API & Forms
 
-The *Vote Cast* project uses Django's built-in forms for handling user input but does not currently expose a public API.
+The *ioVote* project uses Django's built-in forms for handling user input but does not currently expose a public API.
 
 ## Forms Overview
 Django forms validate and process user input securely. The key forms include:
@@ -20,7 +20,7 @@ Django forms validate and process user input securely. The key forms include:
 - **ResultForm** – Handles voting results.
 
 ## API-Like Behavior & Future Enhancements
-While *Vote Cast* lacks an API, Django's class-based views and forms provide structured interactions. Potential future additions:
+While *ioVote* lacks an API, Django's class-based views and forms provide structured interactions. Potential future additions:
 - **User Authentication API** – Token-based login.
 - **Voting API** – Cast votes via API.
 - **Results API** – Retrieve results in JSON.

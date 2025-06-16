@@ -1,16 +1,51 @@
+#results/views.py
 from django.shortcuts import render, get_object_or_404
 from django.db.models import Count
 from voting_sessions.models import Session
 from vote.models import Vote
-# from django_plotly_dash import DjangoDash
-# from dash import dcc, html
-# import plotly.express as px
 import pandas as pd
 from django.apps import apps
 from django.db.models.signals import post_migrate
+from django.contrib.auth.decorators import login_required
 
-# ✅ Initialize Dash App inside views.py (Only once)
-# app = DjangoDash("votes_result")
+
+@login_required
+def results(request, session_id):
+    session = get_object_or_404(Session, id=session_id)
+    options = session.options.all()
+
+    # Demo values – Replace with real vote queries later
+    demo_votes = {
+        "Alice": 30,
+        "Bob": 45,
+        "Charlie": 25,
+    }
+
+    # Total votes
+    total_votes = sum(demo_votes.values())
+
+    # Dummy timeline (time vs vote count)
+    timeline_data = [
+        {"time": "10:00", "votes": 5},
+        {"time": "10:15", "votes": 15},
+        {"time": "10:30", "votes": 25},
+        {"time": "10:45", "votes": 40},
+        {"time": "11:00", "votes": 50},
+    ]
+
+    # Turnout demo (30 voted, 50 registered)
+    registered_users = 50
+    voted_users = 30
+
+    context = {
+        "session": session,
+        "demo_votes": demo_votes,
+        "total_votes": total_votes,
+        "timeline_data": timeline_data,
+        "voted_users": voted_users,
+        "registered_users": registered_users,
+    }
+    return render(request, "results.html", context)
 
 
 def get_results_data():

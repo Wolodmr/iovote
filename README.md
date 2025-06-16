@@ -1,6 +1,6 @@
 ## 🚀 Deployment to Render
 
-The Vote Cast project is live at: [https://vote-cast-5.onrender.com](https://vote-cast-5.onrender.com)
+The ioVote project is live at: [https://vote-cast-5.onrender.com](https://vote-cast-5.onrender.com)
 
 ### ✅ Render Deployment Summary
 
@@ -28,7 +28,7 @@ Make sure your repository includes a `render.yaml` file like this:
 #### 2. **Environment Variables on Render**
 Go to your Render Dashboard → your Web Service → **Environment** tab, and add the following:
 
-- `DJANGO_SETTINGS_MODULE=vote_cast.settings`
+- `DJANGO_SETTINGS_MODULE=iovote.settings`
 - `DATABASE_URL=<autoconfigured>`
 - `DEBUG=False`
 - `EMAIL_HOST=smtp.gmail.com`
@@ -44,7 +44,7 @@ Go to your Render Dashboard → your Web Service → **Environment** tab, and ad
 
 #### 4. **startCommand**
 ```bash
-gunicorn vote_cast.wsgi:application
+gunicorn iovote.wsgi:application
 ```
 
 ---
@@ -63,8 +63,8 @@ Use the admin panel to add a session and trigger a confirmation email. Ensure th
 
 ### 📁 Recommended File Structure for Render Deployment
 ```
-vote_cast/
-├── vote_cast/
+iovote/
+├── iovote/
 │   ├── settings.py
 │   ├── wsgi.py
 ├── manage.py

@@ -2,7 +2,7 @@
 
 # Performance Optimization
 
-Optimizing performance is crucial for ensuring a smooth user experience in *Vote Cast*. Below are key techniques implemented to enhance efficiency.
+Optimizing performance is crucial for ensuring a smooth user experience in *ioVote*. Below are key techniques implemented to enhance efficiency.
 
 ## 1. Database Query Optimization
 
@@ -34,5 +34,5 @@ Optimizing performance is crucial for ensuring a smooth user experience in *Vote
 - Using a production-ready database like PostgreSQL for better scalability.
 - Enabling Gzip compression to reduce response size.
 
-By implementing these optimizations, *Vote Cast* ensures better performance 
+By implementing these optimizations, *ioVote* ensures better performance 
 and a seamless user experience.

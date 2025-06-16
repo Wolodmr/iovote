@@ -1,0 +1,125 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Charts for Session {{ title }}</title>
+    <style>
+        .chart-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+        }
+        .chart-grid img {
+            width: 45%;
+            max-width: 400px;
+            height: auto;
+            border: 1px solid #ccc;
+            box-shadow: 2px 2px 6px rgba(0,0,0,0.1);
+        }
+        .chart-grid img {
+            border-radius: 10px;
+            transition: transform 0.2s ease;
+        }
+        .chart-grid img:hover {
+            transform: scale(1.05);
+        }
+
+    </style>
+</head>
+<body>
+  <h2 style="
+  text-align: left;
+  font-size: 2rem;
+  font-weight: bold;
+  background: linear-gradient(90deg, black);
+  background-clip: text;
+  text-align: center;
+  padding-right:700px;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 0px;
+  ">Voting Results</h2>
+
+  <h1 style="
+  text-align: center;
+  font-size: 2.5rem;
+  font-weight: bold;
+  background: linear-gradient(90deg, #1e90ff, #00c6ff);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 10px;
+">
+  "{{ title }}" Session.
+</h1>
+<h1 style="
+  text-align: center;
+  font-size: 2rem;
+  font-weight: bold;
+  background: linear-gradient(90deg, #1e90ff, #00c6ff);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 50px;
+">Ended: {{ session_end_time}}
+</h1>
+
+{% if no_data %}
+  <div class="alert alert-info" role="alert">
+    No voting sessions have started yet. Charts will be available once voting begins.
+  </div>
+{% else %}
+  <!-- Render actual charts -->
+{% endif %}
+
+{% if voting_in_progress %}
+  <div class="alert alert-warning">
+    Voting is still in progress (as of {{ current_time|date:"j F Y, H:i" }} UTC). Data may update.
+  </div>
+{% endif %}
+ 
+    <div style="max-width: 900px; margin: 0 auto;">
+        <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; justify-items: stretch;">
+            <!-- Chart 1 -->
+            <div style="background: #fff; border: 1px solid #ddd; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); padding: 10px;">
+                <img src="data:image/png;base64,{{ chart1 }}" alt="Chart 1" style="width: 100%; border-radius: 4px;">
+            </div>
+
+            <!-- Chart 2 -->
+            <div style="background: #fff; border: 1px solid #ddd; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); padding: 10px;">
+                <img src="data:image/png;base64,{{ chart2 }}" alt="Chart 2" style="width: 100%; border-radius: 4px;">
+            </div>
+
+            <!-- Chart 3 -->
+            <div style="background: #fff; border: 1px solid #ddd; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); padding: 10px;">
+                <img src="data:image/png;base64,{{ chart3|safe }}" alt="Chart 3" style="width: 100%; border-radius: 4px;">
+            </div>
+
+            <!-- Chart 4 -->
+            <div style="background: #fff; border: 1px solid #ddd; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); padding: 10px;">
+                <img src="data:image/png;base64,{{ chart4|safe }}" alt="Chart 4" style="width: 100%; border-radius: 4px;">
+            </div>
+        </div>
+    </div>
+    <div class="container mt-4">
+    
+    <div class="d-flex justify-content-start gap-2 mt-4">
+        <a href="{% url 'results:results_detail' session_id %}" class="btn btn-outline-secondary">
+            ←← View Results
+        </a>
+        <a href="{% url 'voting_sessions:session_detail' session_id %}" class="btn btn-info text-white">
+            📊 ↩ Back to Session
+        </a>
+    </div>
+</div>
+
+
+</body>
+</html>
+{% endblock %}

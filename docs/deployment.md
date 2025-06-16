@@ -2,7 +2,7 @@
 
 # Deployment Guide
 
-Deploying *Vote Cast* to a production environment ensures that it is accessible to users in a secure and scalable manner. This guide will walk you through the steps to deploy the project on a cloud-based hosting provider.
+Deploying *ioVote* to a production environment ensures that it is accessible to users in a secure and scalable manner. This guide will walk you through the steps to deploy the project on a cloud-based hosting provider.
 
 ---
 
@@ -24,8 +24,8 @@ For this guide, we will focus on **deploying using Heroku** as it is beginner-fr
 Before deploying, prepare your production environment:
 
 ```bash
-git clone https://github.com/Wolodmr/vote_cast.git
-cd vote_cast
+git clone https://github.com/Wolodmr/iovote.git
+cd iovote
 ```
 
 ```

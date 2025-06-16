@@ -15,7 +15,7 @@
     <!-- First load Bootstrap -->
     <link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap.min.css' %}">
 
-    <!-- Then your CSS overrides -->
+    <!-- CSS overrides -->
     <link rel="stylesheet" href="{% static 'css/common.css' %}">
     <style>
         .navbar-toggler {
@@ -49,8 +49,16 @@
                     <li class="nav-item"><a class="nav-link {% if request.path == '/contacts/' %}active{% endif %}" href="{% url 'contacts' %}"><i class="fas fa-address-book"></i> Contacts</a></li>
     
                     {% if request.user.is_authenticated %}
-                        <li class="nav-item"><a class="nav-link {% if '/voting_sessions/' in request.path %}active{% endif %}" href="{% url 'voting_sessions:session_list' %}"><i class="fas fa-vote-yea"></i> Sessions</a></li>
+                        <li class="nav-item"><a class="nav-link {% if 'voting_sessions' in request.path and 'charts' not in request.path %}active{% endif %}" href="{% url 'voting_sessions:session_list' %}"><i class="fas fa-vote-yea"></i> Sessions</a></li>
                         <li class="nav-item"><a class="nav-link {% if '/results/' in request.path %}active{% endif %}" href="{% url 'results:results_list' %}"><i class="fas fa-chart-bar"></i> Results</a></li>
+                        {% if latest_session_id %}
+                        <li class="nav-item">
+                            <a class="nav-link {% if 'charts' in request.path %}active{% endif %}" 
+                            href="{% url 'voting_sessions:session_charts' latest_session_id %}">
+                                <i class="fas fa-chart-pie"></i> Charts
+                            </a>
+                        </li>
+                        {% endif %}
                         {% if request.user.is_superuser %}
                             <li class="nav-item"><a class="nav-link {% if '/users/' in request.path %}active{% endif %}" href="{% url 'users:user_list' %}"><i class="fas fa-users"></i> Users</a></li>
                         {% endif %}

@@ -4,10 +4,10 @@ services:
     env: python
     plan: free
     buildCommand: "./manage.py collectstatic --noinput"
-    startCommand: "gunicorn vote_cast.wsgi:application"
+    startCommand: "gunicorn iovote.wsgi:application"
     envVars:
       - key: DJANGO_SETTINGS_MODULE
-        value: vote_cast.settings
+        value: iovote.settings
       - key: DATABASE_URL
         fromDatabase:
           name: vote-cast-db

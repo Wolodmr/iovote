@@ -2,7 +2,7 @@
 
 # Installation Guide   
 
-This guide will help you install and set up the **Vote Cast** project on your local machine.
+This guide will help you install and set up the **ioVote** project on your local machine.
 
 ## **Prerequisites**  
 Before installation, make sure you have the following installed:  
@@ -20,8 +20,8 @@ Before installation, make sure you have the following installed:
 Run the following command to clone the project from GitHub:  
 
 ```sh
-git clone https://github.com/Wolodmr/vote_cast.git
-cd vote_cast
+git clone https://github.com/Wolodmr/iovote.git
+cd iovote
 ```
 
 

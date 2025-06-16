@@ -8,13 +8,18 @@ from django.urls import reverse
 from django.utils.html import strip_tags
 from voting_sessions.models import Session
 from django.contrib.auth import get_user_model
+import logging
+from django.conf import settings
+from django.core.mail import send_mail, get_connection
+from django.contrib.auth import get_user_model
+from django.utils.html import strip_tags
 
 logger = logging.getLogger(__name__)
 logging.basicConfig(
     filename="email_debug.log",
     level=logging.DEBUG,
     format="%(asctime)s - %(levelname)s - %(message)s"
-)    
+)
 
 def send_notifications():
     print('STARTED')
