@@ -1,6 +1,6 @@
 services:
   - type: web
-    name: vote-cast
+    name: iovote
     env: python
     plan: free
     buildCommand: "./manage.py collectstatic --noinput"
@@ -10,7 +10,7 @@ services:
         value: iovote.settings
       - key: DATABASE_URL
         fromDatabase:
-          name: vote-cast-db
+          name: iovote-db
           property: connectionString
       - key: DEBUG
         value: "False"
@@ -27,5 +27,5 @@ services:
     autoDeploy: true
 
 databases:
-  - name: vote-cast-db
+  - name: iovote-db
     plan: free
