@@ -26,7 +26,6 @@ CSRF_TRUSTED_ORIGINS = ['https://vote-cast.onrender.com']
 # 📌 Security & Debugging
 SECRET_KEY = config('DJANGO_SECRET_KEY', default='default-secret-key')
 DEBUG = config('DEBUG', default=False, cast=bool)
-DEBUG = True
 ALLOWED_HOSTS = ['vote-cast.onrender.com', '127.0.0.1']
 DEFAULT_FROM_EMAIL = 'postvezha@gmail.com'
 ADMINS = [('Admin', 'postvezha@gmail.com')]
