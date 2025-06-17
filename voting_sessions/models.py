@@ -142,7 +142,7 @@ class Session(models.Model):
     def has_changes(self):
         if self._state.adding:
             return False
-        fields = ["title", "description", "session_start_time", "choice_duration", "voting_duration"]
+        fields = ["title", "description", "session_start_time", "choice_duration"]
         original = Session.objects.filter(pk=self.pk).only(*fields).first()
         return original and any(getattr(self, f) != getattr(original, f) for f in fields)
 
@@ -151,7 +151,9 @@ class Session(models.Model):
 
     @property
     def voting_start_time(self):
-        return self.session_start_time + self.choice_duration
+        if self.session_start_time:  # or whatever field you rely on
+            return self.session_start_time + self.choice_duration
+        return None
 
     @property
     def voting_end_time(self):
@@ -170,13 +172,16 @@ class Session(models.Model):
     @property 
     def status(self):        
         now = timezone.now()
-        if now < self.voting_start_time:
-            return "Inactive"
-        elif now > self.session_end_time:
-            return "Outdated"
-        return "Active"
-        
+        if self.session_start_time is None or self.session_end_time is None:
+            return "Draft"  # Or "Not Scheduled", or any default status
+        if now < self.session_start_time:
+            return "Upcoming"
+        elif self.session_start_time <= now < self.session_end_time:
+            return "Ongoing"
+        else:
+            return "Finished"  
 
+  
 class Option(models.Model):
     session = models.ForeignKey(Session, on_delete=models.CASCADE, related_name="options")
     title = models.CharField(max_length=255)
