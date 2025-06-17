@@ -80,8 +80,7 @@ class Session(models.Model):
         else:
             choice_disp = f"{int(duration.days)} days"
         
-        voting_url = "https://vote-cast.onrender.com/"
-
+        voting_url = settings.SITE_URL
         subject = f"🚀 Ready to Vote? A New Session '{self.title}' Awaits You!"
         html_message = f"""
        
@@ -96,8 +95,8 @@ class Session(models.Model):
             </p>
             <p><span style="color: green;"><strong>🗓️ Voting Starts:</strong> {voting_start_disp}</span></p>
             <p><strong>⏱️ End Time:</strong> {end_time}</p>
-            <p style="margin-top: 30px; font-weight: bold; font-size: 1.2em; color: #1a3f2b;">Ready to Vote?</p>
-            <p><a href="{voting_url}" style="padding:10px 15px; background:#527930; color:white; text-decoration:none; border-radius:5px;">Cast Your Vote</a></p>
+            <p style="margin-top: 30px; font-weight: bold; font-size: 1.5em; color: #1a3f2b;">Ready to Vote?</p>
+            <p><a href="{voting_url}" style="padding:10px 15px; background:#629c30; color:white; text-decoration:none; border-radius:5px;">Cast Your Vote</a></p>
         </body>
         </html>
         """

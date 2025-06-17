@@ -20,13 +20,13 @@ DATABASES = {
     )
 }
 
-CSRF_TRUSTED_ORIGINS = ['https://vote-cast.onrender.com']
+CSRF_TRUSTED_ORIGINS = ['https://iovote.onrender.com']
 
 
 # 📌 Security & Debugging
 SECRET_KEY = config('DJANGO_SECRET_KEY', default='default-secret-key')
 DEBUG = config('DEBUG', default=False, cast=bool)
-ALLOWED_HOSTS = ['vote-cast.onrender.com', '127.0.0.1']
+ALLOWED_HOSTS = ['iovote.onrender.com', '127.0.0.1']
 DEFAULT_FROM_EMAIL = 'postvezha@gmail.com'
 ADMINS = [('Admin', 'postvezha@gmail.com')]
 
@@ -121,8 +121,12 @@ X_FRAME_OPTIONS = "SAMEORIGIN"
 # }
 
 # ✅ URL Configuration
-SITE_URL = 'http://127.0.0.1:8000/'
+SITE_URL = config("SITE_URL", default="http://127.0.0.1:8000")
     
+ADMINS = [('Admin', 'postvezha@gmail.com')]
+
+MANAGERS = [('Manager', 'postvezha@gmail.com')]
+
 ROOT_URLCONF = 'iovote.urls'
 
 # ✅ Template Settings
