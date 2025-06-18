@@ -1,5 +1,6 @@
 import matplotlib
 matplotlib.use('Agg')  # Use non-GUI backend
+import matplotlib.pyplot as plt
 import os
 import io
 import base64
@@ -107,19 +108,22 @@ def generate_base64_chart(fig):
         return ""
 
 def session_charts(request, session_id):
-    
     session = get_object_or_404(Session, id=session_id)
     options = Option.objects.filter(session=session)
     votes = [c.votes.count() for c in options]
     names = [c.title for c in options]
+    
+    # Fix: avoid zero-vote options for percentage chart labels
+    filtered_labels = [name if vote > 0 else '' for name, vote in zip(names, votes)]
+
+    # Line chart data
     votes_by_time = (
         Vote.objects.filter(session=session)
-        .annotate(minute=TruncMinute('created_at'))  # FIXED here
+        .annotate(minute=TruncMinute('created_at'))
         .values('minute')
         .annotate(vote_count=Count('id'))
         .order_by('minute')
     )
-
     timestamps = [v['minute'].strftime('%H:%M') for v in votes_by_time]
     counts = [v['vote_count'] for v in votes_by_time]
 
@@ -131,7 +135,7 @@ def session_charts(request, session_id):
 
     # Pie chart
     fig2, ax2 = plt.subplots()
-    ax2.pie(votes, labels=names, autopct='%1.1f%%')
+    ax2.pie(votes, labels=filtered_labels, autopct=lambda p: f'{p:.1f}%' if p > 0 else '')
     ax2.set_title("Vote Percentages")
     chart2 = generate_base64_chart(fig2)
 
@@ -145,29 +149,30 @@ def session_charts(request, session_id):
 
     # Turnout chart
     voted_users = Vote.objects.filter(session=session).values('user').distinct().count()
-    total_users = User.objects.count()  # Or however you define eligible voters
+    total_users = User.objects.count()
     not_voted = total_users - voted_users
     fig4, ax4 = plt.subplots()
     ax4.pie([voted_users, not_voted], labels=["Voted", "Not Voted"], autopct='%1.1f%%')
     ax4.set_title("Voter Turnout")
     chart4 = generate_base64_chart(fig4)
-    
+
+    # Clean up to avoid memory issues
     plt.close(fig1)
     plt.close(fig2)
     plt.close(fig3)
     plt.close(fig4)
 
     response = render(request, 'voting_sessions/session_charts.html', {
-    'title': session.title,
-    'session_end_time': session.session_end_time,
-    'session_id': session.id,
-    'outdated': timezone.now()>session.session_end_time,
-    'active': session.is_voting_active,
-    "timestamp":timezone.now(),
-    'chart1': chart1,
-    'chart2': chart2,
-    'chart3': chart3,
-    'chart4': chart4,
+        'title': session.title,
+        'session_end_time': session.session_end_time,
+        'session_id': session.id,
+        'outdated': timezone.now() > session.session_end_time,
+        'active': session.is_voting_active,
+        'timestamp': timezone.now(),
+        'chart1': chart1,
+        'chart2': chart2,
+        'chart3': chart3,
+        'chart4': chart4,
     })
     response['Cache-Control'] = 'no-store, no-cache, must-revalidate, max-age=0'
     response['Pragma'] = 'no-cache'
