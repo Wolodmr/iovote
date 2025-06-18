@@ -78,15 +78,15 @@ def charts_view(request, session_id=None):
         session.session_start_time + timezone.timedelta(seconds=session.choice_duration)
     ) > now
 
-    chart_data = {
-        'votes_per_option': [...],  # Replace as needed
-        'vote_percentage': [...],
-        # More chart data
-    }
+    # chart_data = {
+    #     'votes_per_option': [...],  # Replace as needed
+    #     'vote_percentage': [...],
+    #     # More chart data
+    # }
 
     context = {
         'session': session,
-        'chart_data': chart_data,
+        # 'chart_data': chart_data,
         'voting_in_progress': voting_in_progress,
         'current_time': now,
         'no_data': False,
@@ -161,6 +161,9 @@ def session_charts(request, session_id):
     'title': session.title,
     'session_end_time': session.session_end_time,
     'session_id': session.id,
+    'outdated': timezone.now()>session.session_end_time,
+    'active': session.is_voting_active,
+    "timestamp":timezone.now(),
     'chart1': chart1,
     'chart2': chart2,
     'chart3': chart3,
@@ -268,7 +271,7 @@ def vote(request, session_id):
             except ValidationError as e:
                 messages.error(request, f"Error: {e}")
 
-        return redirect('voting_sessions:session_detail', session_id=session_id)
+        return redirect('voting_sessions:session_charts', session_id=session_id)
 
     return render(request, 'vote/vote.html', {'session': session, 'options': options.values()})
 

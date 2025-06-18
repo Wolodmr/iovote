@@ -48,7 +48,7 @@
   text-align: center;
   font-size: 2.5rem;
   font-weight: bold;
-  background: linear-gradient(90deg, #1e90ff, #00c6ff);
+  background: linear-gradient(90deg, #0944c3, #082ac1);
   background-clip: text;
   -webkit-background-clip: text;
   color: transparent;
@@ -56,20 +56,27 @@
   margin-bottom: 10px;
 ">
   "{{ title }}" Session.
-</h1>
-<h1 style="
-  text-align: center;
-  font-size: 2rem;
-  font-weight: bold;
-  background: linear-gradient(90deg, #1e90ff, #00c6ff);
-  background-clip: text;
-  -webkit-background-clip: text;
-  color: transparent;
-  -webkit-text-fill-color: transparent;
-  margin-bottom: 50px;
-">Ended: {{ session_end_time}}
+ 
 </h1>
 
+<h1 style="
+    text-align: center;
+    font-size: 2rem;
+    font-weight: bold;
+    background: linear-gradient(90deg, #053362, #38289d);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 50px;
+">
+  {% if outdated %}
+    Ended: {{ session_end_time }}<br>
+  {% else %}
+    Session is ongoing.<br>
+    Charts updated: {{ timestamp }}
+  {% endif %}
+</h1>
 {% if no_data %}
   <div class="alert alert-info" role="alert">
     No voting sessions have started yet. Charts will be available once voting begins.
