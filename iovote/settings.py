@@ -20,11 +20,16 @@ DATABASES = {
 
 CSRF_TRUSTED_ORIGINS = ['https://iovote.onrender.com']
 
-
 # 📌 Security & Debugging
 SECRET_KEY = config('DJANGO_SECRET_KEY', default='default-secret-key')
 DEBUG = config('DEBUG', default=False, cast=bool)
-ALLOWED_HOSTS = ['iovote.onrender.com', '127.0.0.1']
+
+if not DEBUG:
+    SECURE_SSL_REDIRECT = True
+    SESSION_COOKIE_SECURE = True
+    CSRF_COOKIE_SECURE = True
+
+ALLOWED_HOSTS = ['iovote.onrender.com', '127.0.0.1', 'localhost']
 DEFAULT_FROM_EMAIL = 'postvezha@gmail.com'
 ADMINS = [('Admin', 'postvezha@gmail.com')]
 
