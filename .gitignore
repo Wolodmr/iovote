@@ -54,4 +54,5 @@ output/
 .vscode/
 
 db.sqlite3
+*.sqlite3
 

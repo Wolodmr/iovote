@@ -3,14 +3,16 @@ services:
     name: iovote
     env: python
     plan: free
-    buildCommand: "./manage.py collectstatic --noinput"
-    startCommand: "gunicorn iovote.wsgi:application"
+    startCommand: |
+      python manage.py migrate --noinput && \
+      python manage.py collectstatic --noinput && \
+      gunicorn iovote.wsgi:application
     envVars:
       - key: DJANGO_SETTINGS_MODULE
         value: iovote.settings
       - key: DATABASE_URL
         fromDatabase:
-          name: iovote-db
+          name: vote_cast_db  
           property: connectionString
       - key: DEBUG
         value: "False"
@@ -27,5 +29,5 @@ services:
     autoDeploy: true
 
 databases:
-  - name: iovote-db
+  - name: vote_cast_db  
     plan: free
