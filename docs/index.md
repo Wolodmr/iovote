@@ -1,7 +1,8 @@
 <div class="pdf-header"></div>
 
-<!-- Welcome Section with a Yellow Sun Icon -->
-<img src="assets/icons/sun.svg" width="48" height="48" alt="Sun icon">  
+<!-- Welcome Section with a Chart Icon -->
+![Chart Icon](assets/images/chart.png)
+
 **Welcome to ioVote Documentation**  
 
 ## What is ioVote?  

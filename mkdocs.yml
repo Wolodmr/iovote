@@ -1,4 +1,5 @@
 site_name: ioVote Documentation
+site_url: https://Wolodmr.github.io/iovote/
 
 theme:
   name: material
@@ -18,8 +19,7 @@ theme:
       accent: indigo
       toggle:
         icon: material/white-balance-sunny
-        name: Switch to light mode
-    
+        name: Switch to light mode   
 
 nav:
   - Home: index.md
@@ -31,12 +31,14 @@ nav:
       - Structure: structure.md
       - Features: features.md
       - Roadmap: roadmap.md
+  - Charts: charts.md            # ← Add here
   - Optimization:
       - Performance: optimization.md
   - Development:
       - API & Forms: api.md
       - Contribution Guide: contribute.md
   - Future Plans: future.md
+
 
 plugins:
   - search

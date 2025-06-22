@@ -23,6 +23,9 @@ from django.utils.decorators import method_decorator
 from django.shortcuts import redirect
 from voting_sessions.models import Session
 from .models import SessionAccess
+import matplotlib.dates as mdates
+from django.db.models.functions import TruncSecond
+from itertools import accumulate
 
 # def charts_redirect_view(request):
 #     now = timezone.now()
@@ -118,14 +121,18 @@ def session_charts(request, session_id):
 
     # Line chart data
     votes_by_time = (
-        Vote.objects.filter(session=session)
-        .annotate(minute=TruncMinute('created_at'))
-        .values('minute')
-        .annotate(vote_count=Count('id'))
-        .order_by('minute')
-    )
-    timestamps = [v['minute'].strftime('%H:%M') for v in votes_by_time]
+    Vote.objects.filter(session=session)
+    .annotate(time_bin=TruncSecond('created_at'))
+    .values('time_bin')  # ✅ This works because we just annotated 'time_bin'
+    .annotate(vote_count=Count('id'))
+    .order_by('time_bin')
+)
+    
+    print("DEBUG votes_by_time:", list(votes_by_time))
+    
+    timestamps = [v['time_bin'] for v in votes_by_time]
     counts = [v['vote_count'] for v in votes_by_time]
+    cumulative_counts = list(accumulate(counts))
 
     # Bar chart
     fig1, ax1 = plt.subplots()
@@ -141,10 +148,17 @@ def session_charts(request, session_id):
 
     # Line chart
     fig3, ax3 = plt.subplots()
-    ax3.plot(timestamps, counts, marker='o')
+    ax3.plot(timestamps, cumulative_counts, marker='o')
     ax3.set_title("Voting Activity Over Time")
     ax3.set_xlabel("Time")
     ax3.set_ylabel("Votes")
+    
+    # Rotate and clean up ticks
+    
+    plt.setp(ax3.get_xticklabels(), rotation=45, ha='right')
+    ax3.xaxis.set_major_locator(mdates.AutoDateLocator())  # Now valid!
+    fig3.tight_layout()
+
     chart3 = generate_base64_chart(fig3)
 
     # Turnout chart
